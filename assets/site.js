@@ -51,7 +51,34 @@ const SITE = {
         { id: "week1-lower-resp", num: "4", title: "Lower Respiratory Problems", file: "week1-lower-respiratory-problems.html" },
       ]
     },
-    /* Copy the block above for Week 2, Week 3, ... as the course goes on. */
+    {
+      label: "Week 2",
+      items: [
+        { id: "week2-heme-labs-dx", num: "1", title: "Hematology Labs &amp; Diagnostics", file: "week2-hematology-labs-diagnostics.html" },
+        { id: "week2-anemias-poly", num: "2", title: "Anemias &amp; Polycythemia", file: "week2-anemias-polycythemia.html" },
+        { id: "week2-blood-component", num: "3", title: "Blood Component Therapy", file: "week2-blood-component-therapy.html" },
+        { id: "week2-cvc", num: "4", title: "Central Venous Catheters", file: "week2-central-venous-catheters.html" },
+      ]
+    },
+    /* Copy the block above for Week 3, Week 4, ... as the course goes on. */
+    {
+      label: "Fundamentals Review",
+      items: [
+        { id: "fund-legal-ethical", num: "1", title: "Legal &amp; Ethical Issues", file: "fundamentals-legal-ethical-issues.html" },
+        { id: "fund-nursing-process", num: "2", title: "Nursing Process, Clinical Judgment &amp; SBAR", file: "fundamentals-nursing-process-sbar.html" },
+        { id: "fund-obesity", num: "3", title: "Obesity &amp; Metabolic Syndrome", file: "fundamentals-obesity-metabolic-syndrome.html" },
+        { id: "fund-oxygenation", num: "4", title: "Oxygenation &amp; Tracheostomy", file: "fundamentals-oxygenation-tracheostomy.html" },
+        { id: "fund-cardiovascular", num: "5", title: "Cardiovascular", file: "fundamentals-cardiovascular.html" },
+        { id: "fund-diabetic-nutrition", num: "6", title: "Diabetic Care &amp; Nutrition", file: "fundamentals-diabetic-care-nutrition.html" },
+        { id: "fund-urinary-bowel", num: "7", title: "Urinary &amp; Bowel Elimination", file: "fundamentals-urinary-bowel-elimination.html" },
+        { id: "fund-integumentary", num: "8", title: "Integumentary", file: "fundamentals-integumentary.html" },
+        { id: "fund-neurosensory-pain", num: "9", title: "Neurosensory &amp; Pain", file: "fundamentals-neurosensory-pain.html" },
+        { id: "fund-older-adults-discharge", num: "10", title: "Older Adults &amp; Discharge Planning", file: "fundamentals-older-adults-discharge.html" },
+        { id: "fund-palliative-hospice-eol", num: "11", title: "Palliative, Hospice &amp; End of Life", file: "fundamentals-palliative-hospice-eol.html" },
+        { id: "fund-big-picture", num: "12", title: "Big Picture Overview", file: "fundamentals-big-picture-overview.html" },
+        { id: "fund-review-exam", num: "13", title: "Practice Exam — All Sections", file: "fundamentals-review-exam.html" },
+      ]
+    },
     {
       label: "Exam Prep",
       items: [

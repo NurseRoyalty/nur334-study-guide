@@ -1050,6 +1050,19 @@ h2.block.section-h:hover .sec-caret{ color:var(--accent); }
 .quiz-start-bar{ position:sticky; bottom:0; z-index:20; display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px 18px; box-shadow:var(--shadow-md); margin-top:8px; }
 .quiz-start-bar .quiz-summary{ flex:1; font-size:.9rem; color:var(--text-soft); font-weight:600; }
 
+/* Per-row "Count" column on the Build-Your-Own-Exam table: lets the
+   person pull fewer than every available question from a topic. */
+.qb-qty-cell{ display:flex; align-items:center; gap:6px; white-space:nowrap; }
+.qb-qty-input{
+  width:56px; padding:5px 7px; border:1px solid var(--border); border-radius:7px;
+  font-size:.86rem; font-weight:700; color:var(--brand-deep); text-align:center;
+  background:var(--surface); -moz-appearance:textfield;
+}
+.qb-qty-input:disabled{ opacity:.35; cursor:not-allowed; }
+.qb-qty-input::-webkit-outer-spin-button,
+.qb-qty-input::-webkit-inner-spin-button{ opacity:1; }
+.qb-qty-max{ font-size:.78rem; font-weight:600; color:var(--text-faint); }
+
 /* ============================================================
    PAGE TOP: "On this page" TOC, with the collapse/expand-all
    headings button directly underneath it.
