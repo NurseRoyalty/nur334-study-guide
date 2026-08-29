@@ -49,6 +49,7 @@ const SITE = {
         { id: "week1-upper-resp", num: "2", title: "Upper Respiratory Problems", file: "week1-upper-respiratory-problems.html" },
         { id: "week1-head-neck-ca", num: "3", title: "Head &amp; Neck Cancer", file: "week1-head-neck-cancer.html" },
         { id: "week1-lower-resp", num: "4", title: "Lower Respiratory Problems", file: "week1-lower-respiratory-problems.html" },
+        { id: "week1-respiratory-live-lecture-review", num: "5", title: "Respiratory — Live Lecture Review", file: "week1-respiratory-live-lecture-review.html" },
       ]
     },
     {
