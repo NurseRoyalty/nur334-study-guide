@@ -85,13 +85,98 @@
             color: #fff;
         }
 
-        .exam-embed {
+        .view-container {
             display: none;
         }
 
-        .exam-embed.active {
+        .view-container.active {
             display: block;
-            margin-top: 20px;
+        }
+
+        .builder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .section-selector {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-selector h3 {
+            margin: 0 0 12px 0;
+            color: var(--brand);
+            font-size: 1em;
+        }
+
+        .section-selector .count {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .section-selector input[type="number"] {
+            width: 60px;
+            padding: 6px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--surface-2);
+            color: var(--text);
+        }
+
+        .section-selector .available {
+            font-size: 0.85em;
+            color: var(--text-soft);
+        }
+
+        .builder-actions {
+            display: flex;
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .builder-actions button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--brand);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-strong);
+        }
+
+        .btn-secondary {
+            background: var(--surface-2);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-3);
+        }
+
+        .question-count {
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--brand-tint);
+            border-radius: var(--radius-sm);
+            color: var(--brand-strong);
+            font-weight: 600;
         }
 
         .back-button {
@@ -137,26 +222,6 @@
                 --on-brand-soft: #c3b9d4;
                 --on-brand-faint: #9d92b5;
                 --on-brand-dim: #b8adc8;
-
-                --chrome-a: #2a2450;
-                --chrome-b: #1b1734;
-                --flash-a: #5a4d93;
-                --flash-b: #3f356e;
-
-                --line-accent: #5a4a70;
-                --line-bad: #6a4a45;
-
-                --torture: #d75149;
-                --torture-light: #e8836e;
-                --torture-dark: #c0463f;
-                --torture-soft: #4a2b28;
-
-                --ok: #4fb38f;
-                --ok-strong: #3a9575;
-                --ok-tint: #1e4a38;
-                --bad: #e8605a;
-                --bad-strong: #d4423d;
-                --bad-tint: #5a2b28;
             }
         }
     </style>
@@ -171,11 +236,34 @@
                 <p style="color: var(--text-soft); margin-top: 8px;">Medical-Surgical Nursing I — Complete Study Materials & Exams</p>
             </header>
 
-            <div class="section-grid" id="sectionGrid">
-                <!-- Sections will be rendered here -->
+            <!-- Hub View -->
+            <div class="view-container active" id="hubView">
+                <div class="section-grid" id="sectionGrid">
+                    <!-- Sections will be rendered here -->
+                </div>
             </div>
 
-            <div class="exam-embed" id="examContainer">
+            <!-- Exam Builder View -->
+            <div class="view-container" id="builderView">
+                <button class="back-button" onclick="showHub()">← Back to Study Guide</button>
+                <h2 style="color: var(--brand);">Build Your Custom Exam</h2>
+                <p style="color: var(--text-soft);">Select how many questions you want from each section (0-10)</p>
+
+                <div class="builder-grid" id="builderGrid">
+                    <!-- Section selectors will be rendered here -->
+                </div>
+
+                <div class="question-count" id="questionCount">Total Questions: 0</div>
+
+                <div class="builder-actions">
+                    <button class="btn-primary" onclick="generateExam()">Generate Exam</button>
+                    <button class="btn-secondary" onclick="showHub()">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Exam View -->
+            <div class="view-container" id="examView">
+                <button class="back-button" onclick="showHub()">← Back to Study Guide</button>
                 <div id="exam-root"></div>
             </div>
 
@@ -184,83 +272,46 @@
         </div>
     </main>
 
-    <!-- Load exam data from external files -->
+    <!-- Load exam data -->
     <script src="data/exam1-questions.js?v=20260823"></script>
     <script src="assets/site.js?v=20260823"></script>
     <script src="assets/exam.js?v=20260823"></script>
 
     <script>
+        let allQuestions = [];
+        let questionsBySection = {};
+
         const sections = [
-            {
-                id: 'exam1',
-                title: 'Exam 1 — Consolidated Assessment',
-                description: '70 comprehensive questions: 30 fundamentals (diuretics, insulins, NSAIDs, assessment, skills, communication) + 40 Week 1 content (10 each: respiratory labs, upper respiratory, head/neck cancer, lower respiratory)',
-                category: 'EXAM',
-                special: true
-            },
-            {
-                id: 'fundamentals',
-                title: 'Fundamentals Review',
-                description: 'Review all 11 fundamentals sections with practice questions',
-                url: 'fundamentals-review-exam.html',
-                category: 'REVIEW'
-            },
-            {
-                id: 'must-know',
-                title: 'Must Know Topics',
-                description: 'Essential concepts and critical information you must master',
-                url: 'must-know.html',
-                category: 'REVIEW'
-            },
-            {
-                id: 'week1-lecture',
-                title: 'Week 1: Live Lecture Review',
-                description: 'Summary and key points from Week 1 live lecture',
-                url: 'week1-respiratory-live-lecture-review.html',
-                category: 'WEEK 1'
-            },
-            {
-                id: 'week1-lower-respiratory',
-                title: 'Week 1: Lower Respiratory Problems',
-                description: 'Pneumonia, COPD, asthma, TB, and other lung conditions',
-                url: 'week1-lower-respiratory-problems.html',
-                category: 'WEEK 1'
-            },
-            {
-                id: 'week1-upper-respiratory',
-                title: 'Week 1: Upper Respiratory Problems',
-                description: 'Sinusitis, pharyngitis, laryngitis, sleep apnea, epistaxis',
-                url: 'week1-upper-respiratory-problems.html',
-                category: 'WEEK 1'
-            },
-            {
-                id: 'week1-labs',
-                title: 'Week 1: Respiratory Labs & Diagnostics',
-                description: 'Diagnostic tests and lab interpretation',
-                url: 'week1-respiratory-labs-diagnostics.html',
-                category: 'WEEK 1'
-            },
-            {
-                id: 'week1-head-neck',
-                title: 'Week 1: Head & Neck Cancer',
-                description: 'Laryngeal cancer, treatment, and post-operative care',
-                url: 'week1-head-neck-cancer.html',
-                category: 'WEEK 1'
-            },
-            {
-                id: 'week2',
-                title: 'Week 2: Hematology & Blood',
-                description: 'Anemias, hematology labs, blood component therapy, CVCs',
-                url: 'week2-anemias-polycythemia.html',
-                category: 'WEEK 2'
-            }
+            { id: 'exam-builder', title: 'Build Your Own Exam', description: 'Select questions from each section to create a custom exam', category: 'EXAM', special: true },
+            { id: 'fundamentals', title: 'Fundamentals Review', description: 'Review all 11 fundamentals sections with practice questions', url: 'fundamentals-review-exam.html', category: 'REVIEW' },
+            { id: 'must-know', title: 'Must Know Topics', description: 'Essential concepts and critical information you must master', url: 'must-know.html', category: 'REVIEW' },
+            { id: 'week1-lecture', title: 'Week 1: Live Lecture Review', description: 'Summary and key points from Week 1 live lecture', url: 'week1-respiratory-live-lecture-review.html', category: 'WEEK 1' },
+            { id: 'week1-lower-respiratory', title: 'Week 1: Lower Respiratory Problems', description: 'Pneumonia, COPD, asthma, TB, and other lung conditions', url: 'week1-lower-respiratory-problems.html', category: 'WEEK 1' },
+            { id: 'week1-upper-respiratory', title: 'Week 1: Upper Respiratory Problems', description: 'Sinusitis, pharyngitis, laryngitis, sleep apnea, epistaxis', url: 'week1-upper-respiratory-problems.html', category: 'WEEK 1' },
+            { id: 'week1-labs', title: 'Week 1: Respiratory Labs & Diagnostics', description: 'Diagnostic tests and lab interpretation', url: 'week1-respiratory-labs-diagnostics.html', category: 'WEEK 1' },
+            { id: 'week1-head-neck', title: 'Week 1: Head & Neck Cancer', description: 'Laryngeal cancer, treatment, and post-operative care', url: 'week1-head-neck-cancer.html', category: 'WEEK 1' },
+            { id: 'week2', title: 'Week 2: Hematology & Blood', description: 'Anemias, hematology labs, blood component therapy, CVCs', url: 'week2-anemias-polycythemia.html', category: 'WEEK 2' }
         ];
+
+        function initializeData() {
+            if (typeof window.EXAM_DATA !== 'undefined') {
+                allQuestions = window.EXAM_DATA.questions;
+                // Group by section
+                allQuestions.forEach(q => {
+                    const section = q.section;
+                    if (!questionsBySection[section]) {
+                        questionsBySection[section] = [];
+                    }
+                    questionsBySection[section].push(q);
+                });
+            }
+        }
 
         function renderSections() {
             const grid = document.getElementById('sectionGrid');
             grid.innerHTML = sections.map(section => {
                 const classList = section.special ? 'section-card exam-section' : 'section-card';
-                const link = section.special ? `javascript:loadExam('${section.id}')` : section.url;
+                const link = section.special ? `javascript:showBuilder()` : section.url;
 
                 return `
                     <a href="${link}" class="${classList}" data-section-id="${section.id}">
@@ -272,31 +323,86 @@
             }).join('');
         }
 
-        async function loadExam(examId) {
-            const container = document.getElementById('examContainer');
-            const grid = document.getElementById('sectionGrid');
+        function showHub() {
+            document.getElementById('hubView').classList.add('active');
+            document.getElementById('builderView').classList.remove('active');
+            document.getElementById('examView').classList.remove('active');
+            document.getElementById('exam-root').innerHTML = '';
+        }
 
-            // Hide grid, show exam
-            grid.style.display = 'none';
-            container.classList.add('active');
+        function showBuilder() {
+            document.getElementById('hubView').classList.remove('active');
+            document.getElementById('builderView').classList.add('active');
+            document.getElementById('examView').classList.remove('active');
+            renderBuilder();
+        }
 
-            // Add back button if not already there
-            if (!container.querySelector('.back-button')) {
-                const backBtn = document.createElement('button');
-                backBtn.className = 'back-button';
-                backBtn.textContent = '← Back to Study Guide';
-                backBtn.onclick = () => {
-                    container.classList.remove('active');
-                    grid.style.display = 'grid';
-                    document.getElementById('exam-root').innerHTML = '';
-                };
-                container.insertBefore(backBtn, container.firstChild);
+        function renderBuilder() {
+            const grid = document.getElementById('builderGrid');
+            const sectionOrder = ['diuretics-antihypertensives', 'insulins', 'nsaids-steroids', 'assessment', 'skills', 'specimen-communication', 'respiratory-labs-diagnostics', 'upper-respiratory', 'head-neck-cancer', 'lower-respiratory'];
+
+            grid.innerHTML = sectionOrder.map(section => {
+                const count = questionsBySection[section] ? questionsBySection[section].length : 0;
+                const display = section.replace(/-/g, ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+                return `
+                    <div class="section-selector">
+                        <h3>${display}</h3>
+                        <div class="count">
+                            <input type="number" id="input-${section}" min="0" max="${count}" value="${Math.min(10, count)}" onchange="updateCount()">
+                            <span>questions</span>
+                        </div>
+                        <div class="available">(${count} available)</div>
+                    </div>
+                `;
+            }).join('');
+
+            updateCount();
+        }
+
+        function updateCount() {
+            const inputs = document.querySelectorAll('.section-selector input');
+            let total = 0;
+            inputs.forEach(input => {
+                total += parseInt(input.value) || 0;
+            });
+            document.getElementById('questionCount').textContent = `Total Questions: ${total}`;
+        }
+
+        function generateExam() {
+            const sectionOrder = ['diuretics-antihypertensives', 'insulins', 'nsaids-steroids', 'assessment', 'skills', 'specimen-communication', 'respiratory-labs-diagnostics', 'upper-respiratory', 'head-neck-cancer', 'lower-respiratory'];
+
+            let selectedQuestions = [];
+
+            sectionOrder.forEach(section => {
+                const input = document.getElementById(`input-${section}`);
+                if (input) {
+                    const count = parseInt(input.value) || 0;
+                    if (questionsBySection[section]) {
+                        selectedQuestions = selectedQuestions.concat(questionsBySection[section].slice(0, count));
+                    }
+                }
+            });
+
+            if (selectedQuestions.length === 0) {
+                alert('Please select at least one question');
+                return;
             }
+
+            // Shuffle questions
+            selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
 
             // Set exam data
-            if (examId === 'exam1' && typeof window.EXAM_DATA !== 'undefined') {
-                window.examData = window.EXAM_DATA;
-            }
+            window.examData = {
+                id: 'custom-exam',
+                title: `Custom Exam (${selectedQuestions.length} Questions)`,
+                questions: selectedQuestions
+            };
+
+            // Show exam view
+            document.getElementById('hubView').classList.remove('active');
+            document.getElementById('builderView').classList.remove('active');
+            document.getElementById('examView').classList.add('active');
 
             // Render exam
             setTimeout(() => {
@@ -306,7 +412,10 @@
             }, 100);
         }
 
-        document.addEventListener('DOMContentLoaded', renderSections);
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeData();
+            renderSections();
+        });
     </script>
 </body>
 </html>
