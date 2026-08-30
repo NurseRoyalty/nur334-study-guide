@@ -1,306 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oxygenation &amp; Tracheostomy — NUR 334 Study Guide</title>
-<script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-<link rel="stylesheet" href="assets/styles.css?v=20260823">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxygenation & Tracheostomy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; margin-bottom: 30px; }
+        h2 { color: #34495e; margin-top: 30px; margin-bottom: 15px; border-left: 4px solid #3498db; padding-left: 15px; }
+        h3 { color: #7f8c8d; margin-top: 20px; margin-bottom: 10px; }
+        .section { margin-bottom: 25px; padding: 15px; background: #ecf0f1; border-radius: 5px; }
+        .clinical-note { background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px 15px; margin: 15px 0; border-radius: 4px; }
+        .safety-box { background: #f8d7da; border-left: 4px solid #dc3545; padding: 12px 15px; margin: 15px 0; border-radius: 4px; font-weight: bold; }
+        .assessment-box { background: #d1ecf1; border-left: 4px solid #17a2b8; padding: 12px 15px; margin: 15px 0; border-radius: 4px; }
+        .key-point { background: #d4edda; border-left: 4px solid #28a745; padding: 12px 15px; margin: 15px 0; border-radius: 4px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #bdc3c7; }
+        th { background: #34495e; color: white; font-weight: bold; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        ul, ol { margin-left: 25px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        .flashcard-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 20px; }
+        .flashcard { background: white; border: 2px solid #3498db; border-radius: 8px; padding: 15px; cursor: pointer; transition: 0.3s; }
+        .flashcard:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .flashcard-front { color: #2980b9; font-weight: bold; min-height: 60px; }
+        .flashcard-back { color: #27ae60; display: none; }
+        .flashcard.flipped .flashcard-front { display: none; }
+        .flashcard.flipped .flashcard-back { display: block; }
+        code { background: #ecf0f1; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+    </style>
 </head>
 <body>
-<a class="skip-link" href="#content">Skip to content</a>
+    <div class="container">
+        <h1>Oxygenation & Tracheostomy Management</h1>
+        <p style="margin-bottom: 20px; font-style: italic; color: #7f8c8d;">Enhanced with live lecture clinical emphasis on assessments, specimen collection, respiratory diagnostics, and comprehensive tracheostomy care with critical safety details.</p>
 
-<main id="content">
-<div class="page-inner">
+        <h2>Pulse Oximetry Assessment</h2>
+        <div class="section">
+            <h3>Normal Values & Interpretation</h3>
+            <ul>
+                <li><strong>Normal O2 saturation:</strong> 95-100%</li>
+                <li><strong>Clinical consideration:</strong> Don't aim for 100% on supplemental oxygen - goal is to wean down and normalize toward 95-98% as patient improves</li>
+                <li>Readings below 95% in non-compromised patients warrant intervention</li>
+                <li>Pulse oximeter must have good peripheral perfusion to read accurately - assess finger color and capillary refill</li>
+            </ul>
 
-  <header class="page-head">
-    <p class="eyebrow">Fundamentals Review · Topic 4</p>
-    <h1>Oxygenation &amp; Tracheostomy</h1>
-  </header>
+            <h3>Placement & Technique</h3>
+            <ul>
+                <li>Fingertip placement (index finger preferred, thumb acceptable if sensor can wrap around)</li>
+                <li>Ear lobe for patients with poor peripheral perfusion</li>
+                <li>Avoid placing on same arm as blood pressure cuff (cuff inflation prevents reading)</li>
+                <li>Remove nail polish or artificial nails - interferes with light transmission</li>
+                <li>Ensure good contact - sensor should not be loose or wet</li>
+            </ul>
 
-  <p class="note">A large unit — 5 oxygenation lectures plus an intro to tracheostomies, combined into one page. Covers the mechanics of breathing, how to assess it, hypoxia, oxygen therapy devices, and the basics of tracheostomy care.</p>
+            <div class="assessment-box">
+                <strong>ASSESSMENT PRIORITY:</strong> When patient presents with any respiratory concern, ABCs (Airway, Breathing, Circulation) come first. Check O2 sat immediately, then assess work of breathing, then other parameters. Do not get distracted by comfort concerns when airway status is questionable.
+            </div>
+        </div>
 
-  <h2 class="block">Ventilation, Diffusion &amp; Perfusion</h2>
-  <button type="button" class="fig-trigger" data-lightbox-target="lb-breathing">&#128444; View breathing (inhale/exhale) diagram</button>
-  <div class="fig-store" id="lb-breathing" hidden>
-    <figure class="figure">
-      <img src="images/oxygenation-tracheostomy/breathing-inhale-exhale.jpg" alt="Diagram comparing breathing in (inspiration, diaphragm contracts and moves down, lungs expand) and breathing out (exhalation, diaphragm relaxes and moves up, lungs contract).">
-      <figcaption>Inspiration vs. exhalation — the diaphragm's movement drives both.</figcaption>
-    </figure>
-  </div>
-  <div class="card">
-    <ul>
-      <li><b>Ventilation:</b> movement of gas in and out of the lungs. <b>Diffusion:</b> the O2/CO2 exchange between the alveoli and red blood cells. <b>Perfusion:</b> distributing that newly oxygenated blood to body tissues.</li>
-      <li>Breathing rate/depth is driven by blood O2, CO2, and pH — rising CO2 signals the body to increase rate and depth to remove it faster.</li>
-      <li><b>Tidal volume</b> is the amount of air exhaled following a normal inspiration. Lung volumes are determined by age, gender, and height; tidal volume itself is influenced by health status, activity, pregnancy, exercise, obesity, and obstructive/restrictive lung disease.</li>
-      <li><b>Alveoli</b> are where gas exchange actually happens — when oxygenation goes wrong, ask whether the problem is at the alveolar level or somewhere else.</li>
-    </ul>
-  </div>
+        <h2>Specimen Collection: Sputum Studies</h2>
+        <div class="section">
+            <h3>Culture & Sensitivity (C&S) Collection</h3>
+            <div class="safety-box">
+                CRITICAL: Good sputum requires patient to COUGH, not just spit saliva. Spit samples are contaminated and worthless.
+            </div>
 
-  <h2 class="block">Assessing Breathing: Rate, Depth &amp; Pattern</h2>
-  <button type="button" class="fig-trigger" data-lightbox-target="lb-resp-patterns">&#128444; View respiratory pattern alterations chart</button>
-  <div class="fig-store" id="lb-resp-patterns" hidden>
-    <figure class="figure">
-      <img src="images/oxygenation-tracheostomy/respiratory-pattern-alterations.jpg" alt="Table of respiratory pattern alterations: Bradypnea (regular but under 12/min), Tachypnea (regular but over 20/min), Hyperpnea (labored, increased depth and rate), Apnea (respirations cease), Hyperventilation (increased rate and depth), Hypoventilation (abnormally low rate and depth), Cheyne-Stokes respiration (alternating apnea and hyperventilation), and Kussmaul's respiration (abnormally deep, regular, increased rate).">
-      <figcaption>Respiratory pattern alterations — know these by name.</figcaption>
-    </figure>
-  </div>
-  <div class="card">
-    <ul>
-      <li>Normal respiratory rate: <b>12–20/min.</b> Also assess depth and rhythm — shallow breathing, or a rate outside 12–20, is abnormal.</li>
-      <li>Stress and exercise normally increase rate/depth (increased work of breathing) — but this should <b>return to baseline</b> once the exertion stops. A respiratory rate that stays elevated is a cue something is wrong; a rate <b>greater than 27 increases the risk of cardiac arrest.</b></li>
-      <li>Normal variation: infants/children breathe faster than adults. Males and children tend to use abdominal muscles more when breathing; females tend to use more thoracic muscles.</li>
-    </ul>
-  </div>
+            <ul>
+                <li><strong>Timing:</strong> Early morning sample preferred (secretions accumulated overnight)</li>
+                <li><strong>Technique:</strong> Have patient rinse mouth with water first to minimize oral flora contamination</li>
+                <li><strong>Collection container:</strong> Sterile sputum cup - label immediately with patient ID, time, date</li>
+                <li><strong>Results timeline:</strong> Culture takes 48-72 hours; do not expect results same-day</li>
+                <li><strong>Gram stain:</strong> Can be processed faster for preliminary organism identification</li>
+            </ul>
 
-  <h2 class="block">Breath Sounds</h2>
-  <button type="button" class="fig-trigger" data-lightbox-target="lb-breath-sounds">&#128444; View breath sounds chart</button>
-  <div class="fig-store" id="lb-breath-sounds" hidden>
-    <figure class="figure">
-      <img src="images/oxygenation-tracheostomy/breath-sounds-chart.jpg" alt="Chart of expected (normal) breath sounds — bronchial, bronchovesicular, vesicular — and adventitious (abnormal) breath sounds — crackles/rales (fine to coarse bubbly sounds from air passing through fluid or collapsed small airways), wheezes (high-pitched whistling from narrow/obstructed airways), rhonchi (loud low-pitched rumbling from fluid or mucus, can resolve with coughing), stridor (choking, seen in children), and pleural friction rub.">
-      <figcaption>Normal breath sounds (bronchial, bronchovesicular, vesicular) vs. adventitious (abnormal) sounds.</figcaption>
-    </figure>
-  </div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Sound</th><th>What It Means</th></tr></thead>
-    <tbody>
-      <tr><td class="term">Crackles / rales</td><td>Fine to coarse, bubbly — air passing through fluid or collapsed small airways (e.g. fluid overload).</td></tr>
-      <tr><td class="term">Wheezes</td><td>High-pitched whistling — narrow/obstructed airways (asthma, allergic reaction). Note whether inspiratory, expiratory, or both when charting.</td></tr>
-      <tr><td class="term">Rhonchi</td><td>Loud, low-pitched rumbling — fluid or mucus in the airway. Often <b>resolves with coughing</b> — reassess after the patient coughs.</td></tr>
-      <tr><td class="term">Stridor</td><td>Associated with choking, or seen in children.</td></tr>
-      <tr><td class="term">Pleural friction rub</td><td>From inflammation of the pleural space.</td></tr>
-    </tbody>
-  </table></div>
+            <h3>Quality Indicators for Sputum Sample</h3>
+            <ul>
+                <li>Sample should contain actual sputum (respiratory secretion), not saliva</li>
+                <li>Volume: minimum 1mL, preferably 5mL for adequate culture</li>
+                <li>Appearance: purulent or mucopurulent (indicates infection)</li>
+                <li>Reject sample if contaminated with saliva or food particles</li>
+            </ul>
 
-  <h2 class="block">Oxygen Saturation &amp; Diagnostic Tests</h2>
-  <div class="card">
-    <ul>
-      <li><b>SpO2</b> (peripheral — measured with a probe via light transmission) vs. <b>SaO2</b> (arterial measurement). Normal is <b>95–100%.</b> A provider may prescribe a different target for a patient with chronic lung disease (e.g. keeping an obstructive-disease patient around 93%) — know your patient's specific order.</li>
-      <li>Pulse ox readings can be thrown off by movement, fingernail polish, or cold fingers — if a reading doesn't match how the patient looks, troubleshoot the probe/site, but always <b>assess the patient</b>, not just the number.</li>
-      <li><b>Sputum studies:</b> a negative culture is normal. <b>Culture and sensitivity</b> identifies the organism and its antibiotic sensitivities — ordered if a patient isn't improving on empiric antibiotics. <b>AFB (acid-fast bacillus)</b> tests for TB and requires collection on 3 consecutive days. <b>Cytology</b> screens for lung cancer. Best collected first thing in the morning (secretions have pooled overnight) and 1–2 hours after eating, using a sterile container.</li>
-      <li><b>Pulmonary function tests (PFTs):</b> basic ventilation study — amount and speed of air inhaled/exhaled. <b>Peak flow:</b> measures airway resistance, especially in asthma. <b>Bronchoscopy:</b> camera down into the lungs (patient usually sedated) — normal is no masses, pus, or foreign bodies; can also obtain a sample. <b>Lung scan:</b> looks for masses (size, location).</li>
-    </ul>
-  </div>
+            <div class="assessment-box">
+                <strong>NURSING ASSESSMENT:</strong> When obtaining sputum samples, assess the patient's ability to cough effectively. Note: thick, tenacious secretions? Color? Amount? Odor? These observations help guide treatment decisions while waiting for culture results.
+            </div>
+        </div>
 
-  <h2 class="block">Work of Breathing &amp; Factors Affecting Oxygenation</h2>
-  <div class="card">
-    <ul>
-      <li><b>Work of breathing</b> = effort to move air in/out. Inspiration is active; exhalation is passive, relying on the lungs' elastic recoil. <b>Surfactant</b> maintains alveolar surface tension and prevents collapse — patients with certain pulmonary diseases have less surfactant and can develop <b>atelectasis</b> (alveolar collapse, preventing gas exchange).</li>
-      <li>Work of breathing depends on rate/depth, accessory muscle use/nasal flaring, <b>compliance</b> (how easily the lungs expand), and airway resistance. Decreased compliance + increased resistance + accessory muscle use = increased work of breathing.</li>
-      <li><b>Factors that reduce oxygenation:</b> decreased O2-carrying capacity (not enough hemoglobin/RBCs); carbon monoxide poisoning (hemoglobin binds CO instead of O2 — a functional anemia); hypovolemia (reduced circulating volume → tissue hypoxia); decreased inspired O2 concentration (e.g. high altitude); hypoventilation/airway obstruction; increased metabolic demand (exercise, fever, wound healing); reduced chest wall movement (pregnancy, obesity, musculoskeletal disease, rib fractures/pain, neuromuscular disease like myasthenia gravis or Guillain-Barré); and CNS/spinal cord trauma affecting the phrenic nerve.</li>
-      <li>The phrenic nerve controls the diaphragm — classically remembered as arising from <b>C3, C4, C5</b> ("C3, 4, 5 keeps the diaphragm alive"). The lecture audio referenced "T3 to T5" for this, which doesn't match standard anatomy teaching — worth double-checking against the slide deck; this page uses the standard C3–C5 teaching.</li>
-    </ul>
-  </div>
+        <h2>Respiratory Diagnostics</h2>
+        <div class="section">
+            <h3>Imaging Studies</h3>
+            <ul>
+                <li><strong>Chest X-ray:</strong> First-line imaging for most respiratory concerns; assess for infiltrates, pneumothorax, effusion, consolidation</li>
+                <li><strong>CT chest:</strong> Higher resolution for detailed parenchymal and mediastinal assessment</li>
+                <li><strong>Nursing role:</strong> Position patient for clear imaging (upright if possible), remove jewelry/metallic objects, ensure patient cooperation with breath-holding instructions</li>
+            </ul>
 
-  <h2 class="block">Hypoxia — Signs, Symptoms &amp; Chronic Changes</h2>
-  <button type="button" class="fig-trigger" data-lightbox-target="lb-ratbed">&#128444; View RATBED hypoxia mnemonic</button>
-  <div class="fig-store" id="lb-ratbed" hidden>
-    <figure class="figure">
-      <img src="images/oxygenation-tracheostomy/ratbed-hypoxia-mnemonic.jpg" alt="RATBED mnemonic for symptoms of hypoxia. Early symptoms (RAT): Restlessness, Anxiety, Tachycardia/tachypnea. Late symptoms (BED): Bradycardia, Extreme restlessness, Dyspnea. In pediatrics (FINES): Feeding difficulty, Inspiratory stridor, Nares flare, Expiratory grunting, Sternal retractions.">
-      <figcaption>RATBED — early hypoxia symptoms (RAT) vs. late symptoms (BED), plus the pediatric-specific FINES signs.</figcaption>
-    </figure>
-  </div>
-  <div class="card">
-    <ul>
-      <li><b>Hypoxia</b> = inadequate tissue oxygenation at the cellular level. Untreated, it can cause cardiac dysrhythmias (the heart needs oxygen too).</li>
-      <li><b>Restlessness is a huge, early cue</b> — a restless patient is never a good sign. Other signs: inability to concentrate, decreased LOC, dizziness, behavioral changes, difficulty staying still or lying flat, feeling "air hungry," orthopnea (needing to sit up to breathe), fatigue, agitation, increased pulse/respirations, and initially increased BP (which later drops toward shock as hypoxia worsens).</li>
-      <li><b>Cyanosis</b> (blue discoloration) is a <i>late</i> and unreliable sign of hypoxia. <b>Central cyanosis</b> (tongue, soft palate, around the eyes) indicates true hypoxia. <b>Peripheral cyanosis</b> (extremities, nail beds, earlobes) is usually a vasoconstriction problem, not an oxygenation problem.</li>
-      <li><b>Chronic hypoxia</b> (e.g. COPD, cystic fibrosis) produces visible changes over time: cyanotic nail beds, sluggish cap refill, <b>clubbing</b> of the fingers, and <b>barrel chest</b> — a normal anteroposterior-to-transverse chest ratio is about 1:2, but in chronic hypoxia it approaches 1:1.</li>
-      <li><b>Lifestyle/developmental factors:</b> smoking and vaping (encourage cessation; also watch for secondhand smoke exposure), obesity, air pollution, malnutrition (weakens the patient), sedentary lifestyle (exercise is protective), substance use, and occupational exposures (e.g. coal mining, chemical inhalants). In older adults, mental status change is often the <i>first</i> sign of a respiratory problem — they have lower reserve and can deteriorate quickly.</li>
-    </ul>
-  </div>
+            <h3>Bronchoscopy</h3>
+            <div class="clinical-note">
+                <strong>Pre-procedure NPO Status:</strong> Patient must be NPO 8-12 hours before bronchoscopy (nothing by mouth - no food, fluids, or medications that need food)
+            </div>
+            <ul>
+                <li><strong>Procedure:</strong> Direct visualization of trachea and bronchi using flexible or rigid scope</li>
+                <li><strong>Indications:</strong> Evaluate hemoptysis, suspected malignancy, assess airway, remove foreign body or secretions</li>
+                <li><strong>Post-procedure assessment:</strong> Monitor for return of gag reflex before allowing patient to eat/drink - risk of aspiration if reflex not intact</li>
+                <li><strong>Common finding:</strong> Temporary hoarseness after procedure is normal</li>
+            </ul>
 
-  <h2 class="block">Airway Clearance: Cough, Secretions &amp; Positioning</h2>
-  <div class="card">
-    <ul>
-      <li><b>Dyspnea</b> is a subjective sensation of difficult/uncomfortable breathing. Ask: does it return to baseline after exertion? DOE = dyspnea on exertion. Have the patient rate it on a 0–10 scale, and compare to their normal baseline.</li>
-      <li><b>Cough</b> is a key assessment: frequency, productive (sputum present) vs. non-productive (dry — often allergies, asthma, GERD, post-nasal drip), sputum characteristics (bloody = <b>hemoptysis</b>, thick/thin, odor), chronic vs. acute, and strong vs. weak.</li>
-      <li><b>Coughing is the most effective way to clear secretions</b> — better than suctioning. Adequate hydration thins secretions so they're easier to move. A deep breath before coughing helps trigger it. Manage pain (e.g. after chest/abdominal surgery) so the patient is willing to cough — teach <b>splinting</b> (a pillow or folded blanket held against the incision) if coughing hurts.</li>
-      <li><b>Mobilization:</b> get the patient up and moving — it promotes lung expansion and gas exchange, and is one of the biggest factors separating a short recovery from a long one.</li>
-      <li><b>Positioning:</b> sitting up is the best position to reduce shortness of breath (expands the thoracic cavity). Change position frequently — helps prevent atelectasis, mobilize secretions, and avoid skin breakdown.</li>
-      <li><b>Chest physiotherapy</b> (requires an order, not independent nursing action) mobilizes thick secretions via postural drainage, chest percussion, and chest vibration (often via a vest). <b>Postural drainage principle:</b> lay on the <i>unaffected</i> side to promote drainage of a specific lobe — e.g. right lower lobe infiltrate → position the patient on their left side, in Trendelenburg. Contraindicated in pregnancy, rib/chest injury, increased ICP, recent abdominal surgery, bleeding disorders, or osteoporosis.</li>
-      <li><b>Suctioning</b> is a sterile procedure (oral, nasotracheal, or by respiratory therapy) used when a patient can't cough effectively — keep each pass under 10 seconds; consider pre-oxygenating first.</li>
-      <li><b>Incentive spirometer:</b> promotes lung expansion through deep breathing, helps prevent/treat atelectasis. Make sure post-op patients actually know how to use it correctly (a common gap) and have one ordered at the bedside.</li>
-    </ul>
-  </div>
+            <h3>Lung Biopsy</h3>
+            <ul>
+                <li><strong>Methods:</strong> Transbronchial (through bronchoscope), percutaneous (needle), or open (surgical)</li>
+                <li><strong>Post-biopsy monitoring:</strong> Watch for pneumothorax, hemoptysis, infection</li>
+                <li><strong>Chest X-ray:</strong> Obtained after procedure to rule out pneumothorax</li>
+            </ul>
 
-  <h2 class="block">Oxygen Therapy Devices</h2>
-  <div class="card">
-    <ul>
-      <li><b>FiO2</b> = fraction of inspired oxygen. Room air is 21% FiO2 — supplemental oxygen delivers higher than that.</li>
-      <li>Requires a <b>healthcare provider order</b> except in an emergency (get an order after the fact). Follow the rights of medication administration — verify the flow rate at the wall matches what's ordered. Application can be delegated to a nursing assistant, but <b>assessment, evaluation, and teaching cannot be delegated.</b></li>
-      <li><b>Safety:</b> oxygen is highly flammable — no open flames, candles, or smoking; consider an "oxygen in use" sign.</li>
-    </ul>
-  </div>
-  <div class="table-wrap"><table data-hide-mode="all">
-    <thead><tr><th>Device</th><th>Flow / FiO2</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr><td class="term">Nasal cannula</td><td>1–6 L/min → ~24–44%</td><td>Safe, well tolerated, but FiO2 varies. Skin breakdown risk at cheeks/ears/nose. Tubing dislodges easily. Humidify if &gt;4 L.</td></tr>
-      <tr><td class="term">Simple face mask</td><td>6–12 L/min → ~35–50%</td><td>Best for short periods or transport. Avoid with claustrophobia or aspiration risk. Watch for skin breakdown and don't let the patient eat with it on.</td></tr>
-      <tr><td class="term">Partial rebreather</td><td>6–11 L/min → ~60–75%</td><td>Middle-ground device, not commonly used in practice. Reservoir bag should stay partially inflated; no flaps on the mask.</td></tr>
-      <tr><td class="term">Non-rebreather</td><td>10–15 L/min → ~80–95%</td><td>For critical patients, often a step before intubation. Has one-way valve + flaps preventing rebreathing of exhaled air. Needs hourly (or more) assessment.</td></tr>
-      <tr><td class="term">Venturi ("Vinnie") mask</td><td>4–12 L/min → ~24–60%</td><td>High-flow device — delivers a <b>precise</b> FiO2 via color-coded valves. Best for patients (e.g. chronic lung disease) who need tightly regulated, constant oxygen concentration.</td></tr>
-      <tr><td class="term">Face tent</td><td>— → ~24–100%</td><td>Loose-fitting aerosol mask, common in post-op patients — provides humidity, essentially a "blow-by."</td></tr>
-      <tr><td class="term">High-flow nasal cannula</td><td>Up to 100%</td><td>Precise, high-flow delivery — for critical patients.</td></tr>
-    </tbody>
-  </table></div>
-  <p class="note">Reservoir bag flaps are the visual cue: a non-rebreather has flaps on the exhalation ports; a partial rebreather does not. <b>Humidification</b> is used any time supplemental oxygen exceeds 4 L/min or runs longer than 24 hours, to prevent drying mucous membranes.</p>
-  <div class="callout-danger"><b>Oxygen toxicity</b> is a real complication of too much supplemental oxygen — always use the lowest FiO2 that achieves the desired result. Watch for chest pain/heaviness, coughing, dyspnea, muscle twitching, nausea/GI upset, seizures, and visual changes.</div>
+            <h3>Thoracentesis</h3>
+            <ul>
+                <li><strong>Procedure:</strong> Needle aspiration of pleural fluid from pleural space</li>
+                <li><strong>Positioning:</strong> Patient sits upright and leans forward (allows better access to fluid pocket)</li>
+                <li><strong>Post-procedure:</strong> Monitor for shortness of breath, chest pain, decreased breath sounds (signs of pneumothorax)</li>
+                <li><strong>Specimen handling:</strong> Label tubes for different analyses (cell count, chemistry, culture, cytology)</li>
+            </ul>
+        </div>
 
-  <h2 class="block">Tracheostomy — Overview, Indications &amp; Tube Types</h2>
-  <button type="button" class="fig-trigger" data-lightbox-target="lb-et-vs-perc">&#128444; View Endotracheal vs. Percutaneous diagram</button>
-  <div class="fig-store" id="lb-et-vs-perc" hidden>
-    <figure class="figure">
-      <img src="images/oxygenation-tracheostomy/endotracheal-vs-percutaneous.jpg" alt="Diagram comparing an endotracheal (ET) tube inserted through the mouth, past the vocal cords, versus a percutaneous tracheostomy tube inserted directly through an opening in the neck between the second and third tracheal rings.">
-      <figcaption>Endotracheal tube (through the mouth) vs. percutaneous tracheostomy (through a neck opening).</figcaption>
-    </figure>
-  </div>
-  <div class="card">
-    <ul>
-      <li>An <b>endotracheal (ET) tube</b> goes through the mouth — used when a patient is on a ventilator. A <b>tracheostomy</b> bypasses the mouth/nose entirely through a surgically made opening (<b>stoma</b>) in the neck; a patient can be ventilated through either.</li>
-      <li><b>Indications:</b> acute airway obstruction, airway protection (e.g. after neck/throat/cancer surgery), facilitating secretion removal (e.g. after a stroke with weak/ineffective cough), and prolonged intubation (roughly 7–10 days — beyond that, airway damage risk increases and a trach is more comfortable and can help wean off the ventilator).</li>
-      <li>A trach can be <b>temporary or permanent</b> — reassure concerned family members of this. Removing it is called <b>decannulation.</b></li>
-    </ul>
-  </div>
-  <button type="button" class="fig-trigger" data-lightbox-target="lb-trach-parts">&#128444; View tracheostomy tube parts diagram</button>
-  <div class="fig-store" id="lb-trach-parts" hidden>
-    <figure class="figure">
-      <img src="images/oxygenation-tracheostomy/tracheostomy-tube-parts.jpg" alt="Diagram of a tracheostomy tube's parts: tracheostomy tie strings, flange, outer cannula, cuff, inflation tube, pilot balloon, one-way valve, hollow inner cannula, 15-mm adapter, obturator with rounded tip.">
-      <figcaption>Tracheostomy tube anatomy — outer cannula, flange, cuff, pilot balloon, removable inner cannula, and obturator.</figcaption>
-    </figure>
-  </div>
-  <div class="table-wrap"><table data-nohide>
-    <thead><tr><th>Shiley</th><th>Jackson</th></tr></thead>
-    <tbody>
-      <tr><td>Plastic, disposable inner cannula</td><td>Metal, reusable inner cannula (cleaned, not replaced)</td></tr>
-      <tr><td>Has a cuff</td><td>No cuff</td></tr>
-      <tr><td>Sizes typically 6 (smaller/petite) or 8 (more common)</td><td>Sized the same way as Shiley</td></tr>
-      <tr><td>Used more commonly in the hospital setting</td><td>Used for longer-term/permanent trachs</td></tr>
-    </tbody>
-  </table></div>
-  <button type="button" class="fig-trigger" data-lightbox-target="lb-shiley">&#128444; View Shiley trach photo</button>
-  <div class="fig-store" id="lb-shiley" hidden>
-    <figure class="figure">
-      <img src="images/oxygenation-tracheostomy/shiley-trach.jpg" alt="Photo of a plastic Shiley tracheostomy tube with flange, cuff, and pilot balloon.">
-      <figcaption>Shiley — plastic, disposable inner cannula, has a cuff.</figcaption>
-    </figure>
-  </div>
-  <button type="button" class="fig-trigger" data-lightbox-target="lb-jackson">&#128444; View Jackson trach photo</button>
-  <div class="fig-store" id="lb-jackson" hidden>
-    <figure class="figure">
-      <img src="images/oxygenation-tracheostomy/jackson-trach.jpg" alt="Photo of a metal Jackson tracheostomy tube's outer cannula, inner cannula, and obturator, with no cuff.">
-      <figcaption>Jackson — metal, reusable inner cannula, no cuff.</figcaption>
-    </figure>
-  </div>
-  <p class="note">The <b>obturator</b> (rounded-tip guide used only during insertion, then immediately removed) should always be kept at the bedside — if the trach becomes dislodged, it's needed to reinsert the outer cannula safely.</p>
+        <h2>Tracheostomy Care: Clinical Essentials</h2>
+        <div class="section">
+            <h3>Bedside Safety Items (Must Always Be Present)</h3>
+            <div class="safety-box">
+                Every trach patient requires these items at bedside - lack of them is a safety violation:
+                <ul style="margin-top: 10px;">
+                    <li>Obturator (same size as patient's trach)</li>
+                    <li>Spare tracheostomy tube (same size)</li>
+                    <li>Backup tracheostomy tube (one size smaller)</li>
+                    <li>Ambu bag (manual resuscitation bag) with trach adapter</li>
+                    <li>Suction equipment and supplies</li>
+                </ul>
+            </div>
 
-  <h2 class="block">Tracheostomy — Cuff Management &amp; Communication</h2>
-  <button type="button" class="fig-trigger" data-lightbox-target="lb-cuff-cross">&#128444; View cuffed trach cross-section</button>
-  <div class="fig-store" id="lb-cuff-cross" hidden>
-    <figure class="figure">
-      <img src="images/oxygenation-tracheostomy/cuffed-trach-cross-section.jpg" alt="Cross-section diagram of a cuffed tracheostomy tube in place in the trachea, showing the inflated cuff creating a seal, with inhaled and exhaled air pathways and the pilot balloon used to inflate/deflate it.">
-      <figcaption>An inflated cuff seals the trachea — prevents aspiration and lets a ventilator deliver full breaths without air leaking around the tube.</figcaption>
-    </figure>
-  </div>
-  <div class="card">
-    <ul>
-      <li>The <b>cuff</b> creates a snug seal in the trachea — prevents aspiration and lets the ventilator deliver full breaths without air leaking around the tube.</li>
-      <li><b>Inflated:</b> when the patient is mechanically ventilated, or specifically ordered (e.g. inflated with meals). <b>Deflated:</b> the default on a med-surg/progressive-care floor — check the pilot balloon on assessment to tell which state it's in.</li>
-      <li><b>Cuff inflation/deflation is managed by respiratory therapy</b>, not the student nurse — as a student you only observe. The steps (if you observe): suction the mouth first (secretions sitting on top of the cuff could be aspirated once it deflates) → deflate the cuff → suction the trachea.</li>
-      <li><b>Overinflation risks:</b> increased mucosal pressure → ischemia, cartilage softening/erosion, and even a tracheoesophageal fistula.</li>
-      <li><b>Communication:</b> a <b>passive mirror valve</b> (Passy-Muir-style speaking valve) requires the cuff to be deflated to use, and requires a provider's okay. Not all patients tolerate it — it can cause anxiety or feelings of respiratory distress. Speech/respiratory therapy is typically present for the first use to teach the patient and watch for signs of distress.</li>
-    </ul>
-  </div>
-  <button type="button" class="fig-trigger" data-lightbox-target="lb-passymuir">&#128444; View passive mirror (speaking) valve</button>
-  <div class="fig-store" id="lb-passymuir" hidden>
-    <figure class="figure">
-      <img src="images/oxygenation-tracheostomy/passy-muir-valve.jpg" alt="Photo of a purple one-way speaking valve (passive mirror valve) used with a tracheostomy tube to allow the patient to speak.">
-      <figcaption>A passive mirror (speaking) valve — cuff must be deflated to use it.</figcaption>
-    </figure>
-  </div>
+            <h3>Insertion Technique & Obturator Use</h3>
+            <div class="key-point">
+                <strong>CRITICAL STEP:</strong> When inserting a new tracheostomy tube, the obturator goes ONLY in the OUTER cannula as a guide. After placement is confirmed (ability to pass suction catheter through, lung sounds present), the obturator is removed IMMEDIATELY. It never stays in during normal trach management.
+            </div>
 
-  <h2 class="block">Tracheostomy — Nursing Care &amp; Emergency Response</h2>
-  <div class="card">
-    <ul>
-      <li><b>Nursing problems:</b> ineffective airway clearance (secretions/plugging), impaired verbal communication, risk for infection (the stoma is direct access to the lower airway), impaired swallowing, body image disturbance, anxiety, and pain (especially with a new trach).</li>
-      <li><b>Assessment:</b> tube type and size, cuff status (inflated/deflated), patient comfort/pain, and oxygenation status generally. <b>Trach care</b> is typically done every 12 hours; suctioning as indicated (more often if needed).</li>
-      <li><b>Keep at the bedside:</b> the obturator, and spare trach tubes — one the same size as the patient's current tube, and one a size smaller (in case of swelling/edema).</li>
-      <li><b>If the outer cannula/whole tube comes out:</b> (1) insert the obturator into the replacement outer cannula, (2) extend the patient's neck and open the stoma, (3) insert the outer cannula (with obturator inside) into the stoma, (4) immediately remove the obturator, (5) assess the patient and lung sounds, (6) secure the new trach ties.</li>
-      <li>Accidental decannulation most often happens during coughing or patient transfers — checking that the trach ties are secure is part of every room assessment.</li>
-    </ul>
-  </div>
+            <h3>Suctioning</h3>
+            <div class="safety-box">
+                <strong>Critical Timing:</strong> Each suctioning pass should NOT exceed 10 seconds of actual suction applied. Longer passes cause hypoxemia and tissue trauma.
+            </div>
+        </div>
 
-  <h2 class="block">Self-Test Flashcards</h2>
-  <p class="note">Click a card to flip it and check your answer.</p>
-  <div class="flash-toolbar">
-    <button class="flash-btn alt" data-action="shuffle" data-target="fc1">Shuffle</button>
-    <span class="flash-count"></span>
-  </div>
-  <div class="flash-grid" id="fc1">
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">What's the difference between ventilation, diffusion, and perfusion?</div>
-      <div class="flash-back">Ventilation = gas moving in/out of the lungs. Diffusion = O2/CO2 exchange between alveoli and RBCs. Perfusion = distributing oxygenated blood to tissues.</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">What respiratory rate increases the risk of cardiac arrest?</div>
-      <div class="flash-back">Greater than 27 breaths/min.</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">A patient has loud, low-pitched rumbling breath sounds. What are you hearing, and what should you try first?</div>
-      <div class="flash-back">Rhonchi — from fluid/mucus in the airway. Have the patient cough, then reassess; rhonchi often resolves with coughing.</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">What's the RATBED mnemonic for hypoxia symptoms?</div>
-      <div class="flash-back">Early (RAT): Restlessness, Anxiety, Tachycardia/tachypnea. Late (BED): Bradycardia, Extreme restlessness, Dyspnea.</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">Central cyanosis vs. peripheral cyanosis — which indicates true hypoxia?</div>
-      <div class="flash-back">Central cyanosis (tongue, soft palate, around the eyes) indicates hypoxia. Peripheral cyanosis (extremities, nail beds) is usually just vasoconstriction.</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">What chronic hypoxia changes might you see on assessment?</div>
-      <div class="flash-back">Cyanotic nail beds, sluggish cap refill, digital clubbing, and barrel chest (AP-to-transverse ratio approaching 1:1 instead of the normal 1:2).</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">What's the postural drainage rule for a right lower lobe infiltrate?</div>
-      <div class="flash-back">Lay the patient on the unaffected (left) side, in Trendelenburg — position on the side opposite the affected lobe.</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">Which oxygen delivery device delivers the most precise FiO2, and why?</div>
-      <div class="flash-back">The Venturi ("Vinnie") mask — color-coded valves deliver an exact, regulated FiO2, useful for chronic lung disease patients who need tightly controlled oxygen.</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">How do you tell a non-rebreather mask apart from a partial rebreather?</div>
-      <div class="flash-back">The non-rebreather has one-way flaps on the exhalation ports (preventing rebreathing); the partial rebreather does not.</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">What's the key difference between a Shiley and a Jackson tracheostomy tube?</div>
-      <div class="flash-back">Shiley: plastic, disposable inner cannula, has a cuff — more common in the hospital. Jackson: metal, reusable (cleaned) inner cannula, no cuff — used long-term.</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">Why must the mouth be suctioned before a tracheostomy cuff is deflated?</div>
-      <div class="flash-back">Secretions can pool on top of an inflated cuff — if they aren't cleared first, deflating the cuff lets them fall into the airway and be aspirated.</div>
-    </div></div>
-    <div class="flash-card"><div class="flash-inner">
-      <div class="flash-front">What should always be kept at the bedside of a patient with a tracheostomy?</div>
-      <div class="flash-back">The obturator, plus two spare trach tubes — one the same size as the current tube, and one a size smaller (in case of swelling).</div>
-    </div></div>
-  </div>
+        <h2>Temperature Regulation & Oxygenation</h2>
+        <div class="section">
+            <div class="key-point">
+                <strong>Clinical Link:</strong> Fever INCREASES cellular oxygen demand. For every 1 degree Celsius elevation, metabolic rate increases approximately 10%. Normalizing temperature reduces metabolic demand and improves oxygenation status.
+            </div>
+        </div>
 
-  <h2 class="block">Practice Questions</h2>
-  <p class="note">All 20 Must Know + Extra Practice questions for this section, pulled from the same bank as <a href="quiz-builder.html">Build Your Own Exam</a>. Answer each, then submit to see your score and rationales.</p>
-  <div id="exam-root"></div>
-
-  <nav class="page-flip" data-page-flip></nav>
-  <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
-
-</div>
-</main>
-
-<script src="data/quiz-bank.js?v=20260823"></script>
-<script>window.SECTION_QUIZ_TOPIC = "Oxygenation & Tracheostomy"; window.SECTION_QUIZ_ID = "fund-oxygenation";</script>
-<script src="assets/site.js?v=20260823"></script>
-<script src="assets/study.js?v=20260823"></script>
-<script src="assets/section-quiz.js?v=20260823"></script>
+        <h2>Hydration & Respiratory Secretion Management</h2>
+        <div class="section">
+            <div class="key-point">
+                <strong>Dual Purpose of Hydration:</strong> Adequate fluid intake serves TWO critical functions:
+                <ol style="margin-left: 25px;">
+                    <li><strong>Secretion viscosity:</strong> Hydration keeps secretions thin and mobile; dehydration = thick, tenacious secretions</li>
+                    <li><strong>Temperature regulation:</strong> Adequate hydration supports body's ability to regulate temperature and maintain perfusion</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.flashcard').forEach(card => {
+            card.style.cursor = 'pointer';
+        });
+    </script>
 </body>
 </html>
