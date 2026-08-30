@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam 1 - Build Your Own Exam</title>
+    <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <style>
+        :root {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #999;
+            --border-color: #d0e0f0;
+            --accent-color: #2980b9;
+            --accent-dark: #1f618d;
+            --accent-light: #3498db;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg-primary: #1a1a1a;
+                --bg-secondary: #2d2d2d;
+                --text-primary: #e8e8e8;
+                --text-secondary: #b0b0b0;
+                --text-muted: #808080;
+                --border-color: #3a4a5a;
+                --accent-color: #5dade2;
+                --accent-dark: #3498db;
+                --accent-light: #2980b9;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --border-color: #3a4a5a;
+            --accent-color: #5dade2;
+            --accent-dark: #3498db;
+            --accent-light: #2980b9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(139, 90, 60, 0.15);
+        }
+
+        .section-card h2 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .section-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(139, 90, 60, 0.1);
+        }
+
+        .range-info {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 90, 60, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--border-color);
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-light);
+        }
+
+        .summary {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+        }
+
+        .summary h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .summary-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .summary-item {
+            background: rgba(139, 90, 60, 0.05);
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-light);
+        }
+
+        .summary-item strong {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .summary-item .number {
+            font-size: 1.8rem;
+            color: var(--accent-light);
+        }
+
+        #question-container {
+            display: none;
+        }
+
+        .question-wrapper {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .question-number {
+            font-weight: 600;
+            color: #8b5a3c;
+        }
+
+        .question-section {
+            background: #f9f7f4;
+            color: #8b5a3c;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .question-type {
+            background: #e8d5c4;
+            color: #6b4530;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+        }
+
+        .question-stem {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        .options {
+            margin-bottom: 2rem;
+        }
+
+        .option {
+            margin-bottom: 0.8rem;
+            padding: 1rem;
+            background: #f9f7f4;
+            border: 2px solid #f0e6d8;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            border-color: #8b5a3c;
+            background: #f5f0e8;
+        }
+
+        .option input[type="radio"],
+        .option input[type="checkbox"] {
+            margin-right: 0.8rem;
+            cursor: pointer;
+        }
+
+        .option.selected {
+            border-color: #8b5a3c;
+            background: #f0e6d8;
+        }
+
+        .rationale-section {
+            display: none;
+            background: #fffbf7;
+            border-left: 4px solid #c9a878;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+        }
+
+        .rationale-section.show {
+            display: block;
+        }
+
+        .rationale-title {
+            color: #8b5a3c;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .rationale-text {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .nav-btn {
+            padding: 0.8rem 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e8d5c4;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #8b5a3c;
+            transition: width 0.3s ease;
+        }
+
+        .finish-section {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .finish-section.show {
+            display: block;
+        }
+
+        .finish-section h2 {
+            color: #8b5a3c;
+            margin-bottom: 1rem;
+        }
+
+        .score-display {
+            font-size: 3rem;
+            color: #8b5a3c;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .back-btn {
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Exam 1 - Build Your Own Exam</h1>
+            <p class="subtitle">Select questions from each section to create your custom exam</p>
+        </header>
+
+        <!-- Section Configuration -->
+        <div id="setup-section">
+            <div class="section-grid">
+                <div class="section-card">
+                    <h2>Diuretics & Antihypertensives</h2>
+                    <p class="section-info">Hypokalemia, ACE inhibitors, angioedema, orthostatic hypotension, hyperkalemia, renal dysfunction</p>
+                    <div class="form-group">
+                        <label for="diuretics-count">Number of questions:</label>
+                        <input type="number" id="diuretics-count" min="0" max="5" value="2">
+                        <p class="range-info">Available: 5 questions (0-5)</p>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2>Insulins</h2>
+                    <p class="section-info">Hypoglycemia, hyperglycemia, pre-injection glucose checks, timing with meals, elderly atypical presentation</p>
+                    <div class="form-group">
+                        <label for="insulins-count">Number of questions:</label>
+                        <input type="number" id="insulins-count" min="0" max="5" value="2">
+                        <p class="range-info">Available: 5 questions (0-5)</p>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2>NSAIDs & Steroids</h2>
+                    <p class="section-info">GI bleeding, renal dysfunction, hyperglycemia, immunosuppression, osteoporosis</p>
+                    <div class="form-group">
+                        <label for="nsaids-count">Number of questions:</label>
+                        <input type="number" id="nsaids-count" min="0" max="5" value="2">
+                        <p class="range-info">Available: 5 questions (0-5)</p>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2>Assessment</h2>
+                    <p class="section-info">Orthostatic vitals, equipment assessment, post-op complications, oxygenation, line/tube monitoring</p>
+                    <div class="form-group">
+                        <label for="assessment-count">Number of questions:</label>
+                        <input type="number" id="assessment-count" min="0" max="5" value="2">
+                        <p class="range-info">Available: 5 questions (0-5)</p>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2>Skills</h2>
+                    <p class="section-info">Suctioning, tracheostomy care, specimen collection, bronchoscopy, gag reflex assessment</p>
+                    <div class="form-group">
+                        <label for="skills-count">Number of questions:</label>
+                        <input type="number" id="skills-count" min="0" max="5" value="2">
+                        <p class="range-info">Available: 5 questions (0-5)</p>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2>Specimen Collection & Communication</h2>
+                    <p class="section-info">Sputum/blood/urine collection, SBAR communication, medication adherence, therapeutic communication</p>
+                    <div class="form-group">
+                        <label for="specimen-count">Number of questions:</label>
+                        <input type="number" id="specimen-count" min="0" max="5" value="2">
+                        <p class="range-info">Available: 5 questions (0-5)</p>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2>Respiratory Labs & Diagnostics</h2>
+                    <p class="section-info">Pulse oximetry, sputum culture, AFB/TB, bronchoscopy, chest X-ray, CT imaging, thoracentesis, PET scan</p>
+                    <div class="form-group">
+                        <label for="resp-labs-count">Number of questions:</label>
+                        <input type="number" id="resp-labs-count" min="0" max="10" value="3">
+                        <p class="range-info">Available: 10 questions (0-10)</p>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2>Upper Respiratory Problems</h2>
+                    <p class="section-info">Epistaxis, pharyngitis, peritonsillar abscess, OSA, epiglottitis, post-pharyngitis complications</p>
+                    <div class="form-group">
+                        <label for="upper-resp-count">Number of questions:</label>
+                        <input type="number" id="upper-resp-count" min="0" max="10" value="3">
+                        <p class="range-info">Available: 10 questions (0-10)</p>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2>Head & Neck Cancer</h2>
+                    <p class="section-info">Laryngeal cancer, laryngectomy, voice restoration, tube feeding, mucus plugs, psychosocial support, fistula</p>
+                    <div class="form-group">
+                        <label for="head-neck-count">Number of questions:</label>
+                        <input type="number" id="head-neck-count" min="0" max="10" value="3">
+                        <p class="range-info">Available: 10 questions (0-10)</p>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2>Lower Respiratory Problems</h2>
+                    <p class="section-info">Post-influenza pneumonia, post-op pneumonia prevention, TB treatment, COPD, emphysema, bronchitis, lung cancer</p>
+                    <div class="form-group">
+                        <label for="lower-resp-count">Number of questions:</label>
+                        <input type="number" id="lower-resp-count" min="0" max="10" value="3">
+                        <p class="range-info">Available: 10 questions (0-10)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary" id="summary">
+                <h3>Exam Summary</h3>
+                <div class="summary-content">
+                    <div class="summary-item">
+                        <strong>Total Questions:</strong>
+                        <span class="number" id="total-questions">20</span>
+                    </div>
+                    <div class="summary-item">
+                        <strong>Question Types:</strong>
+                        <div>Multiple Choice & SATA</div>
+                    </div>
+                    <div class="summary-item">
+                        <strong>Difficulty:</strong>
+                        <div>Extremely Hard</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn-primary" onclick="startExam()">Start Exam</button>
+                <button class="btn-secondary" onclick="randomizeDefaults()">Randomize & Start</button>
+            </div>
+        </div>
+
+        <!-- Exam Display -->
+        <div id="question-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+
+            <div id="questions-display"></div>
+
+            <div class="navigation">
+                <button class="btn-secondary nav-btn" id="prev-btn" onclick="previousQuestion()">← Previous</button>
+                <span id="question-counter"></span>
+                <button class="btn-secondary nav-btn" id="next-btn" onclick="nextQuestion()">Next →</button>
+            </div>
+
+            <div class="navigation">
+                <button class="btn-primary" id="show-answer-btn" onclick="toggleRationale()">Show Answer & Explanation</button>
+            </div>
+
+            <div class="navigation">
+                <button class="btn-primary" onclick="finishExam()">Finish Exam</button>
+                <button class="btn-secondary" onclick="resetExam()">Back to Setup</button>
+            </div>
+        </div>
+
+        <!-- Finish Screen -->
+        <div id="finish-section" class="finish-section">
+            <h2>Exam Complete!</h2>
+            <p id="finish-message"></p>
+            <div class="score-display" id="score-display"></div>
+            <button class="btn-primary back-btn" onclick="resetExam()">Back to Setup</button>
+        </div>
+    </div>
+
+    <script src="./data/exam1-questions.js"></script>
+    <script>
+        let allQuestions = [];
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = {};
+
+        const sections = {
+            'diuretics-antihypertensives': 5,
+            'insulins': 5,
+            'nsaids-steroids': 5,
+            'assessment': 5,
+            'skills': 5,
+            'specimen-communication': 5,
+            'respiratory-labs-diagnostics': 10,
+            'upper-respiratory': 10,
+            'head-neck-cancer': 10,
+            'lower-respiratory': 10
+        };
+
+        function updateTotalCount() {
+            let total = 0;
+            Object.keys(sections).forEach(section => {
+                const inputId = section.replace('respiratory-', 'resp-').replace('-antihypertensives', '').replace('-diagnostics', '-labs').replace('specimen-communication', 'specimen').replace('-steroids', '');
+                const inputElement = document.getElementById(inputId + '-count');
+                if (inputElement) {
+                    total += parseInt(inputElement.value) || 0;
+                }
+            });
+            document.getElementById('total-questions').textContent = total;
+        }
+
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('change', updateTotalCount);
+        });
+
+        function randomizeDefaults() {
+            Object.keys(sections).forEach(section => {
+                const max = sections[section];
+                const inputId = section.replace('respiratory-', 'resp-').replace('-antihypertensives', '').replace('-diagnostics', '-labs').replace('specimen-communication', 'specimen').replace('-steroids', '');
+                const inputElement = document.getElementById(inputId + '-count');
+                if (inputElement) {
+                    inputElement.value = Math.floor(Math.random() * (max + 1));
+                }
+            });
+            updateTotalCount();
+            startExam();
+        }
+
+        function startExam() {
+            allQuestions = window.EXAM_DATA.questions;
+            currentQuestions = [];
+
+            Object.keys(sections).forEach(section => {
+                const inputId = section.replace('respiratory-', 'resp-').replace('-antihypertensives', '').replace('-diagnostics', '-labs').replace('specimen-communication', 'specimen').replace('-steroids', '');
+                const inputElement = document.getElementById(inputId + '-count');
+                const count = inputElement ? (parseInt(inputElement.value) || 0) : 0;
+
+                if (count > 0) {
+                    const sectionQuestions = allQuestions.filter(q => q.section === section);
+                    currentQuestions.push(...shuffleArray(sectionQuestions).slice(0, count));
+                }
+            });
+
+            if (currentQuestions.length === 0) {
+                alert('Please select at least 1 question');
+                return;
+            }
+
+            currentQuestions = shuffleArray(currentQuestions);
+            currentQuestionIndex = 0;
+            userAnswers = {};
+
+            document.getElementById('setup-section').style.display = 'none';
+            document.getElementById('question-container').style.display = 'block';
+            document.getElementById('finish-section').classList.remove('show');
+
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            if (currentQuestionIndex >= currentQuestions.length) {
+                finishExam();
+                return;
+            }
+
+            const question = currentQuestions[currentQuestionIndex];
+            const isSATA = question.type === 'sata';
+
+            let html = `<div class="question-wrapper"><div class="question-header"><span class="question-number">Question ${currentQuestionIndex + 1} of ${currentQuestions.length}</span><div><span class="question-section">${question.section.replace(/-/g, ' ').toUpperCase()}</span><span class="question-type">${isSATA ? 'SATA' : 'Multiple Choice'}</span></div></div><div class="question-stem">${question.stem}</div><div class="options">`;
+
+            let options = [...question.options];
+            if (isSATA) {
+                options.forEach((option, idx) => {
+                    const checked = userAnswers[currentQuestionIndex]?.includes(idx) ? 'checked' : '';
+                    html += `<label class="option"><input type="checkbox" value="${idx}" onchange="updateAnswer(${currentQuestionIndex}, ${idx}, this)" ${checked}>${option}</label>`;
+                });
+            } else {
+                const selectedAnswer = userAnswers[currentQuestionIndex];
+                options.forEach((option, idx) => {
+                    const checked = selectedAnswer === idx ? 'checked' : '';
+                    html += `<label class="option ${checked ? 'selected' : ''}"><input type="radio" name="option-${currentQuestionIndex}" value="${idx}" onchange="updateAnswer(${currentQuestionIndex}, ${idx}, this)" ${checked}>${option}</label>`;
+                });
+            }
+
+            html += `</div><div class="rationale-section" id="rationale-${currentQuestionIndex}"><div class="rationale-title">Answer & Explanation:</div><div class="rationale-text">${question.rationale}</div></div></div>`;
+
+            document.getElementById('questions-display').innerHTML = html;
+
+            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
+            document.getElementById('next-btn').disabled = currentQuestionIndex === currentQuestions.length - 1;
+            document.getElementById('question-counter').textContent = `${currentQuestionIndex + 1} / ${currentQuestions.length}`;
+
+            const progress = ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
+            document.getElementById('progress-fill').style.width = progress + '%';
+
+            document.getElementById('show-answer-btn').textContent = 'Show Answer & Explanation';
+        }
+
+        function toggleRationale() {
+            const rationale = document.getElementById(`rationale-${currentQuestionIndex}`);
+            const btn = document.getElementById('show-answer-btn');
+            if (rationale.classList.contains('show')) {
+                rationale.classList.remove('show');
+                btn.textContent = 'Show Answer & Explanation';
+            } else {
+                rationale.classList.add('show');
+                btn.textContent = 'Hide Answer & Explanation';
+            }
+        }
+
+        function updateAnswer(questionIndex, optionIndex, element) {
+            const question = currentQuestions[questionIndex];
+            if (question.type === 'sata') {
+                if (!userAnswers[questionIndex]) {
+                    userAnswers[questionIndex] = [];
+                }
+                if (element.checked) {
+                    if (!userAnswers[questionIndex].includes(optionIndex)) {
+                        userAnswers[questionIndex].push(optionIndex);
+                    }
+                } else {
+                    userAnswers[questionIndex] = userAnswers[questionIndex].filter(idx => idx !== optionIndex);
+                }
+            } else {
+                userAnswers[questionIndex] = optionIndex;
+                document.querySelectorAll(`input[name="option-${questionIndex}"]`).forEach(input => {
+                    input.parentElement.classList.remove('selected');
+                });
+                element.parentElement.classList.add('selected');
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion();
+            }
+        }
+
+        function finishExam() {
+            document.getElementById('question-container').style.display = 'none';
+            document.getElementById('finish-section').classList.add('show');
+
+            let correct = 0;
+            currentQuestions.forEach((question, idx) => {
+                const userAnswer = userAnswers[idx];
+                let isCorrect = false;
+
+                if (question.type === 'sata') {
+                    const userAnswerSet = new Set(userAnswer || []);
+                    const correctAnswerSet = new Set(question.answers);
+                    isCorrect = JSON.stringify(Array.from(userAnswerSet).sort()) === JSON.stringify(Array.from(correctAnswerSet).sort());
+                } else {
+                    isCorrect = userAnswer === question.answer;
+                }
+
+                if (isCorrect) correct++;
+            });
+
+            const percentage = Math.round((correct / currentQuestions.length) * 100);
+            document.getElementById('score-display').textContent = `${correct}/${currentQuestions.length} (${percentage}%)`;
+            document.getElementById('finish-message').textContent = `You answered ${correct} out of ${currentQuestions.length} questions correctly.`;
+        }
+
+        function resetExam() {
+            document.getElementById('setup-section').style.display = 'block';
+            document.getElementById('question-container').style.display = 'none';
+            document.getElementById('finish-section').classList.remove('show');
+            currentQuestionIndex = 0;
+            userAnswers = {};
+        }
+
+        function shuffleArray(arr) {
+            const shuffled = [...arr];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        updateTotalCount();
+    </script>
+</body>
+</html>
