@@ -186,7 +186,6 @@
 
     <!-- Load exam data from external files -->
     <script src="data/exam1-questions.js?v=20260823"></script>
-    <script src="data/exam1-part2.js?v=20260823"></script>
     <script src="assets/site.js?v=20260823"></script>
     <script src="assets/exam.js?v=20260823"></script>
 
@@ -194,15 +193,8 @@
         const sections = [
             {
                 id: 'exam1',
-                title: 'Exam 1 — Comprehensive Assessment',
-                description: 'Full 70-question exam covering Week 1 material (diuretics, insulins, NSAIDs, assessment, respiratory)',
-                category: 'EXAM',
-                special: true
-            },
-            {
-                id: 'exam1-part2',
-                title: 'Exam 1 Part 2 — Respiratory Focus',
-                description: '28 respiratory-focused questions from Week 1',
+                title: 'Exam 1 — Consolidated Assessment',
+                description: '70 comprehensive questions: 30 fundamentals (diuretics, insulins, NSAIDs, assessment, skills, communication) + 40 Week 1 content (10 each: respiratory labs, upper respiratory, head/neck cancer, lower respiratory)',
                 category: 'EXAM',
                 special: true
             },
@@ -304,8 +296,6 @@
             // Set exam data
             if (examId === 'exam1' && typeof window.EXAM_DATA !== 'undefined') {
                 window.examData = window.EXAM_DATA;
-            } else if (examId === 'exam1-part2' && typeof window.EXAM_DATA_PART2 !== 'undefined') {
-                window.examData = window.EXAM_DATA_PART2;
             }
 
             // Render exam
