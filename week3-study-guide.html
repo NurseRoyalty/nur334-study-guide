@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 Study Guide - NUR 334</title>
+    <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <style>
+        :root {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #999;
+            --border-color: #d0e0f0;
+            --accent-color: #2980b9;
+            --accent-dark: #1f618d;
+            --accent-light: #3498db;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg-primary: #1a1a1a;
+                --bg-secondary: #2d2d2d;
+                --text-primary: #e8e8e8;
+                --text-secondary: #b0b0b0;
+                --text-muted: #808080;
+                --border-color: #3a4a5a;
+                --accent-color: #5dade2;
+                --accent-dark: #3498db;
+                --accent-light: #2980b9;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --border-color: #3a4a5a;
+            --accent-color: #5dade2;
+            --accent-dark: #3498db;
+            --accent-light: #2980b9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent-dark);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: rgba(41, 128, 185, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid #e74c3c;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            color: #c0392b;
+        }
+
+        .info-box {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--bg-secondary);
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--accent-light);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: rgba(41, 128, 185, 0.05);
+        }
+
+        .key-term {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .section-divider {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .warning-box {
+                color: #ff6b6b;
+                border-left-color: #ff6b6b;
+            }
+
+            table {
+                background: var(--bg-secondary);
+            }
+
+            tr:hover {
+                background: rgba(93, 173, 226, 0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Week 3 Study Guide</h1>
+            <p class="subtitle">Electrolyte & Fluid Imbalances + Perioperative Nursing</p>
+        </header>
+
+        <h2>Unit 1: Electrolyte Imbalances</h2>
+
+        <h3>Overview: The Big Picture</h3>
+        <p>Electrolyte imbalances are among the most commonly tested topics in nursing exams. They're clinically critical because even small deviations can cause severe symptoms—seizures, cardiac arrhythmias, respiratory failure—or be completely silent while causing damage.</p>
+
+        <div class="highlight-box">
+            <strong>Key Principle:</strong> Electrolytes regulate neuromuscular function, cardiac conduction, fluid shifts, and cellular metabolism. Always assess the TOTAL BODY deficit, not just serum concentration.
+        </div>
+
+        <h3>Normal Lab Values (Memorize These)</h3>
+        <table>
+            <tr>
+                <th>Electrolyte</th>
+                <th>Normal Range</th>
+                <th>Critical Low</th>
+                <th>Critical High</th>
+            </tr>
+            <tr>
+                <td>Sodium (Na+)</td>
+                <td>135-145 mEq/L</td>
+                <td>&lt;120</td>
+                <td>&gt;160</td>
+            </tr>
+            <tr>
+                <td>Potassium (K+)</td>
+                <td>3.5-5.0 mEq/L</td>
+                <td>&lt;2.5</td>
+                <td>&gt;6.5</td>
+            </tr>
+            <tr>
+                <td>Calcium (Ca2+)</td>
+                <td>8.5-10.2 mg/dL (total)<br>4.5-5.3 mg/dL (ionized)</td>
+                <td>&lt;6.5</td>
+                <td>&gt;13</td>
+            </tr>
+            <tr>
+                <td>Magnesium (Mg2+)</td>
+                <td>1.7-2.2 mg/dL</td>
+                <td>&lt;1.0</td>
+                <td>&gt;4.0</td>
+            </tr>
+            <tr>
+                <td>Phosphorus (PO4)</td>
+                <td>2.5-4.5 mg/dL</td>
+                <td>&lt;1.0</td>
+                <td>&gt;6.0</td>
+            </tr>
+        </table>
+
+        <h3>Sodium Imbalances</h3>
+        <p><span class="key-term">Hyponatremia</span> (Na &lt; 135) and <span class="key-term">Hypernatremia</span> (Na &gt; 145) are related to total body water, not just sodium content. Assessment requires BUN/Cr ratio, osmolality, and volume status.</p>
+
+        <h3>Potassium Imbalances</h3>
+        <p><span class="key-term">Hyperkalemia</span> (K &gt; 5.5) is immediately life-threatening due to cardiac effects. EKG changes: peaked T waves → widened QRS → absent P wave → eventual cardiac standstill.</p>
+
+        <div class="warning-box">
+            <strong>Emergency Intervention for Hyperkalemia:</strong> Calcium gluconate FIRST (stabilizes cardiac membrane), then shift K+ intracellularly with insulin+glucose or beta-agonists, then remove K+ with diuretics or dialysis.
+        </div>
+
+        <p><span class="key-term">Critical Concept:</span> Potassium and magnesium work together. Hypokalemia cannot be corrected if magnesium is low—always check Mg2+ and correct it first.</p>
+
+        <h3>Calcium Imbalances</h3>
+        <p><span class="key-term">Hypocalcemia</span> (Ca &lt; 8.5) causes neuromuscular hyperexcitability. Classic signs:</p>
+        <ul>
+            <li><span class="key-term">Chvostek's sign:</span> Tap facial nerve → facial muscles twitch</li>
+            <li><span class="key-term">Trousseau's sign:</span> Inflate BP cuff → carpopedal spasm (hand cramping)</li>
+            <li>Seizures, tetany, laryngospasm</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>ALWAYS correct calcium for albumin:</strong> Corrected Ca = measured Ca + 0.8(4 - albumin). A patient with low albumin may have LOW total Ca but NORMAL ionized (active) Ca.
+        </div>
+
+        <h3>Magnesium Imbalances</h3>
+        <p><span class="key-term">Hypomagnesemia</span> (Mg &lt; 1.7) is often overlooked but very common. Problems: torsades de pointes, potassium/calcium depletion that won't respond to treatment, neuropsychiatric symptoms.</p>
+
+        <p><span class="key-term">Hypermagnesemia</span> (Mg &gt; 2.5): Loss of DTRs is a clinical sign of toxicity. In pre-eclampsia, diminished DTRs mean reduce or hold magnesium sulfate.</p>
+
+        <h3>Phosphorus Imbalances</h3>
+        <p>Phosphorus and calcium have an inverse relationship. In chronic kidney disease, elevated phosphorus stimulates PTH → secondary hyperparathyroidism → bone loss and vascular calcification.</p>
+
+        <p><span class="key-term">Refeeding Syndrome:</span> When malnourished patients eat or receive TPN, insulin secretion shifts phosphorus, potassium, and magnesium intracellularly. Result: severe hypophosphatemia, hypokalemia, hypomagnesemia → cardiac dysrhythmias, respiratory failure. Prevent by feeding slowly and monitoring electrolytes.</p>
+
+        <h2>Unit 2: Fluid Volume Imbalances</h2>
+
+        <h3>The Gold Standard: Daily Weights</h3>
+        <p>1 pound = approximately 500 mL of fluid. Acute weight changes always indicate fluid shifts, not fat or muscle. This is the MOST RELIABLE indicator of fluid status across all patient populations.</p>
+
+        <h3>Types of FVD and FVE</h3>
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Osmolality</th>
+                <th>Sodium</th>
+                <th>Clinical Example</th>
+            </tr>
+            <tr>
+                <td>Isotonic FVD</td>
+                <td>Normal (280-300)</td>
+                <td>130-150</td>
+                <td>Diarrhea, vomiting, NG tube</td>
+            </tr>
+            <tr>
+                <td>Hypertonic FVD</td>
+                <td>High (&gt;300)</td>
+                <td>&gt;150</td>
+                <td>Diabetes insipidus, inadequate fluid intake</td>
+            </tr>
+            <tr>
+                <td>Hypotonic FVD</td>
+                <td>Low (&lt;280)</td>
+                <td>&lt;130</td>
+                <td>SIADH, diuretic overuse, tap water drinking</td>
+            </tr>
+        </table>
+
+        <h3>Third-Spacing: The Paradox</h3>
+        <p>In sepsis, burns, malnutrition, or cirrhosis, fluid shifts from intravascular → interstitial space. The patient may look "overloaded" (edema, ascites) but is actually intravascularly depleted. Classic example: cirrhotic with ascites who becomes hypotensive.</p>
+
+        <h2>Unit 3: Perioperative Nursing</h2>
+
+        <h3>Preoperative Phase</h3>
+
+        <h3>Anticoagulation Management</h3>
+        <ul>
+            <li><span class="key-term">Warfarin:</span> Discontinue 3-5 days pre-op. Bridge with LMWH (stopped 12-24 hours pre-op) or IV heparin (stopped hours pre-op, reversible with protamine) for high-risk patients.</li>
+            <li><span class="key-term">Aspirin & NSAIDs:</span> Often continued; depends on surgery type.</li>
+            <li><span class="key-term">Direct Oral Anticoagulants (DOACs):</span> Usually stopped 24-48 hours pre-op.</li>
+        </ul>
+
+        <h3>NPO Guidelines (ASA 2011)</h3>
+        <ul>
+            <li>Solids: 6-8 hours</li>
+            <li>Clear liquids: up to 2 hours pre-op</li>
+            <li>Reduces aspiration risk while preventing dehydration</li>
+        </ul>
+
+        <h3>Malignant Hyperthermia Screening</h3>
+        <p><span class="key-term">Malignant Hyperthermia (MH)</span> is triggered by succinylcholine and volatile anesthetics. It's genetic and potentially fatal.</p>
+
+        <div class="warning-box">
+            <strong>Family History = ALERT:</strong> If patient or family has MH history, communicate to anesthesiologist immediately. Use non-triggering anesthetics and have dantrolene available in OR.
+        </div>
+
+        <h3>Latex Allergy</h3>
+        <p>Can range from contact dermatitis to anaphylaxis. Communicate to entire OR team. Maintain latex-free environment with latex-free gloves, catheters, and equipment.</p>
+
+        <h3>Intraoperative Phase</h3>
+
+        <h3>Surgical Timeout (WHO Surgical Safety Checklist)</h3>
+        <p>Before incision, entire team verifies: patient identity, correct procedure, correct site, position, allergies, implants, equipment function. Prevents "never events" (wrong site/patient/procedure).</p>
+
+        <h3>Malignant Hyperthermia Crisis</h3>
+        <p>Signs: muscle rigidity, skin mottling, elevated temp (late sign), tachycardia, elevated K+, myoglobinuria.</p>
+
+        <div class="warning-box">
+            <strong>Action Plan:</strong> Stop triggering agents immediately, hyperventilate with 100% O2, administer dantrolene IV 2.5 mg/kg, use iced saline, monitor core temperature, manage complications (hyperkalemia, acidosis, rhabdomyolysis).
+        </div>
+
+        <h3>Positioning & Pressure Injury Prevention</h3>
+        <ul>
+            <li>Prone positioning: Risk of facial edema, corneal abrasion, airway compromise, chest wall compression</li>
+            <li>Use padding, rolls, pillows to protect vulnerable areas</li>
+            <li>Monitor peripheral nerves (brachial plexus in arm abduction, peroneal nerve in leg position)</li>
+        </ul>
+
+        <h3>Postoperative Phase 1 (PACU)</h3>
+
+        <h3>Immediate Concerns</h3>
+        <ul>
+            <li><span class="key-term">Respiratory depression:</span> RR &lt; 8, pinpoint pupils → opioid overdose. Give naloxone IV.</li>
+            <li><span class="key-term">Hypothermia:</span> Mild (35-36°C) is expected; active rewarming if shivering increases O2 demand.</li>
+            <li><span class="key-term">Pain management:</span> Inadequate pain control → splinting → atelectasis → VTE risk. Assess and treat promptly.</li>
+        </ul>
+
+        <h3>Vital Signs Monitoring</h3>
+        <p>Every 5-15 minutes initially, then every 30 minutes as patient stabilizes. Frequent monitoring detects complications early.</p>
+
+        <h3>Incision Assessment</h3>
+        <ul>
+            <li>Clear serous drainage: Normal</li>
+            <li>Purulent drainage: Infection</li>
+            <li>Bloody drainage: Hematoma or bleeding</li>
+            <li>Erythema, warmth, swelling: Infection</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2>Study Tips & Test-Taking Strategies</h2>
+
+        <ul>
+            <li><span class="key-term">Memorize the normal ranges:</span> You cannot reason your way through electrolyte questions without knowing what "normal" is.</li>
+            <li><span class="key-term">Relate symptoms to mechanisms:</span> Don't just memorize signs—understand WHY hypocalcemia causes Chvostek's (nerve hyperexcitability) and hypercalcemia causes sedation.</li>
+            <li><span class="key-term">Think in priorities:</span> In hyperkalemia, calcium is FIRST (protects heart), not potassium-lowering. Know your emergency algorithms.</li>
+            <li><span class="key-term">Consider total body deficit:</span> Serum electrolytes don't always reflect total depletion. A normal K+ level in a depleted patient will drop as soon as you give IV fluids.</li>
+            <li><span class="key-term">Medications affect electrolytes:</span> Loop diuretics → K+ loss. ACE inhibitors + K-sparing diuretics → K+ retention. Know common drug effects.</li>
+            <li><span class="key-term">Daily weights > single labs:</span> A patient can look normal on one lab but be dangerously depleted. Trends matter.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Final Reminder:</strong> Electrolyte imbalances can kill. Treat them seriously on exams. When in doubt, think: What's the immediate threat to the heart? What's the priority intervention? That's your answer.
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Study Guide</a>
+    </div>
+</body>
+</html>
