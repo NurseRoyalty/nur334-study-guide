@@ -288,6 +288,36 @@
             font-size: 1.2em;
             font-weight: bold;
             margin: 15px 0;
+            color: var(--light-text);
+        }
+
+        [data-theme="dark"] .answer-text {
+            color: var(--dark-text);
+        }
+
+        .answer-hidden {
+            display: none;
+        }
+
+        .answer-hidden.revealed {
+            display: block;
+        }
+
+        .btn-reveal-answer {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 20px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: opacity 0.3s;
+        }
+
+        .btn-reveal-answer:hover {
+            opacity: 0.9;
         }
 
         .rationale {
@@ -297,10 +327,12 @@
             margin-top: 15px;
             font-size: 0.95em;
             line-height: 1.6;
+            color: var(--light-text);
         }
 
         [data-theme="dark"] .rationale {
             background-color: rgba(52, 152, 219, 0.2);
+            color: var(--dark-text);
         }
 
         .modal-buttons {
@@ -435,7 +467,8 @@
             <div class="question-display">
                 <div class="points" id="modal-points"></div>
                 <div class="question-text" id="modal-question"></div>
-                <div class="answer-section">
+                <button class="btn-reveal-answer" onclick="revealAnswer()">Reveal Answer</button>
+                <div class="answer-section answer-hidden" id="answer-section">
                     <div class="answer-header">Answer:</div>
                     <div class="answer-text" id="modal-answer"></div>
                     <div class="rationale" id="modal-rationale"></div>
@@ -561,7 +594,7 @@
                         cell.classList.add('answered');
                     }
 
-                    cell.textContent = '$' + points;
+                    cell.textContent = points + ' pts';
                     cell.onclick = () => openQuestion(topic, points);
                     column.appendChild(cell);
                 });
@@ -604,12 +637,21 @@
 
             gameState.currentQuestion = { topic, points, clue, questionId };
 
-            document.getElementById('modal-points').textContent = 'Points: $' + points;
+            document.getElementById('modal-points').textContent = 'Points: ' + points;
             document.getElementById('modal-question').textContent = clue.q;
             document.getElementById('modal-answer').textContent = clue.a;
             document.getElementById('modal-rationale').textContent = clue.rationale;
 
+            // Hide answer section when question opens
+            const answerSection = document.getElementById('answer-section');
+            answerSection.classList.remove('revealed');
+
             document.getElementById('questionModal').style.display = 'block';
+        }
+
+        function revealAnswer() {
+            const answerSection = document.getElementById('answer-section');
+            answerSection.classList.add('revealed');
         }
 
         function closeQuestion() {
