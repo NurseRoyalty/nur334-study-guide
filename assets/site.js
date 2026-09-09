@@ -27,7 +27,7 @@ window.STORE_PREFIX = "nur334";
 
 const SITE = {
   /* ---- EDIT THESE TWO for your course ---- */
-  brand: "NUR 334 \u00b7 Med-Surg I",  // big text, top-left of the nav bar
+  brand: "NUR 334 · Med-Surg I",  // big text, top-left of the nav bar
   course: "Study Guide",              // small text under it
 
   home: { id: "home", title: "Home", file: "index.html" },
@@ -61,7 +61,16 @@ const SITE = {
         { id: "week2-cvc", num: "4", title: "Central Venous Catheters", file: "week2-central-venous-catheters.html" },
       ]
     },
-    /* Copy the block above for Week 3, Week 4, ... as the course goes on. */
+    {
+      label: "Week 3",
+      items: [
+        { id: "week3-electrolyte-imb", num: "1", title: "Electrolyte Imbalances", file: "week3-electrolyte-imbalances.html" },
+        { id: "week3-fluid-mgmt", num: "2", title: "Fluid Management", file: "week3-fluid-management.html" },
+        { id: "week3-preop", num: "3", title: "Preoperative Nursing", file: "week3-preoperative-nursing.html" },
+        { id: "week3-intraop", num: "4", title: "Intraoperative Nursing", file: "week3-intraoperative-nursing.html" },
+        { id: "week3-postop", num: "5", title: "Postoperative Nursing", file: "week3-postoperative-nursing.html" },
+      ]
+    },
     {
       label: "Fundamentals Review",
       items: [
@@ -425,11 +434,11 @@ const SITE_VER = (function () {
     // Show a windowed snippet around the match (entries may be full sentences).
     function mark(text, q) {
       const i = text.toLowerCase().indexOf(q);
-      if (i < 0) return esc(text.length > 100 ? text.slice(0, 100) + "\u2026" : text);
+      if (i < 0) return esc(text.length > 100 ? text.slice(0, 100) + "…" : text);
       const pad = 48;
       const start = Math.max(0, i - pad), end = Math.min(text.length, i + q.length + pad);
-      const pre = (start > 0 ? "\u2026" : "") + text.slice(start, i);
-      const post = text.slice(i + q.length, end) + (end < text.length ? "\u2026" : "");
+      const pre = (start > 0 ? "…" : "") + text.slice(start, i);
+      const post = text.slice(i + q.length, end) + (end < text.length ? "…" : "");
       return esc(pre) + "<mark>" + esc(text.slice(i, i + q.length)) + "</mark>" + esc(post);
     }
 
