@@ -5441,7 +5441,148 @@ window.QUIZ_BANK = {
       label: "Fluid Management",
       week: 3,
       sets: {
-        mustKnow: [],
+        mustKnow: [
+            {
+                      "stem": "A patient with advanced cirrhosis has gained 5 lbs in 2 days with no change in intake. Which assessment finding would differentiate fluid volume excess (FVE) from malnutrition?",
+                      "options": [
+                                "Peripheral edema and ascites indicating FVE from third-spacing",
+                                "Weight gain always indicates FVE",
+                                "Muscle wasting with weight loss indicates malnutrition",
+                                "Ascites is unrelated to fluid status"
+                      ],
+                      "answer": 0,
+                      "rationale": "In cirrhosis, decreased albumin and increased portal pressure cause third-spacing (fluid shift into peritoneal, interstitial spaces). Daily weight gain + peripheral edema + ascites indicates FVE. This is different from undernutrition (weight loss despite adequate intake). Cirrhotic patients can be simultaneously malnourished AND fluid-overloaded.",
+                      "topic": "Fluid Volume Imbalances",
+                      "section": "fluid-volume-imbalances",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "An elderly patient presents with FVD: sodium 148, BUN 36, creatinine 1.8, urine specific gravity 1.030. Which IV fluid is appropriate?",
+                      "options": [
+                                "Normal saline (0.9% NS) rapidly",
+                                "Hypotonic saline (0.45% NS) slowly over 48 hours",
+                                "Dextrose 5% in water (D5W)",
+                                "Hypertonic saline (3% NS)"
+                      ],
+                      "answer": 1,
+                      "rationale": "In hypernatremic FVD, correction must be SLOW to avoid osmotic shifts causing cerebral edema. Hypotonic fluid (0.45% NS) corrects the deficit and serum osmolality gradually. Rapid correction with NS makes hypernatremia worse. Target: decrease Na+ 8-10 mEq/L per 24 hours. Monitor neurologically.",
+                      "topic": "Fluid Volume Imbalances",
+                      "section": "fluid-volume-imbalances",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "What is the MOST RELIABLE indicator of adequate fluid status in all patient populations?",
+                      "options": [
+                                "Serum sodium level",
+                                "Daily weights (same time, same clothing, same scale)",
+                                "Serum osmolality",
+                                "Blood pressure and heart rate"
+                      ],
+                      "answer": 1,
+                      "rationale": "Daily weights are the gold standard for detecting FVE or FVD. A gain/loss of 1 lb = ~500 mL fluid change. This is reliable across all patients. Acute weight changes always indicate fluid shifts (not fat or muscle). Serum sodium can be normal in FVE/FVD; vital signs may compensate.",
+                      "topic": "Fluid Volume Imbalances",
+                      "section": "fluid-volume-imbalances",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A post-op patient has low urine output (200 mL/24 hours), elevated BUN:Cr ratio (25:1), and confusion. Assuming oliguria is NOT from urinary obstruction or intrinsic kidney disease, what is the likely cause?",
+                      "options": [
+                                "Fluid volume excess",
+                                "Acute kidney injury from dehydration (hypovolemic shock)",
+                                "SIADH",
+                                "Excessive diuretic use"
+                      ],
+                      "answer": 1,
+                      "rationale": "Post-op patient + oliguria + high BUN:Cr ratio + confusion suggests prerenal azotemia from inadequate perfusion. Oliguria after surgery is often from underreplacement of intraoperative fluid losses. Elevated BUN:Cr indicates kidney hypoperfusion, not intrinsic damage. Treatment: IV fluid bolus, reassess.",
+                      "topic": "Fluid Volume Imbalances",
+                      "section": "fluid-volume-imbalances",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "Why is careful fluid management critical in elderly patients compared to younger adults?",
+                      "options": [
+                                "Elderly have no functional reserve for fluid imbalances",
+                                "Elderly have narrower ranges for safe fluid balance; diminished thirst, reduced kidney function, and cardiac compromise make both FVE and FVD dangerous",
+                                "Elderly require more total fluid intake",
+                                "Fluid restrictions should be strict in all elderly patients"
+                      ],
+                      "answer": 1,
+                      "rationale": "Elderly: decreased thirst sensation, reduced GFR, reduced cardiac output reserve. FVD causes acute kidney injury; FVE causes heart failure and pulmonary edema. Both are poorly tolerated. Individualize fluid orders based on comorbidities. Careful daily weight monitoring is essential.",
+                      "topic": "Fluid Volume Imbalances",
+                      "section": "fluid-volume-imbalances",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A patient with FVE is receiving furosemide. Why would a falsely normal serum sodium level be misleading?",
+                      "options": [
+                                "Furosemide causes hypernatremia",
+                                "FVE can cause dilutional hyponatremia; normal Na+ may reflect appropriate fluid loss but doesn't indicate when to stop diuretics",
+                                "Sodium levels never change with FVE",
+                                "Furosemide prevents sodium reabsorption"
+                      ],
+                      "answer": 1,
+                      "rationale": "FVE causes dilutional hyponatremia (excess water relative to sodium). As diuretics work, fluid is lost faster than sodium, so Na+ normalizes. However, the patient may still be fluid-overloaded. Continue assessment using daily weights, urine output, vital signs, and physical exam rather than relying on normalized lab values.",
+                      "topic": "Fluid Volume Imbalances",
+                      "section": "fluid-volume-imbalances",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A patient's lab results show: high BUN, high creatinine, high sodium, HIGH osmolality. Which type of FVD is this?",
+                      "options": [
+                                "Isotonic FVD",
+                                "Hypertonic FVD (hypernatremic)",
+                                "Hypotonic FVD (hyponatremic)",
+                                "No fluid imbalance present"
+                      ],
+                      "answer": 1,
+                      "rationale": "High osmolality + high sodium = water loss exceeding sodium loss (hypertonic FVD). Seen in: diabetes insipidus, excessive sweating, inadequate fluid intake, enteral feeding without adequate free water. The kidneys attempt to conserve water (concentrated urine, high osmolality).",
+                      "topic": "Fluid Volume Imbalances",
+                      "section": "fluid-volume-imbalances",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "Why might a patient with FVE paradoxically have FVD of the intravascular compartment (as in cirrhosis)?",
+                      "options": [
+                                "FVE and FVD cannot occur simultaneously",
+                                "Third-spacing moves fluid from intravascular → interstitial/intracellular, causing intravascular depletion despite total FVE",
+                                "Cirrhosis causes only FVE",
+                                "Patients with FVE always have adequate intravascular volume"
+                      ],
+                      "answer": 1,
+                      "rationale": "In cirrhosis: low albumin, increased portal pressure → fluid shifts to peritoneum (ascites) and interstitium (edema). Total body water increases (FVE) but intravascular volume decreases (relative FVD). Kidneys perceive depletion → renin-angiotensin-aldosterone activation → sodium/water retention → worsens ascites. Paradoxical management: fluid restriction despite signs of FVE.",
+                      "topic": "Fluid Volume Imbalances",
+                      "section": "fluid-volume-imbalances",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A patient with FVD receives 2 L normal saline rapidly. Urine output remains low, and orthostatic vital signs worsen. What might be happening?",
+                      "options": [
+                                "Fluid is adequate; the kidneys are failing",
+                                "Fluid may be third-spacing into interstitium; patient may need colloids or albumin instead of crystalloids",
+                                "Normal saline is contraindicated in FVD",
+                                "The patient needs more saline faster"
+                      ],
+                      "answer": 1,
+                      "rationale": "In conditions like sepsis, burns, or severe malnutrition, crystalloid fluids rapidly shift from intravascular to interstitium (third-spacing). Large volumes of NS are needed, or colloids (albumin, FFP) are added to maintain intravascular oncotic pressure and prevent worsening intravascular FVD despite total body fluid increase.",
+                      "topic": "Fluid Volume Imbalances",
+                      "section": "fluid-volume-imbalances",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "Which finding would indicate that FVE management is inadequate despite diuretic therapy?",
+                      "options": [
+                                "Serum sodium normalizes",
+                                "Continued daily weight gain, persistent edema, elevated JVP, and crackles on lung exam",
+                                "Urine output increases",
+                                "Hemoglobin normalizes"
+                      ],
+                      "answer": 1,
+                      "rationale": "Successful FVE management shows: daily weight loss (goal 1-2 lbs/day), resolution of edema, normal JVP, clear lungs, improved dyspnea. Persistent findings indicate inadequate diuresis. May need to increase diuretic dose, add second diuretic class, or restrict sodium/fluids further.",
+                      "topic": "Fluid Volume Imbalances",
+                      "section": "fluid-volume-imbalances",
+                      "type": "multiple-choice"
+            }
+          ],
         extraPractice: [],
         eaq: []
       }
@@ -5451,7 +5592,78 @@ window.QUIZ_BANK = {
       label: "Preoperative Nursing",
       week: 3,
       sets: {
-        mustKnow: [],
+        mustKnow: [
+            {
+                      "stem": "A patient scheduled for elective surgery is taking warfarin for atrial fibrillation. What is the nursing priority regarding this medication?",
+                      "options": [
+                                "Continue warfarin as scheduled the morning of surgery",
+                                "Discontinue warfarin 3-5 days pre-op; coordinate with provider about bridging with LMWH or IV heparin if high thromboembolism risk",
+                                "Give warfarin the night before surgery",
+                                "Administer vitamin K to reverse warfarin effect"
+                      ],
+                      "answer": 1,
+                      "rationale": "Warfarin is discontinued 3-5 days pre-op to allow INR to normalize and prevent surgical bleeding. High-risk patients (mechanical valve, recent stroke) need bridging with LMWH (stopped 12-24 hours pre-op) or IV heparin (stopped hours pre-op, can be reversed with protamine). Coordination with provider is essential.",
+                      "topic": "Preoperative Nursing",
+                      "section": "preoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A patient undergoing abdominal surgery has not eaten since midnight (8 hours ago). Is NPO status adequate?",
+                      "options": [
+                                "Yes, 8 hours is adequate NPO",
+                                "No, solids require 6-8 hours NPO; clear liquids up to 2 hours pre-op per current guidelines",
+                                "NPO status is not necessary for abdominal surgery",
+                                "The patient should fast for 24 hours"
+                      ],
+                      "answer": 1,
+                      "rationale": "Current ASA guidelines (2011): solids 6-8 hours NPO, clear liquids up to 2 hours pre-op. Reduces aspiration risk while preventing dehydration. Exceptions: pregnancy, obesity, emergency, GI pathology. Some facilities allow sips of water even closer to induction.",
+                      "topic": "Preoperative Nursing",
+                      "section": "preoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "During pre-op assessment, the patient reports a family history of malignant hyperthermia (MH). What is the most important nursing action?",
+                      "options": [
+                                "Assure the patient it's very rare and likely won't occur",
+                                "Communicate this to the surgical team and anesthesiologist; patient may need non-triggering anesthetics",
+                                "Recommend the surgery be cancelled",
+                                "Administer aspirin to prevent MH"
+                      ],
+                      "answer": 1,
+                      "rationale": "Malignant hyperthermia is genetic, triggered by succinylcholine and volatile anesthetics. Family history is critical. Anesthesiologist will use non-triggering agents and avoid succinylcholine. Dantrolene should be in OR if patient is at risk. All OR staff must be informed.",
+                      "topic": "Preoperative Nursing",
+                      "section": "preoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "What should the nurse include in pre-op teaching about coughing and deep breathing post-operatively?",
+                      "options": [
+                                "Avoid coughing to prevent incision pain",
+                                "Teach splinting techniques; practice deep breathing, coughing, and leg exercises pre-op to ensure competence post-op",
+                                "Coughing is contraindicated after surgery",
+                                "These exercises are not necessary for abdominal surgery"
+                      ],
+                      "answer": 1,
+                      "rationale": "Pre-op teaching of splinting (support incision with pillow), deep breathing, coughing, and leg exercises improves post-op compliance and reduces complications (atelectasis, VTE). Patients who practice pre-op perform better post-op when in pain. These are standard pre-op interventions.",
+                      "topic": "Preoperative Nursing",
+                      "section": "preoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A pre-op patient with a latex allergy is being prepared for surgery. What is the priority intervention?",
+                      "options": [
+                                "Use latex gloves but change them frequently",
+                                "Communicate allergy to entire surgical team; use latex-free equipment, gloves, catheters, and place allergy alert on chart and ID",
+                                "Latex allergies are minor and don't affect surgery",
+                                "Use hypoallergenic latex products"
+                      ],
+                      "answer": 1,
+                      "rationale": "Latex allergy can range from contact dermatitis to anaphylaxis in OR (life-threatening). Communication to OR staff is essential. Latex-free environment must be maintained throughout. Patient should wear latex-free ID bracelet. No latex gloves, catheters, or equipment in OR.",
+                      "topic": "Preoperative Nursing",
+                      "section": "preoperative-nursing",
+                      "type": "multiple-choice"
+            }
+          ],
         extraPractice: [],
         eaq: []
       }
@@ -5461,7 +5673,78 @@ window.QUIZ_BANK = {
       label: "Intraoperative Nursing",
       week: 3,
       sets: {
-        mustKnow: [],
+        mustKnow: [
+            {
+                      "stem": "During surgery, the anesthesiologist notices muscle rigidity, elevated temperature (38.5°C), and tachycardia. What is the likely complication?",
+                      "options": [
+                                "Normal response to anesthesia",
+                                "Malignant hyperthermia; immediately notify team, stop triggering agents, administer dantrolene IV",
+                                "Patient is waking up",
+                                "Equipment malfunction"
+                      ],
+                      "answer": 1,
+                      "rationale": "Malignant hyperthermia: muscle rigidity, hyperthermia (late sign), tachycardia, hyperkalemia, myoglobinuria, rhabdomyolysis, coagulopathy, DIC. EARLY signs: masseter muscle rigidity, skin mottling. Treatment: stop triggering agents immediately, hyperventilate with 100% O2, administer dantrolene IV 2.5 mg/kg, iced saline, monitor core temperature, manage complications.",
+                      "topic": "Intraoperative Nursing",
+                      "section": "intraoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "Why is the surgical timeout (WHO checklist) performed before incision?",
+                      "options": [
+                                "It is a formality with no clinical significance",
+                                "It verifies patient ID, procedure, site, position, allergies, implants, and equipment readiness to prevent wrong site/patient/procedure errors",
+                                "Timeout only applies to major surgeries",
+                                "Timeout is optional if the patient is unconscious"
+                      ],
+                      "answer": 1,
+                      "rationale": "Surgical timeout is a mandatory team briefing using the WHO Surgical Safety Checklist. ALL team members participate, verifying: patient identity, correct procedure, correct site, position, allergies, implants, equipment function. Prevents never events (wrong site/patient/procedure surgery).",
+                      "topic": "Intraoperative Nursing",
+                      "section": "intraoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A patient is positioned prone for spinal surgery. What is the priority nursing assessment during surgery?",
+                      "options": [
+                                "Blood pressure and heart rate only",
+                                "Monitoring for pressure injuries, facial edema, corneal abrasion, and airway patency",
+                                "Prone position has no special concerns",
+                                "Only anesthesiologists monitor during surgery"
+                      ],
+                      "answer": 1,
+                      "rationale": "Prone positioning increases risk: facial edema from dependent position, corneal abrasion from pressure, decreased airway patency, chest wall compression affecting ventilation, pressure injuries on face/chest/genitals. OR nurses must position carefully using padding, rolls, and pillows to protect vulnerable areas and maintain airway alignment.",
+                      "topic": "Intraoperative Nursing",
+                      "section": "intraoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "What is the role of the scrub nurse during surgery?",
+                      "options": [
+                                "Monitor vital signs and anesthesia",
+                                "Maintain sterile field, handle instruments/supplies, anticipate surgeon's needs, maintain count of sponges/instruments",
+                                "Position the patient",
+                                "Administer medications"
+                      ],
+                      "answer": 1,
+                      "rationale": "Scrub nurse: maintains sterile technique, handles surgical instruments/supplies, keeps track of sponges/instruments to prevent retained foreign objects, anticipates surgeon's needs, communicates with team. Critical role in preventing surgical site infections and safety.",
+                      "topic": "Intraoperative Nursing",
+                      "section": "intraoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A patient loses 1500 mL blood during surgery. What is the concern regarding fluid replacement?",
+                      "options": [
+                                "Replace with equal volume of normal saline",
+                                "Blood loss at 1500 mL warrants blood transfusion; crystalloid 3:1 rule suggests 4500 mL NS, but this causes third-spacing; balanced approach uses crystalloids + colloids + PRBCs",
+                                "No replacement is needed",
+                                "Only colloids should be used"
+                      ],
+                      "answer": 1,
+                      "rationale": "Massive blood loss (>1500 mL) requires balanced fluid replacement: crystalloids (3:1 rule overestimates needs), colloids (albumin, hetastarch), and blood products (PRBCs). Goal: maintain adequate perfusion without fluid overload or third-spacing. Anesthesiologist directs fluid strategy based on patient factors.",
+                      "topic": "Intraoperative Nursing",
+                      "section": "intraoperative-nursing",
+                      "type": "multiple-choice"
+            }
+          ],
         extraPractice: [],
         eaq: []
       }
@@ -5471,7 +5754,78 @@ window.QUIZ_BANK = {
       label: "Postoperative Nursing",
       week: 3,
       sets: {
-        mustKnow: [],
+        mustKnow: [
+            {
+                      "stem": "A patient arrives in PACU post-op with respiratory rate 8/minute, pinpoint pupils, and difficult to arouse. What is the priority intervention?",
+                      "options": [
+                                "Administer oxygen and establish airway support; prepare for reversal agents (naloxone for opioids, flumazenil for benzodiazepines)",
+                                "Wait for patient to wake up naturally",
+                                "Administer stimulants",
+                                "Transfer to room immediately"
+                      ],
+                      "answer": 0,
+                      "rationale": "Respiratory depression with pinpoint pupils = opioid overdose (from anesthesia or analgesics). Priority: oxygen, airway support, naloxone IV. Flumazenil reverses benzodiazepines if present. Do NOT delay; respiratory depression is immediately life-threatening.",
+                      "topic": "Postoperative Nursing",
+                      "section": "postoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A post-op patient in PACU has a temperature of 35.8°C (96.4°F). What is the clinical significance?",
+                      "options": [
+                                "Hypothermia is expected post-op and requires no intervention",
+                                "Mild hypothermia is expected; however, severe shivering increases O2 consumption and stress; active rewarming (blankets, warm IVs) is indicated",
+                                "Temperature <35°C is safe in post-op patients",
+                                "Hypothermia indicates infection"
+                      ],
+                      "answer": 1,
+                      "rationale": "Post-op hypothermia from anesthesia-induced vasodilation and prolonged exposure in cool OR. Mild hypothermia (35-36°C) is common but increases complications: shivering increases O2 demand, delayed emergence, increased pain perception. Rewarming: passive (blankets) or active (warming devices, warm IVs).",
+                      "topic": "Postoperative Nursing",
+                      "section": "postoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A post-op patient has pain 9/10 despite having received morphine 4 mg IV 10 minutes ago. What is the appropriate nursing action?",
+                      "options": [
+                                "Tell patient pain will decrease soon; wait longer",
+                                "Assess pain characteristics (location, type, severity), ensure opioid has adequate time to work (15-20 min), consider additional dose or different medication per order, rule out complications",
+                                "Assume patient is drug-seeking",
+                                "Avoid more opioids to prevent addiction"
+                      ],
+                      "answer": 1,
+                      "rationale": "Post-op pain management is a priority. Inadequate pain relief increases complications: splinting (shallow breathing → atelectasis), tachycardia, hypertension, increased opioid resistance. Opioids take 15-20 minutes IV; additional doses may be needed. Assess before assuming inadequate response.",
+                      "topic": "Postoperative Nursing",
+                      "section": "postoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "What is the standard post-op vitals monitoring schedule in PACU?",
+                      "options": [
+                                "Every 30 minutes for the entire stay",
+                                "Every 5-15 minutes initially, then every 30 min as patient stabilizes, per protocol",
+                                "Vitals are only checked once upon arrival",
+                                "Vitals only if patient complains of symptoms"
+                      ],
+                      "answer": 1,
+                      "rationale": "PACU protocol: frequent vital signs initially (every 5-15 min) to detect complications early (bleeding, infection, cardiac changes). As patient stabilizes, intervals lengthen (30 min). Frequency varies by facility and patient acuity. Protocol ensures early detection of post-op complications.",
+                      "topic": "Postoperative Nursing",
+                      "section": "postoperative-nursing",
+                      "type": "multiple-choice"
+            },
+            {
+                      "stem": "A post-op patient has clear drainage on dressing and complains of incision pain when moving. What is the appropriate assessment?",
+                      "options": [
+                                "Clear drainage is normal; no intervention needed",
+                                "Assess for signs of infection (purulent drainage, odor, erythema, warmth), hematoma (bloody drainage), or infection; reinforce dressing if necessary and monitor",
+                                "Change dressing immediately",
+                                "Cover dressing with tape and restrict movement"
+                      ],
+                      "answer": 1,
+                      "rationale": "Post-op incision assessment includes: clear serous drainage is normal early post-op; purulent/foul-smelling drainage indicates infection; bloody drainage suggests hematoma or bleeding; swelling/erythema/warmth suggest infection. Monitor daily for signs of infection. Dressing changes per protocol.",
+                      "topic": "Postoperative Nursing",
+                      "section": "postoperative-nursing",
+                      "type": "multiple-choice"
+            }
+          ],
         extraPractice: [],
         eaq: []
       }
