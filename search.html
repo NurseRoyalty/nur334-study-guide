@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search - NUR334 Study Guide</title>
+<script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="stylesheet" href="assets/styles.css?v=20260907">
+<style>
+  .search-container {
+    margin: 30px 0;
+    padding: 20px;
+    background: var(--color-surface-secondary);
+    border-radius: 8px;
+  }
+
+  .search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .search-box input {
+    flex: 1;
+    padding: 12px;
+    font-size: 1em;
+    border: 2px solid #0f3460;
+    border-radius: 4px;
+    background: var(--color-surface-primary);
+    color: var(--color-text-primary);
+  }
+
+  .search-box input:focus {
+    outline: none;
+    border-color: #e94560;
+  }
+
+  .search-box button {
+    padding: 12px 24px;
+    background: #0f3460;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+
+  .search-box button:hover {
+    background: #1e5a96;
+    transform: translateY(-2px);
+  }
+
+  .search-results {
+    margin-top: 20px;
+  }
+
+  .results-header {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--color-text-primary);
+  }
+
+  .search-result {
+    margin: 15px 0;
+    padding: 15px;
+    background: var(--color-surface-primary);
+    border-left: 4px solid #0f3460;
+    border-radius: 4px;
+  }
+
+  .result-title {
+    font-size: 1.05em;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .result-title a {
+    color: #0f3460;
+    text-decoration: none;
+  }
+
+  .result-title a:hover {
+    color: #e94560;
+    text-decoration: underline;
+  }
+
+  .result-section {
+    font-size: 0.95em;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .result-keywords {
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
+  }
+
+  .keyword-tag {
+    display: inline-block;
+    background: #e94560;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin: 2px 4px 2px 0;
+    font-size: 0.85em;
+  }
+
+  .no-results {
+    padding: 20px;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 1.05em;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #0f3460;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .back-link:hover {
+    color: #e94560;
+  }
+
+  .search-tips {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--color-surface-primary);
+    border-radius: 4px;
+    font-size: 0.95em;
+    color: var(--color-text-secondary);
+  }
+
+  .search-tips strong {
+    color: var(--color-text-primary);
+  }
+</style>
+</head>
+<body>
+
+<main id="content" class="page-inner">
+  <a href="index.html" class="back-link">← Back to Home</a>
+
+  <div class="search-container">
+    <div style="font-size: 1.5em; font-weight: bold; margin-bottom: 20px; color: var(--color-text-primary);">🔍 Search Study Guide</div>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search topics, keywords, or conditions..." onkeypress="if(event.key==='Enter')performSearch()">
+      <button onclick="performSearch()">Search</button>
+    </div>
+
+    <div id="searchResults" class="search-results"></div>
+
+    <div class="search-tips">
+      <strong>Search Tips:</strong> Try searching for topics like "malignant hyperthermia", "hemoglobin", "electrolytes", "transfusion", or condition names. Results show related pages and content sections.
+    </div>
+  </div>
+
+</main>
+
+<script src="data/search-index.js?v=20260907"></script>
+<script>
+  function performSearch() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    const resultsContainer = document.getElementById('searchResults');
+
+    if (!query) {
+      resultsContainer.innerHTML = '';
+      return;
+    }
+
+    const results = [];
+
+    // Search through index
+    if (window.SEARCH_INDEX) {
+      window.SEARCH_INDEX.forEach(page => {
+        let matchScore = 0;
+        const matchedKeywords = [];
+        const matchedSections = [];
+
+        // Check page title
+        if (page.t.toLowerCase().includes(query)) {
+          matchScore += 10;
+        }
+
+        // Check sections
+        if (page.secs) {
+          page.secs.forEach(sec => {
+            let sectionScore = 0;
+
+            // Check section title
+            if (sec.s.toLowerCase().includes(query)) {
+              sectionScore += 5;
+            }
+
+            // Check keywords
+            sec.k.forEach(kw => {
+              if (kw.toLowerCase().includes(query)) {
+                sectionScore += 3;
+                if (!matchedKeywords.includes(kw)) {
+                  matchedKeywords.push(kw);
+                }
+              }
+            });
+
+            if (sectionScore > 0) {
+              matchedSections.push(sec);
+              matchScore += sectionScore;
+            }
+          });
+        }
+
+        if (matchScore > 0) {
+          results.push({
+            page: page,
+            score: matchScore,
+            matchedKeywords: matchedKeywords,
+            matchedSections: matchedSections
+          });
+        }
+      });
+    }
+
+    // Sort by relevance
+    results.sort((a, b) => b.score - a.score);
+
+    // Display results
+    if (results.length === 0) {
+      resultsContainer.innerHTML = '<div class="no-results">No results found for "' + escapeHtml(query) + '". Try different keywords or browse the weekly topics.</div>';
+    } else {
+      let html = '<div class="results-header">Found ' + results.length + ' matching page(s)</div>';
+
+      results.forEach(result => {
+        html += '<div class="search-result">';
+        html += '<div class="result-title"><a href="' + result.page.f + '">' + escapeHtml(result.page.t) + '</a></div>';
+
+        if (result.matchedSections.length > 0) {
+          const sectionNames = result.matchedSections.map(s => s.s).join(", ");
+          html += '<div class="result-section"><strong>Sections:</strong> ' + escapeHtml(sectionNames) + '</div>';
+        }
+
+        if (result.matchedKeywords.length > 0) {
+          html += '<div class="result-keywords"><strong>Matched Keywords:</strong> ';
+          result.matchedKeywords.forEach(kw => {
+            html += '<span class="keyword-tag">' + escapeHtml(kw) + '</span>';
+          });
+          html += '</div>';
+        }
+
+        html += '</div>';
+      });
+
+      resultsContainer.innerHTML = html;
+    }
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Focus search input on load
+  window.addEventListener('load', () => {
+    document.getElementById('searchInput').focus();
+  });
+</script>
+
+</body>
+</html>

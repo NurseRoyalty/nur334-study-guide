@@ -1,43 +1,443 @@
 <!DOCTYPE html>
-<!-- ============================================================
-     THE TORTURE CHAMBER
-
-     A cumulative, 100%-select-all-that-apply practice exam with its
-     own oxblood theme. Same engine as every other exam page; the only
-     differences are class="torture" on <body> (which re-points the
-     colour variables, scoped so it can never leak to another page)
-     and the fact that this page has no <header> — it opens straight
-     on the topic-breakdown strip.
-
-     The questions live in data/torture-chamber.js. The design rules
-     that keep it from being guessable are documented at the top of
-     that file and in RULES.md. Read them before adding questions;
-     three separate rounds of fixes exist because they were skipped.
-     ============================================================ -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Torture Chamber — Study Guide</title>
+<title>The Torture Chamber - NUR334 Study Guide</title>
 <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-<link rel="stylesheet" href="assets/styles.css?v=20260818">
-</head>
-<body class="torture">
-<a class="skip-link" href="#content">Skip to content</a>
+<link rel="stylesheet" href="assets/styles.css?v=20260907">
+<style>
+  .exam-header {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: var(--color-surface-secondary);
+    border-radius: 8px;
+  }
 
-<main id="content">
-<div class="page-inner">
+  .exam-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--color-text-primary);
+  }
+
+  .exam-title.torture {
+    color: #8b0000;
+  }
+
+  [data-theme="dark"] .exam-title.torture {
+    color: #ff6666;
+  }
+
+  .exam-instructions {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .week-indicator {
+    display: inline-block;
+    background: linear-gradient(135deg, #0f3460, #e94560);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+
+  .week-2 {
+    background: linear-gradient(135deg, #1e5a96, #4a90e2);
+  }
+
+  .week-3 {
+    background: linear-gradient(135deg, #8b5cf6, #d946ef);
+  }
+
+  .question {
+    margin: 30px 0;
+    padding: 20px;
+    background: var(--color-surface-secondary);
+    border-left: 4px solid #0f3460;
+    border-radius: 6px;
+  }
+
+  .question-stem {
+    font-size: 1.05em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+
+  .question-options {
+    list-style: none;
+    margin: 15px 0;
+  }
+
+  .option {
+    margin: 10px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .option input[type="checkbox"],
+  .option input[type="radio"] {
+    margin-top: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .option label {
+    flex: 1;
+    cursor: pointer;
+    color: var(--color-text-primary);
+  }
+
+  .option input:disabled {
+    cursor: not-allowed;
+  }
+
+  .option input:disabled + label {
+    opacity: 0.7;
+  }
+
+  .question.correct {
+    border-left-color: #22c55e;
+    background: var(--color-success-light);
+  }
+
+  .question.incorrect {
+    border-left-color: #ef4444;
+    background: var(--color-error-light);
+  }
+
+  .question.unanswered {
+    border-left-color: #f59e0b;
+  }
+
+  .result-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    display: none;
+  }
+
+  .result-message.show {
+    display: block;
+  }
+
+  .result-correct {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+  }
+
+  .result-incorrect {
+    background: #fee2e2;
+    color: #7f1d1d;
+    border: 1px solid #fca5a5;
+  }
+
+  .rationale {
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--color-surface-primary);
+    border-left: 3px solid #6366f1;
+    border-radius: 4px;
+    font-size: 0.95em;
+    display: none;
+  }
+
+  .rationale.show {
+    display: block;
+  }
+
+  .rationale-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #6366f1;
+    font-size: 0.85em;
+    text-transform: uppercase;
+  }
+
+  .exam-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 30px 0;
+    flex-wrap: wrap;
+  }
+
+  .exam-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95em;
+    transition: all 0.3s;
+  }
+
+  .btn-submit {
+    background: #0f3460;
+    color: white;
+    min-width: 120px;
+  }
+
+  .btn-submit:hover:not(:disabled) {
+    background: #1e5a96;
+    transform: translateY(-2px);
+  }
+
+  .btn-reset {
+    background: #6b7280;
+    color: white;
+    min-width: 120px;
+  }
+
+  .btn-reset:hover:not(:disabled) {
+    background: #4b5563;
+    transform: translateY(-2px);
+  }
+
+  .exam-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .score-display {
+    margin-top: 30px;
+    padding: 20px;
+    background: var(--color-surface-secondary);
+    border-radius: 6px;
+    text-align: center;
+    display: none;
+  }
+
+  .score-display.show {
+    display: block;
+  }
+
+  .score-large {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #0f3460;
+    margin: 10px 0;
+  }
+
+  .filter-controls {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    border: 2px solid #0f3460;
+    background: transparent;
+    color: #0f3460;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+
+  .filter-btn.active {
+    background: #0f3460;
+    color: white;
+  }
+
+  .filter-btn:hover {
+    background: #0f3460;
+    color: white;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #0f3460;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .back-link:hover {
+    color: #e94560;
+  }
+
+  .filter-stats {
+    margin-top: 15px;
+    padding: 12px;
+    background: var(--color-surface-primary);
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
+    text-align: center;
+  }
+
+  .filter-stats span {
+    display: inline-block;
+    margin: 0 8px;
+    font-weight: bold;
+  }
+
+  [data-theme="dark"] .week-indicator {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  }
+</style>
+</head>
+<body>
+
+<main id="content" class="page-inner">
+  <a href="index.html" class="back-link">← Back to Home</a>
+
+  <div class="exam-header">
+    <div class="exam-title torture">💀 The Torture Chamber - NCLEX-NGN SATA</div>
+    <div class="exam-instructions">
+      <strong>Select ALL that apply.</strong> Each question requires you to select all correct options. Your selection must match exactly or it is marked incorrect. Filter by week to focus on specific content, or challenge yourself with all weeks at once.
+    </div>
+  </div>
+
+  <div class="filter-controls">
+    <button class="filter-btn active" onclick="filterQuestions('all')">All Weeks</button>
+    <button class="filter-btn" onclick="filterQuestions('week2')">Week 2 Only</button>
+    <button class="filter-btn" onclick="filterQuestions('week3')">Week 3 Only</button>
+  </div>
+
+  <div class="filter-stats" id="filterStats">
+    <span id="totalCount">17 questions total</span>
+    <span id="week2Count">Week 2: 8</span>
+    <span id="week3Count">Week 3: 9</span>
+  </div>
+
+  <div class="exam-controls">
+    <button class="exam-button btn-submit" id="submitBtn" onclick="gradeExam()">Submit Exam</button>
+    <button class="exam-button btn-reset" id="resetBtn" onclick="resetExam()">Clear Answers</button>
+  </div>
 
   <div id="exam-root"></div>
 
-  <nav class="page-flip" data-page-flip></nav>
-  <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
+  <div class="score-display" id="scoreDisplay">
+    <div style="font-size: 1.2em; color: var(--color-text-secondary);">Your Score</div>
+    <div class="score-large" id="scorePercentage">0%</div>
+    <div id="scoreDetails" style="font-size: 0.95em; color: var(--color-text-secondary);"></div>
+  </div>
 
-</div>
+  <div class="exam-controls" style="margin-top: 20px;">
+    <button class="exam-button btn-submit" onclick="window.scrollTo({top:0, behavior:'smooth'})" style="display: none;" id="topBtn">Back to Top</button>
+  </div>
+
 </main>
 
-<script src="assets/site.js?v=20260818"></script>
-<script src="data/torture-chamber.js?v=20260818"></script>
-<script src="assets/exam.js?v=20260818"></script>
+<script src="assets/exam.js?v=20260907"></script>
+<script src="exam2-sata-bank.js"></script>
+
+<script>
+  // Initialize filter tracking
+  let currentFilter = 'all';
+
+  // Override exam.js rendering to add week indicators
+  (function() {
+    // Custom render after exam.js loads
+    setTimeout(() => {
+      const questions = document.querySelectorAll('.question');
+      questions.forEach((q, idx) => {
+        const stem = q.querySelector('.question-stem');
+        if (stem) {
+          const text = stem.textContent;
+          const weekMatch = text.match(/\[Week (\d+)\]/);
+          if (weekMatch) {
+            const weekNum = weekMatch[1];
+            const weekClass = `week-${weekNum}`;
+            const indicator = document.createElement('span');
+            indicator.className = `week-indicator ${weekClass}`;
+            indicator.textContent = `Week ${weekNum}`;
+            stem.insertBefore(indicator, stem.firstChild);
+            q.setAttribute('data-week', weekNum);
+          }
+        }
+      });
+    }, 100);
+
+    // Show score and filter controls when graded
+    window.gradeExamOriginal = window.gradeExam;
+    window.gradeExam = function() {
+      window.gradeExamOriginal();
+      document.getElementById('scoreDisplay').classList.add('show');
+      document.getElementById('topBtn').style.display = 'inline-block';
+
+      // Calculate and display score (only visible questions)
+      const visibleQuestions = Array.from(document.querySelectorAll('.question')).filter(q => q.style.display !== 'none');
+      let correct = 0;
+      visibleQuestions.forEach(q => {
+        if (q.classList.contains('correct')) correct++;
+      });
+      const percentage = visibleQuestions.length > 0 ? Math.round((correct / visibleQuestions.length) * 100) : 0;
+      document.getElementById('scorePercentage').textContent = percentage + '%';
+      document.getElementById('scoreDetails').textContent =
+        `${correct} of ${visibleQuestions.length} correct (filtered view)`;
+    };
+
+  })();
+
+  function filterQuestions(filter) {
+    currentFilter = filter;
+    const questions = document.querySelectorAll('.question');
+    questions.forEach(q => {
+      const week = q.getAttribute('data-week');
+      if (filter === 'all') {
+        q.style.display = 'block';
+      } else if (filter === 'week2' && week === '2') {
+        q.style.display = 'block';
+      } else if (filter === 'week2') {
+        q.style.display = 'none';
+      } else if (filter === 'week3' && week === '3') {
+        q.style.display = 'block';
+      } else if (filter === 'week3') {
+        q.style.display = 'none';
+      }
+    });
+
+    // Update filter button states
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+
+    // Update visible question count
+    updateFilterStats();
+  }
+
+  function updateFilterStats() {
+    const allQuestions = document.querySelectorAll('.question');
+    const visibleQuestions = Array.from(allQuestions).filter(q => q.style.display !== 'none');
+    const week2Count = Array.from(allQuestions).filter(q => q.getAttribute('data-week') === '2').length;
+    const week3Count = Array.from(allQuestions).filter(q => q.getAttribute('data-week') === '3').length;
+
+    document.getElementById('totalCount').textContent = `${visibleQuestions.length} questions to answer`;
+    document.getElementById('week2Count').textContent = `Week 2: ${week2Count}`;
+    document.getElementById('week3Count').textContent = `Week 3: ${week3Count}`;
+  }
+
+  function resetExam() {
+    if (confirm('Clear all answers? This cannot be undone.')) {
+      document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
+        input.checked = false;
+      });
+      document.querySelectorAll('.question').forEach(q => {
+        q.classList.remove('correct', 'incorrect', 'unanswered');
+      });
+      document.getElementById('scoreDisplay').classList.remove('show');
+      document.getElementById('submitBtn').disabled = false;
+      document.getElementById('submitBtn').textContent = 'Submit Exam';
+    }
+  }
+</script>
+
 </body>
 </html>
