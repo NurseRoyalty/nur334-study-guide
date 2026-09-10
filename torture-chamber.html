@@ -3,441 +3,394 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Torture Chamber - NUR334 Study Guide</title>
+<title>The Torture Chamber - NUR334 SATA Exam</title>
 <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <link rel="stylesheet" href="assets/styles.css?v=20260907">
 <style>
-  .exam-header {
-    margin-bottom: 20px;
-    padding: 20px;
-    background: var(--color-surface-secondary);
-    border-radius: 8px;
-  }
-
-  .exam-title {
-    font-size: 1.8em;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: var(--color-text-primary);
-  }
-
-  .exam-title.torture {
-    color: #8b0000;
-  }
-
-  [data-theme="dark"] .exam-title.torture {
-    color: #ff6666;
-  }
-
-  .exam-instructions {
-    font-size: 0.95em;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-  }
-
-  .week-indicator {
-    display: inline-block;
-    background: linear-gradient(135deg, #0f3460, #e94560);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.85em;
-    font-weight: bold;
-    margin-right: 8px;
-    margin-bottom: 8px;
-  }
-
-  .week-2 {
-    background: linear-gradient(135deg, #1e5a96, #4a90e2);
-  }
-
-  .week-3 {
-    background: linear-gradient(135deg, #8b5cf6, #d946ef);
-  }
-
-  .question {
-    margin: 30px 0;
-    padding: 20px;
-    background: var(--color-surface-secondary);
-    border-left: 4px solid #0f3460;
-    border-radius: 6px;
-  }
-
-  .question-stem {
-    font-size: 1.05em;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: var(--color-text-primary);
-    line-height: 1.6;
-  }
-
-  .question-options {
-    list-style: none;
-    margin: 15px 0;
-  }
-
-  .option {
-    margin: 10px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .option input[type="checkbox"],
-  .option input[type="radio"] {
-    margin-top: 4px;
-    flex-shrink: 0;
-    cursor: pointer;
-  }
-
-  .option label {
-    flex: 1;
-    cursor: pointer;
-    color: var(--color-text-primary);
-  }
-
-  .option input:disabled {
-    cursor: not-allowed;
-  }
-
-  .option input:disabled + label {
-    opacity: 0.7;
-  }
-
-  .question.correct {
-    border-left-color: #22c55e;
-    background: var(--color-success-light);
-  }
-
-  .question.incorrect {
-    border-left-color: #ef4444;
-    background: var(--color-error-light);
-  }
-
-  .question.unanswered {
-    border-left-color: #f59e0b;
-  }
-
-  .result-message {
-    margin-top: 15px;
-    padding: 12px;
-    border-radius: 4px;
-    font-weight: bold;
-    display: none;
-  }
-
-  .result-message.show {
-    display: block;
-  }
-
-  .result-correct {
-    background: #dcfce7;
-    color: #166534;
-    border: 1px solid #86efac;
-  }
-
-  .result-incorrect {
-    background: #fee2e2;
-    color: #7f1d1d;
-    border: 1px solid #fca5a5;
-  }
-
-  .rationale {
-    margin-top: 12px;
-    padding: 12px;
-    background: var(--color-surface-primary);
-    border-left: 3px solid #6366f1;
-    border-radius: 4px;
-    font-size: 0.95em;
-    display: none;
-  }
-
-  .rationale.show {
-    display: block;
-  }
-
-  .rationale-label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #6366f1;
-    font-size: 0.85em;
-    text-transform: uppercase;
-  }
-
-  .exam-controls {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin: 30px 0;
-    flex-wrap: wrap;
-  }
-
-  .exam-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 0.95em;
-    transition: all 0.3s;
-  }
-
-  .btn-submit {
-    background: #0f3460;
-    color: white;
-    min-width: 120px;
-  }
-
-  .btn-submit:hover:not(:disabled) {
-    background: #1e5a96;
-    transform: translateY(-2px);
-  }
-
-  .btn-reset {
-    background: #6b7280;
-    color: white;
-    min-width: 120px;
-  }
-
-  .btn-reset:hover:not(:disabled) {
-    background: #4b5563;
-    transform: translateY(-2px);
-  }
-
-  .exam-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .score-display {
-    margin-top: 30px;
-    padding: 20px;
-    background: var(--color-surface-secondary);
-    border-radius: 6px;
-    text-align: center;
-    display: none;
-  }
-
-  .score-display.show {
-    display: block;
-  }
-
-  .score-large {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #0f3460;
-    margin: 10px 0;
-  }
-
-  .filter-controls {
-    margin: 20px 0;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .filter-btn {
-    padding: 8px 16px;
-    border: 2px solid #0f3460;
-    background: transparent;
-    color: #0f3460;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s;
-  }
-
-  .filter-btn.active {
-    background: #0f3460;
-    color: white;
-  }
-
-  .filter-btn:hover {
-    background: #0f3460;
-    color: white;
-  }
-
-  .back-link {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: #0f3460;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .back-link:hover {
-    color: #e94560;
-  }
-
-  .filter-stats {
-    margin-top: 15px;
-    padding: 12px;
-    background: var(--color-surface-primary);
-    border-radius: 4px;
-    font-size: 0.9em;
-    color: var(--color-text-secondary);
-    text-align: center;
-  }
-
-  .filter-stats span {
-    display: inline-block;
-    margin: 0 8px;
-    font-weight: bold;
-  }
-
-  [data-theme="dark"] .week-indicator {
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-  }
+  .torture-page { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  .page-header { text-align: center; margin-bottom: 40px; padding: 20px; background: var(--color-surface-secondary); border-radius: 8px; }
+  .page-title { font-size: 2.5em; font-weight: bold; color: #8b0000; margin-bottom: 10px; }
+  [data-theme="dark"] .page-title { color: #ff6666; }
+  .exam-info { font-size: 0.95em; color: var(--color-text-secondary); line-height: 1.6; }
+  .filter-bar { display: flex; gap: 10px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
+  .filter-btn { padding: 10px 20px; border: 2px solid #0f3460; background: transparent; color: #0f3460; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
+  .filter-btn.active { background: #0f3460; color: white; }
+  .filter-btn:hover { background: #0f3460; color: white; }
+  .stats-bar { text-align: center; margin: 20px 0; padding: 15px; background: var(--color-surface-primary); border-radius: 6px; font-size: 0.9em; color: var(--color-text-secondary); }
+  .question-block { margin: 30px 0; padding: 20px; background: var(--color-surface-secondary); border-left: 5px solid #0f3460; border-radius: 6px; }
+  .question-block.hidden { display: none; }
+  .question-num { font-weight: bold; font-size: 1.1em; color: #0f3460; margin-bottom: 10px; }
+  .question-stem { font-size: 1.05em; font-weight: bold; margin: 15px 0; color: var(--color-text-primary); line-height: 1.6; }
+  .week-badge { display: inline-block; background: #4a90e2; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8em; margin-right: 8px; margin-bottom: 8px; }
+  .sata-tag { display: inline-block; background: #f59e0b; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8em; }
+  .options { list-style: none; margin: 15px 0; padding: 0; }
+  .option { margin: 12px 0; padding: 12px; background: var(--color-surface-primary); border-radius: 4px; border-left: 3px solid #ddd; display: flex; gap: 10px; align-items: flex-start; cursor: pointer; transition: all 0.2s; }
+  .option:hover { background: var(--color-surface-secondary); border-left-color: #0f3460; }
+  .option input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; cursor: pointer; width: 18px; height: 18px; }
+  .option-text { flex: 1; color: var(--color-text-primary); }
+  .question-block.answered .option input:disabled { cursor: not-allowed; }
+  .question-block.correct { border-left-color: #22c55e; background: rgba(34, 197, 94, 0.08); }
+  .question-block.incorrect { border-left-color: #ef4444; background: rgba(239, 68, 68, 0.08); }
+  .result-badge { display: inline-block; margin-left: 10px; padding: 4px 12px; border-radius: 4px; font-weight: bold; font-size: 0.85em; }
+  .result-badge.correct { background: #22c55e; color: white; }
+  .result-badge.incorrect { background: #ef4444; color: white; }
+  .rationale { margin-top: 15px; padding: 15px; background: var(--color-surface-primary); border-left: 3px solid #6366f1; border-radius: 4px; font-size: 0.95em; display: none; }
+  .rationale.show { display: block; }
+  .rationale-label { font-weight: bold; color: #6366f1; font-size: 0.85em; text-transform: uppercase; margin-bottom: 8px; }
+  .controls { display: flex; gap: 15px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+  .btn { padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.95em; transition: all 0.3s; }
+  .btn-primary { background: #0f3460; color: white; }
+  .btn-primary:hover:not(:disabled) { background: #1e5a96; transform: translateY(-2px); }
+  .btn-secondary { background: #6b7280; color: white; }
+  .btn-secondary:hover:not(:disabled) { background: #4b5563; transform: translateY(-2px); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .score-box { margin: 40px 0; padding: 30px; text-align: center; background: var(--color-surface-secondary); border-radius: 8px; display: none; }
+  .score-box.show { display: block; }
+  .score-title { font-size: 1.2em; color: var(--color-text-secondary); margin-bottom: 10px; }
+  .score-large { font-size: 3em; font-weight: bold; color: #0f3460; margin: 15px 0; }
+  .score-details { font-size: 1em; color: var(--color-text-secondary); margin-top: 10px; }
+  .back-link { display: inline-block; margin-bottom: 20px; color: #0f3460; text-decoration: none; font-weight: bold; }
+  .back-link:hover { color: #e94560; }
+  .loading { text-align: center; padding: 40px; font-size: 1.1em; color: var(--color-text-secondary); }
 </style>
 </head>
 <body>
 
-<main id="content" class="page-inner">
+<main class="torture-page">
   <a href="index.html" class="back-link">← Back to Home</a>
 
-  <div class="exam-header">
-    <div class="exam-title torture">💀 The Torture Chamber - NCLEX-NGN SATA</div>
-    <div class="exam-instructions">
-      <strong>Select ALL that apply.</strong> Each question requires you to select all correct options. Your selection must match exactly or it is marked incorrect. Filter by week to focus on specific content, or challenge yourself with all weeks at once.
+  <div class="page-header">
+    <div class="page-title">💀 The Torture Chamber</div>
+    <div class="exam-info">
+      <p><strong>NCLEX-NGN Format: Select ALL that apply (SATA)</strong></p>
+      <p>Each question requires you to select ALL correct options. Your answers must match exactly to be marked correct. Click a checkbox to toggle it.</p>
     </div>
   </div>
 
-  <div class="filter-controls">
-    <button class="filter-btn active" onclick="filterQuestions('all')">All Weeks</button>
-    <button class="filter-btn" onclick="filterQuestions('week2')">Week 2 Only</button>
-    <button class="filter-btn" onclick="filterQuestions('week3')">Week 3 Only</button>
+  <div class="filter-bar" id="filterBar" style="display: none;">
+    <button class="filter-btn active" onclick="filterByWeek('all')">All Weeks</button>
+    <button class="filter-btn" onclick="filterByWeek('2')">Week 2 Only</button>
+    <button class="filter-btn" onclick="filterByWeek('3')">Week 3 Only</button>
   </div>
 
-  <div class="filter-stats" id="filterStats">
-    <span id="totalCount">17 questions total</span>
-    <span id="week2Count">Week 2: 8</span>
-    <span id="week3Count">Week 3: 9</span>
+  <div class="stats-bar" id="statsBar" style="display: none;">
+    <span id="statsText">Loading questions...</span>
   </div>
 
-  <div class="exam-controls">
-    <button class="exam-button btn-submit" id="submitBtn" onclick="gradeExam()">Submit Exam</button>
-    <button class="exam-button btn-reset" id="resetBtn" onclick="resetExam()">Clear Answers</button>
+  <div id="questionsContainer" class="loading">Loading questions from question bank...</div>
+
+  <div class="controls" id="controls" style="display: none;">
+    <button class="btn btn-primary" onclick="submitExam()">Submit Exam</button>
+    <button class="btn btn-secondary" onclick="resetExam()">Clear All Answers</button>
   </div>
 
-  <div id="exam-root"></div>
-
-  <div class="score-display" id="scoreDisplay">
-    <div style="font-size: 1.2em; color: var(--color-text-secondary);">Your Score</div>
+  <div class="score-box" id="scoreBox">
+    <div class="score-title">Your Score</div>
     <div class="score-large" id="scorePercentage">0%</div>
-    <div id="scoreDetails" style="font-size: 0.95em; color: var(--color-text-secondary);"></div>
-  </div>
-
-  <div class="exam-controls" style="margin-top: 20px;">
-    <button class="exam-button btn-submit" onclick="window.scrollTo({top:0, behavior:'smooth'})" style="display: none;" id="topBtn">Back to Top</button>
+    <div class="score-details" id="scoreDetails">0 of 0 correct</div>
   </div>
 
 </main>
 
-<script src="assets/exam.js?v=20260907"></script>
-<script src="exam2-sata-bank.js"></script>
-
 <script>
-  // Initialize filter tracking
   let currentFilter = 'all';
+  let graded = false;
+  let answers = {};
+  let questions = [];
 
-  // Override exam.js rendering to add week indicators
-  (function() {
-    // Custom render after exam.js loads
-    setTimeout(() => {
-      const questions = document.querySelectorAll('.question');
-      questions.forEach((q, idx) => {
-        const stem = q.querySelector('.question-stem');
-        if (stem) {
-          const text = stem.textContent;
-          const weekMatch = text.match(/\[Week (\d+)\]/);
-          if (weekMatch) {
-            const weekNum = weekMatch[1];
-            const weekClass = `week-${weekNum}`;
-            const indicator = document.createElement('span');
-            indicator.className = `week-indicator ${weekClass}`;
-            indicator.textContent = `Week ${weekNum}`;
-            stem.insertBefore(indicator, stem.firstChild);
-            q.setAttribute('data-week', weekNum);
-          }
-        }
-      });
-    }, 100);
+  // Initialize the exam
+  function initExam() {
+    // Wait for EXAM_DATA to be available
+    if (!window.EXAM_DATA || !window.EXAM_DATA.questions) {
+      console.log('Waiting for EXAM_DATA...');
+      setTimeout(initExam, 100);
+      return;
+    }
 
-    // Show score and filter controls when graded
-    window.gradeExamOriginal = window.gradeExam;
-    window.gradeExam = function() {
-      window.gradeExamOriginal();
-      document.getElementById('scoreDisplay').classList.add('show');
-      document.getElementById('topBtn').style.display = 'inline-block';
+    console.log('EXAM_DATA loaded with', window.EXAM_DATA.questions.length, 'questions');
+    questions = window.EXAM_DATA.questions;
 
-      // Calculate and display score (only visible questions)
-      const visibleQuestions = Array.from(document.querySelectorAll('.question')).filter(q => q.style.display !== 'none');
-      let correct = 0;
-      visibleQuestions.forEach(q => {
-        if (q.classList.contains('correct')) correct++;
-      });
-      const percentage = visibleQuestions.length > 0 ? Math.round((correct / visibleQuestions.length) * 100) : 0;
-      document.getElementById('scorePercentage').textContent = percentage + '%';
-      document.getElementById('scoreDetails').textContent =
-        `${correct} of ${visibleQuestions.length} correct (filtered view)`;
-    };
+    if (questions.length === 0) {
+      document.getElementById('questionsContainer').innerHTML = '<p style="color: red; padding: 20px;">ERROR: No questions found in exam bank.</p>';
+      return;
+    }
 
-  })();
+    // Show controls and filters
+    document.getElementById('filterBar').style.display = 'flex';
+    document.getElementById('statsBar').style.display = 'block';
+    document.getElementById('controls').style.display = 'flex';
 
-  function filterQuestions(filter) {
-    currentFilter = filter;
-    const questions = document.querySelectorAll('.question');
-    questions.forEach(q => {
-      const week = q.getAttribute('data-week');
-      if (filter === 'all') {
-        q.style.display = 'block';
-      } else if (filter === 'week2' && week === '2') {
-        q.style.display = 'block';
-      } else if (filter === 'week2') {
-        q.style.display = 'none';
-      } else if (filter === 'week3' && week === '3') {
-        q.style.display = 'block';
-      } else if (filter === 'week3') {
-        q.style.display = 'none';
+    // Render questions
+    renderQuestions();
+
+    // Load any saved answers
+    loadAnswers();
+  }
+
+  function renderQuestions() {
+    const container = document.getElementById('questionsContainer');
+    container.innerHTML = '';
+
+    let displayed = 0;
+    questions.forEach((q, idx) => {
+      // Extract week from stem if it contains [Week X]
+      const weekMatch = q.stem.match(/\[Week (\d+)\]/);
+      const week = weekMatch ? weekMatch[1] : '0';
+
+      // Apply filter
+      if (currentFilter !== 'all' && week !== currentFilter) {
+        return;
       }
+
+      displayed++;
+      const qDiv = document.createElement('div');
+      qDiv.className = 'question-block';
+      qDiv.id = 'q-' + idx;
+      qDiv.dataset.week = week;
+      qDiv.dataset.qindex = idx;
+
+      // Question number and stem
+      let stemHTML = `<div class="question-num">Question ${displayed}</div>`;
+      if (week !== '0') {
+        stemHTML += `<span class="week-badge">Week ${week}</span>`;
+      }
+      stemHTML += `<span class="sata-tag">Select all that apply</span>`;
+      stemHTML += `<div class="question-stem">${q.stem}</div>`;
+
+      qDiv.innerHTML = stemHTML;
+
+      // Options as checkboxes
+      const ul = document.createElement('ul');
+      ul.className = 'options';
+
+      q.options.forEach((opt, oi) => {
+        const li = document.createElement('li');
+        const label = document.createElement('label');
+        label.className = 'option';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = 'q-' + idx;
+        checkbox.value = oi;
+        checkbox.dataset.qindex = idx;
+        checkbox.dataset.oi = oi;
+
+        if (!graded) {
+          checkbox.addEventListener('change', function() {
+            updateAnswer(idx, oi, this.checked);
+          });
+        }
+
+        const text = document.createElement('span');
+        text.className = 'option-text';
+        text.textContent = opt;
+
+        label.appendChild(checkbox);
+        label.appendChild(text);
+        li.appendChild(label);
+        ul.appendChild(li);
+      });
+
+      qDiv.appendChild(ul);
+
+      // Rationale (hidden until graded)
+      const ratDiv = document.createElement('div');
+      ratDiv.className = 'rationale';
+      ratDiv.innerHTML = `<div class="rationale-label">Rationale</div><div>${q.rationale || 'No rationale provided.'}</div>`;
+      qDiv.appendChild(ratDiv);
+
+      container.appendChild(qDiv);
     });
 
-    // Update filter button states
+    // Update stats
+    updateStats(displayed);
+  }
+
+  function updateAnswer(qindex, oi, checked) {
+    if (!answers[qindex]) {
+      answers[qindex] = [];
+    }
+
+    if (checked) {
+      if (!answers[qindex].includes(oi)) {
+        answers[qindex].push(oi);
+      }
+    } else {
+      answers[qindex] = answers[qindex].filter(x => x !== oi);
+    }
+
+    // Save to localStorage
+    try {
+      localStorage.setItem('torture-chamber-answers', JSON.stringify(answers));
+    } catch (e) {}
+  }
+
+  function filterByWeek(week) {
+    currentFilter = week;
+
+    // Update button states
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.classList.remove('active');
     });
     event.target.classList.add('active');
 
-    // Update visible question count
-    updateFilterStats();
+    // Re-render with filter
+    renderQuestions();
   }
 
-  function updateFilterStats() {
-    const allQuestions = document.querySelectorAll('.question');
-    const visibleQuestions = Array.from(allQuestions).filter(q => q.style.display !== 'none');
-    const week2Count = Array.from(allQuestions).filter(q => q.getAttribute('data-week') === '2').length;
-    const week3Count = Array.from(allQuestions).filter(q => q.getAttribute('data-week') === '3').length;
+  function updateStats(displayed) {
+    const total = questions.length;
+    let text = `Showing ${displayed} of ${total} questions`;
 
-    document.getElementById('totalCount').textContent = `${visibleQuestions.length} questions to answer`;
-    document.getElementById('week2Count').textContent = `Week 2: ${week2Count}`;
-    document.getElementById('week3Count').textContent = `Week 3: ${week3Count}`;
+    const week2Count = questions.filter(q => q.stem.includes('[Week 2]')).length;
+    const week3Count = questions.filter(q => q.stem.includes('[Week 3]')).length;
+
+    text += ` (Week 2: ${week2Count}, Week 3: ${week3Count})`;
+
+    document.getElementById('statsText').textContent = text;
+  }
+
+  function submitExam() {
+    if (graded) return;
+
+    // Confirm submission
+    const answered = Object.keys(answers).length;
+    const total = document.querySelectorAll('.question-block').length;
+
+    if (answered < total) {
+      const missing = total - answered;
+      if (!confirm(`You have ${missing} unanswered question(s). Submit anyway?`)) {
+        return;
+      }
+    }
+
+    gradeExam();
+  }
+
+  function gradeExam() {
+    graded = true;
+
+    let correct = 0;
+    let displayedTotal = 0;
+
+    document.querySelectorAll('.question-block').forEach(qDiv => {
+      displayedTotal++;
+      const qindex = parseInt(qDiv.dataset.qindex);
+      const q = questions[qindex];
+
+      // Get the correct answers (sorted)
+      const correctAnswers = (q.answers || [q.answer]).sort((a, b) => a - b);
+
+      // Get user's answers (sorted)
+      const userAnswers = (answers[qindex] || []).sort((a, b) => a - b);
+
+      // Check if they match exactly
+      const isCorrect = JSON.stringify(correctAnswers) === JSON.stringify(userAnswers);
+
+      if (isCorrect) correct++;
+
+      // Mark the question
+      qDiv.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+      // Add result badge
+      const badge = document.createElement('span');
+      badge.className = 'result-badge ' + (isCorrect ? 'correct' : 'incorrect');
+      badge.textContent = isCorrect ? '✓ Correct' : '✗ Incorrect';
+      qDiv.querySelector('.question-stem').appendChild(badge);
+
+      // Show rationale
+      qDiv.querySelector('.rationale').classList.add('show');
+
+      // Disable checkboxes
+      qDiv.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.disabled = true;
+      });
+
+      // Highlight correct options
+      const correctSet = new Set(correctAnswers);
+      const userSet = new Set(userAnswers);
+
+      qDiv.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        const oi = parseInt(cb.value);
+        if (correctSet.has(oi)) {
+          cb.parentElement.style.borderLeftColor = '#22c55e';
+          cb.parentElement.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
+          cb.parentElement.style.fontWeight = 'bold';
+        }
+        if (userSet.has(oi) && !correctSet.has(oi)) {
+          cb.parentElement.style.borderLeftColor = '#ef4444';
+          cb.parentElement.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+        }
+      });
+    });
+
+    // Show score
+    const percentage = Math.round((correct / displayedTotal) * 100);
+    document.getElementById('scorePercentage').textContent = percentage + '%';
+    document.getElementById('scoreDetails').textContent = `${correct} of ${displayedTotal} correct`;
+    document.getElementById('scoreBox').classList.add('show');
+
+    // Scroll to score
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function resetExam() {
-    if (confirm('Clear all answers? This cannot be undone.')) {
-      document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
-        input.checked = false;
+    if (confirm('Clear all answers?')) {
+      answers = {};
+      graded = false;
+
+      // Clear localStorage
+      try {
+        localStorage.removeItem('torture-chamber-answers');
+      } catch (e) {}
+
+      // Clear checkboxes
+      document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+        cb.disabled = false;
       });
-      document.querySelectorAll('.question').forEach(q => {
-        q.classList.remove('correct', 'incorrect', 'unanswered');
+
+      // Remove result styling
+      document.querySelectorAll('.question-block').forEach(qDiv => {
+        qDiv.classList.remove('correct', 'incorrect');
+        qDiv.querySelectorAll('.result-badge').forEach(badge => badge.remove());
+        qDiv.querySelector('.rationale').classList.remove('show');
+        qDiv.querySelectorAll('.option').forEach(opt => {
+          opt.style.borderLeftColor = '#ddd';
+          opt.style.backgroundColor = 'var(--color-surface-primary)';
+          opt.style.fontWeight = 'normal';
+        });
       });
-      document.getElementById('scoreDisplay').classList.remove('show');
-      document.getElementById('submitBtn').disabled = false;
-      document.getElementById('submitBtn').textContent = 'Submit Exam';
+
+      // Hide score
+      document.getElementById('scoreBox').classList.remove('show');
     }
   }
+
+  // Load saved answers on page load
+  function loadAnswers() {
+    try {
+      const saved = localStorage.getItem('torture-chamber-answers');
+      if (saved) {
+        answers = JSON.parse(saved);
+
+        // Restore checkboxes
+        Object.keys(answers).forEach(qindex => {
+          answers[qindex].forEach(oi => {
+            const cb = document.querySelector(`input[data-qindex="${qindex}"][data-oi="${oi}"]`);
+            if (cb) cb.checked = true;
+          });
+        });
+      }
+    } catch (e) {}
+  }
+
+  // Initialize when page loads
+  initExam();
 </script>
+
+<!-- Load question data last -->
+<script src="exam2-sata-bank.js"></script>
 
 </body>
 </html>
