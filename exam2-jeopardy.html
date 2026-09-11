@@ -149,6 +149,12 @@
             border-radius: 8px;
             margin-bottom: 20px;
             border-left: 4px solid #4CAF50;
+            display: none;
+        }
+
+        .answer-section.revealed {
+            display: block;
+            animation: slideIn 0.3s ease-out;
         }
 
         .answer-label {
@@ -167,6 +173,12 @@
             padding: 20px;
             border-radius: 8px;
             border-left: 4px solid #ff9800;
+            display: none;
+        }
+
+        .rationale-section.revealed {
+            display: block;
+            animation: slideIn 0.3s ease-out;
         }
 
         .rationale-label {
@@ -179,6 +191,17 @@
             font-size: 14px;
             line-height: 1.6;
             white-space: pre-wrap;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .modal-buttons {
@@ -243,10 +266,50 @@
         .btn-reset:hover {
             background: #b71c1c;
         }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-back {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background: #764ba2;
+        }
+
+        .btn-player1:disabled,
+        .btn-player2:disabled {
+            background: #666;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .btn-player1:disabled:hover,
+        .btn-player2:disabled:hover {
+            background: #666;
+        }
     </style>
     <script src="data/exam2-jeopardy.js"></script>
 </head>
 <body>
+    <div class="header-top">
+        <a href="index.html" class="btn-back">← Back to Study Guide</a>
+        <div></div>
+    </div>
+
     <div class="header">
         <h1>EXAM 2 JEOPARDY</h1>
         <h3>NCLEX NGN Clinical Judgment - 2 Player Game</h3>
@@ -281,9 +344,9 @@
                 <div class="rationale-text" id="rationaleText"></div>
             </div>
             <div class="modal-buttons">
-                <button class="btn btn-player1" onclick="awardPoints(1)">Player 1 Correct (+)</button>
-                <button class="btn btn-player2" onclick="awardPoints(2)">Player 2 Correct (+)</button>
-                <button class="btn btn-close" onclick="closeQuestion()">Close</button>
+                <button class="btn btn-player1" id="btn1" onclick="awardPoints(1)">Player 1 Correct (+)</button>
+                <button class="btn btn-player2" id="btn2" onclick="awardPoints(2)">Player 2 Correct (+)</button>
+                <button class="btn btn-close" id="btnClose" onclick="closeQuestion()">Close</button>
             </div>
         </div>
     </div>
@@ -295,6 +358,7 @@
         let currentPoints = 0;
         let answeredQuestions = new Set();
         let currentPlayer = 1;
+        let questionAnswered = false;
 
         function initializeBoard() {
             if (!window.JEOPARDY_EXAM2) {
@@ -340,10 +404,19 @@
             const question = category.clues[tier][0]; // Simplified: just take first
             currentQuestion = question;
             currentPoints = points;
+            questionAnswered = false;
 
             document.getElementById('questionText').textContent = question.q;
             document.getElementById('answerText').textContent = question.a;
             document.getElementById('rationaleText').textContent = question.rationale;
+
+            // Hide answer and rationale initially
+            document.querySelector('.answer-section').classList.remove('revealed');
+            document.querySelector('.rationale-section').classList.remove('revealed');
+
+            // Enable player buttons
+            document.getElementById('btn1').disabled = false;
+            document.getElementById('btn2').disabled = false;
 
             document.getElementById('questionModal').classList.add('active');
 
@@ -362,8 +435,16 @@
                 currentPlayer = 2;
             }
 
+            // Reveal answer and rationale
+            document.querySelector('.answer-section').classList.add('revealed');
+            document.querySelector('.rationale-section').classList.add('revealed');
+            questionAnswered = true;
+
+            // Disable player buttons after answer is revealed
+            document.getElementById('btn1').disabled = true;
+            document.getElementById('btn2').disabled = true;
+
             updatePlayerIndicator();
-            closeQuestion();
         }
 
         function updatePlayerIndicator() {

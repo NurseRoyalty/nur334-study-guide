@@ -879,25 +879,7 @@ h2.block, h3.sub{ scroll-margin-top:80px; }
 /* ============================================================
    DARK THEME
    ============================================================ */
-:
-oot[data-theme="dark"]{
-  --bg:#0d1117; --surface:#161b22; --surface-2:#1c2128; --surface-3:#262c34;
-  --border:#30363d; --border-strong:#444c56;
-  --text:#f0f6fc; --text-soft:#c9d1d9; --text-faint:#8b949e;
-  --stripe:rgba(255,255,255,.03);
-  --brand:#8f80c4; --brand-strong:#b3a6e0; --brand-deep:#d3caee;
-  --brand-tint:#1c2033; --brand-tint-2:#282a3a;
-  --accent:#d67e99; --accent-strong:#ec9fb6; --accent-tint:#261a2f;
-  --on-brand-soft:#e2ddf1; --on-brand-faint:#c3b9e4; --on-brand-dim:#d9d4ee;
-  --chrome-a:#1c2433; --chrome-b:#0d1419;
-  --flash-a:#5a4d93; --flash-b:#3f356e;
-  --line-accent:#3d2a3d; --line-bad:#3d2420;
-  --ok:#43b085; --ok-strong:#6bcfa4; --ok-tint:#0f2818;
-  --bad:#e46557; --bad-strong:#f28c82; --bad-tint:#260e0a;
-  --shadow-sm:0 1px 3px rgba(0,0,0,.6);
-  --shadow-md:0 4px 14px rgba(0,0,0,.65);
-  --shadow-lg:0 12px 30px rgba(0,0,0,.7);
-}
+:root[data-theme="dark"]{
   --bg:#12161a; --surface:#1b2027; --surface-2:#232a33; --surface-3:#2c343f;
   --border:#323b47; --border-strong:#45505f;
   --text:#e6eaef; --text-soft:#a7b1bd; --text-faint:#7b8593;
