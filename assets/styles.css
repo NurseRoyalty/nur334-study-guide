@@ -1231,3 +1231,15 @@ body.torture{ background:var(--torture); }
   color: #ffffff !important;
   background: rgba(255, 255, 255, 0.15) !important;
 }
+
+/* Fix: Light mode hamburger menu with dark purple background needs light text */
+:root:not([data-theme="dark"]) .toplink {
+  color: #e2ddf1 !important;  /* Light purple text on dark background */
+  font-weight: 700;
+}
+
+:root:not([data-theme="dark"]) .toplink:hover,
+:root:not([data-theme="dark"]) .toplink.is-active {
+  color: #ffffff !important;  /* White text on hover */
+  background: rgba(75, 44, 107, 0.8) !important;  /* Darker purple background */
+}
