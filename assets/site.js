@@ -64,11 +64,14 @@ const SITE = {
     {
       label: "Week 3",
       items: [
+        { id: "week3-electrolytes-comp", num: "★", title: "Electrolyte Imbalances: Comprehensive Study Guide", file: "week3-electrolytes-comprehensive.html" },
+        { id: "week3-fluid-elec-comp", num: "★", title: "Fluid &amp; Electrolytes: Comprehensive Study Guide", file: "week3-fluid-electrolytes-comprehensive.html" },
         { id: "week3-electrolyte-imb", num: "1", title: "Electrolyte Imbalances", file: "week3-electrolyte-imbalances.html" },
         { id: "week3-fluid-mgmt", num: "2", title: "Fluid Management", file: "week3-fluid-management.html" },
         { id: "week3-preop", num: "3", title: "Preoperative Nursing", file: "week3-preoperative-nursing.html" },
         { id: "week3-intraop", num: "4", title: "Intraoperative Nursing", file: "week3-intraoperative-nursing.html" },
         { id: "week3-postop", num: "5", title: "Postoperative Nursing", file: "week3-postoperative-nursing.html" },
+        { id: "week3-big-picture", num: "6", title: "Big Picture Overview", file: "week3-big-picture.html" },
       ]
     },
     {
