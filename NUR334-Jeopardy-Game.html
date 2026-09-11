@@ -486,7 +486,12 @@ let currentQ = null;
 
 function init() {
     loadScores();
+    // Initialize all three game boards
     renderBoard(0);
+    renderBoard(1);
+    renderBoard(2);
+    // Show only board 0 initially
+    document.getElementById('board0').classList.add('active');
 }
 
 function renderBoard(game) {
@@ -527,21 +532,34 @@ function renderBoard(game) {
 }
 
 function showQuestion(game, cat, val, id) {
-    const q = QUESTIONS[game][cat][val][0];
-    currentQ = {id, game, cat, val, q};
+    if (!QUESTIONS[game] || !QUESTIONS[game][cat] || !QUESTIONS[game][cat][val]) {
+        alert('Question not found');
+        return;
+    }
+    const qObj = QUESTIONS[game][cat][val][0];
+    if (!qObj) {
+        alert('Question not found');
+        return;
+    }
+    currentQ = {id, game, cat, val, q: qObj};
 
     document.getElementById('cat-title').textContent = `${CATEGORIES[cat]} - $${val}`;
-    document.getElementById('q-text').textContent = q.q;
+    document.getElementById('q-text').textContent = qObj.q || 'No question text';
     document.getElementById('reveal-btn').disabled = false;
     document.getElementById('answer-box').classList.remove('show');
     document.getElementById('rationale-box').style.display = 'none';
+    document.getElementById('answer-text').textContent = '';
+    document.getElementById('rationale-text').textContent = '';
 
     document.getElementById('modal').classList.add('active');
 }
 
 function revealAnswer() {
-    document.getElementById('answer-text').textContent = currentQ.q.a;
-    document.getElementById('rationale-text').textContent = currentQ.q.r;
+    if (!currentQ || !currentQ.q) return;
+    const qObj = QUESTIONS[currentQ.game][currentQ.cat][currentQ.val][0];
+    if (!qObj) return;
+    document.getElementById('answer-text').textContent = qObj.a || 'No answer';
+    document.getElementById('rationale-text').textContent = qObj.r || 'No rationale';
     document.getElementById('answer-box').classList.add('show');
     document.getElementById('rationale-box').style.display = 'block';
     document.getElementById('reveal-btn').disabled = true;
