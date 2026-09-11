@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exam 2 Jeopardy - 2 Player Game</title>
+    <title>NUR334 Exam 2 Jeopardy - NCLEX-NGN Clinical Judgment</title>
     <style>
         * {
             margin: 0;
@@ -11,103 +11,171 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --accent-blue: #0f3460;
+            --accent-gold: #e94560;
+            --button-hover: #528aff;
+            --border-color: #404040;
+        }
+
+        body.light-theme {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --text-primary: #1a1a1a;
+            --text-secondary: #333333;
+            --accent-blue: #0f3460;
+            --accent-gold: #e94560;
+            --button-hover: #528aff;
+            --border-color: #cccccc;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #1a1a1a;
-            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold));
             padding: 20px;
-        }
-
-        .header {
             text-align: center;
-            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1em;
+            opacity: 0.95;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--bg-secondary);
+            border-bottom: 2px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .theme-toggle {
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--button-hover);
         }
 
         .scores {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 20px;
-        }
-
-        .player-score {
-            background: #333;
-            padding: 15px 30px;
-            border-radius: 8px;
-            min-width: 200px;
-            text-align: center;
-        }
-
-        .player-score.active {
-            background: #4CAF50;
-            box-shadow: 0 0 10px #4CAF50;
-        }
-
-        .player-name {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .player-points {
-            font-size: 28px;
+            gap: 30px;
+            font-size: 1.1em;
             font-weight: bold;
         }
 
-        .board {
+        .score-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .score-value {
+            color: var(--accent-gold);
+            font-size: 1.3em;
+        }
+
+        .game-container {
+            flex: 1;
+            padding: 30px 20px;
             max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
+        }
+
+        .categories-grid {
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
             margin-bottom: 20px;
         }
 
-        .category-header {
-            background: #1a5490;
+        .category {
+            background-color: var(--accent-blue);
+            border: 3px solid var(--accent-gold);
+            border-radius: 8px;
             padding: 15px;
             text-align: center;
-            font-weight: bold;
-            font-size: 14px;
-            border-radius: 4px;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .clue-cell {
-            background: #2d5a9b;
-            border: 2px solid #4d7fbf;
-            padding: 15px;
-            text-align: center;
-            font-size: 20px;
+        .category-name {
+            font-size: 1.1em;
             font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .points-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .point-cell {
+            background-color: var(--accent-gold);
+            color: #000;
+            padding: 12px;
+            border-radius: 4px;
             cursor: pointer;
-            border-radius: 4px;
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-weight: bold;
+            font-size: 1em;
             transition: all 0.2s;
+            border: 2px solid transparent;
         }
 
-        .clue-cell:hover:not(.answered) {
-            background: #3d7aab;
-            box-shadow: 0 0 10px #4d7fbf;
+        .point-cell:hover:not(.answered) {
             transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
         }
 
-        .clue-cell.answered {
-            background: #333;
-            color: #666;
+        .point-cell.answered {
+            background-color: #666;
+            color: #999;
             cursor: not-allowed;
-            opacity: 0.5;
+            opacity: 0.6;
         }
 
         .modal {
@@ -118,82 +186,88 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s;
         }
 
-        .modal.active {
-            display: flex;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-content {
-            background: #2d2d2d;
-            padding: 40px;
-            border-radius: 12px;
+            background-color: var(--bg-primary);
+            margin: 10% auto;
+            padding: 30px;
+            border: 3px solid var(--accent-gold);
+            border-radius: 10px;
+            width: 85%;
             max-width: 800px;
             max-height: 80vh;
             overflow-y: auto;
-            border: 3px solid #4d7fbf;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--accent-gold);
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: var(--button-hover);
+        }
+
+        .question-section {
+            margin-bottom: 25px;
+        }
+
+        .section-label {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
 
         .question-text {
-            font-size: 20px;
-            margin-bottom: 30px;
+            background-color: var(--bg-secondary);
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 1.05em;
             line-height: 1.6;
+            margin-bottom: 10px;
         }
 
         .answer-section {
-            background: #1a3a52;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid #4CAF50;
             display: none;
+            animation: slideDown 0.4s;
         }
 
-        .answer-section.revealed {
+        .answer-section.show {
             display: block;
-            animation: slideIn 0.3s ease-out;
         }
 
-        .answer-label {
-            font-weight: bold;
-            color: #4CAF50;
-            margin-bottom: 8px;
-        }
-
-        .answer-text {
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .rationale-section {
-            background: #1a2a3a;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #ff9800;
-            display: none;
-        }
-
-        .rationale-section.revealed {
-            display: block;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        .rationale-label {
-            font-weight: bold;
-            color: #ff9800;
-            margin-bottom: 8px;
-        }
-
-        .rationale-text {
-            font-size: 14px;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-
-        @keyframes slideIn {
+        @keyframes slideDown {
             from {
                 opacity: 0;
                 transform: translateY(-10px);
@@ -204,273 +278,439 @@
             }
         }
 
+        .answer-text {
+            background-color: var(--accent-gold);
+            color: #000;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .rationale-text {
+            background-color: var(--bg-secondary);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-gold);
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
         .modal-buttons {
-            margin-top: 20px;
             display: flex;
             gap: 10px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .btn {
-            padding: 12px 24px;
-            font-size: 16px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .btn-player1 {
-            background: #4CAF50;
+        .modal-btn {
+            background-color: var(--accent-blue);
             color: white;
-        }
-
-        .btn-player1:hover {
-            background: #45a049;
-        }
-
-        .btn-player2 {
-            background: #ff9800;
-            color: white;
-        }
-
-        .btn-player2:hover {
-            background: #fb8c00;
-        }
-
-        .btn-close {
-            background: #666;
-            color: white;
-            min-width: 100px;
-        }
-
-        .btn-close:hover {
-            background: #555;
-        }
-
-        .controls {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .btn-reset {
-            background: #d32f2f;
-            color: white;
+            border: 2px solid var(--accent-gold);
             padding: 10px 20px;
-            border: none;
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s;
         }
 
-        .btn-reset:hover {
-            background: #b71c1c;
+        .modal-btn:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
         }
 
-        .header-top {
+        .modal-btn.primary {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        .modal-btn.primary:hover {
+            background-color: #ff6b81;
+        }
+
+        .score-display {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 15px;
+            font-size: 0.95em;
         }
 
-        .btn-back {
-            background: #667eea;
+        .score-btn {
+            background-color: var(--accent-blue);
             color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
+            border: 2px solid var(--accent-gold);
+            padding: 8px 15px;
+            border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
+            transition: all 0.3s;
         }
 
-        .btn-back:hover {
-            background: #764ba2;
+        .score-btn:hover {
+            background-color: var(--button-hover);
         }
 
-        .btn-player1:disabled,
-        .btn-player2:disabled {
-            background: #666;
-            cursor: not-allowed;
-            opacity: 0.6;
+        .score-btn.active {
+            background-color: var(--accent-gold);
+            color: #000;
         }
 
-        .btn-player1:disabled:hover,
-        .btn-player2:disabled:hover {
-            background: #666;
+        .info-message {
+            background-color: var(--bg-secondary);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.95em;
         }
-    </style>
-    <script src="data/exam2-jeopardy.js"></script>
-</head>
-<body>
-    <div class="header-top">
-        <a href="index.html" class="btn-back">← Back to Study Guide</a>
-        <div></div>
-    </div>
 
-    <div class="header">
-        <h1>EXAM 2 JEOPARDY</h1>
-        <h3>NCLEX NGN Clinical Judgment - 2 Player Game</h3>
-    </div>
-
-    <div class="scores">
-        <div class="player-score active" id="player1Score">
-            <div class="player-name">Player 1</div>
-            <div class="player-points" id="p1Points">0</div>
-        </div>
-        <div class="player-score" id="player2Score">
-            <div class="player-name">Player 2</div>
-            <div class="player-points" id="p2Points">0</div>
-        </div>
-    </div>
-
-    <div class="controls">
-        <button class="btn-reset" onclick="resetGame()">Reset Game</button>
-    </div>
-
-    <div class="board" id="board"></div>
-
-    <div class="modal" id="questionModal">
-        <div class="modal-content">
-            <div class="question-text" id="questionText"></div>
-            <div class="answer-section">
-                <div class="answer-label">Answer/Action:</div>
-                <div class="answer-text" id="answerText"></div>
-            </div>
-            <div class="rationale-section">
-                <div class="rationale-label">Rationale:</div>
-                <div class="rationale-text" id="rationaleText"></div>
-            </div>
-            <div class="modal-buttons">
-                <button class="btn btn-player1" id="btn1" onclick="awardPoints(1)">Player 1 Correct (+)</button>
-                <button class="btn btn-player2" id="btn2" onclick="awardPoints(2)">Player 2 Correct (+)</button>
-                <button class="btn btn-close" id="btnClose" onclick="closeQuestion()">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let player1Score = 0;
-        let player2Score = 0;
-        let currentQuestion = null;
-        let currentPoints = 0;
-        let answeredQuestions = new Set();
-        let currentPlayer = 1;
-        let questionAnswered = false;
-
-        function initializeBoard() {
-            if (!window.JEOPARDY_EXAM2) {
-                alert('Error: Question data not loaded');
-                return;
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
             }
 
-            const board = document.getElementById('board');
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .points-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 20% auto;
+                padding: 20px;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .scores {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .reset-btn {
+            background-color: #e94560;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .reset-btn:hover {
+            background-color: #ff6b81;
+        }
+
+        .reveal-btn {
+            background-color: var(--accent-gold);
+            color: #000;
+            border: 2px solid #000;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            min-width: 160px;
+        }
+
+        .reveal-btn:hover {
+            background-color: #ff6b81;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎯 NUR334 Exam 2 Jeopardy</h1>
+        <p>NCLEX-NGN Clinical Judgment - Week 2 (Hematology) & Week 3 (Electrolytes/Perioperative)</p>
+    </header>
+
+    <div class="controls">
+        <a href="index.html" class="nav-link">← Back to Home</a>
+        <div class="scores">
+            <div class="score-item">
+                <span>Player 1:</span>
+                <span class="score-value" id="player1Score">0</span>
+            </div>
+            <div class="score-item">
+                <span>Player 2:</span>
+                <span class="score-value" id="player2Score">0</span>
+            </div>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark/Light</button>
+    </div>
+
+    <div class="game-container">
+        <div id="gameBoard"></div>
+    </div>
+
+    <div id="questionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Question</div>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+
+            <div class="question-section">
+                <div class="section-label">Question</div>
+                <div class="question-text" id="questionText"></div>
+            </div>
+
+            <div class="modal-buttons" style="margin-bottom: 20px;">
+                <button class="reveal-btn" id="revealBtn" onclick="toggleAnswer()">Reveal Answer</button>
+            </div>
+
+            <div class="answer-section" id="answerSection">
+                <div class="section-label">Answer</div>
+                <div class="answer-text" id="answerText"></div>
+
+                <div class="section-label">Rationale (NCLEX-NGN Focus)</div>
+                <div class="rationale-text" id="rationaleText"></div>
+            </div>
+
+            <div class="info-message" id="infoMessage" style="display: none;"></div>
+
+            <div class="score-display" id="scoreDisplay" style="display: none;">
+                <button class="score-btn active" onclick="awardPoints(1)">Player 1 Correct</button>
+                <button class="score-btn" onclick="awardPoints(2)">Player 2 Correct</button>
+                <button class="score-btn" onclick="skipQuestion()">Skip/No Points</button>
+            </div>
+
+            <div class="modal-buttons" style="margin-top: 20px;">
+                <button class="modal-btn" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="exam2-jeopardy-bank.js"></script>
+    <script>
+        let currentCategory = null;
+        let currentPoints = null;
+        let player1Score = 0;
+        let player2Score = 0;
+        let currentClueIndex = {};
+        let answeredClues = new Set();
+
+        function initializeGame() {
+            loadScores();
+            loadAnsweredClues();
+            loadClueIndex();
+            randomizeCategories();
+            renderBoard();
+        }
+
+        function randomizeCategories() {
+            const allCategories = window.JEOPARDY_EXAM2.categories;
+            const week2 = allCategories.filter(c => c.source === 'Week 2');
+            const week3 = allCategories.filter(c => c.source === 'Week 3');
+
+            // Randomly select 3 from each week
+            const selectedWeek2 = week2.sort(() => Math.random() - 0.5).slice(0, 3);
+            const selectedWeek3 = week3.sort(() => Math.random() - 0.5).slice(0, 3);
+
+            window.JEOPARDY_EXAM2.selectedCategories = [...selectedWeek2, ...selectedWeek3];
+        }
+
+        function renderBoard() {
+            const board = document.getElementById('gameBoard');
             board.innerHTML = '';
 
-            // Add category headers
-            window.JEOPARDY_EXAM2.categories.forEach(cat => {
-                const header = document.createElement('div');
-                header.className = 'category-header';
-                header.textContent = cat.name;
-                board.appendChild(header);
-            });
+            const categories = window.JEOPARDY_EXAM2.selectedCategories;
 
-            // Add clue cells
-            const tiers = ['100', '200', '300', '400', '500'];
-            tiers.forEach(tier => {
-                window.JEOPARDY_EXAM2.categories.forEach(cat => {
-                    const cell = document.createElement('div');
-                    cell.className = 'clue-cell';
-                    cell.textContent = tier + ' points';
+            categories.forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category';
 
-                    const questionId = cat.id + '-' + tier;
+                const nameDiv = document.createElement('div');
+                nameDiv.className = 'category-name';
+                nameDiv.textContent = category.name;
+                categoryDiv.appendChild(nameDiv);
 
-                    if (answeredQuestions.has(questionId)) {
-                        cell.classList.add('answered');
+                const pointsGridDiv = document.createElement('div');
+                pointsGridDiv.className = 'points-grid';
+
+                [100, 200, 300, 400, 500].forEach(points => {
+                    const clueKey = `${category.id}-${points}`;
+                    const cellDiv = document.createElement('div');
+                    cellDiv.className = 'point-cell';
+                    cellDiv.textContent = points + ' pts';
+
+                    if (answeredClues.has(clueKey)) {
+                        cellDiv.classList.add('answered');
+                    } else {
+                        cellDiv.onclick = () => openQuestion(category.id, points);
                     }
 
-                    cell.onclick = () => selectQuestion(cat, tier, parseInt(tier), cell, questionId);
-
-                    board.appendChild(cell);
+                    pointsGridDiv.appendChild(cellDiv);
                 });
+
+                categoryDiv.appendChild(pointsGridDiv);
+                board.appendChild(categoryDiv);
             });
         }
 
-        function selectQuestion(category, tier, points, cell, questionId) {
-            if (answeredQuestions.has(questionId)) return;
-
-            const question = category.clues[tier][0]; // Simplified: just take first
-            currentQuestion = question;
+        function openQuestion(categoryId, points) {
+            currentCategory = categoryId;
             currentPoints = points;
-            questionAnswered = false;
 
-            document.getElementById('questionText').textContent = question.q;
-            document.getElementById('answerText').textContent = question.a;
-            document.getElementById('rationaleText').textContent = question.rationale;
+            const category = window.JEOPARDY_EXAM2.selectedCategories.find(c => c.id === categoryId);
+            if (!category) return;
 
-            // Hide answer and rationale initially
-            document.querySelector('.answer-section').classList.remove('revealed');
-            document.querySelector('.rationale-section').classList.remove('revealed');
+            const clue = getNextClue(category, points);
+            if (!clue) return;
 
-            // Enable player buttons
-            document.getElementById('btn1').disabled = false;
-            document.getElementById('btn2').disabled = false;
+            const pointsStr = points.toString();
+            document.getElementById('modalTitle').textContent = `${category.name} - ${points} pts`;
+            document.getElementById('questionText').textContent = clue.q;
+            document.getElementById('answerText').textContent = clue.a;
+            document.getElementById('rationaleText').textContent = clue.rationale;
+            document.getElementById('answerSection').classList.remove('show');
+            document.getElementById('scoreDisplay').style.display = 'none';
+            document.getElementById('revealBtn').textContent = 'Reveal Answer';
+            document.getElementById('questionModal').style.display = 'block';
+        }
 
-            document.getElementById('questionModal').classList.add('active');
+        function getNextClue(category, points) {
+            const pointsStr = points.toString();
+            const clues = category.clues[pointsStr];
+            if (!clues || clues.length === 0) return null;
 
-            answeredQuestions.add(questionId);
-            cell.classList.add('answered');
+            const key = `exam2-clue-cycle-${category.id}-${pointsStr}`;
+            let index = parseInt(localStorage.getItem(key) || '0');
+
+            // Get the clue
+            const clue = clues[index];
+
+            // Store the next index for next time
+            const nextIndex = (index + 1) % clues.length;
+            localStorage.setItem(key, nextIndex.toString());
+
+            return clue;
+        }
+
+        function toggleAnswer() {
+            const answerSection = document.getElementById('answerSection');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const revealBtn = document.getElementById('revealBtn');
+
+            if (answerSection.classList.contains('show')) {
+                answerSection.classList.remove('show');
+                scoreDisplay.style.display = 'none';
+                revealBtn.textContent = 'Reveal Answer';
+            } else {
+                answerSection.classList.add('show');
+                scoreDisplay.style.display = 'flex';
+                revealBtn.textContent = 'Hide Answer';
+            }
+        }
+
+        function revealAnswer() {
+            const answerSection = document.getElementById('answerSection');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            answerSection.classList.add('show');
+            scoreDisplay.style.display = 'flex';
+            document.getElementById('revealBtn').textContent = 'Hide Answer';
         }
 
         function awardPoints(player) {
+            const points = currentPoints;
             if (player === 1) {
-                player1Score += currentPoints;
-                document.getElementById('p1Points').textContent = player1Score;
-                currentPlayer = 1;
+                player1Score += points;
             } else {
-                player2Score += currentPoints;
-                document.getElementById('p2Points').textContent = player2Score;
-                currentPlayer = 2;
+                player2Score += points;
             }
 
-            // Reveal answer and rationale
-            document.querySelector('.answer-section').classList.add('revealed');
-            document.querySelector('.rationale-section').classList.add('revealed');
-            questionAnswered = true;
-
-            // Disable player buttons after answer is revealed
-            document.getElementById('btn1').disabled = true;
-            document.getElementById('btn2').disabled = true;
-
-            updatePlayerIndicator();
+            markClueAnswered();
+            saveScores();
+            updateScoreDisplay();
+            closeModal();
         }
 
-        function updatePlayerIndicator() {
-            document.getElementById('player1Score').classList.toggle('active', currentPlayer === 1);
-            document.getElementById('player2Score').classList.toggle('active', currentPlayer === 2);
+        function skipQuestion() {
+            markClueAnswered();
+            closeModal();
         }
 
-        function closeQuestion() {
-            document.getElementById('questionModal').classList.remove('active');
+        function markClueAnswered() {
+            const clueKey = `${currentCategory}-${currentPoints}`;
+            answeredClues.add(clueKey);
+            saveAnsweredClues();
+            renderBoard();
         }
 
-        function resetGame() {
-            player1Score = 0;
-            player2Score = 0;
-            answeredQuestions.clear();
-            currentPlayer = 1;
-
-            document.getElementById('p1Points').textContent = '0';
-            document.getElementById('p2Points').textContent = '0';
-            updatePlayerIndicator();
-
-            initializeBoard();
+        function closeModal() {
+            document.getElementById('questionModal').style.display = 'none';
+            currentCategory = null;
+            currentPoints = null;
         }
 
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initializeBoard);
+        function updateScoreDisplay() {
+            document.getElementById('player1Score').textContent = player1Score;
+            document.getElementById('player2Score').textContent = player2Score;
+        }
+
+        function saveScores() {
+            localStorage.setItem('exam2-player1-score', player1Score.toString());
+            localStorage.setItem('exam2-player2-score', player2Score.toString());
+        }
+
+        function loadScores() {
+            player1Score = parseInt(localStorage.getItem('exam2-player1-score') || '0');
+            player2Score = parseInt(localStorage.getItem('exam2-player2-score') || '0');
+            updateScoreDisplay();
+        }
+
+        function saveAnsweredClues() {
+            localStorage.setItem('exam2-answered-clues', JSON.stringify(Array.from(answeredClues)));
+        }
+
+        function loadAnsweredClues() {
+            const saved = localStorage.getItem('exam2-answered-clues');
+            if (saved) {
+                answeredClues = new Set(JSON.parse(saved));
+            }
+        }
+
+        function loadClueIndex() {
+            // Clue index is stored per category/points in localStorage via getNextClue
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            localStorage.setItem('exam2-theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('questionModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+
+        // Load theme preference on startup
+        window.addEventListener('load', function() {
+            const savedTheme = localStorage.getItem('exam2-theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+            initializeGame();
+        });
     </script>
 </body>
 </html>
