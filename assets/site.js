@@ -95,11 +95,12 @@ const SITE = {
     {
       label: "Exam Prep",
       items: [
-        { id: "must-know",       num: "1", title: "Must Know Quick Reference", file: "must-know.html" },
+        { id: "must-know",       num: "1", title: "Must Know Quick Reference", file: "must-know.html" }, title: "Must Know Quick Reference", file: "must-know.html" },
         { id: "exam1",           num: "2", title: "Exam 1 — Week 1 Assessment", file: "exam1.html" },
-        { id: "quiz-builder",    num: "3", title: "Build Your Own Exam",       file: "quiz-builder.html" },
-        { id: "torture-chamber", num: "4", title: "The Torture Chamber",       file: "torture-chamber.html" },
-        { id: "lecture-review-template", num: "5", title: "Lecture Review Template", file: "lecture-review-template.html" },
+        { id: "exam2-jeopardy",  num: "2", title: "Exam 2 Jeopardy — 2 Player Game", file: "exam2-jeopardy.html" }, title: "Exam 2 Jeopardy — 2 Player Game", file: "exam2-jeopardy.html" },
+        { id: "quiz-builder",    num: "3", title: "Build Your Own Exam",       file: "quiz-builder.html" }, title: "Build Your Own Exam",       file: "quiz-builder.html" },
+        { id: "torture-chamber", num: "4", title: "The Torture Chamber",       file: "torture-chamber.html" }, title: "The Torture Chamber",       file: "torture-chamber.html" },
+        { id: "lecture-review-template", num: "5", title: "Lecture Review Template", file: "lecture-review-template.html" }, title: "Lecture Review Template", file: "lecture-review-template.html" },
       ]
     }
   ]

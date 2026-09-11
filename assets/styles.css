@@ -1208,3 +1208,26 @@ body.torture{ background:var(--torture); }
 :root[data-theme="dark"] .toplink:hover {
   color: #fff !important; /* white on hover in dark mode */
 }
+
+/* Light mode hamburger menu - text must be visible */
+:root:not([data-theme="dark"]) .toplink {
+  color: #6b3fa0 !important;
+  font-weight: 700;
+}
+
+:root:not([data-theme="dark"]) .toplink:hover,
+:root:not([data-theme="dark"]) .toplink.is-active {
+  color: #4a2c6b !important;
+  background: rgba(107, 63, 160, 0.1) !important;
+}
+
+/* Dark mode top icons - make them bright */
+:root[data-theme="dark"] .nav-utils,
+:root[data-theme="dark"] .nav-toggle {
+  filter: brightness(1.4);
+}
+
+:root[data-theme="dark"] .nav-icon {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
