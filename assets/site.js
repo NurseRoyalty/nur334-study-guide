@@ -1,5 +1,5 @@
 /* ============================================================
-   site.js — shared per-page bootstrap for every page.
+   site.js - shared per-page bootstrap for every page.
    Responsibilities:
      • the top navigation bar (single source of truth = SITE below),
        active-page highlighting, and the prev/next footer links
@@ -49,7 +49,7 @@ const SITE = {
         { id: "week1-upper-resp", num: "2", title: "Upper Respiratory Problems", file: "week1-upper-respiratory-problems.html" },
         { id: "week1-head-neck-ca", num: "3", title: "Head &amp; Neck Cancer", file: "week1-head-neck-cancer.html" },
         { id: "week1-lower-resp", num: "4", title: "Lower Respiratory Problems", file: "week1-lower-respiratory-problems.html" },
-        { id: "week1-respiratory-live-lecture-review", num: "5", title: "Respiratory — Live Lecture Review", file: "week1-respiratory-live-lecture-review.html" },
+        { id: "week1-respiratory-live-lecture-review", num: "5", title: "Respiratory - Live Lecture Review", file: "week1-respiratory-live-lecture-review.html" },
       ]
     },
     {
@@ -89,18 +89,17 @@ const SITE = {
         { id: "fund-older-adults-discharge", num: "10", title: "Older Adults &amp; Discharge Planning", file: "fundamentals-older-adults-discharge.html" },
         { id: "fund-palliative-hospice-eol", num: "11", title: "Palliative, Hospice &amp; End of Life", file: "fundamentals-palliative-hospice-eol.html" },
         { id: "fund-big-picture", num: "12", title: "Big Picture Overview", file: "fundamentals-big-picture-overview.html" },
-        { id: "fund-review-exam", num: "13", title: "Practice Exam — All Sections", file: "fundamentals-review-exam.html" },
+        { id: "fund-review-exam", num: "13", title: "Practice Exam - All Sections", file: "fundamentals-review-exam.html" },
       ]
     },
     {
       label: "Exam Prep",
       items: [
-        { id: "must-know",       num: "1", title: "Must Know Quick Reference", file: "must-know.html" }, title: "Must Know Quick Reference", file: "must-know.html" },
-        { id: "exam1",           num: "2", title: "Exam 1 — Week 1 Assessment", file: "exam1.html" },
-        { id: "exam2-jeopardy",  num: "2", title: "Exam 2 Jeopardy — 2 Player Game", file: "exam2-jeopardy.html" }, title: "Exam 2 Jeopardy — 2 Player Game", file: "exam2-jeopardy.html" },
-        { id: "quiz-builder",    num: "3", title: "Build Your Own Exam",       file: "quiz-builder.html" }, title: "Build Your Own Exam",       file: "quiz-builder.html" },
-        { id: "torture-chamber", num: "4", title: "The Torture Chamber",       file: "torture-chamber.html" }, title: "The Torture Chamber",       file: "torture-chamber.html" },
-        { id: "lecture-review-template", num: "5", title: "Lecture Review Template", file: "lecture-review-template.html" }, title: "Lecture Review Template", file: "lecture-review-template.html" },
+        { id: "must-know",       num: "1", title: "Must Know Quick Reference", file: "must-know.html" },
+        { id: "exam2-jeopardy",  num: "2", title: "Exam 2 Jeopardy - 2 Player Game", file: "exam2-jeopardy.html" },
+        { id: "quiz-builder",    num: "3", title: "Build Your Own Exam",       file: "quiz-builder.html" },
+        { id: "torture-chamber", num: "4", title: "The Torture Chamber",       file: "torture-chamber.html" },
+        { id: "lecture-review-template", num: "5", title: "Lecture Review Template", file: "lecture-review-template.html" },
       ]
     }
   ]
@@ -382,8 +381,8 @@ const SITE_VER = (function () {
     const btn = header.querySelector('[data-act="search"]');
     if (!btn) return;
 
-    /* The index is ~150 KB — more than the rest of the site's CSS+JS put
-       together — and most page views never search. So it is NOT included by
+    /* The index is ~150 KB - more than the rest of the site's CSS+JS put
+       together - and most page views never search. So it is NOT included by
        the pages; it is fetched the first time the search is opened. */
     const INDEX_SRC = "data/search-index.js" + (SITE_VER ? "?v=" + SITE_VER : "");
     let entries = null, loading = null;
@@ -462,7 +461,7 @@ const SITE_VER = (function () {
         results.innerHTML = '<p class="search-empty">Start typing to search every page.</p>';
         return;
       }
-      if (!entries) {                    // still fetching — re-render when it lands
+      if (!entries) {                    // still fetching - re-render when it lands
         matches = [];
         results.innerHTML = '<p class="search-empty">Loading search index…</p>';
         loadIndex().then(() => { if (overlay.classList.contains("show")) render(input.value); });
