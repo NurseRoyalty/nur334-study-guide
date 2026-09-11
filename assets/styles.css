@@ -1192,30 +1192,6 @@ body.torture{ background:var(--torture); }
 :root[data-theme="dark"] .torture .btn-primary{ background:var(--torture-light); }
 :root[data-theme="dark"] .torture .btn-primary:hover{ background:var(--torture-dark); }
 
-/* Fix for hamburger menu text color in light/dark modes */
-:root[data-theme="light"] .toplink {
-  color: #4a2c6b !important; /* dark purple in light mode */
-}
-
-:root[data-theme="light"] .toplink:hover {
-  color: #2a1a4b !important; /* darker purple on hover */
-}
-
-:root[data-theme="dark"] .toplink {
-  color: #e2ddf1 !important; /* light purple in dark mode */
-}
-
-:root[data-theme="dark"] .toplink:hover {
-  color: #fff !important; /* white on hover in dark mode */
-}
-
-/* Light mode hamburger menu - text must be visible */
-:root:not([data-theme="dark"]) .toplink {
-  color: #6b3fa0 !important;
-  font-weight: 700;
-}
-
-:root:not([data-theme="dark"]) .toplink:hover,
 :root:not([data-theme="dark"]) .toplink.is-active {
   color: #4a2c6b !important;
   background: rgba(107, 63, 160, 0.1) !important;
