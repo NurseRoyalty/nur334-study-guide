@@ -375,7 +375,6 @@ window.SEARCH_INDEX = [
       }
     ]
   }
-];
 
   // Electrolyte & Fluid Management Comprehensive
   {
