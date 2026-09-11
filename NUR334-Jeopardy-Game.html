@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUR334 Exam 2 Jeopardy - NCLEX-NGN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0d1b2a;
+            --bg-light: #1a2940;
+            --text-light: #ffffff;
+            --blue-med: #2a6ba6;
+            --red-accent: #e63946;
+            --gold: #f4a261;
+            --border: #3a4a5a;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, var(--blue-med), var(--red-accent));
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            gap: 15px;
+        }
+
+        .scores {
+            display: flex;
+            gap: 40px;
+            font-weight: bold;
+        }
+
+        .score-value {
+            color: var(--gold);
+            font-size: 1.3em;
+        }
+
+        button {
+            background: var(--blue-med);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #3a7bb6;
+        }
+
+        .game-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .game-tab {
+            background: var(--bg-light);
+            border: 2px solid var(--gold);
+            padding: 10px 20px;
+        }
+
+        .game-tab.active {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        .game-board {
+            display: none;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .game-board.active {
+            display: grid;
+        }
+
+        .category {
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .cat-name {
+            background: linear-gradient(135deg, var(--blue-med), var(--red-accent));
+            padding: 12px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.9em;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .clues {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            padding: 10px;
+        }
+
+        .clue {
+            background: var(--blue-med);
+            border: 2px solid var(--gold);
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+
+        .clue:hover:not(.answered) {
+            background: #3a7bb6;
+            transform: scale(1.05);
+        }
+
+        .clue.answered {
+            background: #555;
+            color: #888;
+            cursor: not-allowed;
+            border-color: #666;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--bg-dark);
+            border: 3px solid var(--blue-med);
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .q-title {
+            color: var(--gold);
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .q-text {
+            background: var(--bg-light);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--blue-med);
+            line-height: 1.6;
+        }
+
+        .reveal-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--red-accent);
+            margin-bottom: 15px;
+        }
+
+        .reveal-btn:hover:not(:disabled) {
+            background: #c81e35;
+        }
+
+        .answer-box {
+            display: none;
+            background: #1a5a1a;
+            border: 2px solid #4a9a4a;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            color: #a0ffa0;
+        }
+
+        .answer-box.show {
+            display: block;
+        }
+
+        .rationale-box {
+            background: var(--bg-light);
+            border: 2px solid var(--blue-med);
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .score-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .score-btns button {
+            flex: 1;
+        }
+
+        .close-modal {
+            background: var(--red-accent);
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 1024px) {
+            .game-board {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🏥 NUR334 Exam 2 Jeopardy</h1>
+    <p>NCLEX-NGN Clinical Judgment Questions</p>
+</div>
+
+<div class="controls">
+    <div class="scores">
+        <div>Player 1: <span class="score-value" id="p1">0</span></div>
+        <div>Player 2: <span class="score-value" id="p2">0</span></div>
+    </div>
+    <button onclick="resetScores()">🔄 Reset</button>
+</div>
+
+<div class="game-tabs">
+    <button class="game-tab active" onclick="switchGame(0)">Game 1</button>
+    <button class="game-tab" onclick="switchGame(1)">Game 2</button>
+    <button class="game-tab" onclick="switchGame(2)">Game 3</button>
+</div>
+
+<div id="board0" class="game-board active"></div>
+<div id="board1" class="game-board"></div>
+<div id="board2" class="game-board"></div>
+
+<div id="modal" class="modal">
+    <div class="modal-box">
+        <div class="q-title" id="cat-title">Category - $100</div>
+        <div class="q-text" id="q-text">Question here</div>
+        <button class="reveal-btn" id="reveal-btn" onclick="revealAnswer()">Reveal Answer</button>
+        <div class="answer-box" id="answer-box">
+            <strong id="answer-text">Answer</strong>
+        </div>
+        <div class="rationale-box" id="rationale-box" style="display:none;">
+            <strong>Clinical Rationale:</strong><br>
+            <span id="rationale-text">Rationale here</span>
+        </div>
+        <div class="score-btns">
+            <button onclick="addScore(1, 100)">P1 +$100</button>
+            <button onclick="addScore(1, -100)">P1 -$100</button>
+            <button onclick="addScore(2, 100)">P2 +$100</button>
+            <button onclick="addScore(2, -100)">P2 -$100</button>
+        </div>
+        <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+const CATEGORIES = [
+    'Hematology: Multisystem',
+    'Anemias: Critical Mgmt',
+    'Polycythemia: Thrombotic',
+    'Transfusion: Complications',
+    'Electrolytes: Extreme',
+    'Perioperative: Complications',
+    'Malignant Hyperthermia'
+];
+
+const QUESTIONS = {
+    0: { // Game 1
+        0: { // Hematology
+            100: [
+                {q: "68yo on warfarin (INR 8.3) with severe GI bleed, BP 88/52. PRIORITY reversal?", a: "FFP 15mL/kg STAT + Vitamin K 10mg IV + consider PCC", r: "FFP provides immediate factor replacement while Vitamin K takes 12-24 hours. PCC preferred if available (smaller volume, faster reversal)."}
+            ],
+            200: [
+                {q: "45yo sickle cell with ACS, receives 2 PRBC in ER, chest pain WORSENS. Complication?", a: "Simple transfusion WORSENED ACS—STOP, do EXCHANGE transfusion", r: "Simple transfusion increases viscosity and microvascular occlusion. Exchange transfusion (remove patient's RBCs while adding donor) is the correct approach."}
+            ],
+            300: [
+                {q: "72yo myeloma (ANC 200), febrile, on antibiotics x2 days no improvement. Next step?", a: "ADD voriconazole (Aspergillus) + TMP-SMX (PCP) for fungal coverage", r: "Severely immunocompromised patients with refractory fever = fungal infection until proven otherwise. Aspergillus and PCP are highest risk."}
+            ],
+            400: [
+                {q: "38yo acute leukemia day 8 post-chemo: dyspnea, chest pain, BP 88/55, troponin 0.28. Diagnosis?", a: "Tumor lysis syndrome with cardiomyopathy/shock", r: "Day 8 post-chemo is peak TLS. K+ release causes hyperkalemia and myocardial irritability. Elevated troponin from hyperkalemia/hypocalcemia damage."}
+            ],
+            500: [
+                {q: "58yo lung cancer stage IV with bone mets: BP 92/54, Na 118, K 5.8. Received 2L NS with no improvement. DUAL problem?", a: "TLS (hyperkalemia) PLUS SIADH (hyponatremia)—restrict fluids, NO more NS", r: "TRAP: Normal saline makes SIADH hyponatremia WORSE. Need fluid restriction for SIADH and K management for TLS."}
+            ]
+        },
+        1: { // Anemias
+            100: [{q: "42yo Crohn's on infliximab: Hgb 7.2, B12 97, folate 2.1. PRIORITY repletion sequence?", a: "B12 FIRST or simultaneously with folate to prevent neurologic damage", r: "Folate alone masks B12 neurologic deficiency which can progress to irreversible spinal cord demyelination."}],
+            200: [{q: "35yo pernicious anemia, day 3 B12 injections: K 2.8, Mg 1.3, weakness. CRITICAL?", a: "REFEEDING SYNDROME—cells import K/Mg intracellularly, SLOW B12, aggressively replele electrolytes", r: "Rapidly correcting severe deficiency stimulates erythropoiesis which demands massive intracellular electrolyte influx, causing acute serum depletion and cardiac death risk."}],
+            300: [{q: "58yo pernicious anemia (B12 32), progressive Hgb 6.8, paresthesias. Timeline for neurologic symptoms if untreated?", a: "Symptoms appear 3-6 months, irreversible spinal cord damage if untreated >1 year", r: "B12 deficiency neurologic progression follows timeline: paresthesias → ataxia → spasticity → irreversible cord disease."}],
+            400: [{q: "48yo post-gastrectomy 6mo ago: Hgb 6.8, MCV 105, B12 32. Why is gastrectomy significant?", a: "Gastrectomy removes intrinsic factor needed for B12 absorption—lifelong IM B12 required", r: "Parietal cells produce intrinsic factor necessary for B12 absorption in terminal ileum. Post-gastrectomy requires monthly B12 injections indefinitely."}],
+            500: [{q: "76yo with combined iron + B12 + folate deficiency. How does repletion sequence prevent masking?", a: "Iron + folate together normalize Hgb but MASK B12 neurologic deficiency—must include B12 from START", r: "Masking effect: iron + folate improve MCV/Hgb while B12 neurologic damage accelerates silently. B12 MUST be part of initial therapy."}]
+        },
+        2: { // Polycythemia
+            100: [{q: "64yo PV (Hct 62%) on hydroxyurea + aspirin: sudden abdominal pain, shock, elevated amylase. Complication?", a: "Thrombotic mesenteric infarction from SMA thrombosis", r: "PV inherent high viscosity + hypercoagulability from clonal platelet dysfunction. Visceral thrombosis despite treatment. Mortality >50% even with Rx."}],
+            200: [{q: "55yo PV with stroke history, now transient visual loss. Why elevated stroke risk?", a: "PV hypercoagulability + high viscosity + abnormal platelet function", r: "PV has triple thrombotic mechanisms: elevated Hgb/RBCs (viscosity), abnormal platelets (thrombotic tendency), JAK2 mutation (prothrombotic state)."}],
+            300: [{q: "68yo PV on hydroxyurea: new hepatosplenomegaly, Hgb 8.5 (down from 20), retic 8%, LDH 1200. Transformation?", a: "Myelofibrotic transformation—extramedullary hematopoiesis in liver/spleen", r: "~5% PV transform to PMF. Bone marrow fibrosis shifts hematopoiesis to liver/spleen. JAK inhibitors now preferred."}],
+            400: [{q: "72yo PV refractory thrombocytosis (PLT 900K despite max hydroxyurea) + TIA episodes. Why anagrelide contraindicated?", a: "Anagrelide causes vasodilation + reflex tachycardia—WORSENS thrombotic risk", r: "Anagrelide's PDE3 inhibition causes inappropriate vasodilation with reflex tachycardia creating prothrombotic state. High MI/CVA incidence."}],
+            500: [{q: "63yo PV developing splenomegaly (15cm), reticulocytes 3%, retic count not improving Hgb. What's happening?", a: "Splenic sequestration from extramedullary hematopoiesis—consider splenectomy", r: "PV with massive splenomegaly traps RBCs and WBCs, worsening anemia. Splenectomy can improve Hgb in select patients."}]
+        },
+        3: { // Transfusion
+            100: [{q: "58yo septic shock, necrotizing infection: massive transfusion (20 PRBC, 14 FFP, 8 plt). Suddenly P/F 88, PT >30, temp 32.1°C. CASCADE?", a: "'PERFECT STORM': TRALI + dilutional coagulopathy + DIC + hypothermia + acidosis", r: "Mortality 50-80%. Multiple catastrophes: TRALI (pulmonary edema), dilutional coagulopathy, DIC, hypothermia (cardiac instability), acidosis. ECMO only adequate solution."}],
+            200: [{q: "45yo post-op transfused 4 units PRBC: fever 38.9°C, rigors, hypotension, hemoglobinuria. Reaction?", a: "YES—acute hemolytic transfusion reaction from ABO incompatibility", r: "Immediate onset with fever + hemoglobinuria + hypotension. Usually ABO incompatibility. STOP transfusion immediately, aggressive hydration, monitor for AKI/DIC."}],
+            300: [{q: "38yo post-transfusion (6h ago): urticaria + flushing, fever 37.8°C. BP stable, no hemoglobinuria. Type?", a: "Allergic/anaphylactic transfusion reaction—most common type", r: "~1-2% all transfusions. Immune-mediated against donor proteins. Mild urticaria often manageable with antihistamines and resuming transfusion."}],
+            400: [{q: "52yo massive trauma, 28 units PRBC + 18 FFP + 10 platelets: fibrinogen 140, INR 2.2, Hgb 7.2 despite transfusions. Why bleeding continues?", a: "Massive transfusion coagulopathy from dilution + consumption + hypothermia + acidosis", r: "Massive transfusion (>10 units/24h) causes coagulopathy from factor dilution, consumption (DIC), hypothermia dysfunction, acidosis. Balanced 1:1:1 ratio CRITICAL."}],
+            500: [{q: "68yo post-massive transfusion develops ARDS, coagulopathy, hypothermia. Which complication is INDEPENDENT of transfusion volume?", a: "Transfusion-related acute lung injury (TRALI) can occur with small volumes", r: "TRALI is immune-mediated from donor WBC incompatibility, NOT volume-dependent. Can occur with single unit. Presents as ARDS 1-6h post-transfusion."}]
+        },
+        4: { // Electrolytes
+            100: [{q: "64yo SIADH on fluid restriction, now seizing with Na 98 (down from 120 in hours). PRIORITY?", a: "ACUTE hyponatremia is MORE symptomatic—use HYPERTONIC saline (3%), correct 4-6 mEq/L/hr", r: "Acute hyponatremia brain hasn't adapted—more symptoms. Hypertonic saline indicated for symptomatic acute hyponatremia despite being SIADH patient."}],
+            200: [{q: "72yo CKD (Cr 3.8) on ACE-I + spironolactone: K 7.4, EKG peaked T-waves, new AKI. PRIORITY?", a: "STOP both drugs, STAT calcium gluconate (cardiac protection), insulin/glucose/bicarb for K shift, urgent dialysis", r: "Triple emergency: cardiac toxicity (peaked T-waves), AKI (prevents K excretion), acidosis. ACE-I + spironolactone contraindicated in renal failure."}],
+            300: [{q: "48yo SIADH (chronic Na 115 x3mo) now receiving demeclocycline. Why correct SLOWLY even though Na is 115?", a: "Chronic hyponatremia brain adapted—RAPID correction causes osmotic demyelination syndrome", r: "Brain reduces osmolytes to compensate for chronic hyponatremia. Rapid Na correction causes water shifts out of brain → cell shrinkage → permanent neurologic damage."}],
+            400: [{q: "36yo sepsis gets 8L NS over 4hr for septic shock: Na now 120 (was 138), Cl 100. Why did Na drop?", a: "Dilutional hyponatremia—sepsis + SIADH make NS hypotonic, switch to 3% saline", r: "Paradox: 'physiologic' NS actually hypotonic in sepsis context because SIADH causes free water reabsorption. Need 3% saline to overcome SIADH."}],
+            500: [{q: "54yo cirrhosis with ascites, renal failure (Cr 2.8): Na 108 + K 6.8 + HCO3 14 (TRIPLE derangement). Pathophysiology?", a: "Cirrhosis → hepatorenal syndrome + SIADH (Na↓) + metabolic acidosis + hyperkalemia (AKI + aldosterone resistance)", r: "Cirrhosis perfect storm: portal hypertension triggers SIADH, renal hypoperfusion causes hyperkalemia + acidosis, aldosterone resistance prevents K excretion."}]
+        },
+        5: { // Perioperative
+            100: [{q: "68yo post-CABG day 2: AFib RVR (HR 168), BP 92/58, Mg 1.2, K 3.8, chest tube 180mL/hr. PRIORITY?", a: "Aggressive Mg/K replacement IV (Mg FIRST), increase metoprolol, urgent chest tube eval", r: "Post-op AFib multifactorial: hypomagnesemia + hypokalemia + surgical stress + bleeding. Correct Mg first—enables beta-blocker/amiodarone effectiveness."}],
+            200: [{q: "52yo post-op day 3 major abdominal surgery: temp 38.8°C, HR 110, BP low, septic appearance. Concerning timing?", a: "Day 3 post-op fever suggests anastomotic leak/abscess/pneumonia—NOT normal post-op fever", r: "Post-op fever timeline: days 1-2 expected, day 3+ concerning for complications. Needs urgent CT abdomen, blood cultures, surgical evaluation."}],
+            300: [{q: "71yo post-CABG on metoprolol + amiodarone develops bradycardia (HR 42), hypotension (BP 78/48). Problem?", a: "Amiodarone + metoprolol additive effect causing excessive bradycardia/conduction block", r: "Class III agent (amiodarone) + beta-blocker cause excessive AV node slowing. Post-op autonomic instability worsens effect. Needs pacing capability."}],
+            400: [{q: "58yo post-op day 4 from ruptured AAA repair develops acute mesenteric ischemia. Risk factor from surgery?", a: "Suprarenal AAA clamping interrupted SMA flow—reperfusion injury + mural thrombus formation", r: "Ruptured AAA requires suprarenal clamping causing temporary small bowel ischemia. Post-op reperfusion injury increases thrombosis risk. Prophylactic heparin sometimes used."}],
+            500: [{q: "62yo post-CABG day 5: new respiratory distress, infiltrates on CXR, troponin elevated. Differential includes?", a: "Post-op MI, post-cardiac injury syndrome, infectious endocarditis, graft infection", r: "Day 5 post-CABG with new infiltrates + troponin elevation suggests pericarditis (Dressler), acute graft thrombosis, or sternal infection. Requires urgent evaluation."}]
+        },
+        6: { // Malignant Hyperthermia
+            100: [{q: "During induction with succinylcholine + sevoflurane: masseter rigidity, ETCO2 75, temp 38.2°C, dark venous blood. IMMEDIATE next?", a: "FULMINANT MH—ABORT surgery, STAT dantrolene 2.5mg/kg IV (repeat q5min), aggressive cooling, ICU", r: "ETCO2 75 = severe hypermetabolism. Dark blood = myoglobinuria/DIC. Mortality 5-10% even with dantrolene. Need aggressive cooling + massive fluid resuscitation (200-300mL/hr urine)."}],
+            200: [{q: "MH crisis treated, cooled to 37.2°C, urine clear. CRITICAL post-crisis management?", a: "Dantrolene 1mg/kg IV q4-6h for 24-48h to PREVENT RECRUDESCENCE (occurs 25% of time)", r: "Recrudescence (MH crisis recurs 2-24h post-initial) is common. Requires continued ICU monitoring, watch for compartment syndrome and hyperkalemia complications."}],
+            300: [{q: "Patient family hx MH, scheduled for elective surgery. SAFE anesthetic plan?", a: "Use non-triggering: propofol induction + remifentanil + non-depolarizing paralytic, AVOID succinylcholine + volatiles", r: "Triggering agents: succinylcholine + volatile anesthetics. Safe agents: propofol, remifentanil, non-depolarizing paralytics. Dantrolene must be available."}],
+            400: [{q: "22yo unexplained intraoperative rhabdomyolysis + hyperkalemia during knee arthroscopy (succinylcholine + isoflurane). Genetic testing?", a: "RYR1 gene mutation testing (85% MH cases)—autosomal dominant, 50% family risk", r: "MH = pharmacogenetic from RYR1/CACNA1S mutations causing abnormal calcium release in muscle. Genetic testing confirms diagnosis and enables family screening."}],
+            500: [{q: "Patient with diagnosed RYR1 mutation needs emergency cesarean for preeclampsia. Anesthesia approach?", a: "Spinal anesthesia preferred if stable, if general needed: total IV anesthesia (propofol + remifentanil), NO volatiles/succinylcholine, have dantrolene ready", r: "Regional anesthesia avoids general anesthesia triggers entirely. If general needed, only non-triggering agents. Obstetric team must know MH-susceptible status."}]
+        }
+    },
+    1: { // Game 2 (same structure)
+        0: {
+            100: [{q: "65yo on warfarin develops acute SDH from fall, INR 4.2, needs urgent craniotomy. Emergent reversal?", a: "FFP 3-4 units STAT + Vitamin K 10mg IV, minimize fluid volume (head injury + SIADH risk)", r: "URGENT reversal needed BUT head injury = SIADH risk from fluid overload causing cerebral edema. Strategy: FFP (minimal volume), Vitamin K, PCC preferred if available."}],
+            200: [{q: "48yo TTP (ADAMTS13 <10%, schistocytes), day 3 plasma exchange: Plt 25K (unchanged). Treatment-resistant?", a: "Switch to cyto-poor FFP or SD-plasma, ADD rituximab (anti-CD20), consider eculizumab", r: "~10-20% TTP refractory to PE. FFP contamination may worsen hemolysis. Rituximab targets B-cells producing inhibitors. Need complement inhibitor if complement-mediated variant."}],
+            300: [{q: "55yo trauma, hemorrhagic shock, massive transfusion: coma, fixed pupils, core temp 32.8°C, K 7.8, pH 6.88. IMMEDIATE management?", a: "Severe hypothermia—STOP resuscitation temporarily, INITIATE EXTRACORPOREAL REWARMING (ECMO)", r: "Core temp 32.8°C mimics death but patient can survive with ECMO. Hypothermia ↓metabolic rate 50% per °C → medications ineffective. ECMO rewarming gold standard (1°C per 2-3 min)."}],
+            400: [{q: "42yo AIHA (Hgb 6.8, DAT+, day 7 prednisone), started rituximab. Highest risk complication?", a: "Rituximab infusion reaction + ongoing hemolysis → severe cytokine release/storm; SLOW infusion rate, have epi ready", r: "Rituximab massive B-cell lysis → cytokine release. In AIHA with active hemolysis = already elevated cytokines. Risk of DIRE reaction. Premedicate heavily."}],
+            500: [{q: "52yo post-MI on clopidogrel + aspirin: sudden severe epistaxis, BP 85/50, platelets 18K. Etiology?", a: "Drug-induced immune thrombocytopenia (DITP) from clopidogrel/aspirin; HOLD both, give platelet transfusion x2 (ESSENTIAL in active hemorrhage)", r: "Rapid thrombocytopenia on dual antiplatelet = DITP. Active hemorrhage requires platelet transfusion despite usual DITP avoidance. Need IVIG/corticosteroids, hematology consult."}]
+        },
+        1: {
+            100: [{q: "34yo with sickle cell, new fever + chest pain + infiltrate on CXR. ACS diagnosis confirmed. Management principle?", a: "Blood exchange transfusion (NOT simple transfusion) to reduce HgbS <30%", r: "Simple transfusion WORSENS ACS by increasing viscosity. Exchange transfusion removes patient's RBCs while adding donor RBCs, reducing sickling tendency."}],
+            200: [{q: "28yo pernicious anemia (B12 85, MCV 110, paresthesias), started B12. Why watch for refeeding syndrome?", a: "Rapid B12 correction → erythropoiesis → RBCs demand massive K+/Mg/PO4 intracellularly → acute serum depletion", r: "Refeeding syndrome in severely deficient patients. Cells begin biosynthesis requiring massive electrolyte influx. Risk sudden cardiac death from electrolytic chaos."}],
+            300: [{q: "56yo Crohn's triple deficiency (iron + B12 + folate). Repletion sequence error: started iron + folate only. Consequence?", a: "Iron + folate normalize RBC morphology but MASK progressive B12 neurologic deficiency → demyelination progresses silently", r: "Masking effect: improved Hgb falsely reassures clinician while B12 spinal cord demyelination continues. Irreversible damage if B12 not included from start."}],
+            400: [{q: "48yo post-gastrectomy 6mo ago, progressive paresthesias + weakness despite anemia treatment. What's likely missed?", a: "B12 deficiency with spinal cord demyelination—must check B12 levels immediately", r: "Post-gastrectomy removes intrinsic factor → B12 malabsorption. If Hgb treated with iron alone, neurologic B12 damage progresses to irreversible spinal cord pathology."}],
+            500: [{q: "72yo cirrhosis + malnutrition + malabsorption now with combined deficiencies. Why iron supplementation alone makes it WORSE?", a: "Iron worsens intestinal inflammation in cirrhosis → bacterial overgrowth → portal endotoxemia → hepatic encephalopathy", r: "Cirrhosis patients have portal hypertension + bacterial overgrowth. Iron supplements worsen dysbiosis. B12/folate deficiency must be addressed FIRST, iron only after GI stabilization."}]
+        },
+        2: {
+            100: [{q: "60yo PV (Hct 65%) presents with sudden calf pain + swelling despite aspirin + hydroxyurea. DVT diagnosis confirmed. Management paradox?", a: "Anticoagulation + phlebotomy (Hct target <45%) + consider IFN-α or ruxolitinib instead of hydroxyurea", r: "PV thrombosis despite 'treatment' suggests need for more aggressive disease control. Heparin/warfarin for acute DVT, plus address underlying PV with stronger agents."}],
+            200: [{q: "58yo PV (Hct 61%) with pruritus + erythromelalgia (red painful hands/feet). Mechanism?", a: "Platelet dysfunction + microvascular thrombosis from PV hypercoagulability", r: "Erythromelalgia in PV = thrombotic microvascular involvement. Platelet dysfunction + JAK2 prothrombotic state. Aspirin helpful (antiplatelet), aggressive phlebotomy needed."}],
+            300: [{q: "70yo PV on hydroxyurea develops hepatosplenomegaly + fever + abdominal pain. New finding: bone marrow biopsy shows fibrosis. Transformation?", a: "Myelofibrotic transformation (PV → primary myelofibrosis)—shift to fibrotic phase", r: "~5% PV transform to PMF. Bone marrow fibrosis → extramedullary hematopoiesis (liver/spleen). JAK inhibitors (ruxolitinib) now first-line for transformed disease."}],
+            400: [{q: "65yo PV with recurrent TIA despite aspirin + warfarin. Platelet count 680K. Next?", a: "Anagrelide ineffective in PV (worsens thrombotic risk)—switch to interferon-alpha or ruxolitinib", r: "Anagrelide causes reflex tachycardia and vasodilation = prothrombotic in PV. Better agents: INF-α (fewer prothrombotic effects), ruxolitinib (JAK inhibitor)."}],
+            500: [{q: "72yo PV on IFN-α (well-controlled Hct 45%, plt 400K) develops new dyspnea + right-sided chest pain. Complication?", a: "Pulmonary hypertension from PV + INF-α cardiotoxicity OR thrombotic pulmonary embolism", r: "INF-α can cause cardiomyopathy + pulmonary complications. PV itself increases PH risk. Needs echo (RVSP), CT PE protocol, troponin, BNP. Consider stem cell transplant evaluation."}]
+        },
+        3: {
+            100: [{q: "44yo receives transfusion for anemia, post-op day 1: fever 38.5°C 4 hours post-transfusion, chills, dyspnea, hypotension. Reaction type?", a: "Febrile non-hemolytic transfusion reaction (most common fever post-transfusion)", r: "~1-2% transfusions. WBC incompatibility triggering cytokine release. FNHTR vs acute hemolytic: FNHTR = no hemoglobinuria, stable Hgb. Can premedicate with acetaminophen."}],
+            200: [{q: "38yo transfused 2 units PRBC day 2 post-op: fever 39.2°C, dark urine, flank pain, hypotension (BP 82/48), Cr rising. Acute hemolytic?", a: "YES—acute hemolytic transfusion reaction; STOP transfusion immediately, aggressive NS hydration + furosemide, monitor for AKI/DIC", r: "Intravascular hemolysis. Fever + hemoglobinuria + hypotension + AKI = classic. Usually ABO incompatibility. Transfusion reaction workup, direct antiglobulin test, haptoglobin."}],
+            300: [{q: "52yo with massive transfusion protocol, receives 20 units PRBC + cold FFP over 2 hours: suddenly hypotensive, bradycardia, unresponsive. Cause?", a: "Profound hypothermia from massive cold transfusion—warm core temperature to >30°C before further resuscitation", r: "Massive transfusion with cold blood products causes iatrogenic hypothermia. Hypothermia worsens coagulopathy, prevents medication efficacy, causes bradycardia/hypotension mimicking exanguination."}],
+            400: [{q: "68yo gets 8 units PRBC for massive GI bleed: develops ARDS (P/F 85), coagulopathy (Fib 120), fever 38.8°C. TRALI?", a: "TRALI likely—immune-mediated from donor WBC incompatibility, not volume-dependent", r: "TRALI can occur with ANY transfusion volume. Immune mechanism: donor antibodies against recipient WBCs. Presents as ARDS 1-6h post-transfusion. Supportive care only (O2, mechanical ventilation)."}],
+            500: [{q: "71yo on massive transfusion protocol for trauma (26 units PRBC, 18 FFP, 12 platelets): develops acute kidney injury (Cr 3.2, Urine Myoglobin positive). Etiology?", a: "Rhabdomyolysis from crush injury + transfusion-related hemolysis + hyperkalemia cascade", r: "Massive transfusion + crush mechanism + intravascular hemolysis → myoglobinuria + hyperkalemia + acidosis. All three mechanisms damage kidneys. Massive fluid resuscitation (500-1000mL/hr urine output goal) essential."}]
+        },
+        4: {
+            100: [{q: "72yo with CKD presents with severe hyperkalemia (K 7.6), EKG shows peaked T-waves + wide QRS, asymptomatic at moment. PRIORITY sequence?", a: "STAT calcium gluconate (cardiac membrane stabilization FIRST), then insulin/glucose/bicarb/albuterol, then dialysis", r: "Peaked T-waves = acute cardiac toxicity risk. Calcium gluconate FIRST (doesn't lower K but stabilizes heart). Then shift K intracellularly with insulin/bicarb. Dialysis removes K definitively."}],
+            200: [{q: "64yo SIADH on fluid restriction + vaptans: suddenly altered mental status, seizures, Na 94 (down from 120 in 6 hours). Type?", a: "ACUTE symptomatic hyponatremia—use 3% saline despite SIADH diagnosis, correct 4-6 mEq/L/hr until seizures stop", r: "ACUTE hyponatremia more symptomatic than chronic—brain hasn't compensated. Hypertonic saline now INDICATED (overrides SIADH management rules). Correct slowly after seizures stop to prevent ODS."}],
+            300: [{q: "48yo sepsis patient with SIADH receives 8L NS over 4h: Na drops 138→120. Why isn't NS helping?", a: "SIADH in sepsis makes free water reabsorption maximal—NS is hypotonic relative to patient's total osmoles", r: "Paradox: 'physiologic' 0.9% NS is actually hypotonic in context of maximal SIADH. Need 3% saline to overcome SIADH + free water reabsorption preventing Na correction."}],
+            400: [{q: "54yo with metabolic acidosis (pH 7.18, HCO3 12) + respiratory distress (RR 28), K 6.8, Cr 4.2. What's driving the acidosis?", a: "High anion gap metabolic acidosis from uremia + lactic acidosis from hypoperfusion in AKI", r: "AKI + sepsis creates dual acidosis: uremic acid accumulation + lactic acidosis from tissue hypoperfusion. Requires dialysis for uremic clearance + hemodynamic optimization for lactate clearance."}],
+            500: [{q: "58yo cirrhosis with ascites, portal hypertension, now with Na 106 + K 7.2 + HCO3 14 (complex triple derangement). Why simple normal saline inappropriate?", a: "NS worsens hyponatremia (SIADH from portal HTN), worsens hyperkalemia (AKI can't excrete), worsens acidosis (renal dysfunction); needs fluid restriction + potassium binders + dialysis", r: "Cirrhosis causes SIADH from portal HTN + hepatorenal syndrome (AKI) + metabolic acidosis from liver failure. Simple NS makes all three WORSE. Complex multidrug management required."}]
+        },
+        5: {
+            100: [{q: "70yo post-CABG day 1: new AFib RVR (HR 172), BP 96/54, urine output 18mL/hr, altered mental status. On metoprolol + amiodarone. Labs: Mg 1.3, K 3.7, Ca normal. Management?", a: "Aggressive Mg replacement IV (correct hypomagnesemia FIRST), increase metoprolol, address ongoing bleeding (chest tube output?), blood transfusion for volume", r: "Post-op AFib multifactorial: hypomagnesemia is KEY (enables cardiac repolarization + makes drugs work). Must correct Mg before escalating antiarrhythmics."}],
+            200: [{q: "55yo post-op day 4 major abdominal surgery: fever 39.1°C, WBC 18K, lactate 4.2, hypotensive despite fluids. Septic?", a: "YES—day 4 post-op fever + SIRS criteria suggests anastomotic leak or deep infection; URGENT CT abdomen, blood cultures, broad-spectrum antibiotics, surgical consult", r: "Post-op fever day 3+ = concerning for complications (NOT normal post-op inflammation). Lactate elevation + SIRS + hypotension confirms sepsis. Source control (surgery) often needed."}],
+            300: [{q: "69yo post-CABG on metoprolol + amiodarone + digoxin develops bradycardia (HR 38), hypotension (BP 75/46), altered mental status. Problem?", a: "Triple negative chronotropic effect from beta-blocker + Class III agent + digoxin; consider temporary pacing, hold digoxin + amiodarone", r: "Multiple negative chronotropic agents create synergistic bradycardia. Post-op autonomic instability exacerbates. May need transcutaneous pacing initially, then reassess agents."}],
+            400: [{q: "60yo post-op day 5 from ruptured AAA repair: new fever, progressive dyspnea, WBC spike. Specific post-op complication?", a: "Graft infection (mycotic aneurysm) or sternal infection (mediastinitis if CABG)—URGENT CT angiography, echocardiography, blood cultures", r: "Post-AAA repair graft infection catastrophic (mortality 50%+). Fever + dyspnea + leukocytosis suspicious for infection. Needs imaging + cultures urgently. May require emergent reoperation."}],
+            500: [{q: "64yo post-CABG day 6: acute dyspnea, troponin elevation (0.45), new friction rub on exam, pericardial effusion on echo. Diagnosis and management?", a: "Post-cardiac injury syndrome (Dressler syndrome)—pericarditis/myocarditis; NSAIDs (indomethacin 75mg/day) or colchicine, monitor for tamponade", r: "Dressler syndrome occurs days 3-21 post-cardiac surgery. Autoimmune-mediated pericarditis. NSAIDs or colchicine effective. Avoid anticoagulation if possible (pericardial bleeding risk)."}]
+        },
+        6: {
+            100: [{q: "During knee arthroscopy with succinylcholine + isoflurane: masseter rigidity at induction, ETCO2 67 by 10 min, temp 38°C, dark urine post-op. Crisis management?", a: "FULMINANT MH—abort surgery immediately with non-triggering agents only, STAT dantrolene 2.5mg/kg IV q5min, aggressive cooling, ICU admission", r: "ETCO2 67 = severe hypermetabolism. Dark urine post-op confirms rhabdomyolysis/myoglobinuria. Mortality 5-10% even with dantrolene. Aggressive fluid resuscitation (goal 200-300mL/hr urine)."}],
+            200: [{q: "MH crisis treated with dantrolene, cooled, urine clearing. Why is post-crisis dantrolene CRITICAL for 24-48 hours?", a: "Prevent RECRUDESCENCE (MH crisis recurs 25% of time 2-24h post-initial crisis)", r: "Recrudescence = spontaneous MH crisis recurrence. Requires ICU monitoring, continued dantrolene 1mg/kg IV q4-6h for 24-48h, watch for compartment syndrome/hyperkalemia/DIC."}],
+            300: [{q: "Patient has diagnosed RYR1 mutation, needs emergency appendectomy. Safest anesthetic?", a: "Spinal anesthesia preferred, if general: total IV anesthesia (propofol + remifentanil) + non-depolarizing paralytic, NO volatiles/succinylcholine, dantrolene available", r: "Regional anesthesia avoids triggering agents entirely. Total IV anesthesia safe for general. Non-triggering agents mandatory. Medical team must document MH susceptibility clearly."}],
+            400: [{q: "22yo with MH susceptibility scheduled for elective cosmetic surgery. Family counseling about anesthetic risk?", a: "Autosomal dominant inheritance, 50% siblings/children affected, need genetic testing, wear medical alert bracelet, anesthesiologist pre-evaluation mandatory", r: "Genetic counseling essential. RYR1/CACNA1S mutations inherited. Relatives need testing. MH-susceptible patients must inform any anesthesiologist and avoid triggering agents always."}],
+            500: [{q: "28yo MH-susceptible patient on succinylcholine/isoflurane for routine surgery develops fulminant crisis with early cardiac dysrhythmias (peaked T-waves), hyperkalemia K 7.8. Mechanism?", a: "Severe hyperkalemia from rhabdomyolysis + direct succinylcholine-induced K release—STAT calcium gluconate for cardiac protection, aggressive dantrolene + cooling, prepare for dialysis", r: "Succinylcholine causes pseudocholinesterase-independent muscle depolarization → massive K release. In MH patient with ongoing rhabdomyolysis = catastrophic hyperkalemia. Cardiac dysrhythmia risk enormous."}]
+        }
+    },
+    2: { // Game 3 (same structure)
+        0: {
+            100: [{q: "63yo on warfarin (INR 6.8) post-mechanical valve presents with severe retroperitoneal hemorrhage, hemodynamically unstable (BP 82/50). Emergent reversal approach?", a: "FFP 15mL/kg STAT + Vitamin K 10mg IV, consider PCC if available (preferred for speed/volume efficiency)", r: "Massive bleeding requires IMMEDIATE factor replacement. FFP works faster than vitamin K alone. PCC superior if available (smaller volume, faster effect)."}],
+            200: [{q: "52yo with thrombotic thrombocytopenic purpura (ADAMTS13 severely low, schistocytes) on plasma exchange, day 2: Plt 22K (unchanged), new neurologic changes (confusion). Refractory MAHA?", a: "Continue PE with switch to cyto-poor FFP/SD-plasma, ADD rituximab, consider eculizumab, daily schistocyte monitoring + neuro checks", r: "Refractory TTP requires escalation beyond standard PE. FFP contamination may worsen. Rituximab targets B-cells producing inhibitors. Complement inhibitor if antibody-mediated variant."}],
+            300: [{q: "48yo trauma (crush injury) with hemorrhagic shock gets massive transfusion: Hgb 8.2 (post-transfusion), K 6.8, Ca 4.8, pH 6.82, core temp 33°C. Lethal triad present. Management?", a: "'LETHAL TRIAD' (hypothermia + coagulopathy + acidosis)—STOP transfusion temporarily, ECMO for core rewarming, HOLD all meds until temp >32°C", r: "ECMO gold standard for severe hypothermia (rewarming 1°C per 2-3 min). Medications ineffective until rewarmed. Do NOT give drugs; do NOT defibrillate if asystolic until core temp >30°C."}],
+            400: [{q: "38yo with autoimmune hemolytic anemia, on day 7 prednisone (unchanged Hgb), now starting rituximab. What pre-medication strategy needed?", a: "Acetaminophen + diphenhydramine + methylprednisolone IV pre-infusion, START rituximab slowly (50mL/hr), have epinephrine ready, anticipate worsening hemolysis during infusion", r: "Rituximab B-cell lysis → massive cytokine release. In active hemolysis = already elevated cytokines = risk of severe reaction worsening hemolysis. Slow infusion critical."}],
+            500: [{q: "48yo on clopidogrel + aspirin post-MI: sudden massive epistaxis (hemoptysis + hemodynamic instability), platelets 16K (was 280K pre-MI). Likely diagnosis?", a: "Drug-induced immune thrombocytopenia (DITP); HOLD both antiplatelet agents immediately, platelet transfusion x2-4 units (ESSENTIAL in active hemorrhage), IVIG or corticosteroids", r: "Rapid thrombocytopenia on dual antiplatelet therapy = immune-mediated destruction. Active hemorrhage paradoxically requires platelet transfusion despite usual DITP avoidance of transfusion."}]
+        },
+        1: {
+            100: [{q: "32yo with sickle cell disease gets 3 units PRBC for anemia, then acute chest syndrome develops. WHY is this DANGEROUS?", a: "Simple transfusion increases blood viscosity, worsens microvascular occlusion and sickling crisis", r: "Simple transfusion CONTRAINDICATED in ACS. Must use EXCHANGE transfusion to reduce HgbS <30% without increasing viscosity."}],
+            200: [{q: "40yo with B12 deficiency (level 75, Hgb 6.2, MCV 102, paresthesias), started on IM B12. By day 3 post-injection: K 2.6, Mg 1.2, PO4 1.6. What's happening?", a: "REFEEDING SYNDROME—B12 stimulates erythropoiesis → RBCs import massive K+/Mg/PO4 → acute serum electrolyte depletion", r: "Severely deficient cells suddenly activated → biosynthesis demanding massive electrolyte shift into cells. Can cause sudden cardiac death. Requires aggressive IV electrolyte repletion + cardiac monitoring."}],
+            300: [{q: "35yo with chronic SIADH (Na stable 118 x 6 months), now on demeclocycline + fluid restriction. Why is overcorrection dangerous?", a: "Chronic hyponatremia brain compensated (reduced osmolytes)—RAPID correction causes osmotic demyelination syndrome (ODS) with permanent paralysis/neurologic damage", r: "Osmotic demyelination occurs when chronic hyponatremia corrected too fast. Brain has reduced osmolytes to adapt. Rapid Na correction causes water shifts OUT of brain causing cell shrinkage and demyelination."}],
+            400: [{q: "52yo Crohn's disease on infliximab with dual B12 + folate deficiency. Why must BOTH be given from START of treatment?", a: "Folate alone corrects RBC morphology but MASKS progressive B12 neurologic deficiency which causes irreversible spinal cord demyelination", r: "Critical error: starting folate without B12. Hgb improves but neurologic B12 damage (paresthesias → ataxia → spasticity) progresses silently until permanent cord pathology develops."}],
+            500: [{q: "68yo post-gastrectomy now with combined iron + B12 + folate deficiency. What's the CONTRAINDICATION with iron supplementation?", a: "Iron supplementation worsens GI inflammation in remaining stomach → bacterial overgrowth → endotoxemia, making clinical status WORSE", r: "Cirrhosis/reduced GI function patients: iron dysbiosis triggers dysbiosis + bacterial overgrowth + portal endotoxemia. Address B12/folate FIRST, iron only AFTER GI stabilization and with monitored gastroprotection."}]
+        },
+        2: {
+            100: [{q: "62yo PV (Hct 64%) on aspirin + hydroxyurea presents with sudden upper quadrant pain, splenomegaly 16cm palpable, shock. Diagnosis?", a: "Splenic infarction from thrombosis—CT abdomen to confirm, close monitoring for rupture, supportive care, consider splenectomy if recurrent thrombosis", r: "PV hypercoagulability + viscosity causes splenic thrombosis. Massive splenomegaly increases rupture risk. Splenectomy may be needed if recurrent."}],
+            200: [{q: "58yo PV with erythromelalgia (burning hands + feet, erythema) on aspirin. Mechanism and management?", a: "Microvascular thrombosis from platelet dysfunction in PV; aspirin helps (antiplatelet effect), but aggressive phlebotomy (Hct <45%) + hydroxyurea/IFN-α most important", r: "Erythromelalgia = thrombotic complication. Platelet dysfunction + JAK2 mutation both contribute. Aspirin provides symptom relief but underlying disease control critical (phlebotomy + other agents)."}],
+            300: [{q: "70yo PV on hydroxyurea x 5 years, now with hepatosplenomegaly + Hgb 7.2 (down from 20), Retic 6%. What's this transformation?", a: "Myelofibrotic transformation—bone marrow fibrosis → extramedullary hematopoiesis in liver/spleen", r: "~5% PV transform to primary myelofibrosis. Progressive fibrosis → loss of effective erythropoiesis → anemia despite splenomegaly. JAK inhibitors (ruxolitinib) now first-line therapy."}],
+            400: [{q: "64yo PV with thrombocytosis (PLT 650K) refractory to hydroxyurea, now on anagrelide. Within weeks develops new chest pain + dyspnea. Problem?", a: "Anagrelide causes vasodilation + reflex tachycardia → WORSENS prothrombotic state, plus direct cardiotoxicity possible", r: "Anagrelide worsens PV thrombotic risk. Better alternatives: interferon-alpha (fewer cardiotoxic effects) or ruxolitinib (JAK inhibitor). High incidence MI/CVA with anagrelide in PV."}],
+            500: [{q: "72yo PV post-CABG (massive surgery): develops post-op AFib RVR (HR 180) + hypotension + AKI. Complication from underlying PV?", a: "Perioperative thrombosis (graft thrombosis, MI, massive VTE) from PV hypercoagulability + perioperative stress", r: "PV patients high-risk perioperatively for thrombotic events despite anticoagulation. Must optimize PV control pre-op (phlebotomy Hct <45%, antiplatelet therapy). Post-op requires aggressive thromboprophylaxis."}]
+        },
+        3: {
+            100: [{q: "36yo transfused 2 units PRBC for anemia: 1 hour post-transfusion develops fever 39°C, rigors, hypotension (BP 88/54), dark urine. Acute hemolytic?", a: "YES—acute hemolytic transfusion reaction (likely ABO incompatibility); STOP transfusion, aggressive NS + furosemide, monitor for AKI/DIC/shock", r: "Intravascular hemolysis. Fever + hemoglobinuria + hypotension = classic acute hemolytic. Usually clerical error leading to ABO mismatch. Urgent transfusion reaction workup, direct antiglobulin test."}],
+            200: [{q: "44yo post-op transfused 3 PRBC, develops fever 37.8°C + 2 hours post-transfusion: urticaria + pruritus, BP stable, no hemoglobinuria. Reaction type?", a: "Allergic/anaphylactic transfusion reaction (most common); can continue transfusion after antihistamine if mild, or stop if severe", r: "~1-2% transfusions. IgE-mediated against donor plasma proteins. Mild urticaria can be managed with diphenhydramine + resuming transfusion. Severe anaphylaxis requires discontinuation."}],
+            300: [{q: "52yo massive trauma, 22 units PRBC + 16 FFP + 8 platelets over 90 min: suddenly develops ARDS (P/F 92), coagulopathy worsens (Fib 88), fever 38.6°C. TRALI?", a: "TRALI likely—immune-mediated, NOT volume-dependent; supportive care only (mechanical ventilation, O2, supportive hemodynamics)", r: "TRALI from donor WBC incompatibility can occur with ANY transfusion volume (even small units). Immune mechanism unrelated to transfusion quantity. Presents as ARDS 1-6h post-transfusion, self-limited (24-48h)."}],
+            400: [{q: "68yo with ruptured AAA gets massive transfusion protocol (24 PRBC + 16 FFP + 10 plt): develops severe hypothermia (core 31.8°C), cardiac dysrhythmias, coagulopathy worsens. Management?", a: "STOP further resuscitation temporarily, INITIATE ECMO for core rewarming (avoid peripheral warming → afterdrop), hold all medications until core temp >32°C", r: "Massive transfusion cold blood products → iatrogenic hypothermia → coagulopathy + cardiac instability + medication inefficacy. ECMO only adequate rewarming (1°C per 2-3 min). Do NOT give drugs until rewarmed."}],
+            500: [{q: "62yo with massive GI bleed on massive transfusion protocol: develops myoglobinuria + hyperkalemia (K 7.4) + acute kidney injury (Cr 3.8). Dual mechanism?", a: "Rhabdomyolysis from hypoperfusion during hemorrhagic shock PLUS transfusion-related hemolysis; both cause myoglobinuria + hyperkalemia + AKI", r: "Massive transfusion creates perfect storm: (1) hemorrhagic shock → rhabdomyolysis, (2) transfusion hemolysis from ongoing bleeding and transfusion reactions. Both release myoglobin/hemoglobin → kidney injury."}]
+        },
+        4: {
+            100: [{q: "70yo with severe hyperkalemia (K 7.8), EKG peaked T-waves + wide QRS, arrhythmia risk imminent. FIRST step?", a: "STAT calcium gluconate IV (10-20mL)—stabilizes cardiac membrane BEFORE attempting K lowering", r: "Calcium gluconate does NOT lower K but stabilizes myocardial excitability. FIRST priority. Then insulin/glucose/bicarb shift K intracellularly. Dialysis removes K permanently."}],
+            200: [{q: "68yo with SIADH (chronic Na 118) presents acutely confused, seizing, Na 94 (acute 24mEq drop in 4h). Hyponatremia type and management?", a: "ACUTE symptomatic hyponatremia—hypertonic saline (3%) despite SIADH, correct 4-6 mEq/L/hr until seizures stop, then slow to 8 mEq/L/24h", r: "Acute hyponatremia brain hasn't compensated → severe symptoms at lower Na levels. Hypertonic saline overrides usual SIADH management rules when symptoms severe. Risk ODS if overcorrected >12 mEq/L/24h."}],
+            300: [{q: "45yo sepsis patient gets 10L NS for septic shock resuscitation: Na drops from 138 to 116. Why NS inappropriate in sepsis?", a: "SIADH triggered by sepsis makes 0.9% NS hypotonic; free water reabsorbed maximally; need 3% saline to overcome SIADH", r: "Paradox in sepsis: 'physiologic' NS is actually hypotonic when SIADH maximal. Sepsis triggers SIADH → kidneys reabsorb all free water → NS dilutes existing Na further. Switch to 3% saline."}],
+            400: [{q: "56yo with diabetic ketoacidosis (pH 7.18, HCO3 8) + renal failure (Cr 4.2), K 6.6, uremia present. What's driving this acid-base disorder?", a: "High anion gap metabolic acidosis from ketoacids + uremic acid accumulation", r: "Dual source: ketoacidosis (from hyperglycemia) + uremia (from renal failure). Both contribute high anion gap acidosis. Requires insulin infusion + fluid resuscitation + dialysis for uremic clearance."}],
+            500: [{q: "58yo cirrhosis + ascites with hepatorenal syndrome, now Na 104 + K 7.4 + HCO3 13 (triple crisis). What makes management so COMPLEX?", a: "Cirrhosis SIADH (fluid restriction worsens K) + AKI hyperkalemia (needs K removal but can't give diuretics) + metabolic acidosis (liver can't clear lactate); dialysis + vasopressors + careful electrolyte management", r: "Cirrhosis perfect storm: SIADH (NS contraindicated), AKI (oliguria), metabolic acidosis (hepatic dysfunction). Diuretics risky (worsens AKI). Requires dialysis + vasoactive drugs (terlipressin) + albumin support."}]
+        },
+        5: {
+            100: [{q: "72yo post-CABG day 1: sudden AFib RVR (HR 174), BP 88/54, urine 15mL/hr, altered. On metoprolol. Recent labs: Mg 1.1, K 3.6, Hct dropping (chest tube 200mL/hr). PRIORITY?", a: "Aggressive Mg + K IV (Mg FIRST—enables drug efficacy), increase metoprolol, urgent chest tube evaluation (may need OR for bleeding control), blood transfusion", r: "Post-op AFib multifactorial: electrolyte depletion (Mg/K) + ongoing blood loss (hypovolemia) + stress. Fix root causes before escalating antiarrhythmics. Mg correction CRITICAL."}],
+            200: [{q: "58yo post-op day 5 abdominal surgery: fever 38.9°C, rising lactate 3.8, hypotensive despite fluids, WBC 16K. Sepsis workup needed?", a: "YES—day 5 post-op fever + SIRS + hypotension = concerning for anastomotic leak/abscess/peritonitis; URGENT CT abdomen + blood cultures + broad-spectrum antibiotics + surgical consult", r: "Post-op fever timeline: days 1-2 expected, day 3+ concerning, day 5+ likely infectious. Elevated lactate suggests sepsis/tissue hypoperfusion. Source control (surgery) often needed."}],
+            300: [{q: "71yo post-CABG on triple negative chronotropic therapy (metoprolol + amiodarone + digoxin): HR 36, BP 72/44, altered mental status. Intervention?", a: "Prepare for transcutaneous pacing, HOLD digoxin + consider holding amiodarone, likely will need transvenous pacing setup", r: "Triple negative chronotropic agents create synergistic bradycardia. Post-op autonomic instability exacerbates. Transcutaneous pacing bridge until can reassess medications or place transvenous pacer."}],
+            400: [{q: "64yo post-op day 6 ruptured AAA repair: new fever, leukocytosis, unexplained hypotension + tachycardia. Specific complication concern?", a: "GRAFT INFECTION (mycotic aneurysm)—catastrophic mortality 50%+; URGENT CT angiography + blood cultures, echocardiography, infectious disease consult", r: "Post-AAA graft infection devastating. Fever + new hemodynamic instability + labs suspicious. Needs imaging (CT angiography), cultures (blood + graft if culture-positive), may need emergent reoperation."}],
+            500: [{q: "68yo post-CABG day 5: dyspnea, elevated troponin (0.38), chest pain, friction rub on auscultation, pericardial effusion on echo. Diagnosis and treatment?", a: "Post-cardiac injury syndrome (Dressler)—pericarditis; treat with NSAIDs (indomethacin 75mg/day) or colchicine, monitor for cardiac tamponade", r: "Dressler syndrome autoimmune pericarditis post-cardiac surgery (days 3-21). NSAIDs/colchicine effective. Avoid anticoagulation (pericardial bleeding risk). Monitor for tamponade physiology."}]
+        },
+        6: {
+            100: [{q: "During surgery with succinylcholine + sevoflurane: masseter rigidity, ETCO2 rapidly climbs to 72, temp 37.8°C, venous blood dark. MH crisis management?", a: "ABORT surgery with non-triggering agents immediately, STAT dantrolene 2.5mg/kg IV q5min, aggressive cooling (ice, cold saline, cooling blanket), ICU admission", r: "ETCO2 72 = severe hypermetabolism. Dark blood = myoglobinuria/DIC. Mortality 5-10% WITH dantrolene. Aggressive cooling + massive fluid resuscitation (200-300mL/hr urine output goal) essential."}],
+            200: [{q: "MH patient cooled to 37°C, urine cleared, stable. Why is CONTINUED dantrolene 24-48h critical post-crisis?", a: "RECRUDESCENCE (spontaneous MH crisis recurrence) occurs in ~25% of cases 2-24h post-initial crisis", r: "Recrudescence unpredictable. Requires ICU monitoring + continued dantrolene 1mg/kg IV q4-6h for 24-48h. Watch for compartment syndrome, hyperkalemia, DIC complications."}],
+            300: [{q: "Patient with RYR1 mutation needs emergency cesarean for preeclampsia eclampsia. Safest anesthetic?", a: "Neuraxial (spinal) anesthesia preferred; if general: total IV anesthesia (propofol + remifentanil) + non-depolarizing paralytic, NEVER volatiles/succinylcholine, dantrolene available", r: "Spinal anesthesia completely avoids general anesthesia triggers. If general needed: total IV anesthesia + non-triggering agents mandatory. Obstetric team must know MH status clearly."}],
+            400: [{q: "22yo with RYR1 mutation counseling before surgery: inheritance pattern and family implications?", a: "Autosomal dominant (50% siblings/children affected), genetic testing recommended for relatives, must wear medical alert bracelet, anesthesiologist pre-evaluation mandatory for ANY future surgery", r: "Genetic counseling essential. Relatives need RYR1/CACNA1S testing. MH-susceptible patients ALWAYS inform anesthesiologists. Avoid triggering agents for entire lifetime."}],
+            500: [{q: "26yo with fulminant MH crisis develops early peaked T-waves (K 8.2) + wide QRS from succinylcholine-induced K release + rhabdomyolysis. IMMEDIATE cardiac protection?", a: "STAT calcium gluconate (10-20mL IV) for cardiac membrane stabilization, aggressive dantrolene + cooling + aggressive hydration, prepare for EMERGENT dialysis for hyperkalemia management", r: "Succinylcholine causes direct massive K release independent of pseudocholinesterase. In MH patient with rhabdomyolysis = catastrophic hyperkalemia. Calcium gluconate FIRST for cardiac safety, then rapid K removal."}]
+        }
+    }
+};
+
+let scores = [0, 0];
+let currentGame = 0;
+let answered = new Set();
+let currentQ = null;
+
+function init() {
+    loadScores();
+    renderBoard(0);
+}
+
+function renderBoard(game) {
+    const board = document.getElementById(`board${game}`);
+    board.innerHTML = '';
+
+    CATEGORIES.forEach((cat, catIdx) => {
+        const catDiv = document.createElement('div');
+        catDiv.className = 'category';
+
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'cat-name';
+        nameDiv.textContent = cat;
+        catDiv.appendChild(nameDiv);
+
+        const cluesDiv = document.createElement('div');
+        cluesDiv.className = 'clues';
+
+        [100, 200, 300, 400, 500].forEach(val => {
+            const btn = document.createElement('button');
+            btn.className = 'clue';
+            btn.textContent = '$' + val;
+            const id = `${game}-${catIdx}-${val}`;
+
+            if (answered.has(id)) {
+                btn.classList.add('answered');
+                btn.disabled = true;
+            } else {
+                btn.onclick = () => showQuestion(game, catIdx, val, id);
+            }
+
+            cluesDiv.appendChild(btn);
+        });
+
+        catDiv.appendChild(cluesDiv);
+        board.appendChild(catDiv);
+    });
+}
+
+function showQuestion(game, cat, val, id) {
+    const q = QUESTIONS[game][cat][val][0];
+    currentQ = {id, game, cat, val, q};
+
+    document.getElementById('cat-title').textContent = `${CATEGORIES[cat]} - $${val}`;
+    document.getElementById('q-text').textContent = q.q;
+    document.getElementById('reveal-btn').disabled = false;
+    document.getElementById('answer-box').classList.remove('show');
+    document.getElementById('rationale-box').style.display = 'none';
+
+    document.getElementById('modal').classList.add('active');
+}
+
+function revealAnswer() {
+    document.getElementById('answer-text').textContent = currentQ.q.a;
+    document.getElementById('rationale-text').textContent = currentQ.q.r;
+    document.getElementById('answer-box').classList.add('show');
+    document.getElementById('rationale-box').style.display = 'block';
+    document.getElementById('reveal-btn').disabled = true;
+}
+
+function addScore(p, amt) {
+    scores[p-1] += amt;
+    document.getElementById(`p${p}`).textContent = scores[p-1];
+    saveScores();
+}
+
+function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+    answered.add(currentQ.id);
+    renderBoard(currentGame);
+}
+
+function switchGame(g) {
+    document.querySelectorAll('.game-board').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.game-tab').forEach(t => t.classList.remove('active'));
+
+    document.getElementById(`board${g}`).classList.add('active');
+    document.querySelectorAll('.game-tab')[g].classList.add('active');
+
+    currentGame = g;
+    renderBoard(g);
+}
+
+function resetScores() {
+    if (confirm('Reset all?')) {
+        scores = [0, 0];
+        answered.clear();
+        document.getElementById('p1').textContent = '0';
+        document.getElementById('p2').textContent = '0';
+        saveScores();
+        renderBoard(currentGame);
+    }
+}
+
+function saveScores() {
+    localStorage.setItem('jeo_scores', JSON.stringify(scores));
+}
+
+function loadScores() {
+    const s = localStorage.getItem('jeo_scores');
+    if (s) scores = JSON.parse(s);
+    document.getElementById('p1').textContent = scores[0];
+    document.getElementById('p2').textContent = scores[1];
+}
+
+init();
+</script>
+
+</body>
+</html>
