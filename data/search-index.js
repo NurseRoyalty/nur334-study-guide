@@ -376,3 +376,65 @@ window.SEARCH_INDEX = [
     ]
   }
 ];
+
+  // Electrolyte & Fluid Management Comprehensive
+  {
+    f: "week3-electrolyte-fluid-comprehensive.html",
+    t: "Electrolyte & Fluid Management: Comprehensive Study Guide",
+    secs: [
+      {
+        s: "Fluid Compartments & Movement",
+        a: "week3",
+        k: ["fluid compartments", "intracellular", "extracellular", "osmosis", "diffusion", "hydrostatic pressure", "oncotic pressure", "colloids", "crystalloids"]
+      },
+      {
+        s: "Sodium Imbalances",
+        a: "week3",
+        k: ["hyponatremia", "hypernatremia", "sodium", "SIADH", "ADH", "free water"]
+      },
+      {
+        s: "Potassium Imbalances",
+        a: "week3",
+        k: ["hypokalemia", "hyperkalemia", "potassium", "CIKE", "calcium", "insulin", "kayexalate", "EKG changes", "peaked T wave"]
+      },
+      {
+        s: "Calcium Imbalances",
+        a: "week3",
+        k: ["hypocalcemia", "hypercalcemia", "calcium", "Trousseau sign", "Chvostek sign", "tetany", "paresthesia"]
+      },
+      {
+        s: "Magnesium & Phosphate Imbalances",
+        a: "week3",
+        k: ["hypomagnesemia", "hypermagnesemia", "magnesium", "hypophosphatemia", "hyperphosphatemia", "phosphate"]
+      }
+    ]
+  },
+
+  // Perioperative Nursing Comprehensive
+  {
+    f: "week3-perioperative-comprehensive.html",
+    t: "Perioperative Nursing: Comprehensive Study Guide",
+    secs: [
+      {
+        s: "Preoperative Phase",
+        a: "week3",
+        k: ["preoperative", "NPO", "fasting", "consent", "teaching", "assessment", "medication preparation"]
+      },
+      {
+        s: "Intraoperative Phase",
+        a: "week3",
+        k: ["intraoperative", "anesthesia", "positioning", "monitoring", "sterile field", "AORN", "scrub nurse", "circulating nurse"]
+      },
+      {
+        s: "Postoperative Phase",
+        a: "week3",
+        k: ["postoperative", "recovery", "PACU", "pain management", "complications", "deep breathing", "leg exercises", "ambulation"]
+      },
+      {
+        s: "Malignant Hyperthermia",
+        a: "week3",
+        k: ["malignant hyperthermia", "MH", "muscle rigidity", "tachycardia", "ETCO2", "dantrolene", "succinylcholine", "triggering agents", "recrudescence"]
+      }
+    ]
+  }
+];
