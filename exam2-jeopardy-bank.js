@@ -1,205 +1,213 @@
-/* ============================================================
-   EXAM 2 JEOPARDY BANK — AUTHENTIC NCLEX NGN
-   EXTREMELY HARD Clinical Judgment Questions
-   Week 2 & 3 High-Yield Content
-
-   Format: Highly complex multi-system scenarios requiring
-   sophisticated pathophysiologic reasoning and prioritization
-   of competing clinical demands. NUR326-level difficulty.
-   ============================================================ */
-
 window.JEOPARDY_EXAM2 = {
-  "categories": [
-    /* ========== WEEK 2: HEMATOLOGY COMPLEX SCENARIOS ========== */
+  categories: [
     {
-      "id": "hematology-complex",
-      "name": "Hematology: Multisystem Complications",
-      "source": "week2-hematology",
-      "clues": {
+      id: "hematology",
+      name: "Hematology",
+      source: "Week 2",
+      clues: {
         "100": [
-          {
-            "id": "hem-100-0",
-            "q": "A 68-year-old on long-term warfarin (INR 2.5-3.0 therapeutic) for atrial fibrillation develops severe GI hemorrhage (hemodynamically unstable: BP 88/52, HR 138). INR today 8.3. He has received 2L normal saline and 2 units PRBC. Labs: Hgb 7.1, PT 94 seconds, aPTT 48, Fibrinogen 320. What is the PRIORITY reversal strategy given his hemodynamic instability?",
-            "a": "Fresh frozen plasma (FFP) 15 mL/kg STAT for immediate factor replacement + vitamin K 10mg IV (slow) + consider PCC (prothrombin complex concentrate) if available — FFP buys immediate time while vitamin K takes 12-24 hours; this patient needs RAPID reversal for ongoing hemorrhage",
-            "rationale": "This patient has ACTIVE MAJOR BLEEDING with hemodynamic instability from warfarin overdose. Vitamin K alone is TOO SLOW (12-24 hour onset). Options: (1) FFP 15mL/kg gives immediate factor replacement BUT requires large volume (3-4L for average adult) → fluid overload risk, especially in elderly. (2) PCC (fresh frozen plasma concentrate) if available = SUPERIOR: smaller volume, faster reversal, less fluid overload. (3) Vitamin K 10mg IV (adds long-term control, works slowly). In this case: FFP STAT is appropriate if PCC unavailable. Correct approach: (1) FFP 3-4 units STAT (or PCC if available), (2) Vitamin K 10mg IV, (3) Continue resuscitation, (4) Transfusion to maintain Hgb >8, (5) Identify bleeding source (endoscopy likely needed)."
-          },
-          {
-            "id": "hem-100-1",
-            "q": "A 45-year-old with sickle cell disease presents with acute chest syndrome (fever 38.9°C, new infiltrates on CXR, chest pain, dyspnea, SpO2 85% on room air). Labs: Hgb 7.2, retic 18%, LDH 950, bilirubin 4.2, negative blood cultures x2. He received 2 units PRBC in ER 2 hours ago. Chest pain worsened POST-transfusion. What is the critical complication and management adjustment?",
-            "a": "Acute chest syndrome WORSENED by simple transfusion (increased blood viscosity from added RBCs without removing sickled cells) — STOP further simple transfusions immediately, arrange EXCHANGE transfusion (remove patient's RBCs while infusing donor RBCs) to reduce HgbS <30%, avoid simple transfusion in ACS",
-            "rationale": "Critical error: simple transfusion WORSENS acute chest syndrome in sickle cell disease. Mechanism: added RBCs → increased viscosity → worsens microvascular occlusion → worsens sickling crisis. This patient's chest pain WORSENING post-transfusion is the clue. Management: (1) STOP simple transfusion, (2) Exchange transfusion (partial exchange) to reduce HgbS <30%, (3) Hydroxyurea for ongoing management, (4) Antibiotics (bacterial + atypical organisms: Mycoplasma, Chlamydia cause ACS), (5) Oxygen, hydration, pain management. This is a CRITICAL distinction: simple transfusion for ACS can be HARMFUL; exchange transfusion is indicated."
-          },
-          {
-            "id": "hem-100-2",
-            "q": "A 72-year-old with relapsed multiple myeloma (on bortezomib) presents with Hgb 6.8, WBC 1.2 (absolute neutrophil count 200), Plt 25K. He's febrile (38.8°C) with productive cough (yellow sputum), no obvious source on exam. Blood cultures pending. He's on piperacillin-tazobactam for past 2 days with no improvement. What is the critical next step?",
-            "a": "Patient likely has invasive FUNGAL pneumonia (Aspergillus or Pneumocystis) given severe immunosuppression + failed bacterial coverage; CONTINUE antibiotics, ADD voriconazole (Aspergillus coverage) and high-dose TMP-SMX or pentamidine (PCP coverage), obtain CT chest with contrast, consider bronchoscopy with BAL for diagnosis, check galactomannan/beta-D-glucan",
-            "rationale": "Severely immunocompromised patient (ANC 200, on myelotoxic chemo) with fever + pneumonia refractory to standard antibiotics = FUNGAL INFECTION until proven otherwise. Aspergillus and PCP are highest risk in this setting. Blood cultures negative doesn't rule out fungal disease (less bacteremia with fungi). Management: (1) Add voriconazole 6mg/kg IV q12h (Aspergillus), (2) Add high-dose TMP-SMX (high-dose prophylaxis also treats PCP) or pentamidine, (3) CT chest looking for halo sign (Aspergillus), (4) Bronchoscopy with BAL for lavage culture/stain, (5) Check galactomannan (Aspergillus antigen), beta-D-glucan (fungal marker), (6) G-CSF to boost neutrophil recovery, (7) Continue antibacterial coverage. Do NOT assume bacterial etiology in severely immunocompromised — fungal coverage essential."
-          },
-          {
-            "id": "hem-100-3",
-            "q": "A 38-year-old with acute leukemia (day 8 post-chemotherapy) develops sudden onset dyspnea, chest pain, and hypotension (BP 88/55). Labs: Hgb 6.2, WBC 0.1 (absolute blast count 20%), Plt 8K. He's febrile (38.2°C). CXR normal. Troponin elevated (0.28). What is the life-threatening diagnosis given chemo day 8 timing?",
-            "a": "Tumor lysis syndrome (TLS) with secondary cardiomyopathy and shock — STAT labs: K+, PO4, uric acid, creatinine, calcium; likely has severe hyperkalemia + hypocalcemia + hyperphosphatemia; give calcium gluconate for cardiac protection, insulin/glucose for K shift, aggressive hydration, sodium bicarbonate, consider dialysis emergently",
-            "rationale": "Day 8 post-chemotherapy is PEAK time for tumor lysis syndrome. Dying leukemic blasts release: (1) K+ → hyperkalemia (cardiac dysrhythmias), (2) PO4 → hyperphosphatemia (binds calcium → hypocalcemia), (3) Uric acid → urate precipitation (kidney injury). This patient's cardiogenic shock (elevated troponin, hypotension) is from: (1) Severe hyperkalemia (causes myocardial irritability), (2) Hypocalcemia (worsens cardiac function), (3) Possible secondary myocarditis from chemo toxicity. Management: (1) STAT comprehensive metabolic panel, LDH, uric acid, (2) Calcium gluconate 10-20 mL IV immediately (cardiac protection from hypocalcemia/hyperkalemia), (3) Insulin 10 units + dextrose 50% (shifts K intracellularly), (4) Sodium bicarbonate (alkalinizes urine, prevents uric acid precipitation), (5) AGGRESSIVE IV hydration (goal: urine output 200-300 mL/hr) — use normal saline initially (NOT lactated Ringer's which has K), (6) Allopurinol or FEBUXOSTAT (reduce uric acid production), (7) Monitor for acute kidney injury (likely already present with elevated creatinine), (8) Prepare for emergency dialysis if K >7 or creatinine severely elevated."
-          },
-          {
-            "id": "hem-100-4",
-            "q": "A 58-year-old with newly diagnosed stage IV non-small cell lung cancer (with bone metastases) presents hypotensive (BP 92/54) with altered mental status, weakness, and confusion. Labs: Na 118 (severely low), K 5.8, Ca 14.2, glucose 68. He received 2L normal saline in ER with no improvement in BP/mental status. What is the DUAL problem that explains this presentation?",
-            "a": "Tumor lysis syndrome (hyperkalemia from bone mets) PLUS SIADH-induced severe hyponatremia (often from lung cancer) creating 'perfect storm'; immediate management: calcium gluconate + insulin/glucose for K shift, restrict fluids for SIADH hyponatremia (do NOT continue normal saline which worsens hyponatremia), address glucose <70 concurrently",
-            "rationale": "This is a TRAP scenario where simple fluid resuscitation makes things WORSE. Dual pathophysiology: (1) Tumor lysis syndrome from bone metastases → hyperkalemia (K 5.8), (2) SIADH from lung cancer → hyponatremia (Na 118). Normal saline in SIADH patient WORSENS hyponatremia (dilutes existing sodium further). Additionally: hypoglycemia (glucose 68) from metabolic stress. Management sequence: (1) Dextrose 50% for hypoglycemia FIRST, (2) Calcium gluconate for cardiac protection (hyperkalemia), (3) Insulin + glucose for K shift, (4) FLUID RESTRICTION for SIADH (do NOT continue normal saline), (5) Sodium bicarbonate for TLS management, (6) Hypertonic saline (3%) ONLY if seizing from hyponatremia (slow correction), (7) Monitor K, Na, glucose q2-4h. This patient NEEDS dialysis likely for both K and Na management."
-          },
-          {
-            "id": "hem-100-5",
-            "q": "A 52-year-old on clopidogrel + aspirin post-MI develops sudden severe epistaxis (nosebleed) with hemodynamic instability (BP 85/50, HR 148). Labs: platelet count 18K (severe thrombocytopenia, baseline 280K). PT normal, aPTT normal, fibrinogen normal. He has been on both antiplatelet agents appropriately. What is the most likely etiology?",
-            "a": "Drug-induced immune thrombocytopenia (DITP) from clopidogrel or aspirin (rare but serious); HOLD both antiplatelet drugs immediately, give platelet transfusion x 2 units for hemorrhage support (paradoxical: avoid giving in stable DITP but essential in active hemorrhage), assess for other causes (HIT, TTP), consider IVIG or corticosteroids, hematology consult urgently",
-            "rationale": "Rapid-onset severe thrombocytopenia (18K) in patient on dual antiplatelet therapy suggests DRUG-INDUCED thrombocytopenia. Both clopidogrel and aspirin can cause DITP (immune-mediated; antibodies destroy platelets). Other differentials: (1) HIT (heparin-induced thrombocytopenia — but patient not listed as on heparin), (2) TTP (thrombotic thrombocytopenic purpura — but no schistocytes mentioned, normal PT/aPTT less typical), (3) DIC (but coagulation studies normal). Management: (1) HOLD both antiplatelet drugs, (2) Platelet transfusion x 2 units (counterintuitive but NECESSARY in active bleeding — epistaxis with hemodynamic instability is life-threatening), (3) IV immunoglobulin (IVIG) 2g/kg or high-dose corticosteroids to suppress immune destruction, (4) Check HIT antibodies (4Ts score), (5) Review for TTP features (schistocytes, neurologic symptoms, kidney injury), (6) Hematology consult for DITP diagnosis and management."
-          },
-          {
-            "id": "hem-100-6",
-            "q": "A 65-year-old on warfarin develops acute subdural hematoma from fall (altered mental status, fixed dilated pupil, CP angle sign). CT shows large acute SDH with mass effect. INR is 4.2. Neurosurgery says patient needs immediate reversal + urgent craniotomy. What is the emergent reversal approach?",
-            "a": "Fresh frozen plasma 3-4 units STAT + vitamin K 10mg IV + consider fresh frozen plasma reversal product (PCC) if available — fresh frozen plasma provides immediate factor replacement for hemostasis; vitamin K provides sustained reversal; MINIMIZE fluid volume (risk of cerebral edema from SIADH + head injury); PCC preferred if available (smaller volume)",
-            "rationale": "URGENT reversal needed for neurosurgical emergency. Timing is CRITICAL: subdural hematoma with mass effect = life-threatening; every minute counts. However: head injury patients have SIADH risk → fluid overload → cerebral edema. Paradox: need fluid resuscitation for bleeding but must minimize fluids for head injury. Strategy: (1) Fresh frozen plasma (minimal volume approach), (2) Vitamin K 10mg IV, (3) Avoid normal saline for fluid resuscitation (would worsen hyponatremia/cerebral edema), (4) Prepare for craniotomy, (5) If prothrombin complex concentrate available — use it (smaller volume, faster reversal), (6) Monitor mental status closely (improving vs. worsening), (7) Prepare for ICU post-craniotomy with close neuro monitoring."
-          },
-          {
-            "id": "hem-100-7",
-            "q": "A 42-year-old with newly diagnosed autoimmune hemolytic anemia (AIHA, Hgb 6.8, retic 22%, LDH 1200, direct bili 3.1, positive DAT) is started on prednisone 60mg daily. At day 7 of therapy, Hgb is 6.6 (unchanged), retic is 6% (should be higher with Hgb this low). He's started on second-line agent rituximab (monoclonal anti-CD20). What complication is now highest risk?",
-            "a": "Infusion reaction from rituximab in setting of ongoing hemolysis creating cytokine release and potential DIRE cytokine storm — premedicate heavily (acetaminophen, antihistamine, corticosteroid), slow rituximab infusion rate (avoid bolus), have epinephrine ready, monitor for worsening anemia during infusion (may need transfusion mid-infusion), consider single-agent rituximab dose escalation rather than combination therapy initially",
-            "rationale": "Rituximab infusion reactions are common (20-50% of first infusions). In AIHA patient with ongoing hemolysis: (1) Rituximab targets B-cell surface antigen → massive B-cell lysis → cytokine release (IL-6, TNF-α, IL-2), (2) This occurs IN SETTING of active hemolysis → already elevated cytokines → risk of severe reaction. Paradox: (1) ongoing hemolysis despite prednisone → potential infusion reaction worsens hemolysis. Management: (1) Premedication: acetaminophen 650mg, diphenhydramine 25-50mg, methylprednisolone 100mg IV pre-infusion, (2) Rituximab infusion: START SLOW (initially 50 mL/hr, escalate gradually per protocol), (3) Monitor closely for fever, rigors, hypotension, (4) Have epinephrine 0.3mg IM ready, (5) May need transfusion during infusion if hemolysis worsens acutely, (6) Consider blood bank consult (panreactive antibodies in AIHA make transfusion challenging). Do NOT give rituximab bolus in setting of active hemolysis."
-          }
+          { id: "h1", q: "What does CBC stand for?", a: "Complete Blood Count", rationale: "The CBC measures RBCs, WBCs, platelets, hemoglobin, and hematocrit." },
+          { id: "h2", q: "Normal WBC count range?", a: "5,000-10,000 cells/microL", rationale: "Below this range is leukopenia; above is leukocytosis." },
+          { id: "h3", q: "Normal hemoglobin for adult females?", a: "12-16 g/dL", rationale: "Males run 13.5-17.5 g/dL; females are lower due to menstrual loss." },
+          { id: "h4", q: "Normal platelet count?", a: "150,000-400,000/microL", rationale: "Below 150,000 is thrombocytopenia; above 400,000 is thrombocytosis." },
+          { id: "h5", q: "What is the reticulocyte count used for?", a: "To assess bone marrow RBC production", rationale: "High retic count means marrow is working hard; low count signals bone marrow failure." }
         ],
         "200": [
-          {
-            "id": "hem-200-0",
-            "q": "A 55-year-old trauma patient (motor vehicle crash) in hemorrhagic shock (BP 74/48, HR 162) receives massive transfusion protocol (18 units PRBC, 12 units FFP, 6 units platelets over 90 minutes). He develops sudden-onset coma with fixed dilated pupils bilaterally. Core temperature 32.8°C (91°F), K 7.8, Ca 5.2, pH 6.88. What is the IMMEDIATE management sequence?",
-            "a": "Severe hypothermia-induced metabolic derangement ('scoop and run' from scene means profound cooling occurred); STOP resuscitation temporarily, initiate EXTRACORPOREAL REWARMING (ECMO/ECLS preferred), hold all medications (hypothermia reduces metabolism → meds accumulate → toxicity), continue compressions if in arrest, do NOT pronounce dead until 'warm and dead'",
-            "rationale": "Core temperature 32.8°C = profound hypothermia (CRITICAL). Fixed dilated pupils + coma suggests severe CNS depression but hypothermia can mimic death. Mechanism: (1) Hypothermia → metabolic rate ↓50% per 1°C drop → medications ineffective (no cardiac output), (2) Massive transfusion trauma + hypothermia = 'lethal triad' (hypothermia + coagulopathy + acidosis), (3) Hyperkalemia + hypocalcemia from hypothermia + transfusion = cardiac dysrhythmia risk, (4) Acidosis pH 6.88 = life-threatening. Management: (1) STOP resuscitation temporarily IF in true asystole (hypothermia prevents defibrillation response), (2) Initiate EXTRACORPOREAL REWARMING (ECMO is GOLD STANDARD for severe hypothermia — can rewarm 1°C per 2-3 minutes), (3) HOLD ALL MEDICATIONS until core temp >30°C (ineffective + accumulate), (4) If in cardiac arrest: defer CPR until core temp improves OR initiate CPR if transport to ECMO <15 min away, (5) Continue compressions if ANY perfusing rhythm (hypothermia can present with 'incompatible with life' but patient survives), (6) Aggressive correction of K/Ca/acidosis once ECMO initiated, (7) Avoid re-warming with standard methods (peripheral warming can cause afterdrop — warm central circulation first). Prognosis: survival possible even with prolonged hypothermia + arrest."
-          },
-          {
-            "id": "hem-200-1",
-            "q": "A 48-year-old with thrombotic thrombocytopenic purpura (TTP, confirmed by adamts13 <10%, normal PT/aPTT, schistocytes on smear) is undergoing plasma exchange. Day 3 of treatment: Plt remains 25K (not improving), new microangiopathic hemolytic anemia (Hgb 5.8 down from 6.2), acute kidney injury worsening (Cr 3.2 up from 2.8). He's neurologically unchanged (not deteriorating). What is the critical consideration?",
-            "a": "Treatment-resistant TTP (plasma exchange failure despite ADAMTS13 correction) — consider switching from FFP to cryoprecipitate-poor plasma (Cyto-poor FFP) or Solvent Detergent (SD-plasma) which has less contaminating substances that worsen TTP; evaluate for possible diagnosis revision (atypical HUS, MAHA from malignancy), continue exchanges but prepare for additional therapies (rituximab, eculizumab for complement-mediated TTP)",
-            "rationale": "Standard plasma exchange (using FFP) works for classic TTP by removing ADAMTS13 inhibitors. However, ~10-20% of patients are 'refractory' to PE alone. This patient's worsening despite PE suggests: (1) Possible FFP contamination with procoagulant substances worsening TTP, (2) Possible alternative pathophysiology (complement-mediated TTP, secondary MAHA), (3) Need for additional therapies. Management: (1) Continue plasma exchange but switch to cyto-poor FFP or SD-plasma (eliminates leukocyte aggregates + other substances that may worsen hemolysis), (2) Add rituximab (anti-CD20) for inhibitor-mediated TTP, (3) Consider eculizumab (complement inhibitor) if complement-mediated variant suspected, (4) Evaluate for triggers (malignancy, infection, drugs causing secondary MAHA), (5) Daily monitoring: Plt count, Hgb, reticulocyte count, LDH, Schistocytes on smear. Most TTP patients respond to PE by day 3-4; lack of response requires aggressive intervention."
-          }
+          { id: "h6", q: "What does MCV stand for?", a: "Mean Corpuscular Volume", rationale: "Measures average size of RBCs - low = microcytic, high = macrocytic." },
+          { id: "h7", q: "What is the MCH?", a: "Mean Corpuscular Hemoglobin", rationale: "Measures average hemoglobin per RBC." },
+          { id: "h8", q: "What causes a left shift in WBC?", a: "Immature neutrophils released early from bone marrow", rationale: "Indicates acute infection or stress response." },
+          { id: "h9", q: "What does aPTT measure?", a: "Activated partial thromboplastin time", rationale: "Tests the intrinsic and common coagulation pathways." },
+          { id: "h10", q: "What is ferritin used for?", a: "To assess total body iron stores", rationale: "Low ferritin signals iron deficiency; high ferritin suggests iron overload." }
+        ],
+        "300": [
+          { id: "h11", q: "What does a positive Coombs test indicate?", a: "Antibodies or complement bound to RBC surface", rationale: "Indicates immune-mediated hemolysis." },
+          { id: "h12", q: "What is the RETIC index?", a: "Reticulocyte count adjusted for degree of anemia", rationale: "High retic index in anemia shows marrow is responding." },
+          { id: "h13", q: "What does elevated LDH suggest in anemia?", a: "Hemolysis - RBC destruction", rationale: "LDH is released when RBCs break down." },
+          { id: "h14", q: "Why is haptoglobin low in hemolytic anemia?", a: "It binds to hemoglobin from lysed RBCs", rationale: "Haptoglobin is consumed binding free hemoglobin." },
+          { id: "h15", q: "What is PT/INR?", a: "Prothrombin time as International Normalized Ratio", rationale: "Standardized measure of extrinsic coagulation pathway." }
+        ],
+        "400": [
+          { id: "h16", q: "What are schistocytes?", a: "Fragmented RBCs from mechanical damage", rationale: "Seen in microangiopathic hemolytic anemia and DIC." },
+          { id: "h17", q: "What does polychromasia indicate?", a: "Young RBCs (reticulocytes) present", rationale: "Blue-tinted appearance under microscope shows elevated retic count." },
+          { id: "h18", q: "What is the significance of elevated IPF?", a: "Increased platelet production by bone marrow", rationale: "Good sign that marrow is responding to platelet loss." },
+          { id: "h19", q: "What pattern in DIC coagulation studies?", a: "PT elevated, aPTT prolonged, platelets low, fibrinogen low", rationale: "DIC consumes clotting factors while activating fibrinolysis." },
+          { id: "h20", q: "What is transferrin saturation?", a: "(Serum iron / TIBC) x 100", rationale: "Normal 20-50%; low indicates iron deficiency." }
+        ],
+        "500": [
+          { id: "h21", q: "What does flow cytometry reveal in leukemia?", a: "Abnormal cell populations with unusual antigen expression", rationale: "Confirms leukemia and identifies subtype." },
+          { id: "h22", q: "What is RDW?", a: "Red cell distribution width - measure of RBC size variation", rationale: "Elevated in iron deficiency and mixed RBC populations." },
+          { id: "h23", q: "What causes elevated MCV with low hemoglobin?", a: "Macrocytic anemia - likely B12 or folate deficiency", rationale: "Large cells from impaired DNA synthesis." },
+          { id: "h24", q: "Normal PT/INR with prolonged bleeding time suggests?", a: "Platelet problem, not clotting factor deficiency", rationale: "PT/aPTT test factors; bleeding time tests platelet function." },
+          { id: "h25", q: "What is bone marrow biopsy used for?", a: "To assess marrow cellularity and rule out marrow disease", rationale: "Direct visualization of marrow structure." }
         ]
       }
     },
-
-    /* ========== WEEK 2: ANEMIAS ADVANCED ========== */
     {
-      "id": "anemias-advanced",
-      "name": "Anemias: Critical Management",
-      "source": "week2-anemias",
-      "clues": {
+      id: "anemias",
+      name: "Anemias",
+      source: "Week 2",
+      clues: {
         "100": [
-          {
-            "id": "ane-100-0",
-            "q": "A 35-year-old with severe pernicious anemia (B12 level 110, Hgb 5.8, MCV 112, neurologic symptoms: ataxia + paresthesias) is started on IM B12 injections. Day 3 post-B12: patient develops acute hypokalemia (K 2.8, baseline 4.2), hypomagnesemia (Mg 1.3), hypophosphatemia (PO4 1.8), and weakness. What is the CRITICAL concept and management priority?",
-            "a": "REFEEDING SYNDROME from rapid B12 correction stimulating RBC production — cells suddenly import massive K+, Mg, PO4 intracellularly → acute hypokalemia/hypomagnesemia/hypophosphatemia despite total body deficiency; SLOW B12 dosing, AGGRESSIVELY replete K/Mg/PO4 IV, continuous cardiac monitoring (risk of sudden cardiac death from electrolyte shifts), reassess B12 repletion rate",
-            "rationale": "Classic refeeding syndrome: severely deficient patients suddenly corrected → cells begin biosynthesis requiring MASSIVE electrolyte influx intracellularly → acute depletion from serum. Patient went from severe B12 deficiency → normal stimulation of erythropoiesis → sudden cellular demand for K/Mg/PO4. This can cause SUDDEN CARDIAC DEATH. Management: (1) STOP IM B12 temporarily or reduce dose, (2) Aggressive IV electrolyte replacement: IV potassium chloride (goal K >3.5), IV magnesium sulfate, IV phosphate, (3) Continuous cardiac monitoring (arrhythmia risk from electrolyte chaos), (4) SLOW B12 repletion: lower dose or less frequent (every other week instead of weekly), (5) Monitor K/Mg/PO4 every 4-6 hours initially, (6) Once stable, resume B12 at slower pace. This is a PARADOX where treating B12 deficiency causes acute complications — clinicians often miss this."
-          },
-          {
-            "id": "ane-100-1",
-            "q": "A 42-year-old with Crohn's disease (terminal ileum involvement) on infliximab + azathioprine has Hgb 7.2, MCV 68, ferritin 8, TSAT 12% (iron deficiency), PLUS B12 97 (B12 deficiency) and folate 2.1 (folate deficiency). What is the PRIORITY repletion sequence and WHY?",
-            "a": "B12 FIRST or simultaneously with folate; if folate repleted alone → masks B12 neurologic damage (peripheral neuropathy can progress to irreversible spinal cord demyelination while B12 remains untreated); then iron ONLY after GI inflammation controlled (iron supplementation worsens Crohn's inflammation initially)",
-            "rationale": "CRITICAL concept: DUAL B12 + folate deficiency requires CAREFUL sequencing. Mechanism: folate supplements RBC production BUT does NOT address B12's neurologic role. If folate corrected alone: (1) Hgb improves → neurologic B12 symptoms continue/worsen silently → demyelination progresses, (2) By time B12 deficiency recognized, irreversible spinal cord damage has occurred. Management sequence: (1) B12 IM injections (monthly indefinitely for Crohn's terminal ileum) + folate supplementation SIMULTANEOUSLY, (2) Iron supplementation DELAYED until Crohn's inflammation controlled (iron worsens intestinal inflammation → flares), (3) Address Crohn's with biologics (infliximab ongoing), (4) Recheck B12/folate/iron in 4-6 weeks, (5) Neurology evaluation if neurologic symptoms present (assess cord integrity with MRI if red flags). The mistake: starting iron + folate but forgetting B12 → catastrophic delayed neurologic damage."
-          }
+          { id: "a1", q: "What is anemia's basic definition?", a: "Reduced number of RBCs or reduced hemoglobin", rationale: "Reduces oxygen-carrying capacity." },
+          { id: "a2", q: "Most common anemia in US?", a: "Iron deficiency anemia", rationale: "Highest in toddlers, adolescent girls, women of childbearing age." },
+          { id: "a3", q: "How long does a normal RBC live?", a: "About 120 days", rationale: "Balance between production and loss determines hemoglobin." },
+          { id: "a4", q: "Physical findings in iron deficiency?", a: "Glossitis, koilonychia (spoon nails), pica", rationale: "Iron-deficiency triad is specific to this anemia." },
+          { id: "a5", q: "Microcytic, hypochromic RBCs suggest?", a: "Iron deficiency anemia", rationale: "Small, pale cells can't carry enough oxygen." }
         ],
-        "200": []
+        "200": [
+          { id: "a6", q: "What causes macrocytic anemia?", a: "B12 or folate deficiency", rationale: "Both needed for RBC DNA synthesis." },
+          { id: "a7", q: "Blood cell lines lost in aplastic anemia?", a: "RBCs, WBCs, and platelets", rationale: "Primary bone marrow failure." },
+          { id: "a8", q: "Normocytic anemia points to?", a: "Blood loss, sickle cell, or hemolytic anemia", rationale: "Normal size and color but reduced count." },
+          { id: "a9", q: "What is pernicious anemia?", a: "B12 deficiency from lack of intrinsic factor", rationale: "Autoimmune destruction of intrinsic factor-producing cells." },
+          { id: "a10", q: "Why neurologic symptoms in B12 but not folate deficiency?", a: "B12 essential for myelin; folate is not", rationale: "B12 neurologic damage is irreversible if untreated." }
+        ],
+        "300": [
+          { id: "a11", q: "Three pathophysiologic mechanisms of anemia?", a: "Decreased production, increased loss, dilution", rationale: "Reticulocyte count differentiates these." },
+          { id: "a12", q: "Reticulocyte count classification?", a: "High retic = bleeding/hemolysis; low retic = marrow failure", rationale: "Most important test for anemia classification." },
+          { id: "a13", q: "What is autoimmune hemolytic anemia?", a: "Immune system attacks and destroys RBCs", rationale: "Positive direct Coombs test confirms diagnosis." },
+          { id: "a14", q: "Why do sickle RBCs cause hemolysis?", a: "Abnormal hemoglobin polymerizes and distorts RBCs into sickle shape", rationale: "They get stuck and rupture." },
+          { id: "a15", q: "G6PD deficiency triggers hemolysis when?", a: "When exposed to oxidative stressors (fava beans, drugs)", rationale: "X-linked, episodic hemolysis." }
+        ],
+        "400": [
+          { id: "a16", q: "What is the RPI (reticulocyte production index)?", a: "Retic count corrected for anemia degree and RBC lifespan", rationale: "More accurate than raw retic for assessing marrow." },
+          { id: "a17", q: "Differentiate microcytic anemias?", a: "Iron deficiency (low ferritin) vs thalassemia vs sideroblastic", rationale: "Ferritin and hemoglobin electrophoresis help distinguish." },
+          { id: "a18", q: "Causes of macrocytic anemia?", a: "B12 deficiency, folate deficiency, medications, liver disease", rationale: "Distinguish by B12, folate levels and marrow biopsy." },
+          { id: "a19", q: "Acute vs chronic blood loss presentation?", a: "Acute: tachycardia, hypotension, shock risk; Chronic: gradual compensation", rationale: "Acute is medical emergency; chronic allows adaptation." },
+          { id: "a20", q: "Role of prednisone in AIHA?", a: "Suppresses antibody production and macrophage activity", rationale: "First-line therapy; IVIG is adjunctive." }
+        ],
+        "500": [
+          { id: "a21", q: "Intrinsic vs extrinsic hemolytic anemia?", a: "Intrinsic: RBC defect; Extrinsic: immune attack or environmental", rationale: "Diagnosis uses DAT and morphology." },
+          { id: "a22", q: "When is bone marrow biopsy indicated?", a: "When diagnosis unclear or marrow failure suspected", rationale: "Directly assesses marrow cellularity and production." },
+          { id: "a23", q: "What is MAHA?", a: "Microangiopathic hemolytic anemia from RBC fragmentation", rationale: "Seen in TTP, HUS, DIC, prosthetic valves." },
+          { id: "a24", q: "Pathophysiology of sickle cell crisis?", a: "Hypoxia triggers HbS polymerization causing vaso-occlusion", rationale: "Managed with oxygen, hydration, analgesia." },
+          { id: "a25", q: "Anemia of chronic disease (ACD) iron pattern?", a: "Low serum iron, LOW TIBC (unlike iron deficiency with HIGH TIBC)", rationale: "Inflammation causes hepcidin-mediated iron sequestration." }
+        ]
       }
     },
-
-    /* ========== WEEK 2: POLYCYTHEMIA & COMPLICATIONS ========== */
     {
-      "id": "polycythemia-advanced",
-      "name": "Polycythemia: Thrombotic Crises",
-      "source": "week2-polycythemia",
-      "clues": {
+      id: "electrolytes",
+      name: "Electrolytes",
+      source: "Week 3",
+      clues: {
         "100": [
-          {
-            "id": "poly-100-0",
-            "q": "A 64-year-old with polycythemia vera (Hct 62%, Hgb 21) on hydro cyurea + aspirin presents with sudden-onset severe abdominal pain, vomiting, and shock (BP 82/48). Abdomen distended. Labs: elevated LDH, elevated bilirubin, elevated amylase (380). What is the life-threatening complication?",
-            "a": "Thrombotic mesenteric infarction from superior mesenteric artery (SMA) thrombosis (visceral thrombosis is high-risk in PV despite aspirin + hydroxyurea) — STAT CT angiography abdomen/pelvis, cardiothoracic surgery consult for possible embolectomy, aggressive anticoagulation (heparin), prepare for emergent surgery if necrosis evident, pain out of proportion to exam findings is key sign",
-            "rationale": "Polycythemia vera patients have inherently HIGH viscosity + hypercoagulability from clonal platelet dysfunction. Abdominal pain + shock + elevated amylase = likely mesenteric infarction. This is LIFE-THREATENING with mortality >50% even with treatment. Management: (1) STAT CT angiography of abdomen/pelvis (look for thrombus in SMA/portal vein), (2) Aggressive heparin (unfractionated, bolus + infusion) immediately (don't wait for imaging), (3) Cardiothoracic surgery consultation (may need emergent thrombectomy if early enough), (4) Surgical consult (assess for bowel necrosis — if necrotic bowel present, resection needed), (5) Support: NPO, nasogastric tube, fluids, vasopressors for shock, (6) Post-treatment: increase phlebotomy target (get Hct <45%), add hydroxyurea if not already maximum, high-dose aspirin (if not contraindicated by GI bleed history). Prognosis depends on: time to diagnosis (earlier = more salvageable), extent of infarction."
-          }
+          { id: "e1", q: "Normal serum sodium range?", a: "136-145 mEq/L", rationale: "Major extracellular cation." },
+          { id: "e2", q: "Causes of hypernatremia?", a: "Water loss or sodium gain", rationale: "Causes cellular dehydration." },
+          { id: "e3", q: "Causes of hyponatremia?", a: "Water excess or sodium loss", rationale: "Causes cellular swelling and brain edema." },
+          { id: "e4", q: "Normal serum potassium?", a: "3.5-5.0 mEq/L", rationale: "Major intracellular cation." },
+          { id: "e5", q: "Cardiac effects of hyperkalemia?", a: "Peaked T waves, widened QRS, prolonged PR, cardiac arrest", rationale: "Medical emergency." }
         ],
-        "200": []
+        "200": [
+          { id: "e6", q: "What is osmolality?", a: "Concentration of solutes per kg of solvent; normal 280-300", rationale: "Osmotic pressure drives water movement." },
+          { id: "e7", q: "What is SIADH?", a: "Excessive ADH causing water retention and hyponatremia", rationale: "Treat with fluid restriction." },
+          { id: "e8", q: "How does aldosterone regulate K and Na?", a: "Promotes Na reabsorption and K excretion", rationale: "ACE inhibitors/ARBs cause hyperkalemia risk." },
+          { id: "e9", q: "What is metabolic acidosis?", a: "pH <7.35 with low bicarbonate", rationale: "From acid gain or bicarbonate loss." },
+          { id: "e10", q: "What is metabolic alkalosis?", a: "pH >7.45 with high bicarbonate", rationale: "From acid loss or alkali gain." }
+        ],
+        "300": [
+          { id: "e11", q: "How to treat hypernatremia?", a: "Replace water deficit slowly with hypotonic fluids", rationale: "Correct no faster than 8-10 mEq/L per day." },
+          { id: "e12", q: "How to treat hyponatremia?", a: "Fluid restriction, hypertonic saline for symptomatic, normal saline for volume depletion", rationale: "Correct slowly to avoid osmotic demyelination." },
+          { id: "e13", q: "How to treat hyperkalemia?", a: "Calcium gluconate, insulin/glucose, beta-agonists, diuretics, dialysis", rationale: "All except dialysis are temporary." },
+          { id: "e14", q: "Magnesium role in electrolytes?", a: "Required for Na-K-ATPase; deficiency causes K/Ca refractory to repletion", rationale: "Always repleted together." },
+          { id: "e15", q: "What is the anion gap?", a: "Na - (Cl + HCO3); normal 8-16", rationale: "Elevated suggests acid gain." }
+        ],
+        "400": [
+          { id: "e16", q: "DKA coagulation pattern?", a: "Elevated anion gap metabolic acidosis from ketones", rationale: "Kussmaul respirations, fruity breath." },
+          { id: "e17", q: "What is lactic acidosis?", a: "Elevated lactate from tissue hypoxia", rationale: "High mortality condition." },
+          { id: "e18", q: "Respiratory acidosis compensation?", a: "Kidneys retain bicarbonate over days", rationale: "Acute onset is life-threatening." },
+          { id: "e19", q: "Respiratory alkalosis compensation?", a: "Kidneys excrete bicarbonate over days", rationale: "Often accompanies metabolic acidosis." },
+          { id: "e20", q: "How to identify mixed acid-base disorder?", a: "Check if respiratory/metabolic compensation is appropriate", rationale: "Expected compensation calculations reveal second disorder." }
+        ],
+        "500": [
+          { id: "e21", q: "Chloride-responsive vs resistant alkalosis?", a: "Responsive: volume depletion, improves with saline; Resistant: hypokalemia, needs K", rationale: "Treatment differs based on type." },
+          { id: "e22", q: "What is osmotic demyelination syndrome?", a: "Neurologic complication from correcting hyponatremia too fast", rationale: "Prevent by slow correction." },
+          { id: "e23", q: "Role of phosphate in metabolism?", a: "Essential for ATP, DNA, RNA synthesis", rationale: "Imbalance impairs cell function." },
+          { id: "e24", q: "What causes pseudohyponatremia?", a: "Lab artifact from high lipids/proteins", rationale: "Measured sodium low but true sodium normal." },
+          { id: "e25", q: "Relationship between hypomagnesemia and hypokalemia?", a: "Mg required for Na-K-ATPase; Mg deficiency prevents K repletion", rationale: "Always check and repleted both simultaneously." }
+        ]
       }
     },
-
-    /* ========== WEEK 2: TRANSFUSION REACTIONS ========== */
     {
-      "id": "transfusion-advanced",
-      "name": "Transfusion: Multisystem Complications",
-      "source": "week2-transfusion",
-      "clues": {
+      id: "transfusion",
+      name: "Transfusion & Coagulation",
+      source: "Week 2",
+      clues: {
         "100": [
-          {
-            "id": "tr-100-0",
-            "q": "A 58-year-old in septic shock from necrotizing soft tissue infection receives massive transfusion (20 units PRBC, 14 units FFP, 8 units platelets over 2 hours). Develops suddenly: ARDS-level hypoxemia (P/F ratio 88), coagulopathy (PT >30, aPTT immeasurable, Fib 65), hemorrhage from ALL sites, core temp 32.1°C, pH 6.74. What is the cascade of complications?",
-            "a": "Combination: (1) TRALI from transfused blood, (2) Massive dilutional coagulopathy + DIC from sepsis, (3) Profound hypothermia from cold blood, (4) Metabolic acidosis from shock/transfusion; EMERGENCY management: STOP massive transfusion temporarily, initiate ECMO for rewarming + oxygenation, hold medications (hypothermia), correct K/Ca/acid-base aggressively, prepare for OR (source control of necrotizing infection)",
-            "rationale": "This is a 'PERFECT STORM' with mortality 50-80% despite treatment. Multiple catastrophes colliding: (1) TRALI → bilateral infiltrates, hypoxemia, pulmonary edema (non-cardiogenic), (2) Dilutional coagulopathy + DIC → bleeding from everywhere (ARDS worsened by hemorrhage), (3) Profound hypothermia from massive cold transfusion → cardiac instability, medication inefficacy, (4) Acidosis → cellular dysfunction, cardiac dysrhythmias, (5) Ongoing sepsis/tissue necrosis → continued insult. Management: (1) ECMO/ECLS immediately (only way to adequately rewarm + oxygenate + allow blood perfusion), (2) Transfusion temporarily PAUSED (let ECMO stabilize patient), (3) Hold all medications (ineffective until warm), (4) Aggressive K/Ca correction, (5) Source control: OR for necrotizing fasciitis debridement cannot wait, (6) ICU-level support. This patient needs MULTIDISCIPLINARY team (trauma surgery, cardiothoracic, infectious disease, ICU)."
-          }
+          { id: "t1", q: "What does PT measure?", a: "Prothrombin time - extrinsic coagulation pathway", rationale: "Monitored in warfarin patients." },
+          { id: "t2", q: "What is FFP?", a: "Fresh frozen plasma - contains all clotting factors", rationale: "Used for factor replacement." },
+          { id: "t3", q: "What is PCC?", a: "Prothrombin complex concentrate - concentrated clotting factors", rationale: "Superior to FFP for rapid reversal." },
+          { id: "t4", q: "Normal fibrinogen level?", a: "200-400 mg/dL", rationale: "Below 100 increases bleeding risk." },
+          { id: "t5", q: "What is bleeding time?", a: "Test of platelet plug formation", rationale: "Prolonged with platelet dysfunction." }
         ],
-        "200": []
+        "200": [
+          { id: "t6", q: "D-dimer elevation suggests?", a: "Thromboembolic events or DIC", rationale: "Sensitive but not specific." },
+          { id: "t7", q: "What is INR?", a: "International Normalized Ratio for PT", rationale: "Standardized across labs." },
+          { id: "t8", q: "Hemolytic transfusion reaction signs?", a: "Fever, chills, dyspnea, hypotension, hemoglobinuria", rationale: "Stop transfusion immediately." },
+          { id: "t9", q: "TRALI reaction?", a: "Transfusion-related acute lung injury", rationale: "Develops within 6 hours of transfusion." },
+          { id: "t10", q: "Transfusion-associated circulatory overload?", a: "Volume overload from rapid transfusion", rationale: "Especially in elderly or cardiac disease." }
+        ],
+        "300": [
+          { id: "t11", q: "Indications for RBC transfusion?", a: "Acute hemorrhage, symptomatic anemia, anticipated further loss", rationale: "Restrictive strategy preferred." },
+          { id: "t12", q: "How much does one unit PRBC raise Hgb?", a: "Approximately 1 g/dL", rationale: "Varies by patient size." },
+          { id: "t13", q: "Platelet transfusion indications?", a: "Plt <10K (prophylactic) or <20K with fever/infection", rationale: "Also for ongoing bleeding with low platelets." },
+          { id: "t14", q: "FFP dosing for coagulation reversal?", a: "15 mL/kg", rationale: "Usually 3-4 units for average adult." },
+          { id: "t15", q: "PCC dosing advantages?", a: "Smaller volume, faster reversal, less fluid overload risk", rationale: "Superior to FFP when available." }
+        ],
+        "400": [
+          { id: "t16", q: "Warfarin reversal in bleeding?", a: "FFP/PCC STAT + Vitamin K IV + address bleeding source", rationale: "Vitamin K alone too slow (12-24 hours)." },
+          { id: "t17", q: "Heparin reversal?", a: "Protamine sulfate reverses unfractionated heparin", rationale: "1 mg reverses ~100 units heparin." },
+          { id: "t18", q: "DOAC reversal?", a: "Apixaban/rivaroxaban: andexanet alfa", rationale: "Specific factor Xa inhibitor antidote." },
+          { id: "t19", q: "Iron overload from transfusions?", a: "Each unit PRBC contains ~250 mg iron", rationale: "Chelation therapy if repeated transfusions needed." },
+          { id: "t20", q: "Alloimmunization risk?", a: "Repeated transfusions cause antibody formation to donor antigens", rationale: "Can cause delayed hemolytic reactions." }
+        ],
+        "500": [
+          { id: "t21", q: "ABO incompatible transfusion consequences?", a: "Immediate hemolytic reaction - shock, DIC, death", rationale: "Preventable with proper blood bank procedures." },
+          { id: "t22", q: "Delayed hemolytic transfusion reaction timing?", a: "Days to weeks after transfusion", rationale: "From secondary immune response to donor antigens." },
+          { id: "t23", q: "Bacterial contamination of blood products risk?", a: "Septic transfusion reaction - fever, hypotension, shock", rationale: "Rare but life-threatening." },
+          { id: "t24", q: "Massive transfusion protocol definition?", a: ">=10 units PRBC in 24 hours", rationale: "Use blood bank-activated protocol." },
+          { id: "t25", q: "Coagulopathy in massive transfusion cause?", a: "Dilution of clotting factors, hypothermia, acidosis", rationale: "Use FFP and platelets from start." }
+        ]
       }
     },
-
-    /* ========== WEEK 3: ELECTROLYTES EXTREME ========== */
     {
-      "id": "electrolytes-extreme",
-      "name": "Electrolytes: Extreme Derangements",
-      "source": "week3-electrolytes",
-      "clues": {
+      id: "perioperative",
+      name: "Perioperative Complications",
+      source: "Week 3",
+      clues: {
         "100": [
-          {
-            "id": "elec-100-0",
-            "q": "A 64-year-old SIADH patient on fluid restriction (500 mL/day) + vaptans for chronic hyponatremia (Na baseline 120, stable 6 months) is admitted with acute delirium, seizures, and altered mental status. Today's Na = 98 (ACUTE drop from baseline 120 = 22 mEq/L drop in hours). What is the PRIORITY distinction and management?",
-            "a": "ACUTE hyponatremia (hours) is MORE symptomatic than chronic (same severity) — seizures from ACUTE drop; HYPERTONIC saline (3%) is now INDICATED (paradoxically — usually avoided in SIADH) because acute symptomatic hyponatremia overrides usual restrictions; correct at 4-6 mEq/L per hour until seizures stop, then slow to 8 mEq/L per 24h",
-            "rationale": "CRITICAL distinction: Chronicity of hyponatremia determines symptoms + management. Acute hyponatremia (develops over hours) causes MORE symptoms at same Na level because brain has NOT had time to adapt. Chronic hyponatremia (weeks-months) causes LESS symptoms because brain has compensated by reducing intracellular osmolytes. This patient's acute drop from 120 to 98 (22 mEq/L in hours) is SYMPTOMATIC (seizures). Management: (1) Hypertonic saline is NOW appropriate (ONLY exception to fluid restriction in SIADH — acute symptomatic), (2) Correct at 4-6 mEq/L per hour UNTIL seizures STOP, then slower (8 mEq/L per 24h thereafter to prevent overcorrection → ODS), (3) Seizure precautions, (4) Identify cause of acute Na drop (diuretics, drugs, increased SIADH trigger?), (5) Once Na >100, switch back to fluid restriction approach. The trap: some clinicians restrict fluids even in acute severe hyponatremia — WRONG; acute symptomatic disease requires hypertonic saline."
-          },
-          {
-            "id": "elec-100-1",
-            "q": "A 72-year-old with CKD (Cr 3.8, eGFR 12) on combination ACE-I + spironolactone develops severe hyperkalemia (K 7.4), metabolic acidosis (HCO3 15, pH 7.28), and new acute kidney injury (Cr 5.2 from 3.8 in 48 hours). He's asymptomatic at this moment. EKG shows peaked T-waves, widened QRS. What is the PRIORITY?",
-            "a": "Severe hyperkalemia with EKG changes + acute AKI crisis — STOP ACE-I and spironolactone immediately, STAT calcium gluconate for cardiac protection (peaked T-waves are red flag for dysrhythmia risk), insulin/glucose + sodium bicarbonate + albuterol for K shift, AGGRESSIVE EVALUATION for cause of AKI (prerenal vs. acute tubular necrosis vs. obstructive), prepare for URGENT dialysis (likely needed for both K removal + AKI management)",
-            "rationale": "This patient has TRIPLE emergency: (1) Severe hyperkalemia (K 7.4) with EKG changes (peaked T-waves, wide QRS) = CARDIAC EMERGENCY, (2) Acute kidney injury worsening (Cr 5.2) = can't excrete K, (3) Metabolic acidosis worsening hyperkalemia. The ACE-I + spironolactone combination is CONTRAINDICATED in renal failure — both drugs cause K retention + this patient's kidneys can't excrete. Management sequence: (1) STOP both ACE-I AND spironolactone (permanent decision likely — can't restart without closer monitoring), (2) STAT calcium gluconate 10-20 mL IV (stabilizes cardiac membrane from peaked T-wave hyperkalemia), (3) Insulin 10 units + dextrose 50% (shifts K into cells), (4) Sodium bicarbonate for acidosis + K shift, (5) URGENT evaluation for AKI cause: assess volume status (prerenal?), urine sodium/osmolality, renal ultrasound (obstruction?), (6) Likely needs EMERGENT DIALYSIS (both hyperkalemia + renal failure require it). Do NOT give normal saline (volume overload in AKI); avoid further potassium exposure."
-          }
+          { id: "p1", q: "What is malignant hyperthermia?", a: "Pharmacogenetic reaction to anesthesia causing hyperthermia, rigidity, rhabdomyolysis", rationale: "Life-threatening; treat with dantrolene." },
+          { id: "p2", q: "Signs of MH?", a: "Elevated CO2, muscle rigidity, fever, dark urine", rationale: "Stop anesthesia immediately." },
+          { id: "p3", q: "Treatment of MH?", a: "Stop anesthetic, hyperventilate, dantrolene 2.5 mg/kg IV, active cooling", rationale: "Emergency treatment required." },
+          { id: "p4", q: "What is anaphylaxis?", a: "IgE-mediated hypersensitivity reaction", rationale: "Treat with epinephrine IM immediately." },
+          { id: "p5", q: "Signs of anaphylaxis?", a: "Urticaria, angioedema, bronchospasm, hypotension, cardiac arrest", rationale: "Can occur within minutes of exposure." }
         ],
-        "200": []
-      }
-    },
-
-    /* ========== WEEK 3: PERIOPERATIVE COMPLEX ========== */
-    {
-      "id": "perioperative-complex",
-      "name": "Perioperative: Critical Complications",
-      "source": "week3-perioperative",
-      "clues": {
-        "100": [
-          {
-            "id": "peri-100-0",
-            "q": "A 68-year-old post-op day 2 from coronary artery bypass graft (CABG) develops sudden atrial fibrillation with rapid ventricular response (HR 168), hypotension (BP 92/58), decreased urine output (20 mL/hr), and altered mental status. He's on metoprolol + amiodarone (loaded intraoperatively). Recent labs: Mg 1.2 (low), K 3.8 (low-normal), calcium normal. Chest tube output 180 mL/hr (high). What is the PRIORITY intervention sequence?",
-            "a": "Post-op AF likely from electrolyte derangement (hypomagnesemia + borderline hypokalemia) + surgical stress, worsened by ongoing mediastinal bleeding (high chest tube output) causing hypovolemia + shock — PRIORITY: (1) Aggressive Mg + K replacement IV (correct hypomagnesemia FIRST — enables beta-blocker/amiodarone effectiveness), (2) Increase metoprolol IV for rate control, (3) Address bleeding source (chest tube bleeding 180 mL/hr = significant — may need return to OR for hemostasis), (4) Fluid resuscitation with blood/colloid (not crystalloid alone), (5) Monitor cardiac output/BP response, (6) Once stabilized, may need transesophageal echocardiogram (TEE) if AF persists to rule out clot formation",
-            "rationale": "Post-op atrial fibrillation (occurs in 20-40% after CABG) is MULTIFACTORIAL: (1) Hypomagnesemia worsens AF (Mg needed for cardiac repolarization), (2) Hypokalemia worsens AF (K needed for cardiac conduction), (3) Surgical trauma + stress triggers AF, (4) Hypovolemia from ongoing mediastinal bleeding precipitates AF. Trap: clinicians see AF + hypotension and escalate amiodarone/metoprolol WITHOUT addressing root cause (electrolytes + bleeding). Management sequence: (1) IV magnesium sulfate 2-4g (corrects hypomagnesemia, stabilizes myocardium, makes beta-blockers/amiodarone work), (2) IV potassium to K >4.0, (3) Increase metoprolol IV, (4) URGENT evaluation of high chest tube output (normal is <50-100 mL/hr; 180 is excessive) — may need return to OR if active bleeding, (5) Blood transfusion for ongoing losses, (6) Vasopressor support (phenylephrine) for BP if needed, (7) Once stable: consider transoesophageal echo (TEE) to rule out AF-induced thrombus (CABG patients on aspirin have reduced stroke risk but still present)."
-          }
+        "200": [
+          { id: "p6", q: "Treatment of anaphylaxis?", a: "Epinephrine 0.3-0.5 mg IM, IV access, antihistamines, steroids, monitor", rationale: "Epinephrine is life-saving." },
+          { id: "p7", q: "What is aspiration?", a: "Food or gastric contents inhaled into lungs during anesthesia", rationale: "Can cause chemical pneumonitis or obstruction." },
+          { id: "p8", q: "Prevention of aspiration?", a: "NPO status, rapid sequence induction, cricoid pressure", rationale: "Critical pre-op preparation." },
+          { id: "p9", q: "Perioperative hypothermia consequences?", a: "Impaired coagulation, increased infection, arrhythmias", rationale: "Active rewarming required post-op." },
+          { id: "p10", q: "Perioperative hyperglycemia risk?", a: "Increased infection and poor wound healing", rationale: "Tight glucose control improves outcomes." }
         ],
-        "200": []
-      }
-    },
-
-    /* ========== WEEK 3: MALIGNANT HYPERTHERMIA CRISIS ========== */
-    {
-      "id": "malignant-hyperthermia-crisis",
-      "name": "Malignant Hyperthermia: Critical Escalation",
-      "source": "week3-mh",
-      "clues": {
-        "100": [
-          {
-            "id": "mh-100-0",
-            "q": "During induction with succinylcholine + sevoflurane for hip surgery, patient develops masseter rigidity. Anesthesia STOPS triggering agents immediately, hyperventilates 100% O2, and PREPARES dantrolene. 2 minutes later: ETCO2 rises to 75, temperature 38.2°C, HR 158, BP 168/95, venous blood dark/brown. What is the IMMEDIATE next step?",
-            "a": "FULMINANT MALIGNANT HYPERTHERMIA with rhabdomyolysis + DIC in progress — ABORT SURGERY immediately (if possible) or finish EMERGENTLY with non-triggering agents, STAT dantrolene 2.5 mg/kg IV (repeat q5 min), aggressive cooling (ice packs, cold IV saline, cooling blanket), ICU admission with continuous monitoring, prepare for complications: rhabdomyolysis (myoglobinuria risk), hyperkalemia (cardiac dysrhythmia risk), DIC (coagulopathy)",
-            "rationale": "This is a FULMINANT MH crisis (ETCO2 75 = severe hypermetabolism, dark venous blood = myoglobinuria/DIC, temp rising 38.2°C). Mortality 5-10% even WITH dantrolene. Management sequence: (1) Abort surgery if safe/possible (finish EMERGENTLY if emergency case with non-triggering agents + minimal anesthesia), (2) Dantrolene 2.5 mg/kg IV STAT, repeat every 5 minutes until: ETCO2 normalizes, muscle rigidity resolves, temperature stabilizes <38.5°C (target 10 mg/kg max), (3) Cooling measures: ice packs (axillae, groin), cold normal saline IV, cooling blanket, (4) AGGRESSIVE fluid resuscitation (goal: myoglobin-free urine, urine output 200-300 mL/hr) — target urine color clears, (5) STAT labs: K+, Ca, Mg, CK, myoglobin, coagulation studies, (6) Hyperventilate to lower ETCO2 (reduces CO2 stimulus for further hypermetabolism), (7) Continuous cardiac monitoring (peaked T-waves from hyperkalemia risk), (8) Prepare for: dialysis (AKI from myoglobinuria), DIC management (FFP, platelets, cryoprecipitate), (9) POST-CRISIS: Dantrolene 1 mg/kg IV q4-6h for 24-48 hours (prevent recrudescence — occurs 25% of time!). This patient needs ICU-level care for >=48 hours post-crisis."
-          }
+        "300": [
+          { id: "p11", q: "What is PONV?", a: "Postoperative nausea and vomiting", rationale: "Risk factors: female, opioids, motion sickness history." },
+          { id: "p12", q: "PONV prevention strategies?", a: "Limit opioids, use multimodal analgesia, ondansetron, fluid optimization", rationale: "Preventive approach better than treatment." },
+          { id: "p13", q: "Postoperative sore throat cause?", a: "Endotracheal intubation trauma", rationale: "Usually self-limited." },
+          { id: "p14", q: "Awareness under anesthesia risk?", a: "Patient conscious but paralyzed during surgery", rationale: "Prevented by adequate anesthetic depth monitoring." },
+          { id: "p15", q: "Postoperative shivering cause?", a: "Perioperative hypothermia and recovery from anesthesia", rationale: "Increases oxygen consumption and discomfort." }
         ],
-        "200": []
+        "400": [
+          { id: "p16", q: "Amniotic fluid embolism?", a: "Fetal tissue enters maternal circulation during labor/delivery", rationale: "Rare but catastrophic - causes shock and DIC." },
+          { id: "p17", q: "Signs of amniotic fluid embolism?", a: "Sudden hypotension, cyanosis, respiratory distress, DIC", rationale: "Mortality rate 50-80%." },
+          { id: "p18", q: "Management of amniotic fluid embolism?", a: "Aggressive resuscitation, FFP, platelets, continuous hemodynamic support", rationale: "Supportive care is primary treatment." },
+          { id: "p19", q: "Neuroleptic malignant syndrome?", a: "Reaction to antipsychotics - hyperthermia, rigidity, altered mental status", rationale: "Treat with dantrolene and supportive care." },
+          { id: "p20", q: "Serotonin syndrome signs?", a: "Hyperthermia, rigidity, hyperreflexia, altered mental status from SSRIs/MAOIs", rationale: "Stop serotonergic agents." }
+        ],
+        "500": [
+          { id: "p21", q: "Perioperative stroke risk factors?", a: "Afib, atherosclerosis, hypotension, hypercoagulability", rationale: "High morbidity outcome." },
+          { id: "p22", q: "Perioperative MI risk?", a: "Increased demand and supply mismatch", rationale: "Monitor troponin post-op." },
+          { id: "p23", q: "Compartment syndrome post-op?", a: "Increased pressure in fascial compartment impairs perfusion", rationale: "Surgical emergency requiring fasciotomy." },
+          { id: "p24", q: "Fat embolism syndrome?", a: "Fat globules enter circulation from long bone fractures", rationale: "Causes hypoxia, confusion, petechial rash." },
+          { id: "p25", q: "Recovery from neuromuscular blocking agents?", a: "Measured by train-of-four stimulation", rationale: "Reversed with sugammadex or neostigmine." }
+        ]
       }
     }
   ]
