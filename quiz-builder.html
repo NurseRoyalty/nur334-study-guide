@@ -65,12 +65,13 @@
       });
     });
 
-    // Add grouped questions to QUIZ_BANK as new topics with (Week 2) suffix
+    // Add grouped questions to QUIZ_BANK as new topics
     Object.keys(topicGroups2).sort().forEach(topicName => {
       const topicId = 'week2-' + topicName.toLowerCase().replace(/\s+/g, '-');
       window.QUIZ_BANK.topics.push({
         id: topicId,
-        label: topicName + ' (Week 2)',
+        label: topicName,
+        week: 2,
         sets: {
           mustKnow: topicGroups2[topicName],
           extraPractice: [],
@@ -102,12 +103,13 @@
       });
     });
 
-    // Add grouped questions to QUIZ_BANK as new topics with (Week 3) suffix
+    // Add grouped questions to QUIZ_BANK as new topics
     Object.keys(topicGroups3).sort().forEach(topicName => {
       const topicId = 'week3-' + topicName.toLowerCase().replace(/\s+/g, '-');
       window.QUIZ_BANK.topics.push({
         id: topicId,
-        label: topicName + ' (Week 3)',
+        label: topicName,
+        week: 3,
         sets: {
           mustKnow: topicGroups3[topicName],
           extraPractice: [],
