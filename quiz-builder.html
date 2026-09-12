@@ -40,6 +40,44 @@
 </main>
 
 <script src="data/quiz-bank.js?v=20260818"></script>
+<script src="data/week3-questions.js?v=20260912"></script>
+<script>
+// Merge Week 3 questions into quiz-bank topics
+(function() {
+  if (window.EXAM_DATA_WEEK3 && window.EXAM_DATA_WEEK3.questions && window.QUIZ_BANK) {
+    // Group questions by topic
+    const topicGroups = {};
+    window.EXAM_DATA_WEEK3.questions.forEach(q => {
+      const topic = q.topic || 'Week 3';
+      if (!topicGroups[topic]) topicGroups[topic] = [];
+      topicGroups[topic].push({
+        stem: q.stem,
+        options: q.options,
+        answer: q.answer,
+        rationale: q.rationale,
+        topic: q.topic,
+        source: "quiz-bank"
+      });
+    });
+    
+    // Add grouped questions to QUIZ_BANK as new topics
+    Object.keys(topicGroups).forEach(topicName => {
+      const topicId = 'week3-' + topicName.toLowerCase().replace(/\s+/g, '-');
+      window.QUIZ_BANK.topics.push({
+        id: topicId,
+        label: 'Week 3: ' + topicName,
+        sets: {
+          mustKnow: topicGroups[topicName],
+          extraPractice: [],
+          eaq: []
+        }
+      });
+    });
+    
+    console.log('Week 3 questions merged: ' + window.EXAM_DATA_WEEK3.questions.length + ' questions in ' + Object.keys(topicGroups).length + ' topics');
+  }
+})();
+</script>
 <script src="assets/site.js?v=20260818"></script>
 <script src="assets/quiz.js?v=20260818"></script>
 </body>
