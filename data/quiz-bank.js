@@ -4104,26 +4104,6 @@ window.QUIZ_BANK = {
     }
 ,
     {
-      id: "hematology-labs-dx",
-      label: "Hematology Labs & Diagnostics",
-      week: 2,
-      sets: {
-        mustKnow: [
-            {
-                      "stem": "A CBC shows WBC 15,000, hemoglobin 13 g/dL, platelets 450,000, and elevated neutrophils. What is the most likely diagnosis?",
-                      "options": [
-                                "Leukemia",
-                                "Acute bacterial infection (left shift present)",
-                                "Chronic myeloid leukemia",
-                                "Immune thrombocytopenia"
-                      ],
-                      "answer": 1,
-                      "rationale": "Elevated WBC with left shift (increased immature neutrophils) and normal hemoglobin/platelets indicates acute infection response. Bone marrow is appropriately mobilizing reserves to fight infection. If this persists without infection or worsens, further workup for hematologic malignancy is warranted.",
-                      "topic": "Hematology Labs & Diagnostics",
-                      "section": "hematology-labs",
-                      "type": "multiple-choice"
-            },
-            {
                       "stem": "A patient's PT is prolonged but PTT is normal. Which vitamin deficiency is most likely?",
                       "options": [
                                 "Vitamin K deficiency",
@@ -4255,26 +4235,6 @@ window.QUIZ_BANK = {
       }
     },
     {
-      id: "anemias-polycythemia",
-      label: "Anemias & Polycythemia",
-      week: 2,
-      sets: {
-        mustKnow: [
-            {
-                      "stem": "A 45-year-old woman with a history of heavy menstrual bleeding presents with fatigue, dyspnea on exertion, and a hemoglobin of 7.2 g/dL. Her MCV is 72 fL and serum ferritin is 8 ng/mL. What type of anemia is this?",
-                      "options": [
-                                "Megaloblastic anemia",
-                                "Iron deficiency anemia",
-                                "Hemolytic anemia",
-                                "Anemia of chronic disease"
-                      ],
-                      "answer": 1,
-                      "rationale": "Low MCV (<80) indicates microcytic anemia. Low ferritin confirms iron deficiency. Chronic blood loss from menorrhagia is a common cause in women of reproductive age. Iron replacement therapy is indicated after identifying and treating the source of bleeding.",
-                      "topic": "Anemias",
-                      "section": "anemias",
-                      "type": "multiple-choice"
-            },
-            {
                       "stem": "A 60-year-old man with pernicious anemia complains of paresthesias in his feet and difficulty walking. Which vitamin deficiency is causing these neurologic symptoms?",
                       "options": [
                                 "Vitamin B1 (thiamine) deficiency",
@@ -4406,26 +4366,6 @@ window.QUIZ_BANK = {
       }
     },
     {
-      id: "blood-component-therapy",
-      label: "Blood Component Therapy",
-      week: 2,
-      sets: {
-        mustKnow: [
-            {
-                      "stem": "A patient with severe anemia (Hb 5.5 g/dL) requires RBC transfusion. How many units of packed RBCs (PRBCs) should raise hemoglobin by approximately 3 g/dL?",
-                      "options": [
-                                "1 unit PRBC",
-                                "2 units PRBC",
-                                "4 units PRBC",
-                                "6 units PRBC"
-                      ],
-                      "answer": 1,
-                      "rationale": "Rule of thumb: Each unit of PRBC raises Hb by ~1 g/dL in an average adult (assuming no ongoing losses). Therefore, 2-3 units raise Hb by 2-3 g/dL. Transfuse 2-3 units at a time, reassess, then retransfuse as needed. Over-transfusion causes fluid overload and iron overload.",
-                      "topic": "Blood Component Therapy",
-                      "section": "blood-component-therapy",
-                      "type": "multiple-choice"
-            },
-            {
                       "stem": "A patient with DIC and active bleeding has PT 20 seconds, PTT 70 seconds, platelets 30,000, and fibrinogen 80 mg/dL. Which product should be transfused FIRST?",
                       "options": [
                                 "Fresh frozen plasma (FFP)",
@@ -4557,26 +4497,6 @@ window.QUIZ_BANK = {
       }
     },
     {
-      id: "central-venous-catheters",
-      label: "Central Venous Catheters",
-      week: 2,
-      sets: {
-        mustKnow: [
-            {
-                      "stem": "A central venous catheter (CVC) is most commonly used for which indication?",
-                      "options": [
-                                "Routine IV access for medications",
-                                "Administration of vesicant drugs, vasopressors, or hypertonic solutions; hemodynamic monitoring; rapid fluid resuscitation",
-                                "Only for blood draws",
-                                "Temperature monitoring only"
-                      ],
-                      "answer": 1,
-                      "rationale": "CVC indications: vesicant chemotherapy/vasopressors (irritating to peripheral veins), hypertonic solutions (TPN, concentrated electrolytes), hemodynamic monitoring (CVP, mixed venous O2), rapid fluid resuscitation, long-term antibiotics, renal replacement therapy. Avoid peripheral IV for these. CVC allows delivery of these therapies safely.",
-                      "topic": "Central Venous Catheters",
-                      "section": "cvcs",
-                      "type": "multiple-choice"
-            },
-            {
                       "stem": "A chest X-ray shows a CVC tip in the right atrium instead of the superior vena cava (SVC). What is the nursing action?",
                       "options": [
                                 "Document and continue using the catheter",
@@ -4706,28 +4626,6 @@ window.QUIZ_BANK = {
         extraPractice: [],
         eaq: []
       }
-    },
-    {
-      id: "electrolyte-imbalances",
-      label: "Electrolyte Imbalances",
-      week: 3,
-      mergedSubtopics: true,
-      sets: {
-        mustKnow: [
-              // ===== SODIUM IMBALANCES (5 questions) =====
-    {
-      stem: "A patient with SIADH presents with a serum sodium of 118 mEq/L and confusion. What is the priority nursing intervention?",
-      options: [
-        "Administer normal saline IV bolus",
-        "Fluid restriction to 500-800 mL/day",
-        "Implement seizure precautions and monitor neurological status",
-        "Encourage sodium intake and increased oral fluids"
-      ],
-      answer: 2,
-      rationale: "Severe hyponatremia (Na <120) causes cerebral edema and risk of seizures, brain herniation, and coma. Seizure precautions are the priority nursing intervention. Sodium correction must be slow (8 mEq/L per 24 hours) to avoid osmotic demyelination syndrome.",
-      topic: "Sodium Imbalances",
-      section: "sodium-imbalances",
-      type: "multiple-choice"
     },
     {
       stem: "A 72-year-old patient taking furosemide and lisinopril has a serum sodium of 130 mEq/L, BUN 28, creatinine 1.1, and urine osmolality 450. What type of hyponatremia is this?",
@@ -5437,26 +5335,6 @@ window.QUIZ_BANK = {
       }
     },
     {
-      id: "fluid-management",
-      label: "Fluid Management",
-      week: 3,
-      sets: {
-        mustKnow: [
-            {
-                      "stem": "A patient with advanced cirrhosis has gained 5 lbs in 2 days with no change in intake. Which assessment finding would differentiate fluid volume excess (FVE) from malnutrition?",
-                      "options": [
-                                "Peripheral edema and ascites indicating FVE from third-spacing",
-                                "Weight gain always indicates FVE",
-                                "Muscle wasting with weight loss indicates malnutrition",
-                                "Ascites is unrelated to fluid status"
-                      ],
-                      "answer": 0,
-                      "rationale": "In cirrhosis, decreased albumin and increased portal pressure cause third-spacing (fluid shift into peritoneal, interstitial spaces). Daily weight gain + peripheral edema + ascites indicates FVE. This is different from undernutrition (weight loss despite adequate intake). Cirrhotic patients can be simultaneously malnourished AND fluid-overloaded.",
-                      "topic": "Fluid Volume Imbalances",
-                      "section": "fluid-volume-imbalances",
-                      "type": "multiple-choice"
-            },
-            {
                       "stem": "An elderly patient presents with FVD: sodium 148, BUN 36, creatinine 1.8, urine specific gravity 1.030. Which IV fluid is appropriate?",
                       "options": [
                                 "Normal saline (0.9% NS) rapidly",
@@ -5588,26 +5466,6 @@ window.QUIZ_BANK = {
       }
     },
     {
-      id: "preoperative-nursing",
-      label: "Preoperative Nursing",
-      week: 3,
-      sets: {
-        mustKnow: [
-            {
-                      "stem": "A patient scheduled for elective surgery is taking warfarin for atrial fibrillation. What is the nursing priority regarding this medication?",
-                      "options": [
-                                "Continue warfarin as scheduled the morning of surgery",
-                                "Discontinue warfarin 3-5 days pre-op; coordinate with provider about bridging with LMWH or IV heparin if high thromboembolism risk",
-                                "Give warfarin the night before surgery",
-                                "Administer vitamin K to reverse warfarin effect"
-                      ],
-                      "answer": 1,
-                      "rationale": "Warfarin is discontinued 3-5 days pre-op to allow INR to normalize and prevent surgical bleeding. High-risk patients (mechanical valve, recent stroke) need bridging with LMWH (stopped 12-24 hours pre-op) or IV heparin (stopped hours pre-op, can be reversed with protamine). Coordination with provider is essential.",
-                      "topic": "Preoperative Nursing",
-                      "section": "preoperative-nursing",
-                      "type": "multiple-choice"
-            },
-            {
                       "stem": "A patient undergoing abdominal surgery has not eaten since midnight (8 hours ago). Is NPO status adequate?",
                       "options": [
                                 "Yes, 8 hours is adequate NPO",
@@ -5669,26 +5527,6 @@ window.QUIZ_BANK = {
       }
     },
     {
-      id: "intraoperative-nursing",
-      label: "Intraoperative Nursing",
-      week: 3,
-      sets: {
-        mustKnow: [
-            {
-                      "stem": "During surgery, the anesthesiologist notices muscle rigidity, elevated temperature (38.5°C), and tachycardia. What is the likely complication?",
-                      "options": [
-                                "Normal response to anesthesia",
-                                "Malignant hyperthermia; immediately notify team, stop triggering agents, administer dantrolene IV",
-                                "Patient is waking up",
-                                "Equipment malfunction"
-                      ],
-                      "answer": 1,
-                      "rationale": "Malignant hyperthermia: muscle rigidity, hyperthermia (late sign), tachycardia, hyperkalemia, myoglobinuria, rhabdomyolysis, coagulopathy, DIC. EARLY signs: masseter muscle rigidity, skin mottling. Treatment: stop triggering agents immediately, hyperventilate with 100% O2, administer dantrolene IV 2.5 mg/kg, iced saline, monitor core temperature, manage complications.",
-                      "topic": "Intraoperative Nursing",
-                      "section": "intraoperative-nursing",
-                      "type": "multiple-choice"
-            },
-            {
                       "stem": "Why is the surgical timeout (WHO checklist) performed before incision?",
                       "options": [
                                 "It is a formality with no clinical significance",
@@ -5750,26 +5588,6 @@ window.QUIZ_BANK = {
       }
     },
     {
-      id: "postoperative-nursing",
-      label: "Postoperative Nursing",
-      week: 3,
-      sets: {
-        mustKnow: [
-            {
-                      "stem": "A patient arrives in PACU post-op with respiratory rate 8/minute, pinpoint pupils, and difficult to arouse. What is the priority intervention?",
-                      "options": [
-                                "Administer oxygen and establish airway support; prepare for reversal agents (naloxone for opioids, flumazenil for benzodiazepines)",
-                                "Wait for patient to wake up naturally",
-                                "Administer stimulants",
-                                "Transfer to room immediately"
-                      ],
-                      "answer": 0,
-                      "rationale": "Respiratory depression with pinpoint pupils = opioid overdose (from anesthesia or analgesics). Priority: oxygen, airway support, naloxone IV. Flumazenil reverses benzodiazepines if present. Do NOT delay; respiratory depression is immediately life-threatening.",
-                      "topic": "Postoperative Nursing",
-                      "section": "postoperative-nursing",
-                      "type": "multiple-choice"
-            },
-            {
                       "stem": "A post-op patient in PACU has a temperature of 35.8°C (96.4°F). What is the clinical significance?",
                       "options": [
                                 "Hypothermia is expected post-op and requires no intervention",
