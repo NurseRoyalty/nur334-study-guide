@@ -1,5 +1,5 @@
 /* ============================================================
-   site.js - shared per-page bootstrap for every page.
+   site.js — shared per-page bootstrap for every page.
    Responsibilities:
      • the top navigation bar (single source of truth = SITE below),
        active-page highlighting, and the prev/next footer links
@@ -27,7 +27,7 @@ window.STORE_PREFIX = "nur334";
 
 const SITE = {
   /* ---- EDIT THESE TWO for your course ---- */
-  brand: "NUR 334 · Med-Surg I",  // big text, top-left of the nav bar
+  brand: "NUR 334 \u00b7 Med-Surg I",  // big text, top-left of the nav bar
   course: "Study Guide",              // small text under it
 
   home: { id: "home", title: "Home", file: "index.html" },
@@ -49,7 +49,7 @@ const SITE = {
         { id: "week1-upper-resp", num: "2", title: "Upper Respiratory Problems", file: "week1-upper-respiratory-problems.html" },
         { id: "week1-head-neck-ca", num: "3", title: "Head &amp; Neck Cancer", file: "week1-head-neck-cancer.html" },
         { id: "week1-lower-resp", num: "4", title: "Lower Respiratory Problems", file: "week1-lower-respiratory-problems.html" },
-        { id: "week1-respiratory-live-lecture-review", num: "5", title: "Respiratory - Live Lecture Review", file: "week1-respiratory-live-lecture-review.html" },
+        { id: "week1-respiratory-live-lecture-review", num: "5", title: "Respiratory — Live Lecture Review", file: "week1-respiratory-live-lecture-review.html" },
       ]
     },
     {
@@ -61,19 +61,7 @@ const SITE = {
         { id: "week2-cvc", num: "4", title: "Central Venous Catheters", file: "week2-central-venous-catheters.html" },
       ]
     },
-    {
-      label: "Week 3",
-      items: [
-        { id: "week3-electrolyte-fluid-comp", num: "★", title: "Electrolyte &amp; Fluid Management: Comprehensive Study Guide", file: "week3-electrolyte-fluid-comprehensive.html" },
-        { id: "week3-perioperative-comp", num: "★", title: "Perioperative Nursing: Comprehensive Study Guide", file: "week3-perioperative-comprehensive.html" },
-        { id: "week3-electrolyte-imb", num: "1", title: "Electrolyte Imbalances", file: "week3-electrolyte-imbalances.html" },
-        { id: "week3-fluid-mgmt", num: "2", title: "Fluid Management", file: "week3-fluid-management.html" },
-        { id: "week3-preop", num: "3", title: "Preoperative Nursing", file: "week3-preoperative-nursing.html" },
-        { id: "week3-intraop", num: "4", title: "Intraoperative Nursing", file: "week3-intraoperative-nursing.html" },
-        { id: "week3-postop", num: "5", title: "Postoperative Nursing", file: "week3-postoperative-nursing.html" },
-        { id: "week3-big-picture", num: "6", title: "Big Picture Overview", file: "week3-big-picture.html" },
-      ]
-    },
+    /* Copy the block above for Week 3, Week 4, ... as the course goes on. */
     {
       label: "Fundamentals Review",
       items: [
@@ -89,17 +77,16 @@ const SITE = {
         { id: "fund-older-adults-discharge", num: "10", title: "Older Adults &amp; Discharge Planning", file: "fundamentals-older-adults-discharge.html" },
         { id: "fund-palliative-hospice-eol", num: "11", title: "Palliative, Hospice &amp; End of Life", file: "fundamentals-palliative-hospice-eol.html" },
         { id: "fund-big-picture", num: "12", title: "Big Picture Overview", file: "fundamentals-big-picture-overview.html" },
-        { id: "fund-review-exam", num: "13", title: "Practice Exam - All Sections", file: "fundamentals-review-exam.html" },
+        { id: "fund-review-exam", num: "13", title: "Practice Exam — All Sections", file: "fundamentals-review-exam.html" },
       ]
     },
     {
       label: "Exam Prep",
       items: [
         { id: "must-know",       num: "1", title: "Must Know Quick Reference", file: "must-know.html" },
-        { id: "exam2-jeopardy",  num: "2", title: "Exam 2 Jeopardy - 2 Player Game", file: "exam2-jeopardy.html" },
-        { id: "quiz-builder",    num: "3", title: "Build Your Own Exam",       file: "quiz-builder.html" },
-        { id: "torture-chamber", num: "4", title: "The Torture Chamber",       file: "torture-chamber.html" },
-        { id: "lecture-review-template", num: "5", title: "Lecture Review Template", file: "lecture-review-template.html" },
+        { id: "quiz-builder",    num: "2", title: "Build Your Own Exam",       file: "quiz-builder.html" },
+        { id: "torture-chamber", num: "3", title: "The Torture Chamber",       file: "torture-chamber.html" },
+        { id: "lecture-review-template", num: "4", title: "Lecture Review Template", file: "lecture-review-template.html" },
       ]
     }
   ]
@@ -381,8 +368,8 @@ const SITE_VER = (function () {
     const btn = header.querySelector('[data-act="search"]');
     if (!btn) return;
 
-    /* The index is ~150 KB - more than the rest of the site's CSS+JS put
-       together - and most page views never search. So it is NOT included by
+    /* The index is ~150 KB — more than the rest of the site's CSS+JS put
+       together — and most page views never search. So it is NOT included by
        the pages; it is fetched the first time the search is opened. */
     const INDEX_SRC = "data/search-index.js" + (SITE_VER ? "?v=" + SITE_VER : "");
     let entries = null, loading = null;
@@ -437,11 +424,11 @@ const SITE_VER = (function () {
     // Show a windowed snippet around the match (entries may be full sentences).
     function mark(text, q) {
       const i = text.toLowerCase().indexOf(q);
-      if (i < 0) return esc(text.length > 100 ? text.slice(0, 100) + "…" : text);
+      if (i < 0) return esc(text.length > 100 ? text.slice(0, 100) + "\u2026" : text);
       const pad = 48;
       const start = Math.max(0, i - pad), end = Math.min(text.length, i + q.length + pad);
-      const pre = (start > 0 ? "…" : "") + text.slice(start, i);
-      const post = text.slice(i + q.length, end) + (end < text.length ? "…" : "");
+      const pre = (start > 0 ? "\u2026" : "") + text.slice(start, i);
+      const post = text.slice(i + q.length, end) + (end < text.length ? "\u2026" : "");
       return esc(pre) + "<mark>" + esc(text.slice(i, i + q.length)) + "</mark>" + esc(post);
     }
 
@@ -461,7 +448,7 @@ const SITE_VER = (function () {
         results.innerHTML = '<p class="search-empty">Start typing to search every page.</p>';
         return;
       }
-      if (!entries) {                    // still fetching - re-render when it lands
+      if (!entries) {                    // still fetching — re-render when it lands
         matches = [];
         results.innerHTML = '<p class="search-empty">Loading search index…</p>';
         loadIndex().then(() => { if (overlay.classList.contains("show")) render(input.value); });

@@ -1,396 +1,43 @@
 <!DOCTYPE html>
+<!-- ============================================================
+     THE TORTURE CHAMBER
+
+     A cumulative, 100%-select-all-that-apply practice exam with its
+     own oxblood theme. Same engine as every other exam page; the only
+     differences are class="torture" on <body> (which re-points the
+     colour variables, scoped so it can never leak to another page)
+     and the fact that this page has no <header> — it opens straight
+     on the topic-breakdown strip.
+
+     The questions live in data/torture-chamber.js. The design rules
+     that keep it from being guessable are documented at the top of
+     that file and in RULES.md. Read them before adding questions;
+     three separate rounds of fixes exist because they were skipped.
+     ============================================================ -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Torture Chamber - NUR334 SATA Exam</title>
+<title>The Torture Chamber — Study Guide</title>
 <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-<link rel="stylesheet" href="assets/styles.css?v=20260907">
-<style>
-  .torture-page { max-width: 1000px; margin: 0 auto; padding: 20px; }
-  .page-header { text-align: center; margin-bottom: 40px; padding: 20px; background: var(--color-surface-secondary); border-radius: 8px; }
-  .page-title { font-size: 2.5em; font-weight: bold; color: #8b0000; margin-bottom: 10px; }
-  [data-theme="dark"] .page-title { color: #ff6666; }
-  .exam-info { font-size: 0.95em; color: var(--color-text-secondary); line-height: 1.6; }
-  .filter-bar { display: flex; gap: 10px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
-  .filter-btn { padding: 10px 20px; border: 2px solid #0f3460; background: transparent; color: #0f3460; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
-  .filter-btn.active { background: #0f3460; color: white; }
-  .filter-btn:hover { background: #0f3460; color: white; }
-  .stats-bar { text-align: center; margin: 20px 0; padding: 15px; background: var(--color-surface-primary); border-radius: 6px; font-size: 0.9em; color: var(--color-text-secondary); }
-  .question-block { margin: 30px 0; padding: 20px; background: var(--color-surface-secondary); border-left: 5px solid #0f3460; border-radius: 6px; }
-  .question-block.hidden { display: none; }
-  .question-num { font-weight: bold; font-size: 1.1em; color: #0f3460; margin-bottom: 10px; }
-  .question-stem { font-size: 1.05em; font-weight: bold; margin: 15px 0; color: var(--color-text-primary); line-height: 1.6; }
-  .week-badge { display: inline-block; background: #4a90e2; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8em; margin-right: 8px; margin-bottom: 8px; }
-  .sata-tag { display: inline-block; background: #f59e0b; color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8em; }
-  .options { list-style: none; margin: 15px 0; padding: 0; }
-  .option { margin: 12px 0; padding: 12px; background: var(--color-surface-primary); border-radius: 4px; border-left: 3px solid #ddd; display: flex; gap: 10px; align-items: flex-start; cursor: pointer; transition: all 0.2s; }
-  .option:hover { background: var(--color-surface-secondary); border-left-color: #0f3460; }
-  .option input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; cursor: pointer; width: 18px; height: 18px; }
-  .option-text { flex: 1; color: var(--color-text-primary); }
-  .question-block.answered .option input:disabled { cursor: not-allowed; }
-  .question-block.correct { border-left-color: #22c55e; background: rgba(34, 197, 94, 0.08); }
-  .question-block.incorrect { border-left-color: #ef4444; background: rgba(239, 68, 68, 0.08); }
-  .result-badge { display: inline-block; margin-left: 10px; padding: 4px 12px; border-radius: 4px; font-weight: bold; font-size: 0.85em; }
-  .result-badge.correct { background: #22c55e; color: white; }
-  .result-badge.incorrect { background: #ef4444; color: white; }
-  .rationale { margin-top: 15px; padding: 15px; background: var(--color-surface-primary); border-left: 3px solid #6366f1; border-radius: 4px; font-size: 0.95em; display: none; }
-  .rationale.show { display: block; }
-  .rationale-label { font-weight: bold; color: #6366f1; font-size: 0.85em; text-transform: uppercase; margin-bottom: 8px; }
-  .controls { display: flex; gap: 15px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
-  .btn { padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.95em; transition: all 0.3s; }
-  .btn-primary { background: #0f3460; color: white; }
-  .btn-primary:hover:not(:disabled) { background: #1e5a96; transform: translateY(-2px); }
-  .btn-secondary { background: #6b7280; color: white; }
-  .btn-secondary:hover:not(:disabled) { background: #4b5563; transform: translateY(-2px); }
-  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-  .score-box { margin: 40px 0; padding: 30px; text-align: center; background: var(--color-surface-secondary); border-radius: 8px; display: none; }
-  .score-box.show { display: block; }
-  .score-title { font-size: 1.2em; color: var(--color-text-secondary); margin-bottom: 10px; }
-  .score-large { font-size: 3em; font-weight: bold; color: #0f3460; margin: 15px 0; }
-  .score-details { font-size: 1em; color: var(--color-text-secondary); margin-top: 10px; }
-  .back-link { display: inline-block; margin-bottom: 20px; color: #0f3460; text-decoration: none; font-weight: bold; }
-  .back-link:hover { color: #e94560; }
-  .loading { text-align: center; padding: 40px; font-size: 1.1em; color: var(--color-text-secondary); }
-</style>
+<link rel="stylesheet" href="assets/styles.css?v=20260818">
 </head>
-<body>
+<body class="torture">
+<a class="skip-link" href="#content">Skip to content</a>
 
-<main class="torture-page">
-  <a href="index.html" class="back-link">← Back to Home</a>
+<main id="content">
+<div class="page-inner">
 
-  <div class="page-header">
-    <div class="page-title">💀 The Torture Chamber</div>
-    <div class="exam-info">
-      <p><strong>NCLEX-NGN Format: Select ALL that apply (SATA)</strong></p>
-      <p>Each question requires you to select ALL correct options. Your answers must match exactly to be marked correct. Click a checkbox to toggle it.</p>
-    </div>
-  </div>
+  <div id="exam-root"></div>
 
-  <div class="filter-bar" id="filterBar" style="display: none;">
-    <button class="filter-btn active" onclick="filterByWeek('all')">All Weeks</button>
-    <button class="filter-btn" onclick="filterByWeek('2')">Week 2 Only</button>
-    <button class="filter-btn" onclick="filterByWeek('3')">Week 3 Only</button>
-  </div>
+  <nav class="page-flip" data-page-flip></nav>
+  <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
 
-  <div class="stats-bar" id="statsBar" style="display: none;">
-    <span id="statsText">Loading questions...</span>
-  </div>
-
-  <div id="questionsContainer" class="loading">Loading questions from question bank...</div>
-
-  <div class="controls" id="controls" style="display: none;">
-    <button class="btn btn-primary" onclick="submitExam()">Submit Exam</button>
-    <button class="btn btn-secondary" onclick="resetExam()">Clear All Answers</button>
-  </div>
-
-  <div class="score-box" id="scoreBox">
-    <div class="score-title">Your Score</div>
-    <div class="score-large" id="scorePercentage">0%</div>
-    <div class="score-details" id="scoreDetails">0 of 0 correct</div>
-  </div>
-
+</div>
 </main>
 
-<script>
-  let currentFilter = 'all';
-  let graded = false;
-  let answers = {};
-  let questions = [];
-
-  // Initialize the exam
-  function initExam() {
-    // Wait for EXAM_DATA to be available
-    if (!window.EXAM_DATA || !window.EXAM_DATA.questions) {
-      console.log('Waiting for EXAM_DATA...');
-      setTimeout(initExam, 100);
-      return;
-    }
-
-    console.log('EXAM_DATA loaded with', window.EXAM_DATA.questions.length, 'questions');
-    questions = window.EXAM_DATA.questions;
-
-    if (questions.length === 0) {
-      document.getElementById('questionsContainer').innerHTML = '<p style="color: red; padding: 20px;">ERROR: No questions found in exam bank.</p>';
-      return;
-    }
-
-    // Show controls and filters
-    document.getElementById('filterBar').style.display = 'flex';
-    document.getElementById('statsBar').style.display = 'block';
-    document.getElementById('controls').style.display = 'flex';
-
-    // Render questions
-    renderQuestions();
-
-    // Load any saved answers
-    loadAnswers();
-  }
-
-  function renderQuestions() {
-    const container = document.getElementById('questionsContainer');
-    container.innerHTML = '';
-
-    let displayed = 0;
-    questions.forEach((q, idx) => {
-      // Extract week from stem if it contains [Week X]
-      const weekMatch = q.stem.match(/\[Week (\d+)\]/);
-      const week = weekMatch ? weekMatch[1] : '0';
-
-      // Apply filter
-      if (currentFilter !== 'all' && week !== currentFilter) {
-        return;
-      }
-
-      displayed++;
-      const qDiv = document.createElement('div');
-      qDiv.className = 'question-block';
-      qDiv.id = 'q-' + idx;
-      qDiv.dataset.week = week;
-      qDiv.dataset.qindex = idx;
-
-      // Question number and stem
-      let stemHTML = `<div class="question-num">Question ${displayed}</div>`;
-      if (week !== '0') {
-        stemHTML += `<span class="week-badge">Week ${week}</span>`;
-      }
-      stemHTML += `<span class="sata-tag">Select all that apply</span>`;
-      stemHTML += `<div class="question-stem">${q.stem}</div>`;
-
-      qDiv.innerHTML = stemHTML;
-
-      // Options as checkboxes
-      const ul = document.createElement('ul');
-      ul.className = 'options';
-
-      q.options.forEach((opt, oi) => {
-        const li = document.createElement('li');
-        const label = document.createElement('label');
-        label.className = 'option';
-
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.name = 'q-' + idx;
-        checkbox.value = oi;
-        checkbox.dataset.qindex = idx;
-        checkbox.dataset.oi = oi;
-
-        if (!graded) {
-          checkbox.addEventListener('change', function() {
-            updateAnswer(idx, oi, this.checked);
-          });
-        }
-
-        const text = document.createElement('span');
-        text.className = 'option-text';
-        text.textContent = opt;
-
-        label.appendChild(checkbox);
-        label.appendChild(text);
-        li.appendChild(label);
-        ul.appendChild(li);
-      });
-
-      qDiv.appendChild(ul);
-
-      // Rationale (hidden until graded)
-      const ratDiv = document.createElement('div');
-      ratDiv.className = 'rationale';
-      ratDiv.innerHTML = `<div class="rationale-label">Rationale</div><div>${q.rationale || 'No rationale provided.'}</div>`;
-      qDiv.appendChild(ratDiv);
-
-      container.appendChild(qDiv);
-    });
-
-    // Update stats
-    updateStats(displayed);
-  }
-
-  function updateAnswer(qindex, oi, checked) {
-    if (!answers[qindex]) {
-      answers[qindex] = [];
-    }
-
-    if (checked) {
-      if (!answers[qindex].includes(oi)) {
-        answers[qindex].push(oi);
-      }
-    } else {
-      answers[qindex] = answers[qindex].filter(x => x !== oi);
-    }
-
-    // Save to localStorage
-    try {
-      localStorage.setItem('torture-chamber-answers', JSON.stringify(answers));
-    } catch (e) {}
-  }
-
-  function filterByWeek(week) {
-    currentFilter = week;
-
-    // Update button states
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    event.target.classList.add('active');
-
-    // Re-render with filter
-    renderQuestions();
-  }
-
-  function updateStats(displayed) {
-    const total = questions.length;
-    let text = `Showing ${displayed} of ${total} questions`;
-
-    const week2Count = questions.filter(q => q.stem.includes('[Week 2]')).length;
-    const week3Count = questions.filter(q => q.stem.includes('[Week 3]')).length;
-
-    text += ` (Week 2: ${week2Count}, Week 3: ${week3Count})`;
-
-    document.getElementById('statsText').textContent = text;
-  }
-
-  function submitExam() {
-    if (graded) return;
-
-    // Confirm submission
-    const answered = Object.keys(answers).length;
-    const total = document.querySelectorAll('.question-block').length;
-
-    if (answered < total) {
-      const missing = total - answered;
-      if (!confirm(`You have ${missing} unanswered question(s). Submit anyway?`)) {
-        return;
-      }
-    }
-
-    gradeExam();
-  }
-
-  function gradeExam() {
-    graded = true;
-
-    let correct = 0;
-    let displayedTotal = 0;
-
-    document.querySelectorAll('.question-block').forEach(qDiv => {
-      displayedTotal++;
-      const qindex = parseInt(qDiv.dataset.qindex);
-      const q = questions[qindex];
-
-      // Get the correct answers (sorted)
-      const correctAnswers = (q.answers || [q.answer]).sort((a, b) => a - b);
-
-      // Get user's answers (sorted)
-      const userAnswers = (answers[qindex] || []).sort((a, b) => a - b);
-
-      // Check if they match exactly
-      const isCorrect = JSON.stringify(correctAnswers) === JSON.stringify(userAnswers);
-
-      if (isCorrect) correct++;
-
-      // Mark the question
-      qDiv.classList.add(isCorrect ? 'correct' : 'incorrect');
-
-      // Add result badge
-      const badge = document.createElement('span');
-      badge.className = 'result-badge ' + (isCorrect ? 'correct' : 'incorrect');
-      badge.textContent = isCorrect ? '✓ Correct' : '✗ Incorrect';
-      qDiv.querySelector('.question-stem').appendChild(badge);
-
-      // Show rationale
-      qDiv.querySelector('.rationale').classList.add('show');
-
-      // Disable checkboxes
-      qDiv.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-        cb.disabled = true;
-      });
-
-      // Highlight correct options
-      const correctSet = new Set(correctAnswers);
-      const userSet = new Set(userAnswers);
-
-      qDiv.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-        const oi = parseInt(cb.value);
-        if (correctSet.has(oi)) {
-          cb.parentElement.style.borderLeftColor = '#22c55e';
-          cb.parentElement.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
-          cb.parentElement.style.fontWeight = 'bold';
-        }
-        if (userSet.has(oi) && !correctSet.has(oi)) {
-          cb.parentElement.style.borderLeftColor = '#ef4444';
-          cb.parentElement.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
-        }
-      });
-    });
-
-    // Show score
-    const percentage = Math.round((correct / displayedTotal) * 100);
-    document.getElementById('scorePercentage').textContent = percentage + '%';
-    document.getElementById('scoreDetails').textContent = `${correct} of ${displayedTotal} correct`;
-    document.getElementById('scoreBox').classList.add('show');
-
-    // Scroll to score
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function resetExam() {
-    if (confirm('Clear all answers?')) {
-      answers = {};
-      graded = false;
-
-      // Clear localStorage
-      try {
-        localStorage.removeItem('torture-chamber-answers');
-      } catch (e) {}
-
-      // Clear checkboxes
-      document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-        cb.checked = false;
-        cb.disabled = false;
-      });
-
-      // Remove result styling
-      document.querySelectorAll('.question-block').forEach(qDiv => {
-        qDiv.classList.remove('correct', 'incorrect');
-        qDiv.querySelectorAll('.result-badge').forEach(badge => badge.remove());
-        qDiv.querySelector('.rationale').classList.remove('show');
-        qDiv.querySelectorAll('.option').forEach(opt => {
-          opt.style.borderLeftColor = '#ddd';
-          opt.style.backgroundColor = 'var(--color-surface-primary)';
-          opt.style.fontWeight = 'normal';
-        });
-      });
-
-      // Hide score
-      document.getElementById('scoreBox').classList.remove('show');
-    }
-  }
-
-  // Load saved answers on page load
-  function loadAnswers() {
-    try {
-      const saved = localStorage.getItem('torture-chamber-answers');
-      if (saved) {
-        answers = JSON.parse(saved);
-
-        // Restore checkboxes
-        Object.keys(answers).forEach(qindex => {
-          answers[qindex].forEach(oi => {
-            const cb = document.querySelector(`input[data-qindex="${qindex}"][data-oi="${oi}"]`);
-            if (cb) cb.checked = true;
-          });
-        });
-      }
-    } catch (e) {}
-  }
-
-  // Initialize when page loads
-  initExam();
-</script>
-
-<!-- Load question data last -->
-<script src="exam2-sata-bank.js"></script>
-
+<script src="assets/site.js?v=20260818"></script>
+<script src="data/torture-chamber.js?v=20260818"></script>
+<script src="assets/exam.js?v=20260818"></script>
 </body>
 </html>
