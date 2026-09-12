@@ -1,0 +1,506 @@
+/* ============================================================
+   jeopardy.css — Styling for the Jeopardy game
+
+   Follows the site's design system: uses CSS variables from
+   styles.css for colors, spacing, typography.
+   ============================================================ */
+
+/* ---- Container & layout ---- */
+#jeopardy-container,
+#jp-root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* ---- Top bar (player mode, stats, controls) ---- */
+.jp-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.fc-switch {
+  display: flex;
+  gap: 0.5rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--surface-2);
+  padding: 0.25rem;
+}
+
+.fc-switch button {
+  flex: 1;
+  min-width: 100px;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.fc-switch button:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.fc-switch button.active {
+  background: var(--brand);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Player stats row ---- */
+.jp-bar > div:not(.fc-switch):not(.jp-bar-actions) {
+  display: flex;
+  gap: 1rem;
+}
+
+.jp-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  background: var(--surface-2);
+  transition: all 0.2s ease;
+}
+
+.jp-stat.jp-stat-active {
+  background: var(--accent-tint);
+  border: 2px solid var(--accent);
+  font-weight: 600;
+}
+
+.jp-stat-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.jp-stat-lbl {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+/* ---- Action buttons ---- */
+.jp-bar-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+/* ---- Game board ---- */
+.jp-board-wrap {
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.jp-board {
+  display: grid;
+  grid-template-columns: repeat(var(--jp-cols, 5), 1fr);
+  gap: 0.75rem;
+  min-width: 100%;
+}
+
+.jp-cat {
+  grid-column: 1 / -1;
+  padding: 1rem;
+  background: var(--brand);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  border-radius: 6px;
+  word-break: break-word;
+}
+
+.jp-slot {
+  aspect-ratio: 1;
+  padding: 1rem;
+  background: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.jp-slot:hover:not(:disabled) {
+  background: var(--brand-strong);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.jp-slot:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.jp-slot:disabled {
+  background: var(--surface-3);
+  color: var(--text-faint);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ---- Modal overlay & dialog ---- */
+.jp-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.jp-overlay.show {
+  display: flex;
+}
+
+.jp-modal {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 90%;
+  width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.jp-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-soft);
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.jp-modal-close:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.jp-modal > .badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.jp-modal-eyebrow {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.jp-modal-q {
+  font-size: 1.3rem;
+  color: var(--text);
+  font-weight: 600;
+  margin: 1.5rem 0 2rem 0;
+  line-height: 1.5;
+}
+
+.jp-modal-answer {
+  background: var(--accent-tint);
+  border-left: 4px solid var(--accent);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin: 2rem 0;
+}
+
+.jp-modal-a {
+  font-size: 1.1rem;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.jp-modal-rationale {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--accent-strong);
+}
+
+.jp-modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ---- Result cards ---- */
+.result-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.result-ring {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--accent) 0deg,
+    var(--accent) calc(var(--pct) * 3.6deg),
+    var(--surface-3) calc(var(--pct) * 3.6deg)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.result-score {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 1rem;
+}
+
+.result-detail p {
+  color: var(--text-soft);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ---- Category breakdown ---- */
+.topic-breakdown {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--surface-2);
+  border-radius: 6px;
+}
+
+.tb-label {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.tb-total {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  margin-left: auto;
+}
+
+/* ---- Score history ---- */
+.score-history {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border);
+}
+
+.sh-title {
+  margin: 0 0 1rem 0;
+  color: var(--brand);
+  font-size: 1.1rem;
+}
+
+.score-history ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.score-history li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--stripe);
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.score-history li.latest {
+  background: var(--accent-tint);
+  border-left: 3px solid var(--accent);
+}
+
+.sh-date {
+  color: var(--text-soft);
+  min-width: 100px;
+}
+
+.sh-score {
+  flex: 1;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.sh-pct {
+  color: var(--text-soft);
+  min-width: 50px;
+  text-align: right;
+}
+
+/* ---- Buttons (from main site) ---- */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--brand-strong);
+  box-shadow: 0 4px 12px rgba(64, 86, 107, 0.3);
+}
+
+.btn-ghost {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+  background: var(--surface-3);
+  border-color: var(--border-strong);
+}
+
+/* ---- Badges ---- */
+.badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  #jeopardy-container,
+  #jp-root {
+    padding: 1rem;
+  }
+
+  .jp-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .jp-bar-actions {
+    margin-left: 0;
+  }
+
+  .jp-board {
+    gap: 0.5rem;
+  }
+
+  .jp-slot {
+    font-size: 1rem;
+  }
+
+  .jp-modal {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .jp-modal-q {
+    font-size: 1.1rem;
+  }
+
+  .result-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .topic-breakdown {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tb-total {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .jp-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
