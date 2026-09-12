@@ -40,17 +40,22 @@
 </main>
 
 <script src="data/quiz-bank.js?v=20260818"></script>
+<script src="data/week2-questions.js?v=20260912"></script>
 <script src="data/week3-questions.js?v=20260912"></script>
 <script>
-// Merge Week 3 questions into quiz-bank topics
+// Merge Week 2 and Week 3 questions into quiz-bank topics
 (function() {
-  if (window.EXAM_DATA_WEEK3 && window.EXAM_DATA_WEEK3.questions && window.QUIZ_BANK) {
+  // Process Week 2 questions
+  if (window.EXAM_DATA_WEEK2 && window.EXAM_DATA_WEEK2.questions && window.QUIZ_BANK) {
+    // Remove any existing Week 2 topics from quiz-bank
+    window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !t.id.startsWith('week2-'));
+
     // Group questions by topic
-    const topicGroups = {};
-    window.EXAM_DATA_WEEK3.questions.forEach(q => {
-      const topic = q.topic || 'Week 3';
-      if (!topicGroups[topic]) topicGroups[topic] = [];
-      topicGroups[topic].push({
+    const topicGroups2 = {};
+    window.EXAM_DATA_WEEK2.questions.forEach(q => {
+      const topic = q.topic || 'Week 2';
+      if (!topicGroups2[topic]) topicGroups2[topic] = [];
+      topicGroups2[topic].push({
         stem: q.stem,
         options: q.options,
         answer: q.answer,
@@ -59,22 +64,59 @@
         source: "quiz-bank"
       });
     });
-    
-    // Add grouped questions to QUIZ_BANK as new topics
-    Object.keys(topicGroups).forEach(topicName => {
-      const topicId = 'week3-' + topicName.toLowerCase().replace(/\s+/g, '-');
+
+    // Add grouped questions to QUIZ_BANK as new topics with (Week 2) suffix
+    Object.keys(topicGroups2).sort().forEach(topicName => {
+      const topicId = 'week2-' + topicName.toLowerCase().replace(/\s+/g, '-');
       window.QUIZ_BANK.topics.push({
         id: topicId,
-        label: 'Week 3: ' + topicName,
+        label: topicName + ' (Week 2)',
         sets: {
-          mustKnow: topicGroups[topicName],
+          mustKnow: topicGroups2[topicName],
           extraPractice: [],
           eaq: []
         }
       });
     });
-    
-    console.log('Week 3 questions merged: ' + window.EXAM_DATA_WEEK3.questions.length + ' questions in ' + Object.keys(topicGroups).length + ' topics');
+
+    console.log('Week 2 questions loaded: ' + window.EXAM_DATA_WEEK2.questions.length + ' questions in ' + Object.keys(topicGroups2).length + ' topics');
+  }
+
+  // Process Week 3 questions
+  if (window.EXAM_DATA_WEEK3 && window.EXAM_DATA_WEEK3.questions && window.QUIZ_BANK) {
+    // Remove any existing Week 3 topics from quiz-bank
+    window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !t.id.startsWith('week3-'));
+
+    // Group questions by topic
+    const topicGroups3 = {};
+    window.EXAM_DATA_WEEK3.questions.forEach(q => {
+      const topic = q.topic || 'Week 3';
+      if (!topicGroups3[topic]) topicGroups3[topic] = [];
+      topicGroups3[topic].push({
+        stem: q.stem,
+        options: q.options,
+        answer: q.answer,
+        rationale: q.rationale,
+        topic: q.topic,
+        source: "quiz-bank"
+      });
+    });
+
+    // Add grouped questions to QUIZ_BANK as new topics with (Week 3) suffix
+    Object.keys(topicGroups3).sort().forEach(topicName => {
+      const topicId = 'week3-' + topicName.toLowerCase().replace(/\s+/g, '-');
+      window.QUIZ_BANK.topics.push({
+        id: topicId,
+        label: topicName + ' (Week 3)',
+        sets: {
+          mustKnow: topicGroups3[topicName],
+          extraPractice: [],
+          eaq: []
+        }
+      });
+    });
+
+    console.log('Week 3 questions loaded: ' + window.EXAM_DATA_WEEK3.questions.length + ' questions in ' + Object.keys(topicGroups3).length + ' topics');
   }
 })();
 </script>

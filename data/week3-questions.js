@@ -190,7 +190,7 @@ window.EXAM_DATA_WEEK3 = {
     {
       stem: "Which lab result should always be checked BEFORE treating hypocalcemia?",
       options: [
-        "Albumin level (to calculate corrected calcium)",
+        "Albumin level to calculate corrected calcium and avoid over-treatment",
         "Vitamin D level",
         "Magnesium level",
         "Phosphorus level"
@@ -250,7 +250,7 @@ window.EXAM_DATA_WEEK3 = {
       options: [
         "The kidneys cannot retain magnesium",
         "Magnesium is not well absorbed from the GI tract",
-        "Total body magnesium depletion is present but serum Mg may appear normal due to compensatory mechanisms",
+        "Total body magnesium depletion is present; serum levels may appear normal despite significant deficit requiring prolonged repletion",
         "Magnesium supplements cause diarrhea"
       ],
       answer: 2,
@@ -264,7 +264,7 @@ window.EXAM_DATA_WEEK3 = {
       options: [
         "Furosemide increases GI magnesium absorption",
         "PPIs increase magnesium reabsorption in the kidney",
-        "Furosemide causes urinary Mg loss AND PPIs impair GI absorption",
+        "Furosemide causes urinary Mg loss AND PPIs impair GI absorption of magnesium",
         "Both medications cause hypermagnesemia"
       ],
       answer: 2,
@@ -321,7 +321,7 @@ window.EXAM_DATA_WEEK3 = {
       stem: "Why might a patient with diabetic ketoacidosis (DKA) develop hypophosphatemia during treatment?",
       options: [
         "Insulin therapy shifts phosphorus OUT of cells with glucose",
-        "Insulin therapy shifts phosphorus INTO cells as phosphate is used for ATP production",
+        "Insulin therapy shifts phosphorus INTO cells as phosphate is used for ATP production and glucose metabolism",
         "DKA causes permanent phosphorus loss",
         "Hypophosphatemia is always present before treatment begins"
       ],
@@ -349,7 +349,7 @@ window.EXAM_DATA_WEEK3 = {
       stem: "Why is refeeding syndrome a risk when a malnourished patient begins eating or receives TPN?",
       options: [
         "Feeding always causes hyperphosphatemia",
-        "Insulin secretion shifts phosphorus, potassium, and magnesium intracellularly for anabolism, causing severe hypophosphatemia, hypokalemia, hypomagnesemia",
+        "Insulin secretion shifts phosphorus, potassium, and magnesium intracellularly for anabolism; causes severe hypophosphatemia, hypokalemia, hypomagnesemia",
         "Refeeding causes permanent electrolyte loss",
         "Phosphorus is toxic and must be avoided in refeeding"
       ],
@@ -491,7 +491,7 @@ window.EXAM_DATA_WEEK3 = {
       stem: "Which finding would indicate that FVE management is inadequate despite diuretic therapy?",
       options: [
         "Serum sodium normalizes",
-        "Continued daily weight gain, persistent edema, elevated JVP, and crackles on lung exam",
+        "Continued daily weight gain, persistent edema, elevated JVP, crackles on lung exam",
         "Urine output increases",
         "Hemoglobin normalizes"
       ],
@@ -593,7 +593,7 @@ window.EXAM_DATA_WEEK3 = {
       stem: "Why is the surgical timeout (WHO checklist) performed before incision?",
       options: [
         "It is a formality with no clinical significance",
-        "It verifies patient ID, procedure, site, position, allergies, implants, and equipment readiness to prevent wrong site/patient/procedure errors",
+        "It verifies patient ID, procedure, site, position, allergies, implants, and equipment to prevent wrong site/patient/procedure errors",
         "Timeout only applies to major surgeries",
         "Timeout is optional if the patient is unconscious"
       ],
@@ -635,7 +635,7 @@ window.EXAM_DATA_WEEK3 = {
       stem: "A patient loses 1500 mL blood during surgery. What is the concern regarding fluid replacement?",
       options: [
         "Replace with equal volume of normal saline",
-        "Blood loss at 1500 mL warrants blood transfusion; crystalloid 3:1 rule suggests 4500 mL NS, but this causes third-spacing; balanced approach uses crystalloids + colloids + PRBCs",
+        "Massive loss warrants balanced approach using crystalloids + colloids + PRBCs; crystalloid 3:1 rule overestimates and causes third-spacing",
         "No replacement is needed",
         "Only colloids should be used"
       ],
@@ -665,7 +665,7 @@ window.EXAM_DATA_WEEK3 = {
       stem: "A post-op patient in PACU has a temperature of 35.8°C (96.4°F). What is the clinical significance?",
       options: [
         "Hypothermia is expected post-op and requires no intervention",
-        "Mild hypothermia is expected; however, severe shivering increases O2 consumption and stress; active rewarming (blankets, warm IVs) is indicated",
+        "Mild hypothermia is expected; severe shivering increases O2 consumption and stress; active rewarming is indicated",
         "Temperature <35°C is safe in post-op patients",
         "Hypothermia indicates infection"
       ],
@@ -679,7 +679,7 @@ window.EXAM_DATA_WEEK3 = {
       stem: "A post-op patient has pain 9/10 despite having received morphine 4 mg IV 10 minutes ago. What is the appropriate nursing action?",
       options: [
         "Tell patient pain will decrease soon; wait longer",
-        "Assess pain characteristics (location, type, severity), ensure opioid has adequate time to work (15-20 min), consider additional dose or different medication per order, rule out complications",
+        "Assess pain characteristics (location, type, severity), allow 15-20 min for effect, consider additional dose or different medication, rule out complications",
         "Assume patient is drug-seeking",
         "Avoid more opioids to prevent addiction"
       ],
@@ -707,7 +707,7 @@ window.EXAM_DATA_WEEK3 = {
       stem: "A post-op patient has clear drainage on dressing and complains of incision pain when moving. What is the appropriate assessment?",
       options: [
         "Clear drainage is normal; no intervention needed",
-        "Assess for signs of infection (purulent drainage, odor, erythema, warmth), hematoma (bloody drainage), or infection; reinforce dressing if necessary and monitor",
+        "Assess for signs of infection (purulent drainage, odor, erythema, warmth), hematoma, and bleeding; monitor dressing and reinforce as needed",
         "Change dressing immediately",
         "Cover dressing with tape and restrict movement"
       ],
