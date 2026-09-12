@@ -45,9 +45,27 @@
 <script>
 // Merge Week 2 and Week 3 questions into quiz-bank topics
 (function() {
+  // IDs of old topics to remove from quiz-bank
+  const oldTopicIds = [
+    'hematology-labs-dx',
+    'anemias-polycythemia',
+    'blood-component-therapy',
+    'central-venous-catheters',
+    'electrolyte-imbalances',
+    'fluid-management',
+    'preoperative-nursing',
+    'intraoperative-nursing',
+    'postoperative-nursing'
+  ];
+
+  // Remove old duplicate topics from quiz-bank
+  if (window.QUIZ_BANK && window.QUIZ_BANK.topics) {
+    window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !oldTopicIds.includes(t.id));
+  }
+
   // Process Week 2 questions
   if (window.EXAM_DATA_WEEK2 && window.EXAM_DATA_WEEK2.questions && window.QUIZ_BANK) {
-    // Remove any existing Week 2 topics from quiz-bank
+    // Remove any existing week2- prefixed topics
     window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !t.id.startsWith('week2-'));
 
     // Group questions by topic
@@ -85,7 +103,7 @@
 
   // Process Week 3 questions
   if (window.EXAM_DATA_WEEK3 && window.EXAM_DATA_WEEK3.questions && window.QUIZ_BANK) {
-    // Remove any existing Week 3 topics from quiz-bank
+    // Remove any existing week3- prefixed topics
     window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !t.id.startsWith('week3-'));
 
     // Group questions by topic
