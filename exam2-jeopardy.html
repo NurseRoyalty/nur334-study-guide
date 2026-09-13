@@ -31,11 +31,6 @@
             background: linear-gradient(90deg, #3d5064 0%, #4a6278 100%);
             padding: 30px 20px;
             border-radius: 12px;
-            margin-left: -20px;
-            margin-right: -20px;
-            margin-top: -40px;
-            margin-bottom: 30px;
-            padding-top: 40px;
             border-bottom: 4px solid #ec4899;
         }
 
@@ -95,57 +90,6 @@
             gap: 15px;
         }
 
-        .player-mode {
-            display: flex;
-            gap: 10px;
-        }
-
-        .mode-button {
-            padding: 8px 16px;
-            background: transparent;
-            border: 1px solid #d8b4fe;
-            color: #e9d5ff;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .mode-button.active {
-            background: #4a6278;
-            border-color: #4a6278;
-            color: white;
-        }
-
-        .mode-button:hover {
-            border-color: #6fb3d9;
-        }
-
-        .stats {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .stat-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: #ec4899;
-        }
-
-        .stat-label {
-            font-size: 11px;
-            color: #a8c5dd;
-            text-transform: uppercase;
-            margin-top: 4px;
-        }
-
         .action-buttons {
             display: flex;
             gap: 10px;
@@ -168,175 +112,13 @@
             transform: translateY(-2px);
         }
 
-        /* Category headers */
-        .categories-row {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .category-header {
-            background: #a8c5dd;
-            color: #1a2332;
-            padding: 14px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 13px;
-            line-height: 1.3;
-        }
-
-        /* Game board */
-        .jp-board {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 8px;
-            padding: 0;
-        }
-
-        .jp-slot {
-            background: #2d3e50;
-            border: 2px solid #3d5064;
-            color: #6fb3d9;
-            padding: 0;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            aspect-ratio: 1;
-            transition: all 0.2s ease;
-        }
-
-        .jp-slot:hover:not(.used) {
-            background: #3d4f64;
-            border-color: #ec4899;
-            box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
-            transform: translateY(-3px);
-        }
-
-        .jp-slot.used {
-            background: #1a2332;
-            color: #4a7a9a;
-            border-color: #3d5064;
-            cursor: not-allowed;
-        }
-
-        /* Modal */
-        .jp-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .jp-modal.active {
-            display: flex;
-        }
-
-        .jp-modal-content {
-            background: #2d3e50;
-            border: 2px solid #4a6278;
-            border-radius: 12px;
-            padding: 40px;
-            max-width: 700px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .jp-modal-section {
-            margin-bottom: 25px;
-        }
-
-        .jp-modal-label {
-            color: #ec4899;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-            display: block;
-            font-weight: 700;
-        }
-
-        .jp-modal-text {
-            color: #a8c5dd;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .jp-modal-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 25px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .jp-modal-buttons button {
-            padding: 10px 20px;
-            background: #4a6278;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-weight: 600;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .jp-modal-buttons button:hover {
-            background: #5a7288;
-        }
-
-        @media (max-width: 1024px) {
-            .categories-row {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            }
-
-            .jp-board {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            }
-
-            .header-section h1 {
-                font-size: 36px;
-            }
-        }
-
         @media (max-width: 768px) {
             body {
                 padding: 20px 10px;
             }
 
-            .controls-section {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .stats {
-                flex-direction: row;
-                justify-content: flex-start;
-            }
-
             .header-section h1 {
                 font-size: 28px;
-            }
-
-            .categories-row {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            }
-
-            .jp-board {
-                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
             }
         }
     </style>
@@ -351,273 +133,26 @@
         </div>
 
         <div class="instructions-box">
-            Every category and question comes from Exam 2's high-yield topics — Hematology, Anemias, Polycythemia, Transfusion, Electrolytes, Perioperative, and Malignant Hyperthermia. Play solo, or switch to 2 Players and take turns — a correct answer keeps your turn, a miss passes it to the other player. Pick a value to see a question, click Show Answer for the answer and rationale, then grade yourself. <strong>New Game</strong> reshuffles the categories and questions (the bank is large enough that you won't see the same question again for many games). <strong>Reset Game</strong> clears your score and re-opens the same board.
+            Every question comes from Exam 2's high-yield topics — Hematology, Anemias, Polycythemia, Transfusion, Electrolytes, Perioperative, and Malignant Hyperthermia. Play solo, or switch to 2 Players and take turns — a correct answer keeps your turn, a miss passes it to the other player. Pick a value to see a question, click Show Answer for the answer and rationale, then grade yourself. <strong>New Game</strong> reshuffles the categories and questions (the bank is large enough that you won't see the same question again for many games). <strong>Reset Game</strong> clears your score and re-opens the same board.
         </div>
 
         <div class="controls-section">
-            <div class="player-mode">
-                <button class="mode-button active" onclick="setMode('2p')">2 Players</button>
-                <button class="mode-button" onclick="setMode('1p')">1 Player</button>
-            </div>
-
-            <div class="stats">
-                <div class="stat">
-                    <span class="stat-value" id="score-display">0</span>
-                    <span class="stat-label">Score</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value" id="correct-display">0/0</span>
-                    <span class="stat-label">Correct</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value" id="completed-display">0/25</span>
-                    <span class="stat-label">Completed</span>
-                </div>
-            </div>
-
             <div class="action-buttons">
                 <button class="action-button" onclick="location.reload()">New Game</button>
-                <button class="action-button" onclick="resetBoard()">Reset Game</button>
+                <button class="action-button" onclick="if(window.jeopardyReset) window.jeopardyReset()">Reset Game</button>
             </div>
         </div>
 
-        <div class="categories-row" id="category-headers"></div>
-        <div id="jp-board"></div>
-    </div>
-
-    <div class="jp-modal" id="jp-modal">
-        <div class="jp-modal-content">
-            <div class="jp-modal-section">
-                <span class="jp-modal-label">Question</span>
-                <div class="jp-modal-text" id="jp-question"></div>
-            </div>
-            <div class="jp-modal-section">
-                <span class="jp-modal-label">Answer</span>
-                <div class="jp-modal-text" id="jp-answer"></div>
-            </div>
-            <div class="jp-modal-section">
-                <span class="jp-modal-label">Rationale</span>
-                <div class="jp-modal-text" id="jp-rationale"></div>
-            </div>
-            <div class="jp-modal-buttons">
-                <button onclick="awardPoints()">Got It Right</button>
-                <button onclick="closeModal()">Got It Wrong</button>
-            </div>
-        </div>
+        <div id="jp-root"></div>
     </div>
 
     <script src="data/exam2-jeopardy.js"></script>
     <script>
-/* ============================================================
-   Exam 2 Jeopardy Game Engine - Clean Implementation
-   105 NCLEX-NGN Clinical Judgment Questions
-   7 Categories × 15 Questions (5 tiers × 3 questions)
-   ============================================================ */
-(function() {
-  "use strict";
-
-  const VALUES = [100, 200, 300, 400, 500];
-  const STORE_KEY = "nur334-exam2-jeopardy";
-  let state = null;
-  let currentMode = "2p";
-
-  const boardEl = document.getElementById("jp-board");
-  const modalEl = document.getElementById("jp-modal");
-  const questionEl = document.getElementById("jp-question");
-  const answerEl = document.getElementById("jp-answer");
-  const rationaleEl = document.getElementById("jp-rationale");
-  const scoreDisplay = document.getElementById("score-display");
-  const correctDisplay = document.getElementById("correct-display");
-  const completedDisplay = document.getElementById("completed-display");
-
-  function initGame() {
-    if (!window.JEOPARDY_EXAM2 || !window.JEOPARDY_EXAM2.categories) {
-      console.error("No JEOPARDY_EXAM2 data found");
-      return;
-    }
-
-    const categories = window.JEOPARDY_EXAM2.categories.slice(0, 7);
-    const board = categories.map(cat => ({
-      name: cat.name,
-      slots: VALUES.map(value => {
-        const clues = (cat[value]) || [];
-        return {
-          value,
-          clue: clues.length > 0 ? clues[Math.floor(Math.random() * clues.length)] : null,
-          answered: false,
-          correct: null
-        };
-      })
-    }));
-
-    state = {
-      board,
-      scores: [0, 0],
-      turn: 0,
-      answered: 0,
-      total: 7 * 5,
-      mode: currentMode
-    };
-
-    saveState();
-    renderBoard();
-  }
-
-  function renderBoard() {
-    if (!state) return;
-
-    let html = '<div class="jp-grid" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px;">';
-
-    state.board.forEach(cat => {
-      html += `<div class="jp-cat-header" style="background: #d8a8d8; color: #2d1b4e; padding: 12px; border-radius: 6px; text-align: center; font-weight: 600; font-size: 13px;">${escapeHtml(cat.name)}</div>`;
-    });
-
-    VALUES.forEach(value => {
-      state.board.forEach((cat, catIdx) => {
-        const slot = cat.slots.find(s => s.value === value);
-        if (!slot) return;
-
-        let cellClass = "jp-slot";
-        let cellContent = String(value);
-        let disabled = false;
-
-        if (slot.answered) {
-          cellClass += " used";
-          if (slot.correct) cellContent = "✓";
-          else cellContent = "✗";
-          disabled = true;
-        }
-
-        html += `<button type="button" class="${cellClass}" ${disabled ? 'disabled' : ''} data-cat="${catIdx}" data-val="${value}" style="aspect-ratio: 1; font-size: 18px; font-weight: 700;">${cellContent}</button>`;
-      });
-    });
-
-    html += '</div>';
-    boardEl.innerHTML = html;
-
-    boardEl.querySelectorAll("button[data-cat]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const catIdx = parseInt(btn.getAttribute("data-cat"));
-        const value = parseInt(btn.getAttribute("data-val"));
-        openQuestion(catIdx, value);
-      });
-    });
-
-    updateStats();
-  }
-
-  function openQuestion(catIdx, value) {
-    const slot = state.board[catIdx].slots.find(s => s.value === value);
-    if (!slot || !slot.clue || slot.answered) return;
-
-    questionEl.textContent = slot.clue.q;
-    answerEl.textContent = slot.clue.a;
-    rationaleEl.textContent = slot.clue.rationale;
-
-    document.querySelector(".jp-modal-buttons").innerHTML = `
-      <button onclick="window.jeopardyGame.markCorrect(${catIdx}, ${value})">Got It Right</button>
-      <button onclick="window.jeopardyGame.markWrong(${catIdx}, ${value})">Got It Wrong</button>
-    `;
-
-    modalEl.classList.add("active");
-  }
-
-  function closeModal() {
-    modalEl.classList.remove("active");
-  }
-
-  function markCorrect(catIdx, value) {
-    const slot = state.board[catIdx].slots.find(s => s.value === value);
-    slot.answered = true;
-    slot.correct = true;
-    state.scores[state.turn] += value;
-    state.answered += 1;
-    closeModal();
-    renderBoard();
-  }
-
-  function markWrong(catIdx, value) {
-    const slot = state.board[catIdx].slots.find(s => s.value === value);
-    slot.answered = true;
-    slot.correct = false;
-    state.scores[state.turn] -= value;
-    state.answered += 1;
-    if (state.mode === "2p") {
-      state.turn = 1 - state.turn;
-    }
-    closeModal();
-    renderBoard();
-  }
-
-  function updateStats() {
-    const correct = state.board.reduce((sum, cat) => {
-      return sum + cat.slots.filter(s => s.answered && s.correct).length;
-    }, 0);
-
-    scoreDisplay.textContent = state.scores[state.turn];
-    correctDisplay.textContent = `${correct}/${state.answered}`;
-    completedDisplay.textContent = `${state.answered}/${state.total}`;
-  }
-
-  function saveState() {
-    try {
-      localStorage.setItem(STORE_KEY, JSON.stringify(state));
-    } catch (e) {}
-  }
-
-  function loadState() {
-    try {
-      return JSON.parse(localStorage.getItem(STORE_KEY));
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function escapeHtml(text) {
-    const div = document.createElement("div");
-    div.textContent = text;
-    return div.innerHTML;
-  }
-
-  function resetBoard() {
-    if (confirm("Clear the current board?")) {
-      localStorage.removeItem(STORE_KEY);
-      initGame();
-    }
-  }
-
-  function newGame() {
-    localStorage.removeItem(STORE_KEY);
-    initGame();
-  }
-
-  document.querySelectorAll(".mode-button").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      currentMode = e.target.getAttribute("data-mode") || "2p";
-      document.querySelectorAll(".mode-button").forEach(b => b.classList.remove("active"));
-      e.target.classList.add("active");
-      newGame();
-    });
-  });
-
-  document.querySelectorAll(".action-button").forEach(btn => {
-    if (btn.textContent.includes("New")) btn.addEventListener("click", newGame);
-    if (btn.textContent.includes("Reset")) btn.addEventListener("click", resetBoard);
-  });
-
-  document.getElementById("jp-modal").addEventListener("click", (e) => {
-    if (e.target.id === "jp-modal") closeModal();
-  });
-
-  state = loadState();
-  if (!state) {
-    initGame();
-  } else {
-    renderBoard();
-  }
-
-  window.jeopardyGame = { markCorrect, markWrong, closeModal, resetBoard, newGame };
-})();
+      // Set window variable for the game engine to use
+      if (window.JEOPARDY_EXAM2) {
+        window.NUM_CATEGORIES = 7;
+      }
     </script>
+    <script src="assets/jeopardy.js"></script>
 </body>
 </html>
