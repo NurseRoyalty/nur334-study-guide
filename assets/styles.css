@@ -37,31 +37,31 @@
   --text-faint:#89929f;
   --stripe:#f6f8fa;            /* zebra striping on table rows */
 
-  /* ---- brand: indigo ---- */
-  --brand:#5b4b8a;
-  --brand-strong:#463a6e;
-  --brand-deep:#372e57;
-  --brand-tint:#efecf8;
-  --brand-tint-2:#e3ddf1;
+  /* ---- brand: slate ---- */
+  --brand:#40566b;
+  --brand-strong:#334657;
+  --brand-deep:#263544;
+  --brand-tint:#eef1f5;
+  --brand-tint-2:#dfe5ec;
 
-  /* ---- accent: rose ---- */
-  --accent:#c15b7c;
-  --accent-strong:#9f3f60;
-  --accent-tint:#fbeef2;
+  /* ---- accent: teal ---- */
+  --accent:#2b8a83;
+  --accent-strong:#1e6b66;
+  --accent-tint:#e7f4f2;
 
   /* ---- text sitting ON the brand-coloured nav bar / hero ---- */
-  --on-brand-soft:#e2ddf1;     /* nav links at rest */
-  --on-brand-faint:#c3b9e4;    /* nav subtitle, hero eyebrow */
-  --on-brand-dim:#d9d4ee;      /* hero body text, result message */
+  --on-brand-soft:#dbe3ea;     /* nav links at rest */
+  --on-brand-faint:#a9bccb;    /* nav subtitle, hero eyebrow */
+  --on-brand-dim:#cdd8e1;      /* hero body text, result message */
 
   /* ---- gradients ---- */
-  --chrome-a:#2a2450;          /* dark-mode nav / result card, from */
-  --chrome-b:#1b1734;          /* dark-mode nav / result card, to   */
-  --flash-a:#5a4d93;           /* dark-mode flashcard back, from */
-  --flash-b:#3f356e;           /* dark-mode flashcard back, to   */
+  --chrome-a:#22303d;          /* dark-mode nav / result card, from */
+  --chrome-b:#18222c;          /* dark-mode nav / result card, to   */
+  --flash-a:#4a6478;           /* dark-mode flashcard back, from */
+  --flash-b:#334657;           /* dark-mode flashcard back, to   */
 
   /* ---- hairlines on the tinted callouts ---- */
-  --line-accent:#f0d3dd;
+  --line-accent:#c9e5e1;
   --line-bad:#f3d2ce;
 
   /* ---- the Torture Chamber's own scheme (oxblood) ---- */
@@ -620,6 +620,7 @@ footer.site-foot{
 .result-detail{ flex:1; min-width:200px; }
 .result-detail .rmsg{ font-size:1.02rem; font-weight:600; margin:0 0 12px; color:var(--on-brand-dim); }
 .result-detail .btn-ghost{ background:#fff; }
+.result-detail .btn-ghost + .btn-ghost{ margin-left:10px; }
 .result-ring{ --pct:0; flex:none;
   width:92px; height:92px; border-radius:50%;
   background:conic-gradient(var(--accent) calc(var(--pct)*1%), rgba(255,255,255,.18) 0);
@@ -884,13 +885,13 @@ h2.block, h3.sub{ scroll-margin-top:80px; }
   --border:#323b47; --border-strong:#45505f;
   --text:#e6eaef; --text-soft:#a7b1bd; --text-faint:#7b8593;
   --stripe:rgba(255,255,255,.025);
-  --brand:#8f80c4; --brand-strong:#b3a6e0; --brand-deep:#d3caee;
-  --brand-tint:#282540; --brand-tint-2:#332e4e;
-  --accent:#d67e99; --accent-strong:#ec9fb6; --accent-tint:#3a2431;
-  --on-brand-soft:#e2ddf1; --on-brand-faint:#c3b9e4; --on-brand-dim:#d9d4ee;
-  --chrome-a:#2a2450; --chrome-b:#1b1734;
-  --flash-a:#5a4d93; --flash-b:#3f356e;
-  --line-accent:#4a3a44; --line-bad:#4a2f2b;
+  --brand:#8aa4bd; --brand-strong:#a9c0d5; --brand-deep:#c9d9e6;
+  --brand-tint:#22303d; --brand-tint-2:#2b3c4b;
+  --accent:#5cb8b0; --accent-strong:#7fd3cb; --accent-tint:#1c3330;
+  --on-brand-soft:#dbe3ea; --on-brand-faint:#a9bccb; --on-brand-dim:#cdd8e1;
+  --chrome-a:#22303d; --chrome-b:#18222c;
+  --flash-a:#4a6478; --flash-b:#334657;
+  --line-accent:#2c4a47; --line-bad:#4a2f2b;
   --ok:#43b085; --ok-strong:#6bcfa4; --ok-tint:#173029;
   --bad:#e46557; --bad-strong:#f28c82; --bad-tint:#361f1d;
   --shadow-sm:0 1px 3px rgba(0,0,0,.45);
@@ -1043,25 +1044,26 @@ h2.block.section-h:hover .sec-caret{ color:var(--accent); }
   padding:5px 10px; border-radius:8px; transition:background .12s;
 }
 .qb-cell:hover{ background:var(--brand-tint); }
-.qb-cell input{ accent-color:var(--brand); width:16px; height:16px; flex:none; }
+.qb-cell input[type="checkbox"]{ accent-color:var(--brand); width:16px; height:16px; flex:none; }
 .qb-cell span{ font-size:.83rem; font-weight:700; color:var(--brand-deep); }
 .qb-cell.qb-empty{ opacity:.4; cursor:not-allowed; }
 .qb-cell.qb-empty:hover{ background:none; }
+/* The custom-count input: defaults to a set's full count (so untouched,
+   behavior is identical to the old fixed-number checkbox), but lets a
+   student type a smaller number to pull a random subset instead. */
+.qb-cell input[type="number"]{
+  /* Wide enough for a 3-digit count, in case any topic's set ever grows
+     past 99 questions — harmless overhead for today's 2-digit counts. */
+  width:3.9em; flex:none; text-align:center; font-size:.83rem; font-weight:700;
+  color:var(--brand-deep); background:var(--surface); border:1px solid var(--border);
+  border-radius:6px; padding:2px 3px; cursor:text; -moz-appearance:textfield;
+}
+.qb-cell input[type="number"]::-webkit-inner-spin-button,
+.qb-cell input[type="number"]::-webkit-outer-spin-button{ opacity:.5; }
+.qb-cell input[type="number"]:focus{ outline:2px solid var(--brand); outline-offset:1px; }
+.qb-cell .qb-max{ font-size:.78rem; font-weight:600; color:var(--text-soft); }
 .quiz-start-bar{ position:sticky; bottom:0; z-index:20; display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px 18px; box-shadow:var(--shadow-md); margin-top:8px; }
 .quiz-start-bar .quiz-summary{ flex:1; font-size:.9rem; color:var(--text-soft); font-weight:600; }
-
-/* Per-row "Count" column on the Build-Your-Own-Exam table: lets the
-   person pull fewer than every available question from a topic. */
-.qb-qty-cell{ display:flex; align-items:center; gap:6px; white-space:nowrap; }
-.qb-qty-input{
-  width:56px; padding:5px 7px; border:1px solid var(--border); border-radius:7px;
-  font-size:.86rem; font-weight:700; color:var(--brand-deep); text-align:center;
-  background:var(--surface); -moz-appearance:textfield;
-}
-.qb-qty-input:disabled{ opacity:.35; cursor:not-allowed; }
-.qb-qty-input::-webkit-outer-spin-button,
-.qb-qty-input::-webkit-inner-spin-button{ opacity:1; }
-.qb-qty-max{ font-size:.78rem; font-weight:600; color:var(--text-faint); }
 
 /* ============================================================
    PAGE TOP: "On this page" TOC, with the collapse/expand-all
@@ -1171,3 +1173,143 @@ body.torture{ background:var(--torture); }
        muted rose that reads as pink). --- */
 :root[data-theme="dark"] .torture .btn-primary{ background:var(--torture-light); }
 :root[data-theme="dark"] .torture .btn-primary:hover{ background:var(--torture-dark); }
+
+/* ============================================================
+   WEEK 2 JEOPARDY (week2-jeopardy.html)
+
+   All new, `.jp-` prefixed classes — nothing here touches or overrides
+   a shared selector, so this is purely additive to the rest of the
+   site. Colors all come from the existing brand/accent/semantic
+   tokens, so light mode, dark mode, and any future palette swap all
+   apply automatically with zero extra work here.
+   ============================================================ */
+.jp-bar{
+  display:flex; align-items:center; gap:22px; flex-wrap:wrap;
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:14px 18px; margin:0 0 18px; box-shadow:var(--shadow-sm);
+}
+.jp-stat{ display:flex; flex-direction:column; line-height:1.15; padding:4px 10px; border-radius:var(--radius-sm); transition:background .14s; }
+.jp-stat-num{ font-family:var(--serif); font-size:1.5rem; font-weight:700; color:var(--brand-deep); }
+.jp-stat-lbl{ font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); }
+/* 2-player mode: highlights whichever player currently has control */
+.jp-stat-active{ background:var(--accent-tint); }
+.jp-stat-active .jp-stat-lbl{ color:var(--accent-strong); }
+.jp-bar-actions{ display:flex; gap:10px; margin-left:auto; flex-wrap:wrap; }
+
+.jp-board-wrap{ overflow-x:auto; padding-bottom:4px; }
+.jp-board{
+  --jp-cols:5;
+  display:grid;
+  grid-template-columns:repeat(var(--jp-cols), minmax(128px,1fr));
+  gap:8px;
+  min-width:calc(var(--jp-cols) * 128px + (var(--jp-cols) - 1) * 8px);
+}
+.jp-cat{
+  background:linear-gradient(160deg,var(--brand-strong),var(--brand-deep));
+  color:#fff; font-family:var(--serif); font-weight:700; text-align:center;
+  font-size:.86rem; line-height:1.3; padding:12px 8px; border-radius:var(--radius-sm);
+  display:flex; align-items:center; justify-content:center; min-height:64px;
+}
+.jp-cell{
+  font-family:var(--serif); font-weight:700; font-size:1.3rem;
+  color:var(--accent-strong); background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-sm); padding:18px 8px; cursor:pointer;
+  transition:background .12s,border-color .12s,transform .12s; box-shadow:var(--shadow-sm);
+}
+.jp-cell:hover:not(:disabled){ background:var(--brand-tint); border-color:var(--brand); transform:translateY(-1px); }
+.jp-cell:disabled{ cursor:default; }
+.jp-cell-empty{ color:var(--text-faint); opacity:.5; }
+.jp-cell-correct{ color:var(--ok-strong); background:var(--ok-tint); border-color:var(--ok); }
+.jp-cell-incorrect{ color:var(--bad-strong); background:var(--bad-tint); border-color:var(--bad); }
+
+.jp-overlay{
+  position:fixed; inset:0; z-index:300; background:rgba(20,22,35,.72);
+  display:flex; align-items:center; justify-content:center; padding:24px;
+  opacity:0; pointer-events:none; transition:opacity .2s;
+}
+.jp-overlay.show{ opacity:1; pointer-events:auto; }
+.jp-modal{
+  background:var(--surface); border-radius:var(--radius); max-width:min(620px,94vw); max-height:88vh;
+  overflow-y:auto; padding:30px 28px 26px; box-shadow:var(--shadow-lg); position:relative;
+}
+.jp-modal-close{
+  position:absolute; top:12px; right:12px; background:var(--surface-2); border:none; border-radius:50%;
+  width:34px; height:34px; cursor:pointer; font-size:1.2rem; line-height:1; color:var(--text-soft);
+  display:flex; align-items:center; justify-content:center;
+}
+.jp-modal-close:hover{ background:var(--border); color:var(--text); }
+.jp-modal-eyebrow{ margin:0 0 10px; font-size:.74rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-strong); }
+.jp-modal-q{ font-family:var(--serif); font-size:1.25rem; font-weight:700; color:var(--brand-deep); margin:0 0 20px; line-height:1.4; }
+.jp-modal-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:6px; }
+.jp-modal-answer{
+  background:var(--surface-2); border-left:3px solid var(--brand); border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:14px 16px; margin:0 0 16px;
+}
+.jp-a-label,.jp-r-label{ display:block; font-weight:800; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--brand-strong); margin-bottom:4px; }
+.jp-r-label{ margin-top:12px; color:var(--text-soft); }
+.jp-a-text{ margin:0; font-size:1.05rem; font-weight:700; color:var(--ok-strong); }
+.jp-r-text{ margin:0; font-size:.9rem; color:var(--text-soft); line-height:1.5; }
+.jp-btn-right{ background:var(--ok); color:#fff; }
+.jp-btn-right:hover{ background:var(--ok-strong); }
+.jp-btn-wrong{ background:var(--bad); color:#fff; }
+.jp-btn-wrong:hover{ background:var(--bad-strong); }
+.jp-already{ font-size:.86rem; color:var(--text-faint); font-style:italic; margin:4px 0 0; }
+
+@media (max-width:640px){
+  .jp-bar{ gap:14px; padding:12px 14px; }
+  .jp-bar .fc-switch{ width:100%; }
+  .jp-bar .fc-switch button{ flex:1; }
+  .jp-bar-actions{ width:100%; margin-left:0; }
+  .jp-bar-actions .btn{ flex:1; }
+  .jp-cell{ font-size:1.1rem; padding:14px 6px; }
+  .jp-cat{ font-size:.78rem; min-height:56px; padding:10px 6px; }
+  .jp-modal{ padding:24px 18px 20px; }
+  .jp-modal-q{ font-size:1.1rem; }
+  .jp-modal-actions .btn{ flex:1; }
+}
+
+/* ============================================================
+   EXAM PREP JEOPARDY DROPDOWN
+   ============================================================ */
+.jeopardy-dropdown{
+  position: relative;
+}
+.jeopardy-dropdown summary:hover{
+  opacity: 0.9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.dropdown-menu{
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-width: 160px;
+  margin-top: 8px;
+  z-index: 100;
+  padding: 4px 0;
+}
+.dropdown-item{
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  color: var(--text);
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.12s;
+  text-align: left;
+}
+.dropdown-item:hover{
+  background: var(--brand-tint);
+  color: var(--brand-strong);
+}
+.dropdown-item:first-child{
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.dropdown-item:last-child{
+  border-radius: 0 0 var(--radius) var(--radius);
+}
