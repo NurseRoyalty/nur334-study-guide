@@ -344,9 +344,6 @@
     }
 
     html += '<div class="jp-board-wrap"><div class="jp-board" style="--jp-cols:' + state.board.length + '">';
-    state.board.forEach(function (cat) {
-      html += '<div class="jp-cat">' + escapeHtml(cat.catName) + '</div>';
-    });
     VALUES.forEach(function (v, valIndex) {
       state.board.forEach(function (cat, catIndex) {
         var slot = cat.slots[valIndex];
