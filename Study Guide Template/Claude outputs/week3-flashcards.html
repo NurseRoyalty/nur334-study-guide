@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 Flashcards - NUR 334</title>
+    <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <style>
+        :root {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #999;
+            --border-color: #d0e0f0;
+            --accent-color: #2980b9;
+            --accent-dark: #1f618d;
+            --accent-light: #3498db;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg-primary: #1a1a1a;
+                --bg-secondary: #2d2d2d;
+                --text-primary: #e8e8e8;
+                --text-secondary: #b0b0b0;
+                --text-muted: #808080;
+                --border-color: #3a4a5a;
+                --accent-color: #5dade2;
+                --accent-dark: #3498db;
+                --accent-light: #2980b9;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --border-color: #3a4a5a;
+            --accent-color: #5dade2;
+            --accent-dark: #3498db;
+            --accent-light: #2980b9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-filter {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .category-filter.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .category-filter:hover {
+            border-color: var(--accent-color);
+        }
+
+        button {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .deck-stats {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .deck-stats p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .card.flipped {
+            background: linear-gradient(135deg, var(--accent-light), var(--accent-color));
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .card-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+            color: var(--text-muted);
+        }
+
+        .card.flipped .card-label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .card-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        .card-category {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
+            background: var(--border-color);
+            border-radius: 3px;
+            color: var(--text-secondary);
+        }
+
+        .card.flipped .card-category {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .flip-hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .card.flipped .flip-hint {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .navigation {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .btn-small {
+            padding: 0.6rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .back-link:hover {
+            background: var(--accent-dark);
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .category-filter,
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Week 3 Flashcards</h1>
+            <p class="subtitle">Electrolyte & Fluid Management + Perioperative Nursing</p>
+        </header>
+
+        <div class="controls">
+            <button class="category-filter active" onclick="filterCards('all')">All Cards</button>
+            <button class="category-filter" onclick="filterCards('electrolytes')">Electrolytes</button>
+            <button class="category-filter" onclick="filterCards('fluids')">Fluids</button>
+            <button class="category-filter" onclick="filterCards('periop')">Perioperative</button>
+        </div>
+
+        <div class="deck-stats">
+            <p>Total Cards: <strong id="total-cards">42</strong> | Click cards to flip</p>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid"></div>
+
+        <div class="navigation">
+            <button class="btn-small" onclick="shuffleCards()">Shuffle</button>
+            <button class="btn-small" onclick="resetCards()">Reset All</button>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-link">← Back to Study Guide</a>
+        </div>
+    </div>
+
+    <script>
+        const flashcards = [
+            // ELECTROLYTES
+            {
+                id: 1,
+                category: 'electrolytes',
+                front: 'Normal Sodium Range',
+                back: '135-145 mEq/L<br>Critical low: &lt;120<br>Critical high: &gt;160'
+            },
+            {
+                id: 2,
+                category: 'electrolytes',
+                front: 'Chvostek\'s Sign',
+                back: 'Tap facial nerve (below ear) → facial muscles twitch<br>Sign of hypocalcemia'
+            },
+            {
+                id: 3,
+                category: 'electrolytes',
+                front: 'Trousseau\'s Sign',
+                back: 'Inflate BP cuff on arm → carpopedal spasm (hand cramping)<br>Sign of hypocalcemia'
+            },
+            {
+                id: 4,
+                category: 'electrolytes',
+                front: 'Hyperkalemia EKG Changes',
+                back: 'Peaked T waves → Widened QRS → Absent P waves → Cardiac standstill'
+            },
+            {
+                id: 5,
+                category: 'electrolytes',
+                front: 'Hyperkalemia Emergency Treatment',
+                back: '1. Calcium gluconate IV (stabilize heart)<br>2. Insulin + glucose (shift K+ in)<br>3. Beta-agonists (shift K+ in)<br>4. Diuretics/dialysis (remove K+)'
+            },
+            {
+                id: 6,
+                category: 'electrolytes',
+                front: 'Normal Potassium Range',
+                back: '3.5-5.0 mEq/L<br>Critical low: &lt;2.5<br>Critical high: &gt;6.5'
+            },
+            {
+                id: 7,
+                category: 'electrolytes',
+                front: 'Potassium-Magnesium Connection',
+                back: 'Magnesium is required for Na-K-ATPase pump<br>Cannot correct K+ without correcting Mg2+ first<br>Always check magnesium level'
+            },
+            {
+                id: 8,
+                category: 'electrolytes',
+                front: 'Normal Calcium Range (Total)',
+                back: '8.5-10.2 mg/dL (total)<br>4.5-5.3 mg/dL (ionized)<br>Critical low: &lt;6.5<br>Critical high: &gt;13'
+            },
+            {
+                id: 9,
+                category: 'electrolytes',
+                front: 'Corrected Calcium Formula',
+                back: 'Corrected Ca = Measured Ca + 0.8(4 - albumin)<br>Always correct for albumin before treating'
+            },
+            {
+                id: 10,
+                category: 'electrolytes',
+                front: 'Hypercalcemia Effects',
+                back: 'Sedative effect on nervous system<br>→ Decreased GI motility (constipation)<br>→ Anorexia, nausea<br>→ Polyuria, polydipsia'
+            },
+            {
+                id: 11,
+                category: 'electrolytes',
+                front: 'Saponification',
+                back: 'Fat necrosis in acute pancreatitis<br>Free fatty acids bind calcium<br>Calcium sequestered in necrotic tissue<br>Result: hypocalcemia'
+            },
+            {
+                id: 12,
+                category: 'electrolytes',
+                front: 'Normal Magnesium Range',
+                back: '1.7-2.2 mg/dL<br>Critical low: &lt;1.0<br>Critical high: &gt;4.0'
+            },
+            {
+                id: 13,
+                category: 'electrolytes',
+                front: 'Diminished DTRs in Magnesium Toxicity',
+                back: 'Hypermagnesemia (Mg &gt;4-5) → diminished DTRs<br>In pre-eclampsia: if DTRs diminish, reduce/hold Mg sulfate<br>Clinical sign of toxicity'
+            },
+            {
+                id: 14,
+                category: 'electrolytes',
+                front: 'Torsades de Pointes',
+                back: 'Polymorphic ventricular tachycardia<br>Caused by hypomagnesemia<br>Often concurrent with hypokalemia<br>Life-threatening dysrhythmia'
+            },
+            {
+                id: 15,
+                category: 'electrolytes',
+                front: 'Normal Phosphorus Range',
+                back: '2.5-4.5 mg/dL<br>Critical low: &lt;1.0<br>Critical high: &gt;6.0'
+            },
+            {
+                id: 16,
+                category: 'electrolytes',
+                front: 'Phosphorus-Calcium Inverse Relationship',
+                back: 'High phosphorus → lowers ionized calcium<br>→ Stimulates PTH<br>→ Secondary hyperparathyroidism<br>→ Bone loss, vascular calcification'
+            },
+            {
+                id: 17,
+                category: 'electrolytes',
+                front: 'Refeeding Syndrome',
+                back: 'When malnourished patients receive nutrition:<br>Insulin → shifts P, K+, Mg2+ intracellularly<br>Result: severe hypophosphatemia, hypokalemia, hypomagnesemia<br>Prevention: slow feeding + monitor electrolytes'
+            },
+            {
+                id: 18,
+                category: 'electrolytes',
+                front: 'Hypophosphatemia & Respiratory Failure',
+                back: 'Phosphorus essential for ATP production<br>Severe hypophosphatemia (&lt;1.0) → respiratory muscle weakness<br>Cannot wean from ventilator<br>Correct before weaning attempts'
+            },
+            {
+                id: 19,
+                category: 'electrolytes',
+                front: 'DKA & Phosphorus Shifts',
+                back: 'Total body phosphorus depleted in DKA<br>When insulin given: phosphorus shifts intracellularly<br>For ATP synthesis and phosphorylation<br>Result: severe hypophosphatemia<br>Must monitor and replace during DKA treatment'
+            },
+
+            // FLUIDS
+            {
+                id: 20,
+                category: 'fluids',
+                front: 'Daily Weight Assessment',
+                back: '1 pound = ~500 mL fluid<br>Acute weight changes = fluid shifts (not fat/muscle)<br>Most reliable indicator of fluid status<br>Same time, same scale, same clothing'
+            },
+            {
+                id: 21,
+                category: 'fluids',
+                front: 'FVD Correction Rate (Hypernatremic)',
+                back: 'Decrease sodium 8-10 mEq/L per 24 hours<br>Rapid correction causes osmotic shifts → cerebral edema → seizures<br>Gradual correction prevents osmotic demyelination syndrome'
+            },
+            {
+                id: 22,
+                category: 'fluids',
+                front: 'D5W in SIADH/Post-op Patients',
+                back: 'D5W is hypotonic (dextrose metabolized by cells)<br>In patients who can\'t excrete free water → dilutional hyponatremia<br>Avoid in high-risk patients<br>Use normal saline or 3% saline instead'
+            },
+            {
+                id: 23,
+                category: 'fluids',
+                front: 'Third-Spacing Paradox',
+                back: 'Fluid shifts from intravascular → interstitial<br>Patient appears overloaded (edema, ascites)<br>But intravascularly depleted<br>Seen in: sepsis, burns, cirrhosis, malnutrition'
+            },
+            {
+                id: 24,
+                category: 'fluids',
+                front: 'Isotonic FVD Lab Pattern',
+                back: 'Normal osmolality (280-300)<br>Sodium 130-150<br>Example: diarrhea, vomiting, NG suction'
+            },
+            {
+                id: 25,
+                category: 'fluids',
+                front: 'Hypertonic FVD Lab Pattern',
+                back: 'High osmolality (&gt;300)<br>Sodium &gt;150<br>Example: diabetes insipidus, inadequate fluid intake'
+            },
+            {
+                id: 26,
+                category: 'fluids',
+                front: 'Hypotonic FVD Lab Pattern',
+                back: 'Low osmolality (&lt;280)<br>Sodium &lt;130<br>Example: SIADH, diuretic overuse, tap water drinking'
+            },
+            {
+                id: 27,
+                category: 'fluids',
+                front: 'BUN:Cr Ratio Interpretation',
+                back: 'Normal: 10-20:1<br>&gt;20:1 = Prerenal (FVD, dehydration)<br>&lt;10:1 or rising = Intrinsic kidney disease<br>High in volume depletion'
+            },
+            {
+                id: 28,
+                category: 'fluids',
+                front: 'Dilutional Hyponatremia in FVE',
+                back: 'Excess water relative to sodium<br>As diuretics work: fluid lost faster than sodium<br>Na+ normalizes but patient still fluid-overloaded<br>Use daily weights, not lab values alone'
+            },
+
+            // PERIOPERATIVE
+            {
+                id: 29,
+                category: 'periop',
+                front: 'Warfarin Pre-op Management',
+                back: 'Discontinue 3-5 days pre-op<br>High-risk patients: bridge with LMWH (stop 12-24 hrs pre-op) or IV heparin (stop hours pre-op, reversible with protamine)<br>Coordinate with provider'
+            },
+            {
+                id: 30,
+                category: 'periop',
+                front: 'ASA NPO Guidelines (2011)',
+                back: 'Solids: 6-8 hours NPO<br>Clear liquids: up to 2 hours pre-op<br>Reduces aspiration risk<br>Prevents dehydration'
+            },
+            {
+                id: 31,
+                category: 'periop',
+                front: 'Malignant Hyperthermia Triggers',
+                back: 'Succinylcholine (depolarizing paralytic)<br>Volatile anesthetics<br>Both are contraindicated in MH-susceptible patients'
+            },
+            {
+                id: 32,
+                category: 'periop',
+                front: 'Malignant Hyperthermia Early Signs',
+                back: 'Masseter muscle rigidity<br>Skin mottling<br>Tachycardia<br>Temperature rise is LATE sign'
+            },
+            {
+                id: 33,
+                category: 'periop',
+                front: 'Malignant Hyperthermia Treatment',
+                back: 'Stop triggering agents<br>Hyperventilate 100% O2<br>Dantrolene IV 2.5 mg/kg<br>Iced saline<br>Monitor core temp<br>Manage hyperkalemia, acidosis, rhabdomyolysis'
+            },
+            {
+                id: 34,
+                category: 'periop',
+                front: 'Surgical Timeout Purpose',
+                back: 'WHO Surgical Safety Checklist<br>Verifies: patient ID, procedure, site, position, allergies, implants, equipment<br>Prevents wrong site/patient/procedure'
+            },
+            {
+                id: 35,
+                category: 'periop',
+                front: 'Prone Positioning Risks',
+                back: 'Facial edema from dependent position<br>Corneal abrasion from pressure<br>Decreased airway patency<br>Chest wall compression affecting ventilation<br>Pressure injuries on face/chest/genitals'
+            },
+            {
+                id: 36,
+                category: 'periop',
+                front: 'Scrub Nurse Responsibilities',
+                back: 'Maintain sterile field<br>Handle instruments/supplies<br>Anticipate surgeon\'s needs<br>Count sponges/instruments (prevent retained foreign objects)<br>Communicate with team'
+            },
+            {
+                id: 37,
+                category: 'periop',
+                front: 'Massive Blood Loss Fluid Replacement',
+                back: 'Crystalloid 3:1 rule (3 L crystalloid per 1 L blood loss)<br>BUT this overestimates and causes third-spacing<br>Balanced approach: crystalloids + colloids + PRBCs<br>Anesthesiologist directs strategy'
+            },
+            {
+                id: 38,
+                category: 'periop',
+                front: 'Postoperative Respiratory Depression',
+                back: 'RR &lt;8, pinpoint pupils → opioid overdose<br>Priority: oxygen + airway support<br>Prepare naloxone IV<br>Do NOT delay'
+            },
+            {
+                id: 39,
+                category: 'periop',
+                front: 'Post-op Hypothermia Management',
+                back: 'Mild (35-36°C) expected from anesthesia<br>Shivering increases O2 demand<br>Active rewarming: blankets, warm IVs, warming devices'
+            },
+            {
+                id: 40,
+                category: 'periop',
+                front: 'Post-op Pain Management Priority',
+                back: 'Inadequate pain → splinting → atelectasis → VTE<br>Opioids take 15-20 min IV<br>Assess before assuming inadequate response<br>Additional doses may be needed'
+            },
+            {
+                id: 41,
+                category: 'periop',
+                front: 'PACU Vital Signs Schedule',
+                back: 'Every 5-15 minutes initially<br>Then every 30 minutes as patient stabilizes<br>Frequency varies by facility/acuity<br>Ensures early detection of complications'
+            },
+            {
+                id: 42,
+                category: 'periop',
+                front: 'Post-op Incision Drainage Assessment',
+                back: 'Clear serous: normal<br>Purulent/foul-smelling: infection<br>Bloody: hematoma or bleeding<br>Swelling/erythema/warmth: infection<br>Monitor daily'
+            }
+        ];
+
+        let currentFilter = 'all';
+        let flippedCards = new Set();
+
+        function renderCards() {
+            const filtered = currentFilter === 'all'
+                ? flashcards
+                : flashcards.filter(card => card.category === currentFilter);
+
+            const grid = document.getElementById('cardsGrid');
+            grid.innerHTML = filtered.map(card => `
+                <div class="card ${flippedCards.has(card.id) ? 'flipped' : ''}" onclick="toggleFlip(${card.id})">
+                    <span class="card-category">${card.category}</span>
+                    <div class="card-label">${flippedCards.has(card.id) ? 'Answer' : 'Question'}</div>
+                    <div class="card-content">
+                        ${flippedCards.has(card.id) ? card.back : card.front}
+                    </div>
+                    <div class="flip-hint">Click to flip</div>
+                </div>
+            `).join('');
+
+            document.getElementById('total-cards').textContent = filtered.length;
+        }
+
+        function toggleFlip(cardId) {
+            if (flippedCards.has(cardId)) {
+                flippedCards.delete(cardId);
+            } else {
+                flippedCards.add(cardId);
+            }
+            renderCards();
+        }
+
+        function filterCards(category) {
+            currentFilter = category;
+            flippedCards.clear();
+
+            document.querySelectorAll('.category-filter').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            renderCards();
+        }
+
+        function shuffleCards() {
+            const filtered = currentFilter === 'all'
+                ? flashcards
+                : flashcards.filter(card => card.category === currentFilter);
+
+            for (let i = filtered.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+            }
+            renderCards();
+        }
+
+        function resetCards() {
+            flippedCards.clear();
+            renderCards();
+        }
+
+        renderCards();
+    </script>
+</body>
+</html>

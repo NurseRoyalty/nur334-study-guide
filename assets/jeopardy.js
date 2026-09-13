@@ -39,7 +39,7 @@
   var CYCLE_KEY = STORE_PREFIX + "-jeopardy-cycle";
   var HIST_KEY = STORE_PREFIX + "-jeopardy-history";
   var VALUES = [100, 200, 300, 400, 500];
-  var NUM_CATEGORIES = window.NUM_CATEGORIES || 5;
+  var NUM_CATEGORIES = 5;
 
   var root = document.getElementById("jp-root");
 
@@ -344,22 +344,25 @@
     }
 
     html += '<div class="jp-board-wrap"><div class="jp-board" style="--jp-cols:' + state.board.length + '">';
+    state.board.forEach(function (cat) {
+      html += '<div class="jp-cat">' + escapeHtml(cat.catName) + '</div>';
+    });
     VALUES.forEach(function (v, valIndex) {
       state.board.forEach(function (cat, catIndex) {
         var slot = cat.slots[valIndex];
-        var cls = "jp-slot";
+        var cls = "jp-cell";
         var content = String(v);
         var disabled = "";
         if (!slot.clue) {
-          cls += " used";
+          cls += " jp-cell-empty";
           content = "—";
           disabled = " disabled";
         } else if (slot.state === "correct") {
-          cls += " used";
+          cls += " jp-cell-correct";
           content = "✓";
           disabled = " disabled";
         } else if (slot.state === "incorrect") {
-          cls += " used";
+          cls += " jp-cell-incorrect";
           content = "✗";
           disabled = " disabled";
         }

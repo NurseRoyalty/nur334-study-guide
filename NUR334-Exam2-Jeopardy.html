@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUR334 Exam 2 Jeopardy - 105 NCLEX-NGN Clinical Judgment Questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0d1b2a;
+            --bg-secondary: #1a2940;
+            --text-primary: #ffffff;
+            --text-secondary: #d0d0d0;
+            --accent-medical: #2a6ba6;
+            --accent-urgent: #e63946;
+            --accent-gold: #f4a261;
+            --button-hover: #4a90e2;
+            --border-color: #3a4a5a;
+            --category-bg: #1f3a52;
+            --clue-unselected: #2a5aa3;
+            --clue-selected: #1a3a83;
+        }
+
+        body.light-theme {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #e9ecef;
+            --text-primary: #1a1a1a;
+            --text-secondary: #333333;
+            --accent-medical: #1565c0;
+            --accent-urgent: #d32f2f;
+            --accent-gold: #f57c00;
+            --button-hover: #1976d2;
+            --border-color: #cccccc;
+            --category-bg: #bbdefb;
+            --clue-unselected: #2196f3;
+            --clue-selected: #1565c0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--accent-medical), var(--accent-urgent));
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 0.95em;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--bg-secondary);
+            border-bottom: 2px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .scores {
+            display: flex;
+            gap: 40px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .score-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .score-value {
+            color: var(--accent-gold);
+            font-size: 1.3em;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .theme-toggle, .reset-btn {
+            background-color: var(--accent-medical);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle:hover, .reset-btn:hover {
+            background-color: var(--button-hover);
+        }
+
+        .game-selector {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            padding: 15px;
+            background-color: var(--bg-secondary);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .game-btn {
+            background-color: var(--clue-unselected);
+            color: white;
+            border: 2px solid var(--accent-gold);
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .game-btn.active {
+            background-color: var(--accent-gold);
+            color: var(--bg-primary);
+            border-color: var(--accent-urgent);
+        }
+
+        .game-btn:hover {
+            background-color: var(--button-hover);
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .game-board {
+            display: none;
+            gap: 20px;
+        }
+
+        .game-board.active {
+            display: grid;
+        }
+
+        .game-board.grid-7 {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .category {
+            background-color: var(--category-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-title {
+            background: linear-gradient(135deg, var(--accent-medical), var(--accent-urgent));
+            padding: 12px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.95em;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .clues {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding: 12px;
+        }
+
+        .clue {
+            background-color: var(--clue-unselected);
+            border: 2px solid var(--accent-gold);
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: all 0.3s;
+            color: white;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .clue:hover:not(.answered) {
+            background-color: var(--button-hover);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .clue.answered {
+            background-color: #555555;
+            color: #888888;
+            cursor: not-allowed;
+            border-color: #666666;
+        }
+
+        .clue.answered:hover {
+            transform: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--bg-primary);
+            border: 3px solid var(--accent-medical);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .modal-header h2 {
+            font-size: 1.5em;
+            color: var(--accent-gold);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            color: var(--accent-urgent);
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-gold);
+        }
+
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--bg-secondary);
+            border-left: 4px solid var(--accent-medical);
+            border-radius: 5px;
+        }
+
+        .reveal-btn {
+            background-color: var(--accent-urgent);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .reveal-btn:hover:not(:disabled) {
+            background-color: #c81e35;
+            transform: scale(1.02);
+        }
+
+        .reveal-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .answer-section {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .answer-section.revealed {
+            display: block;
+        }
+
+        .answer-text {
+            background-color: #1a5a1a;
+            border: 2px solid #4a9a4a;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #a0ffa0;
+        }
+
+        .rationale-text {
+            background-color: var(--bg-secondary);
+            border: 2px solid var(--accent-medical);
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .rationale-label {
+            font-weight: bold;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .score-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .score-btn {
+            background-color: var(--accent-medical);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .score-btn:hover {
+            background-color: var(--button-hover);
+        }
+
+        .score-btn.plus {
+            background-color: #4a9a4a;
+        }
+
+        .score-btn.plus:hover {
+            background-color: #5aaa5a;
+        }
+
+        .score-btn.minus {
+            background-color: #a04a4a;
+        }
+
+        .score-btn.minus:hover {
+            background-color: #b05a5a;
+        }
+
+        footer {
+            padding: 15px;
+            text-align: center;
+            background-color: var(--bg-secondary);
+            border-top: 2px solid var(--border-color);
+            font-size: 0.9em;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .game-board.grid-7 {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .clue {
+                font-size: 1em;
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .modal-content {
+                max-width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏥 NUR334 Exam 2 Jeopardy</h1>
+        <p>NCLEX-NGN Clinical Judgment - High Difficulty (105 Questions)</p>
+    </header>
+
+    <div class="controls">
+        <div class="scores">
+            <div class="score-item">
+                <span>Player 1:</span>
+                <div class="score-value" id="score1">0</div>
+            </div>
+            <div class="score-item">
+                <span>Player 2:</span>
+                <div class="score-value" id="score2">0</div>
+            </div>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark/Light</button>
+        <button class="reset-btn" onclick="resetGame()">🔄 Reset</button>
+    </div>
+
+    <div class="game-selector">
+        <button class="game-btn active" onclick="switchGame(0)">Game 1</button>
+        <button class="game-btn" onclick="switchGame(1)">Game 2</button>
+        <button class="game-btn" onclick="switchGame(2)">Game 3</button>
+    </div>
+
+    <main>
+        <div id="game0" class="game-board active grid-7"></div>
+        <div id="game1" class="game-board grid-7"></div>
+        <div id="game2" class="game-board grid-7"></div>
+    </main>
+
+    <div class="modal" id="questionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalCategory">Category</h2>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="question-text" id="questionText"></div>
+            <button class="reveal-btn" id="revealBtn" onclick="revealAnswer()">Reveal Answer</button>
+            <div class="answer-section" id="answerSection">
+                <div class="answer-text" id="answerText"></div>
+                <div class="rationale-text">
+                    <span class="rationale-label">Clinical Rationale:</span>
+                    <div id="rationaleText"></div>
+                </div>
+            </div>
+            <div class="score-buttons">
+                <button class="score-btn plus" onclick="addScore(1, 100)">P1 +100</button>
+                <button class="score-btn minus" onclick="addScore(1, -100)">P1 -100</button>
+                <button class="score-btn plus" onclick="addScore(2, 100)">P2 +100</button>
+                <button class="score-btn minus" onclick="addScore(2, -100)">P2 -100</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Study Guide for NUR334 Medical-Surgical Nursing I | Week 2-3 High-Yield Content</p>
+    </footer>
+
+    <script>
+        const CATEGORIES = [
+            { id: 'hem', name: 'Hematology:\nMultisystem' },
+            { id: 'ane', name: 'Anemias:\nCritical Mgmt' },
+            { id: 'poly', name: 'Polycythemia:\nThrombotic' },
+            { id: 'tr', name: 'Transfusion:\nComplications' },
+            { id: 'elec', name: 'Electrolytes:\nExtreme' },
+            { id: 'peri', name: 'Perioperative:\nComplications' },
+            { id: 'mh', name: 'Malignant\nHyperthermia' }
+        ];
+
+        const QUESTIONS = {
+            hem: {
+                100: [
+                    {q: "A 68yo on warfarin (INR 8.3) with severe GI hemorrhage, BP 88/52, HR 138. What is PRIORITY reversal?", a: "FFP 15mL/kg STAT + Vitamin K 10mg IV + consider PCC if available", r: "FFP buys immediate factor replacement while Vitamin K takes 12-24 hours. PCC if available is superior (smaller volume, faster reversal). This patient needs RAPID reversal for active hemorrhage."},
+                    {q: "45yo sickle cell with ACS (fever, infiltrates, SpO2 85%) receives 2 PRBC in ER. Chest pain WORSENS post-transfusion. What complication?", a: "Simple transfusion WORSENED ACS by increasing viscosity—STOP, do EXCHANGE transfusion to reduce HgbS <30%", r: "Simple transfusion increases viscosity → worse microvascular occlusion → worsens sickling. Exchange transfusion (remove patient's RBCs while infusing donor) is CRITICAL distinction from simple transfusion in ACS."},
+                    {q: "72yo relapsed myeloma (ANC 200, febrile, productive cough), on piperacillin-tazobactam x2 days no improvement. What's critical next step?", a: "ADD voriconazole (Aspergillus) + TMP-SMX (PCP coverage)—likely invasive FUNGAL pneumonia", r: "ANC 200 with fever + failed antibiotics = fungal until proven otherwise. Aspergillus/PCP highest risk. Need CT chest, BAL, galactomannan/beta-D-glucan checks."},
+                    {q: "38yo acute leukemia, day 8 post-chemo: dyspnea, chest pain, BP 88/55, troponin 0.28, Hgb 6.2. Life-threatening diagnosis?", a: "Tumor lysis syndrome with secondary cardiomyopathy/shock. STAT labs K+, PO4, uric acid; calcium gluconate, insulin/glucose, aggressive hydration, prepare dialysis", r: "Day 8 post-chemo = PEAK TLS. K+ release → hyperkalemia (cardiac irritability), PO4 → hypocalcemia, uric acid → kidney injury. Elevated troponin from hyperkalemia/hypocalcemia myocardial damage."},
+                    {q: "58yo stage IV lung cancer with bone mets: BP 92/54, altered mental status. Na 118, K 5.8, Ca 14.2, glucose 68. Received 2L NS with no improvement. DUAL problem?", a: "TLS (hyperkalemia) PLUS SIADH (severe hyponatremia)—'perfect storm'; calcium gluconate + insulin/glucose, RESTRICT fluids (NO more NS!), address hypoglycemia", r: "TRAP scenario where NS makes hyponatremia WORSE. Dual pathology requires DIFFERENT approaches: K management for TLS, fluid restriction for SIADH. Need dialysis for both."},
+                ],
+                200: [
+                    {q: "55yo trauma, hemorrhagic shock, massive transfusion (18 PRBC, 12 FFP, 6 platelets). Sudden coma, fixed dilated pupils, core temp 32.8°C, K 7.8, pH 6.88. IMMEDIATE management?", a: "Severe hypothermia with 'lethal triad'—STOP resuscitation temporarily, INITIATE EXTRACORPOREAL REWARMING (ECMO preferred), HOLD all medications, do NOT pronounce dead until 'warm and dead'", r: "Core temp 32.8°C mimics death but patient can survive with ECMO. Hypothermia ↓ metabolic rate 50% per °C → meds ineffective. ECMO rewarming gold standard, can rewarm 1°C per 2-3 min."},
+                    {q: "48yo TTP (ADAMTS13 <10%, schistocytes), day 3 plasma exchange: Plt still 25K, Hgb 5.8 (down from 6.2), Cr 3.2 (up). Treatment-resistant TTP. Next step?", a: "Switch from FFP to cryoprecipitate-poor FFP or SD-plasma (less contamination), ADD rituximab (anti-CD20), consider eculizumab if complement-mediated. Evaluate for alternative dx (atypical HUS)", r: "~10-20% TTP patients refractory to PE. FFP contamination may worsen hemolysis. Rituximab targets B-cells producing inhibitors. Need daily monitoring Plt/Hgb/retic/LDH/schistocytes."},
+                ],
+                300: [
+                    {q: "64yo post-CABG day 3: sudden AFib RVR (HR 168), BP 92/58, urine 20mL/hr, altered mental status. Mg 1.2, K 3.8, chest tube 180mL/hr. PRIORITY sequence?", a: "Aggressive Mg + K replacement IV (correct Mg FIRST—enables beta-blocker/amio effectiveness), increase metoprolol, URGENT eval of high chest output (may need OR), blood transfusion", r: "Post-op AFib multifactorial: hypomagnesemia (repolarization) + hypokalemia (conduction) + surgical stress + hypovolemia from bleeding. Trap: escalating antiarrhythmics without fixing root cause (electrolytes + bleeding)."},
+                    {q: "42yo AIHA (Hgb 6.8, DAT+, LDH 1200), day 7 prednisone, started rituximab. What's highest risk complication?", a: "Rituximab infusion reaction in setting of ongoing hemolysis—severe cytokine release → potential cytokine storm; premedicate heavily, SLOW infusion rate, have epi ready, may need mid-infusion transfusion", r: "Rituximab targets B-cells → massive lysis → cytokine release. In AIHA with active hemolysis = already elevated cytokines. Risk of DIRE reaction worsening hemolysis. Premedicate (acetaminophen, diphenhydramine, methylprednisolone)."},
+                ],
+                400: [
+                    {q: "35yo pernicious anemia (B12 110, MCV 112, neuro symptoms: ataxia). Day 3 B12 injections: K 2.8, Mg 1.3, PO4 1.8, weakness. CRITICAL concept?", a: "REFEEDING SYNDROME—rapid B12 correction stimulates RBC production → cells import massive K/Mg/PO4 intracellularly → acute serum depletion despite total body deficiency; SLOW B12, AGGRESSIVELY replele K/Mg/PO4 IV, continuous cardiac monitoring", r: "Severely deficient patients suddenly corrected → cells require massive electrolyte influx → acute serum depletion → SUDDEN CARDIAC DEATH RISK. Paradox: treating B12 deficiency causes acute complications. Monitor K/Mg/PO4 q4-6h, may need to pause B12."},
+                    {q: "58yo in septic shock, necrotizing soft tissue, massive transfusion (20 PRBC, 14 FFP, 8 platelets). Suddenly: P/F ratio 88, PT >30, Fib 65, hemorrhage from all sites, temp 32.1°C, pH 6.74. Cascade of complications?", a: "'PERFECT STORM': TRALI + massive dilutional coagulopathy + DIC + profound hypothermia + acidosis; STOP transfusion temporarily, INITIATE ECMO for rewarming/oxygenation, HOLD medications, aggressive K/Ca/acid-base correction, prep for OR", r: "Mortality 50-80% even with treatment. TRALI (bilateral infiltrates, pulmonary edema), dilutional coagulopathy + DIC (bleeding everywhere), hypothermia (cardiac instability), acidosis (cellular dysfunction). ECMO only adequate solution."},
+                ],
+                500: [
+                    {q: "52yo post-MI on clopidogrel + aspirin: sudden severe epistaxis, BP 85/50, HR 148, platelets 18K (baseline 280K). PT/aPTT/Fib normal. Most likely etiology?", a: "Drug-induced immune thrombocytopenia (DITP) from clopidogrel or aspirin; HOLD both drugs, give platelet transfusion x2 (paradoxical but ESSENTIAL in active hemorrhage), IVIG or corticosteroids, hematology consult", r: "Rapid-onset severe thrombocytopenia on dual antiplatelets = DITP (immune-mediated). Active epistaxis + hemodynamic instability requires platelet transfusion despite usual DITP avoidance. Need HIT antibodies, TTP screen, hematology involvement."},
+                    {q: "65yo on warfarin: acute SDH from fall, altered mental status, fixed dilated pupil, INR 4.2, neurosurg needs immediate reversal + craniotomy. Emergent approach?", a: "FFP 3-4 units STAT + Vitamin K 10mg IV + consider PCC if available—FFP immediate factor replacement, minimize fluid volume (head injury + SIADH = cerebral edema risk), PCC preferred if available (smaller volume)", r: "URGENT reversal for neurosurgical emergency BUT head injury = SIADH risk. Paradox: need fluid for bleeding but must minimize fluids. Strategy: FFP (minimal volume), Vitamin K, PCC preferred. Monitor neuro status closely."},
+                ]
+            },
+            ane: {
+                100: [
+                    {q: "42yo Crohn's (terminal ileum) on infliximab: Hgb 7.2, MCV 68 (iron def), B12 97, folate 2.1. PRIORITY repletion sequence and WHY?", a: "B12 FIRST or simultaneously with folate—if folate alone → masks B12 neurologic damage, can progress to irreversible spinal cord demyelination; then iron ONLY after GI inflammation controlled", r: "CRITICAL: DUAL deficiency needs sequencing. Folate corrects RBC production but NOT B12 neurologic role. If folate only: Hgb improves but B12 neurologic damage continues silently → demyelination → permanent cord damage by recognition."},
+                ],
+                200: [],
+                300: [
+                    {q: "58yo with pernicious anemia (B12 level 85, Hgb 5.2, paresthesias), started on IM B12. Why is refeeding syndrome a concern in rapid correction?", a: "Rapid B12 correction triggers erythropoiesis → RBCs suddenly demand massive intracellular K+/Mg/PO4 → acute serum electrolyte DEPLETION despite total body deficiency", r: "Refeeding syndrome occurs in severely malnourished/deficient patients when nutrition restored. Cells begin biosynthesis requiring massive electrolyte influx. Risk sudden cardiac death from electrolytic chaos."},
+                ],
+                400: [
+                    {q: "48yo post-gastrectomy (6mo ago): progressive Hgb 6.8, MCV 105, B12 32, folate normal. What's expected timeline for neurologic B12 symptoms if untreated?", a: "Neurologic symptoms can appear 3-6 months after anemia onset; irreversible spinal cord demyelination occurs if B12 replacement delayed >1 year", r: "B12 deficiency neurologic damage follows predictable timeline: paresthesias (months) → ataxia → spasticity → irreversible cord disease if untreated >12mo. Gastrectomy removes intrinsic factor (B12 absorption) → lifelong IM B12 need."},
+                ],
+                500: [
+                    {q: "76yo with combined iron + B12 + folate deficiency (cirrhosis + malnutrition + malabsorption). How does repletion sequence prevent 'masking' of B12 deficiency?", a: "Iron + folate together correct RBC morphology but can MASK B12 neurologic deficiency progression; must include B12 from START of repletion to prevent demyelination while other anemias 'correcting'", r: "Masking effect: iron + folate normalize MCV/Hgb, clinician falsely reassured. Meanwhile B12 neurologic damage accelerates silently. Why B12 MUST be part of initial therapy even if 'only anemia is iron deficiency'—occult B12 common in malabsorption."},
+                ]
+            },
+            poly: {
+                100: [
+                    {q: "64yo polycythemia vera (Hct 62%, Hgb 21) on hydroxyurea + aspirin: sudden severe abdominal pain, vomiting, shock (BP 82/48), elevated LDH/amylase. Life-threatening complication?", a: "Thrombotic mesenteric infarction from SMA thrombosis—STAT CT angiography abdomen/pelvis, cardiothoracic surgery consult for embolectomy, aggressive heparin, prepare emergent surgery", r: "PV = inherent high viscosity + hypercoagulability from clonal platelet dysfunction. Visceral thrombosis despite aspirin + hydroxyurea HIGH-RISK. Mortality >50% even with treatment. Pain out of proportion to exam = key sign."},
+                ],
+                200: [],
+                300: [
+                    {q: "55yo PV (Hct 64%) with history of stroke on aspirin + hydroxyurea, now presenting with transient visual loss. Why is stroke risk elevated in PV?", a: "PV causes hypercoagulability + elevated blood viscosity → increased thrombotic risk for CVA, MI, VTE despite antiplatelet therapy; goal Hct <45%, aggressive phlebotomy", r: "PV has THREE thrombotic mechanisms: (1) elevated Hgb/RBCs → viscosity, (2) abnormal platelet function → thrombotic tendency, (3) JAK2 mutation → prothrombotic state. Antiplatelet monotherapy often inadequate."},
+                ],
+                400: [
+                    {q: "68yo PV on hydroxyurea: develops new hepatosplenomegaly, Hgb 8.5 (down from 20), reticulocytes 8%, LDH 1200, bilirubin 3.2. What's occurred?", a: "Myelofibrotic transformation (PV → PMF)—extramedullary hematopoiesis causing hepatosplenomegaly, hemolytic anemia; transition from hyperproliferative to fibrotic phase", r: "~5% PV patients transform to PMF. Bone marrow fibrosis → shift to extramedullary hematopoiesis (liver/spleen). Anemia worsens despite apparent 'treatment.' JAK inhibitors (ruxolitinib) now preferred for transformed disease."},
+                ],
+                500: [
+                    {q: "72yo PV with refractory thrombocytosis (PLT 900K despite hydroxyurea max dose) + recurrent TIA episodes. Why might anagrelide be contraindicated?", a: "Anagrelide causes vasodilation + reflex tachycardia → WORSENS thrombotic risk in PV; high incidence MI/CVA with anagrelide in PV. Better choice: INF-α or ruxolitinib", r: "Anagrelide mechanism (PDE3 inhibition → cAMP ↑) causes inappropriate vasodilation with compensatory tachycardia → prothrombotic state. PV patients need agents that DON'T cause reflex tachycardia (interferon, ruxolitinib)."},
+                ]
+            },
+            tr: {
+                100: [
+                    {q: "58yo septic shock, necrotizing infection: massive transfusion (20 PRBC, 14 FFP, 8 plt over 2h). Suddenly: P/F 88, PT >30, Fib 65, all-site hemorrhage, temp 32.1°C, pH 6.74. Cascade?", a: "'PERFECT STORM': TRALI + dilutional coagulopathy + DIC + profound hypothermia + acidosis; STOP transfusion, INITIATE ECMO, hold meds, aggressive electrolyte correction, prep OR", r: "Mortality 50-80%. TRALI (pulmonary edema), dilutional coagulopathy (massive FFP/platelet transfusion doesn't restore factors), hypothermia (cardiac instability), acidosis. ECMO only adequate treatment."},
+                ],
+                200: [],
+                300: [
+                    {q: "45yo transfused with 4 units PRBC for anemia, post-op day 2: fever 38.9°C, rigors, hypotension (BP 88/56), hemoglobinuria (dark urine), rising Cr. Acute hemolytic reaction?", a: "YES—acute hemolytic transfusion reaction (ABO incompatibility likely) → intravascular hemolysis; STOP transfusion immediately, aggressive hydration (NS), furosemide (maintain urine output), monitor for AKI, direct antiglobulin test, haptoglobin check", r: "Immediate onset (during/within 1hr post-transfusion) with fever + hemoglobinuria + hypotension = acute hemolytic. Usually ABO incompatibility (clerical error). Can progress to DIC/AKI/death if not stopped immediately."},
+                ],
+                400: [
+                    {q: "38yo post-transfusion (6h ago) develops urticaria + flushing, fever 37.8°C, respiratory symptoms. BP stable, no hemoglobinuria. Most likely reaction type?", a: "Allergic/anaphylactic transfusion reaction (most common transfusion complication)—mild form (urticaria/flushing) vs severe (anaphylaxis with hypotension/airway); STOP transfusion, diphenhydramine IV, consider steroids, continue if mild and resolved", r: "Allergic reactions common (~1-2% all transfusions). Immune/IgA/IgE-mediated against donor proteins. Mild urticaria often manageable (antihistamines, resume). Severe anaphylaxis needs epinephrine, airway management."},
+                ],
+                500: [
+                    {q: "52yo massive trauma gets 28 units PRBC + 18 FFP + 10 platelets over 3 hours. Post-resuscitation: fibrinogen 140, INR 2.2, PTT 1.8x, Hgb 7.2 despite transfusions. Why does continued bleeding occur despite massive transfusion?", a: "Massive transfusion coagulopathy—dilution + consumption + hypothermia + acidosis from shock causing CONSUMPTIVE coagulopathy; continue FFP (1:1:1 ratio with PRBC:FFP:plt preferred), aggressive rewarming, massive transfusion protocol", r: "Massive transfusion (>10 units PRBC in 24h) causes coagulopathy from: (1) dilution of coagulation factors, (2) consumption (DIC), (3) hypothermia (factor dysfunction), (4) acidosis (enzymatic dysfunction). Balanced 1:1:1 ratio CRITICAL."},
+                ]
+            },
+            elec: {
+                100: [
+                    {q: "64yo SIADH on fluid restriction (500mL/day) + vaptans. Now: delirium, seizures, altered mental status. Na 98 (down from baseline 120 in hours). PRIORITY distinction and management?", a: "ACUTE hyponatremia (hours) more symptomatic than chronic—seizures from acute drop; HYPERTONIC saline (3%) NOW INDICATED despite SIADH; correct 4-6 mEq/L/hr until seizures stop, then slow to 8 mEq/L/24h", r: "CRITICAL: chronicity determines symptoms. Acute hyponatremia = brain hasn't adapted → MORE symptoms. Chronic = brain compensated → LESS symptoms same Na level. Acute symptomatic = emergency requiring hypertonic saline (ONLY exception to SIADH fluid restriction)."},
+                ],
+                200: [
+                    {q: "72yo CKD (Cr 3.8, eGFR 12) on ACE-I + spironolactone: K 7.4, acidosis (HCO3 15, pH 7.28), new AKI (Cr 5.2). EKG: peaked T-waves, wide QRS. PRIORITY?", a: "Severe hyperkalemia with EKG changes + AKI crisis—STOP ACE-I/spironolactone immediately, STAT calcium gluconate IV (cardiac protection), insulin/glucose/bicarb/albuterol for K shift, urgent dialysis", r: "TRIPLE emergency: (1) cardiac toxicity from hyperkalemia (peaked T-waves), (2) AKI preventing K excretion, (3) acidosis worsening hyperkalemia. ACE-I + spironolactone contraindicated in renal failure—both retain K."},
+                ],
+                300: [
+                    {q: "48yo with SIADH from small cell lung cancer (chronic, Na stable at 115 x 3 months), now receiving demeclocycline for hyponatremia. Why must Na correction be SLOW even though Na is 115?", a: "Chronic hyponatremia brain has adapted (osmolytes decreased) → RAPID correction causes osmotic demyelination syndrome (ODS) with permanent neurologic damage; correct ≤10 mEq/L per 24h", r: "Osmotic demyelination occurs when CHRONIC hyponatremia corrected too quickly. Brain has reduced osmolytes to compensate → rapid Na ↑ causes water shifts OUT of brain → cell shrinkage → demyelination → permanent paralysis/altered mental status."},
+                ],
+                400: [
+                    {q: "36yo sepsis patient receives aggressive NS resuscitation (8L over 4hrs) for septic shock. Labs: Na 120 (was 138), Cl 100, HCO3 24. Why did Na drop despite hypertonic fluid?", a: "Dilutional hyponatremia from aggressive free water (NS hypotonic relative to serum in sepsis context + continued SIADH from sepsis); switch to hypertonic saline (3%), restrict free water, address sepsis source", r: "Paradox: giving '0.9% NS' (physiologic) can LOWER Na in sepsis because: (1) sepsis triggers SIADH → kidneys reabsorb free water, (2) 'physiologic' NS actually hypotonic to sepsis patient's total body osmoles. Need 3% saline to overcome SIADH."},
+                ],
+                500: [
+                    {q: "54yo cirrhosis with ascites + renal failure (Cr 2.8) develops Na 108 + K 6.8 + HCO3 14 (TRIPLE electrolyte derangement). What's the pathophysiology binding these three problems together?", a: "Cirrhosis → hepatorenal syndrome + SIADH (Na↓) + metabolic acidosis (renal dysfunction) + hyperkalemia (AKI, aldosterone resistance); requires terlipressin + albumin + diuretics, possible dialysis for K/renal", r: "Cirrhosis creates 'perfect storm' of electrolyte chaos: (1) portal hypertension → SIADH trigger, (2) renal hypoperfusion → hyperkalemia + metabolic acidosis, (3) aldosterone resistance → can't excrete K. Requires multidrug approach + possible transplant discussion."},
+                ]
+            },
+            peri: {
+                100: [
+                    {q: "68yo post-CABG day 2: sudden AFib RVR (HR 168), BP 92/58, urine 20mL/hr, altered mental status. Mg 1.2, K 3.8, chest tube 180mL/hr. PRIORITY sequence?", a: "Post-op AF from electrolyte derangement + surgical stress + bleeding—Aggressive Mg/K replacement IV (Mg FIRST), increase metoprolol, urgent eval chest output (may need OR for hemostasis), blood transfusion", r: "Post-op AFib multifactorial: hypomagnesemia (repolarization) + hypokalemia (conduction) + stress + hypovolemia. Trap: escalating antiarrhythmics without fixing root cause. Correct Mg FIRST (enables beta-blocker/amio work)."},
+                ],
+                200: [],
+                300: [
+                    {q: "52yo post-op day 3 from major abdominal surgery: temp 38.8°C, HR 110, BP slightly low, appearing septic. What's concerning about 'post-op fever' timing at day 3?", a: "Day 3 post-op fever suggests anastomotic leak, abscess formation, or pneumonia—NOT normal post-op fever (days 1-2). Needs urgent imaging (CT abdomen), blood cultures, surgical evaluation", r: "Post-op fever timeline: Day 1-2 = expected surgical inflammation. Day 3+ = concerning for complications. Day 5+ = wound infection or deep infection. Timing guides differential diagnosis."},
+                ],
+                400: [
+                    {q: "71yo post-CABG on metoprolol + amiodarone develops acute bradycardia (HR 42) with hypotension (BP 78/48). Recent Mg 1.8, K 4.2, Ca normal. Why is amiodarone problematic here?", a: "Amiodarone + metoprolol combination causes EXCESSIVE bradycardia + conduction block in post-op setting; needs temporary pacing, hold amiodarone, consider beta-blocker weaning", r: "Amiodarone (Class III agent) + beta-blocker additive AV conduction slowing. Post-op autonomic instability + electrolyte derangement worsen effect. Pacemaker pad placement, prepare for transvenous pacing if symptomatic."},
+                ],
+                500: [
+                    {q: "58yo post-op day 4 from open AAA repair (ruptured) developing acute mesenteric ischemia. What's the risk factor from the surgery itself that predisposed to this?", a: "Suprarenal AAA cross-clamping → temporary interruption SMA blood flow → reperfusion injury + mural thrombus formation post-op; mesenteric angiography, consider thrombectomy vs conservative management", r: "Vascular surgery paradox: ruptured AAA repair requires suprarenal clamping → temporary organ ischemia (small bowel) → hours of no flow → reperfusion injury → risk thrombosis post-op. Prophylactic heparin sometimes used post-op."},
+                ]
+            },
+            mh: {
+                100: [
+                    {q: "During induction with succinylcholine + sevoflurane: masseter rigidity develops. Anesthesia STOPS agents, hyperventilates 100% O2, prepares dantrolene. 2 min later: ETCO2 75, temp 38.2°C, HR 158, venous blood dark. IMMEDIATE next?", a: "FULMINANT MH with rhabdomyolysis + DIC—ABORT SURGERY if possible, STAT dantrolene 2.5mg/kg IV (repeat q5min), aggressive cooling, ICU admission, prepare for rhabdomyolysis (myoglobinuria) + hyperkalemia + DIC", r: "ETCO2 75 = severe hypermetabolism. Dark venous blood = myoglobinuria/DIC. Mortality 5-10% even WITH dantrolene. Need aggressive cooling, massive fluid resuscitation (goal 200-300mL/hr urine), monitor K (cardiac dysrhythmia risk)."},
+                ],
+                200: [],
+                300: [
+                    {q: "MH crisis treated with dantrolene, cooled to 37.2°C, urine now clear. What's the CRITICAL post-crisis management in next 48 hours?", a: "POST-CRISIS: Dantrolene 1mg/kg IV q4-6h for 24-48h (PREVENT RECRUDESCENCE—occurs 25% of time), ICU monitoring, watch for compartment syndrome/rhabdomyolysis complications, cardiac monitoring for peaked T-waves", r: "Recrudescence (MH crisis recurs 2-24h post-initial crisis) common if post-crisis dantrolene not given. Requires continued ICU vigilance for hyperkalemia, rhabdomyolysis progression, potential need for fasciotomy if compartment syndrome developing."},
+                ],
+                400: [
+                    {q: "Patient has family hx of MH. Scheduled for elective surgery under general anesthesia. What's the SAFE anesthetic plan?", a: "Use non-triggering agents: propofol induction + remifentanil + non-depolarizing paralytic (rocuronium/vecuronium) + nitrous oxide or regional anesthesia AVOID succinylcholine + volatile agents entirely", r: "Triggering agents: succinylcholine + volatile anesthetics (sevoflurane, isoflurane, halothane). Safe agents: propofol, remifentanil, non-depolarizing paralytics. Must pre-plan: have dantrolene available, inform OR staff, prepared for emergency."},
+                ],
+                500: [
+                    {q: "22yo with unexplained intraoperative rhabdomyolysis + hyperkalemia during knee arthroscopy under general anesthesia (received succinylcholine + isoflurane). What genetic testing now indicated?", a: "RYR1 gene mutation testing (most common MH genetic cause)—85% of MH cases. Also CACNA1S testing. Genetic counseling for family members (autosomal dominant inheritance, 50% risk to siblings)", r: "MH = pharmacogenetic disorder from RYR1/CACNA1S mutations → abnormal calcium release in muscle. Genetic testing confirms diagnosis, enables family screening. Malignant Hyperthermia Association registry for susceptible patients."},
+                ]
+            }
+        };
+
+        // Initialize games
+        let currentGame = 0;
+        let scores = [0, 0];
+        let answeredClues = new Set();
+        let currentModal = null;
+
+        function initializeGames() {
+            loadScores();
+            for (let gameNum = 0; gameNum < 3; gameNum++) {
+                const gameBoard = document.getElementById(`game${gameNum}`);
+                gameBoard.innerHTML = '';
+
+                CATEGORIES.forEach(cat => {
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.className = 'category';
+
+                    const titleDiv = document.createElement('div');
+                    titleDiv.className = 'category-title';
+                    titleDiv.textContent = cat.name;
+                    categoryDiv.appendChild(titleDiv);
+
+                    const cluesDiv = document.createElement('div');
+                    cluesDiv.className = 'clues';
+
+                    const difficulties = [100, 200, 300, 400, 500];
+                    difficulties.forEach(diff => {
+                        const clueBtn = document.createElement('button');
+                        clueBtn.className = 'clue';
+                        clueBtn.textContent = `$${diff}`;
+                        const clueId = `${gameNum}-${cat.id}-${diff}`;
+                        clueBtn.dataset.clueId = clueId;
+
+                        if (answeredClues.has(clueId)) {
+                            clueBtn.classList.add('answered');
+                        }
+
+                        clueBtn.onclick = () => showQuestion(gameNum, cat, diff);
+                        cluesDiv.appendChild(clueBtn);
+                    });
+
+                    categoryDiv.appendChild(cluesDiv);
+                    gameBoard.appendChild(categoryDiv);
+                });
+            }
+        }
+
+        function showQuestion(gameNum, category, difficulty) {
+            const clueId = `${gameNum}-${category.id}-${difficulty}`;
+
+            if (answeredClues.has(clueId)) return;
+
+            const questions = QUESTIONS[category.id][difficulty] || [];
+            if (questions.length === 0) {
+                alert(`No questions available for ${category.name} at $${difficulty}`);
+                return;
+            }
+
+            const question = questions[Math.floor(Math.random() * questions.length)];
+
+            currentModal = { gameNum, category, difficulty, clueId, question };
+
+            document.getElementById('modalCategory').textContent = `${category.name} - $${difficulty}`;
+            document.getElementById('questionText').textContent = question.q;
+            document.getElementById('revealBtn').disabled = false;
+            document.getElementById('answerSection').classList.remove('revealed');
+
+            document.getElementById('questionModal').classList.add('active');
+        }
+
+        function revealAnswer() {
+            const q = currentModal.question;
+            document.getElementById('answerText').textContent = q.a;
+            document.getElementById('rationaleText').textContent = q.r;
+            document.getElementById('answerSection').classList.add('revealed');
+            document.getElementById('revealBtn').disabled = true;
+
+            // Mark clue as answered
+            answeredClues.add(currentModal.clueId);
+            const clueBtn = document.querySelector(`[data-clueId="${currentModal.clueId}"]`);
+            if (clueBtn) clueBtn.classList.add('answered');
+        }
+
+        function addScore(player, amount) {
+            scores[player - 1] += amount;
+            document.getElementById(`score${player}`).textContent = scores[player - 1];
+            saveScores();
+        }
+
+        function closeModal() {
+            document.getElementById('questionModal').classList.remove('active');
+            currentModal = null;
+        }
+
+        function switchGame(gameNum) {
+            document.querySelectorAll('.game-board').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.game-btn').forEach(b => b.classList.remove('active'));
+
+            document.getElementById(`game${gameNum}`).classList.add('active');
+            document.querySelectorAll('.game-btn')[gameNum].classList.add('active');
+
+            currentGame = gameNum;
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+
+        function resetGame() {
+            if (confirm('Reset all scores and answered clues?')) {
+                scores = [0, 0];
+                answeredClues.clear();
+                document.getElementById('score1').textContent = '0';
+                document.getElementById('score2').textContent = '0';
+                saveScores();
+                initializeGames();
+            }
+        }
+
+        function saveScores() {
+            localStorage.setItem('jeopardy_scores', JSON.stringify(scores));
+        }
+
+        function loadScores() {
+            const saved = localStorage.getItem('jeopardy_scores');
+            if (saved) {
+                scores = JSON.parse(saved);
+                document.getElementById('score1').textContent = scores[0];
+                document.getElementById('score2').textContent = scores[1];
+            }
+        }
+
+        function loadTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadTheme();
+            initializeGames();
+        });
+
+        // Close modal on background click
+        document.getElementById('questionModal').addEventListener('click', (e) => {
+            if (e.target.id === 'questionModal') closeModal();
+        });
+    </script>
+</body>
+</html>
