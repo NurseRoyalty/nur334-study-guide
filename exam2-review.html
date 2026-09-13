@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam 2 Review - SATA Questions</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --text-primary: #ffffff;
+            --accent-blue: #5b4b8a;
+            --accent-gold: #c15b7c;
+            --button-hover: #463a6e;
+        }
+        body.light-theme {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --text-primary: #1a1a1a;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header { background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold)); padding: 20px; text-align: center; }
+        header h1 { font-size: 2.5em; margin-bottom: 5px; }
+        .controls { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background-color: var(--bg-secondary); gap: 10px; flex-wrap: wrap; }
+        .theme-toggle { background-color: var(--accent-blue); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .theme-toggle:hover { background-color: var(--button-hover); }
+        .content-container { flex: 1; padding: 30px 20px; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .questions-list { display: flex; flex-direction: column; gap: 20px; }
+        .question-card { background-color: var(--bg-secondary); border-left: 4px solid var(--accent-gold); padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; }
+        .question-card:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(193, 91, 124, 0.3); }
+        .question-text { font-size: 1em; margin-bottom: 15px; line-height: 1.6; }
+        .options-list { margin-left: 20px; margin-bottom: 15px; }
+        .option { padding: 8px 0; display: flex; gap: 10px; }
+        .option-letter { color: var(--accent-gold); font-weight: bold; min-width: 20px; }
+        .answer-display { display: none; }
+        .answer-display.show { display: block; }
+        .answer-section { background-color: var(--accent-gold); color: #000; padding: 15px; border-radius: 6px; margin-top: 10px; margin-bottom: 10px; }
+        .answer-label { font-weight: bold; font-size: 0.9em; margin-bottom: 5px; }
+        .show-answer-btn { background-color: var(--accent-blue); color: white; border: 2px solid var(--accent-gold); padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: all 0.3s; margin-top: 10px; }
+        .show-answer-btn:hover { background-color: var(--button-hover); }
+        .question-metadata { font-size: 0.85em; color: var(--accent-gold); margin-bottom: 10px; }
+        nav { background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue)); padding: 15px 20px; display: flex; align-items: center; gap: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 20px; }
+        nav a:hover { color: var(--accent-gold); }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">← Back to Study Guide</a>
+    </nav>
+
+    <header>
+        <h1>📋 Exam 2 Review - SATA Questions</h1>
+        <p>Select All That Apply - High-Yield Clinical Judgment Questions</p>
+    </header>
+
+    <div class="controls">
+        <div style="font-weight: bold;">Week 3 - Electrolytes & Perioperative Nursing (10 Questions)</div>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark/Light</button>
+    </div>
+
+    <div class="content-container">
+        <div class="questions-list" id="questionsList"></div>
+    </div>
+
+    <script>
+        const SATA_WEEK3 = [
+            {
+                id: 'w3-sata-001',
+                category: 'Hyponatremia Pathophysiology',
+                question: 'A 72-year-old patient with SIADH develops severe hyponatremia (Na+ 118 mEq/L) with confusion, seizures, and coma. Which interventions reflect appropriate seizure precautions and correction? (Select all that apply)',
+                options: [
+                    { text: 'Administer 3% hypertonic saline slowly (8-12 mEq/L increase in 24 hours) to avoid osmotic demyelination', correct: true },
+                    { text: 'Implement seizure precautions including padded bed rails and easy access to suction', correct: true },
+                    { text: 'Restrict free water intake and encourage sodium-containing fluids depending on etiology', correct: true },
+                    { text: 'Rapidly correct sodium to normal to immediately stop seizure activity', correct: false },
+                    { text: 'Monitor neurological status frequently and obtain stat sodium levels during correction', correct: true }
+                ]
+            },
+            {
+                id: 'w3-sata-002',
+                category: 'Hypernatremia Management',
+                question: 'A delirious patient with diabetes insipidus presents with Na+ 158 mEq/L, severe thirst, and restlessness. Which clinical considerations guide treatment? (Select all that apply)',
+                options: [
+                    { text: 'Identify underlying cause (diabetes insipidus vs excessive water loss) to guide definitive treatment', correct: true },
+                    { text: 'Initiate free water replacement via IV D5W or NG tube if patient cannot drink safely', correct: true },
+                    { text: 'Correct sodium slowly (8-10 mEq/L in 24 hours) to prevent cerebral edema from osmotic rebound', correct: true },
+                    { text: 'Administer hypertonic saline to rapidly lower sodium and resolve neurological symptoms', correct: false },
+                    { text: 'Monitor for signs of overcorrection including lethargy, seizures, and cerebral edema', correct: true }
+                ]
+            },
+            {
+                id: 'w3-sata-003',
+                category: 'Hypokalemia Complications',
+                question: 'A patient with K+ 2.8 mEq/L presents after prolonged diarrhea. Which cardiac and neuromuscular findings should trigger urgent intervention? (Select all that apply)',
+                options: [
+                    { text: 'EKG changes including prolonged PR interval, widened QRS, and flattened T waves', correct: true },
+                    { text: 'Muscle weakness, fatigue, and cramping affecting activities of daily living', correct: true },
+                    { text: 'Potential for life-threatening dysrhythmias including premature ventricular contractions', correct: true },
+                    { text: 'Polyuric non-oliguric acute kidney injury from kaluresis', correct: true },
+                    { text: 'Constipation and decreased GI motility from smooth muscle effects', correct: true }
+                ]
+            },
+            {
+                id: 'w3-sata-004',
+                category: 'Hyperkalemia Emergency',
+                question: 'A patient with acute kidney injury has K+ 6.8 mEq/L with EKG showing peaked T waves and shortened QT interval. Which interventions should be implemented? (Select all that apply)',
+                options: [
+                    { text: 'Administer calcium gluconate IV to stabilize myocardial membrane and reduce dysrhythmia risk', correct: true },
+                    { text: 'Give insulin with dextrose or beta-agonist to shift potassium intracellularly', correct: true },
+                    { text: 'Administer sodium polystyrene sulfonate to enhance GI elimination of potassium', correct: true },
+                    { text: 'Place on continuous cardiac monitoring and have emergency equipment at bedside', correct: true },
+                    { text: 'Restrict potassium intake but avoid rapid correction that could cause hypokalemia', correct: true }
+                ]
+            },
+            {
+                id: 'w3-sata-005',
+                category: 'Hypocalcemia Management',
+                question: 'A post-thyroidectomy patient develops hypocalcemia (total Ca 6.8 mg/dL) with circumoral paresthesias, positive Chvostek\'s and Trousseau\'s signs. Which actions are essential? (Select all that apply)',
+                options: [
+                    { text: 'Administer IV calcium gluconate slowly while monitoring cardiac rhythm for arrhythmias', correct: true },
+                    { text: 'Implement seizure precautions and assess for tetany indicating neuromuscular irritability', correct: true },
+                    { text: 'Monitor ionized calcium level and albumin as total calcium may be falsely low if hypoalbuminemic', correct: true },
+                    { text: 'Assess PTH level and vitamin D status to identify cause (hypoparathyroidism vs vitamin D deficiency)', correct: true },
+                    { text: 'Initiate oral calcium supplementation immediately without IV calcium to avoid vascular irritation', correct: false }
+                ]
+            },
+            {
+                id: 'w3-sata-006',
+                category: 'Fluid Volume Deficit',
+                question: 'A post-operative patient on NPO status for 16 hours shows signs of dehydration including tachycardia (HR 112), hypotension (BP 102/58), and poor skin turgor. Which fluid replacement strategies are appropriate? (Select all that apply)',
+                options: [
+                    { text: 'Initiate IV fluid replacement with maintenance fluids at 1-2 mL/kg/hr to restore intravascular volume', correct: true },
+                    { text: 'Use balanced crystalloids (Lactated Ringer\'s) as first-line for perioperative fluid replacement', correct: true },
+                    { text: 'Monitor urine output (goal 0.5-1 mL/kg/hr) as indicator of adequate perfusion and renal function', correct: true },
+                    { text: 'Avoid fluid overload that could precipitate heart failure or pulmonary edema', correct: true },
+                    { text: 'Use hypertonic saline as preferred fluid to rapidly increase osmolality and shift fluids extravascularly', correct: false }
+                ]
+            },
+            {
+                id: 'w3-sata-007',
+                category: 'Preoperative Assessment',
+                question: 'During preoperative assessment, the nurse identifies risk factors for complications. Which findings require physician notification before surgery? (Select all that apply)',
+                options: [
+                    { text: 'Uncontrolled hypertension (BP 180/105) increasing perioperative cardiac risk', correct: true },
+                    { text: 'Positive pregnancy test in reproductive-aged female requiring surgical plan modification', correct: true },
+                    { text: 'Active URI with productive cough increasing aspiration and respiratory complication risk', correct: true },
+                    { text: 'NPO status maintained for >8 hours for elective morning surgery increasing dehydration', correct: true },
+                    { text: 'Mild anxiety about surgery procedure that can be addressed with reassurance alone', correct: false }
+                ]
+            },
+            {
+                id: 'w3-sata-008',
+                category: 'Intraoperative Positioning',
+                question: 'A patient is positioned supine for a 3-hour abdominal surgery. Which pressure injury and nerve injury risks should perioperative nurses assess? (Select all that apply)',
+                options: [
+                    { text: 'Occipital pressure injury from head resting directly on operating table without padding', correct: true },
+                    { text: 'Brachial plexus injury from arm abduction >90 degrees creating nerve stretch', correct: true },
+                    { text: 'Sciatic nerve compression injury from external rotation of hip and knee', correct: false },
+                    { text: 'Sacral pressure injury from direct pressure on bony prominence over 2+ hours', correct: true },
+                    { text: 'Peroneal nerve injury from knee flexion >40 degrees compressing nerve at fibular head', correct: true }
+                ]
+            },
+            {
+                id: 'w3-sata-009',
+                category: 'Postoperative Pain Management',
+                question: 'A post-operative patient 4 hours after major surgery reports severe pain (9/10) unrelieved by scheduled analgesics. Which assessment findings could indicate a complication rather than expected surgical pain? (Select all that apply)',
+                options: [
+                    { text: 'Pain disproportionate to surgical procedure with hemodynamic instability (tachycardia, hypotension)', correct: true },
+                    { text: 'Localized pain at surgical site with warmth, erythema, and purulent drainage suggesting infection', correct: true },
+                    { text: 'Pain radiating down lower extremities with calf swelling suggesting DVT', correct: true },
+                    { text: 'Chest pain with dyspnea suggesting pulmonary embolism or cardiac complication', correct: true },
+                    { text: 'Expected incisional pain that responds well to opioid analgesia within 1-2 hours', correct: false }
+                ]
+            },
+            {
+                id: 'w3-sata-010',
+                category: 'Malignant Hyperthermia',
+                question: 'During anesthesia induction, the anesthesiologist notes early signs of malignant hyperthermia (MH) including muscle rigidity and elevated end-tidal CO2. Which immediate interventions are critical? (Select all that apply)',
+                options: [
+                    { text: 'Discontinue all triggering anesthetic agents immediately and switch to safe anesthetics', correct: true },
+                    { text: 'Administer dantrolene sodium 2.5 mg/kg IV push and prepare additional doses if needed', correct: true },
+                    { text: 'Begin active cooling measures including IV cold saline, ice packs, and peritoneal lavage', correct: true },
+                    { text: 'Hyperventilate with 100% oxygen to eliminate residual volatile anesthetic from lungs', correct: true },
+                    { text: 'Continue surgery as planned since early signs may resolve with continued anesthetic', correct: false }
+                ]
+            }
+        ];
+
+        function renderQuestions() {
+            const questionsList = document.getElementById('questionsList');
+            questionsList.innerHTML = '';
+            
+            SATA_WEEK3.forEach((q, idx) => {
+                const optionsHtml = q.options.map((opt, optIdx) => {
+                    const letter = String.fromCharCode(65 + optIdx);
+                    return `<div class="option">
+                        <span class="option-letter">${letter}.</span>
+                        <span>${opt.text}</span>
+                    </div>`;
+                }).join('');
+                
+                const correctIndices = q.options
+                    .map((opt, idx) => opt.correct ? idx : -1)
+                    .filter(idx => idx !== -1);
+                
+                const correctLetters = correctIndices.map(idx => String.fromCharCode(65 + idx)).join(', ');
+                
+                const qCard = document.createElement('div');
+                qCard.className = 'question-card';
+                qCard.innerHTML = `
+                    <div class="question-metadata">Question ${idx + 1} • ${q.category}</div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="options-list">${optionsHtml}</div>
+                    <button class="show-answer-btn" onclick="toggleAnswer(this)">Reveal Answer</button>
+                    <div class="answer-display">
+                        <div class="answer-section">
+                            <div class="answer-label">Correct Answer(s): ${correctLetters}</div>
+                        </div>
+                    </div>
+                `;
+                questionsList.appendChild(qCard);
+            });
+        }
+
+        function toggleAnswer(btn) {
+            const card = btn.closest('.question-card');
+            const answerDisplay = card.querySelector('.answer-display');
+            answerDisplay.classList.toggle('show');
+            btn.textContent = answerDisplay.classList.contains('show') ? 'Hide Answer' : 'Reveal Answer';
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            localStorage.setItem('exam2-review-theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+
+        window.addEventListener('load', function() {
+            if (localStorage.getItem('exam2-review-theme') === 'light') {
+                document.body.classList.add('light-theme');
+            }
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>
