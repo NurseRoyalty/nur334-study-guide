@@ -61,7 +61,19 @@ const SITE = {
         { id: "week2-cvc", num: "4", title: "Central Venous Catheters", file: "week2-central-venous-catheters.html" },
       ]
     },
-    /* Copy the block above for Week 3, Week 4, ... as the course goes on. */
+    {
+      label: "Week 3",
+      items: [
+        { id: "week3-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week3-study-guide.html" },
+        { id: "week3-electrolytes", num: "1", title: "Electrolytes", file: "week3-electrolytes.html" },
+        { id: "week3-fluid-mgmt", num: "2", title: "Fluid Management", file: "week3-fluid-management.html" },
+        { id: "week3-preop", num: "3", title: "Preoperative Nursing", file: "week3-preoperative-nursing.html" },
+        { id: "week3-intraop", num: "4", title: "Intraoperative Nursing", file: "week3-intraoperative-nursing.html" },
+        { id: "week3-postop", num: "5", title: "Postoperative Nursing", file: "week3-postoperative-nursing.html" },
+        { id: "week3-big-picture", num: "6", title: "Big Picture Overview", file: "week3-big-picture.html" },
+        { id: "week3-flashcards", num: "📚", title: "Flashcards", file: "week3-flashcards.html" },
+      ]
+    },
     {
       label: "Fundamentals Review",
       items: [
