@@ -39,7 +39,7 @@
   var CYCLE_KEY = STORE_PREFIX + "-jeopardy-cycle";
   var HIST_KEY = STORE_PREFIX + "-jeopardy-history";
   var VALUES = [100, 200, 300, 400, 500];
-  var NUM_CATEGORIES = 5;
+  var NUM_CATEGORIES = window.NUM_CATEGORIES || 5;
 
   var root = document.getElementById("jp-root");
 
