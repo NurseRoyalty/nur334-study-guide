@@ -23,11 +23,11 @@
    two study guides opened in the same browser never collide. site.js
    loads before exam.js and study.js on every page, so setting it here is
    enough. */
-window.STORE_PREFIX = "nur326";
+window.STORE_PREFIX = "nur334";
 
 const SITE = {
   /* ---- EDIT THESE TWO for your course ---- */
-  brand: "NUR 326 · Pathopharmacology I",  // big text, top-left of the nav bar
+  brand: "Fall 2026 - NUR334 Study Guide",  // big text, top-left of the nav bar
   course: "Study Guide",              // small text under it
 
   home: { id: "home", title: "Home", file: "index.html" },
@@ -62,6 +62,21 @@ const SITE = {
         { id: "week2-anemia", num: "5", title: "Anemia", file: "week2-anemia.html" },
         { id: "week2-polycythemia", num: "6", title: "Polycythemia", file: "week2-polycythemia.html" },
         { id: "week2-big-picture-overview", num: "7", title: "Big Picture Overview", file: "week2-big-picture-overview.html" },
+      ]
+    },
+    {
+      label: "Pathopharm Review",
+      items: [
+    {
+      label: "Week 3",
+      items: [
+        { id: "week3-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week3-study-guide.html" },
+        { id: "week3-electrolytes", num: "1", title: "Electrolytes", file: "week3-electrolytes.html" },
+        { id: "week3-fluid-management", num: "2", title: "Fluid Management", file: "week3-fluid-management.html" },
+        { id: "week3-preoperative-nursing", num: "3", title: "Preoperative Nursing", file: "week3-preoperative-nursing.html" },
+        { id: "week3-intraoperative-nursing", num: "4", title: "Intraoperative Nursing", file: "week3-intraoperative-nursing.html" },
+        { id: "week3-postoperative-nursing", num: "5", title: "Postoperative Nursing", file: "week3-postoperative-nursing.html" },
+        { id: "week3-big-picture", num: "6", title: "Big Picture Overview", file: "week3-big-picture.html" },
       ]
     },
     {
