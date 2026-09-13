@@ -3,156 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUR334 Exam 2 Jeopardy - NCLEX NGN Clinical Judgment</title>
-    <link rel="stylesheet" href="assets/jeopardy.css">
+    <title>Exam 2 Jeopardy</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            padding: 40px 20px;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .header-section {
-            text-align: center;
-            margin-bottom: 30px;
-            background: linear-gradient(90deg, #3d5064 0%, #4a6278 100%);
-            padding: 30px 20px;
-            border-radius: 12px;
-            border-bottom: 4px solid #ec4899;
-        }
-
-        .header-section h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .header-section p {
-            font-size: 16px;
-            color: #cbd5e1;
-        }
-
-        .back-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background: transparent;
-            color: white;
-            border: 2px solid #ffffff;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: #4a6278;
-            border-color: #4a6278;
-            transform: scale(1.05);
-        }
-
-        .instructions-box {
-            background: rgba(26, 35, 50, 0.8);
-            border: 1px solid #4a6278;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-            color: #a8c5dd;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .controls-section {
-            background: rgba(26, 35, 50, 0.6);
-            border: 1px solid #4a6278;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .action-button {
-            padding: 10px 20px;
-            background: #4a6278;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 13px;
-        }
-
-        .action-button:hover {
-            background: #5a7288;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 10px;
-            }
-
-            .header-section h1 {
-                font-size: 28px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%); color: white; font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 20px; background: linear-gradient(90deg, #3d5064, #4a6278); padding: 20px; border-radius: 8px; border-bottom: 4px solid #ec4899; }
+        .header h1 { font-size: 36px; margin-bottom: 5px; }
+        .header p { color: #cbd5e1; }
+        .controls { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+        button { padding: 10px 20px; background: #4a6278; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #5a7288; }
+        .board { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 20px; }
+        .category { background: #a8c5dd; color: #1a2332; padding: 12px; border-radius: 6px; text-align: center; font-weight: bold; font-size: 12px; }
+        .slot { background: #2d3e50; border: 2px solid #3d5064; color: #6fb3d9; padding: 20px; border-radius: 6px; text-align: center; font-weight: bold; font-size: 20px; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .slot:hover { border-color: #ec4899; box-shadow: 0 0 15px rgba(236, 72, 153, 0.3); transform: translateY(-3px); }
+        .slot.used { background: #1a2332; color: #4a7a9a; cursor: not-allowed; }
+        .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; z-index: 1000; }
+        .modal.active { display: flex; }
+        .modal-content { background: #2d3e50; border: 2px solid #4a6278; border-radius: 12px; padding: 30px; max-width: 600px; width: 90%; }
+        .modal-section { margin-bottom: 20px; }
+        .modal-label { color: #ec4899; font-size: 12px; text-transform: uppercase; font-weight: bold; margin-bottom: 8px; }
+        .modal-text { color: #a8c5dd; line-height: 1.6; }
+        .modal-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+        .back-btn { position: absolute; top: 20px; right: 20px; }
     </style>
 </head>
 <body>
-    <button class="back-button" onclick="window.location.href='index.html'">← Back</button>
-
+    <a href="index.html" class="back-btn" style="color: white; text-decoration: none;">← Back</a>
     <div class="container">
-        <div class="header-section">
+        <div class="header">
             <h1>Exam 2 Jeopardy</h1>
-            <p>NCLEX-NGN Clinical Judgment - 105 High-Yield Questions</p>
+            <p>105 NCLEX-NGN Clinical Judgment Questions</p>
         </div>
-
-        <div class="instructions-box">
-            Every question comes from Exam 2's high-yield topics — Hematology, Anemias, Polycythemia, Transfusion, Electrolytes, Perioperative, and Malignant Hyperthermia. Play solo, or switch to 2 Players and take turns — a correct answer keeps your turn, a miss passes it to the other player. Pick a value to see a question, click Show Answer for the answer and rationale, then grade yourself. <strong>New Game</strong> reshuffles the categories and questions (the bank is large enough that you won't see the same question again for many games). <strong>Reset Game</strong> clears your score and re-opens the same board.
+        <div class="controls">
+            <button onclick="newGame()">New Game</button>
+            <button onclick="resetBoard()">Reset</button>
         </div>
-
-        <div class="controls-section">
-            <div class="action-buttons">
-                <button class="action-button" onclick="location.reload()">New Game</button>
-                <button class="action-button" onclick="if(window.jeopardyReset) window.jeopardyReset()">Reset Game</button>
+        <div class="board" id="board"></div>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <div class="modal-section">
+                    <div class="modal-label">Question</div>
+                    <div class="modal-text" id="question"></div>
+                </div>
+                <div class="modal-section">
+                    <div class="modal-label">Answer</div>
+                    <div class="modal-text" id="answer" style="display:none;"></div>
+                </div>
+                <div class="modal-section">
+                    <div class="modal-label">Rationale</div>
+                    <div class="modal-text" id="rationale" style="display:none;"></div>
+                </div>
+                <div class="modal-buttons">
+                    <button onclick="showAnswer()">Show Answer</button>
+                    <button onclick="markCorrect()">Got It Right</button>
+                    <button onclick="markWrong()">Got It Wrong</button>
+                    <button onclick="closeModal()">Close</button>
+                </div>
             </div>
         </div>
-
-        <div id="jp-root"></div>
     </div>
 
     <script src="data/exam2-jeopardy.js"></script>
     <script>
-      // Set window variable for the game engine to use
-      if (window.JEOPARDY_EXAM2) {
-        window.NUM_CATEGORIES = 7;
-      }
+        let gameState = {};
+        let currentQuestion = null;
+
+        function initGame() {
+            if (!window.JEOPARDY_EXAM2 || !window.JEOPARDY_EXAM2.categories) {
+                alert("Error: Questions not loaded");
+                return;
+            }
+
+            gameState = {
+                categories: window.JEOPARDY_EXAM2.categories.slice(0, 7),
+                answered: {},
+                score: 0
+            };
+
+            // Initialize answered tracking
+            gameState.categories.forEach((cat, i) => {
+                gameState.answered[i] = {};
+                [100, 200, 300, 400, 500].forEach(val => {
+                    gameState.answered[i][val] = false;
+                });
+            });
+
+            renderBoard();
+        }
+
+        function renderBoard() {
+            let html = '';
+
+            // Category headers
+            gameState.categories.forEach(cat => {
+                html += `<div class="category">${cat.name}</div>`;
+            });
+
+            // Values
+            [100, 200, 300, 400, 500].forEach(val => {
+                gameState.categories.forEach((cat, catIdx) => {
+                    const isAnswered = gameState.answered[catIdx][val];
+                    const clues = cat[val] || [];
+                    if (clues.length === 0) return;
+
+                    html += `<button class="slot ${isAnswered ? 'used' : ''}"
+                        onclick="openQuestion(${catIdx}, ${val})"
+                        ${isAnswered ? 'disabled' : ''}>
+                        ${isAnswered ? '✓' : val}
+                    </button>`;
+                });
+            });
+
+            document.getElementById('board').innerHTML = html;
+        }
+
+        function openQuestion(catIdx, val) {
+            if (gameState.answered[catIdx][val]) return;
+
+            const clues = gameState.categories[catIdx][val] || [];
+            if (clues.length === 0) return;
+
+            currentQuestion = {
+                catIdx: catIdx,
+                val: val,
+                clue: clues[Math.floor(Math.random() * clues.length)]
+            };
+
+            document.getElementById('question').textContent = currentQuestion.clue.q;
+            document.getElementById('answer').textContent = currentQuestion.clue.a;
+            document.getElementById('rationale').textContent = currentQuestion.clue.rationale;
+            document.getElementById('answer').style.display = 'none';
+            document.getElementById('rationale').style.display = 'none';
+
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function showAnswer() {
+            document.getElementById('answer').style.display = 'block';
+            document.getElementById('rationale').style.display = 'block';
+        }
+
+        function markCorrect() {
+            gameState.score += currentQuestion.val;
+            gameState.answered[currentQuestion.catIdx][currentQuestion.val] = true;
+            closeModal();
+            renderBoard();
+        }
+
+        function markWrong() {
+            gameState.score -= currentQuestion.val;
+            gameState.answered[currentQuestion.catIdx][currentQuestion.val] = true;
+            closeModal();
+            renderBoard();
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        function newGame() {
+            initGame();
+        }
+
+        function resetBoard() {
+            if (confirm("Clear current board?")) {
+                initGame();
+            }
+        }
+
+        // Start game on load
+        initGame();
     </script>
-    <script src="assets/jeopardy.js"></script>
 </body>
 </html>
