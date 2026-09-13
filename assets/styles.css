@@ -37,31 +37,31 @@
   --text-faint:#89929f;
   --stripe:#f6f8fa;            /* zebra striping on table rows */
 
-  /* ---- brand: slate ---- */
-  --brand:#40566b;
-  --brand-strong:#334657;
-  --brand-deep:#263544;
-  --brand-tint:#eef1f5;
-  --brand-tint-2:#dfe5ec;
+  /* ---- brand: indigo ---- */
+  --brand:#5b4b8a;
+  --brand-strong:#453966;
+  --brand-deep:#2d2547;
+  --brand-tint:#f0ecf7;
+  --brand-tint-2:#e3ddf0;
 
-  /* ---- accent: teal ---- */
-  --accent:#2b8a83;
-  --accent-strong:#1e6b66;
-  --accent-tint:#e7f4f2;
+  /* ---- accent: rose ---- */
+  --accent:#c15b7c;
+  --accent-strong:#a54765;
+  --accent-tint:#f8e8f0;
 
   /* ---- text sitting ON the brand-coloured nav bar / hero ---- */
-  --on-brand-soft:#dbe3ea;     /* nav links at rest */
-  --on-brand-faint:#a9bccb;    /* nav subtitle, hero eyebrow */
-  --on-brand-dim:#cdd8e1;      /* hero body text, result message */
+  --on-brand-soft:#e8e0f0;     /* nav links at rest */
+  --on-brand-faint:#b8a8d1;    /* nav subtitle, hero eyebrow */
+  --on-brand-dim:#d4cae3;      /* hero body text, result message */
 
   /* ---- gradients ---- */
-  --chrome-a:#22303d;          /* dark-mode nav / result card, from */
-  --chrome-b:#18222c;          /* dark-mode nav / result card, to   */
-  --flash-a:#4a6478;           /* dark-mode flashcard back, from */
-  --flash-b:#334657;           /* dark-mode flashcard back, to   */
+  --chrome-a:#3d2e63;          /* dark-mode nav / result card, from */
+  --chrome-b:#2d2547;          /* dark-mode nav / result card, to   */
+  --flash-a:#6b5899;           /* dark-mode flashcard back, from */
+  --flash-b:#453966;           /* dark-mode flashcard back, to   */
 
   /* ---- hairlines on the tinted callouts ---- */
-  --line-accent:#c9e5e1;
+  --line-accent:#e5b8cc;
   --line-bad:#f3d2ce;
 
   /* ---- the Torture Chamber's own scheme (oxblood) ---- */
@@ -1283,7 +1283,7 @@ body.torture{ background:var(--torture); }
   top: 100%;
   right: 0;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1px solid #c15b7c;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   min-width: 160px;
@@ -1304,8 +1304,8 @@ body.torture{ background:var(--torture); }
   text-align: left;
 }
 .dropdown-item:hover{
-  background: var(--brand-tint);
-  color: var(--brand-strong);
+  background: rgba(91, 75, 138, 0.1);
+  color: #5b4b8a;
 }
 .dropdown-item:first-child{
   border-radius: var(--radius) var(--radius) 0 0;
