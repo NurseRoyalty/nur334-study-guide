@@ -347,19 +347,19 @@
     VALUES.forEach(function (v, valIndex) {
       state.board.forEach(function (cat, catIndex) {
         var slot = cat.slots[valIndex];
-        var cls = "jp-cell";
+        var cls = "jp-slot";
         var content = String(v);
         var disabled = "";
         if (!slot.clue) {
-          cls += " jp-cell-empty";
+          cls += " used";
           content = "—";
           disabled = " disabled";
         } else if (slot.state === "correct") {
-          cls += " jp-cell-correct";
+          cls += " used";
           content = "✓";
           disabled = " disabled";
         } else if (slot.state === "incorrect") {
-          cls += " jp-cell-incorrect";
+          cls += " used";
           content = "✗";
           disabled = " disabled";
         }
