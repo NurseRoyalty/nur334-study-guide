@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam 2 Comprehensive Review</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --text-primary: #ffffff;
+            --accent-blue: #5b4b8a;
+            --accent-gold: #c15b7c;
+            --button-hover: #463a6e;
+        }
+        body.light-theme {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --text-primary: #1a1a1a;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header { background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold)); padding: 20px; text-align: center; }
+        header h1 { font-size: 2.5em; margin-bottom: 5px; }
+        .controls { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background-color: var(--bg-secondary); gap: 10px; flex-wrap: wrap; }
+        .theme-toggle { background-color: var(--accent-blue); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .theme-toggle:hover { background-color: var(--button-hover); }
+        .content-container { flex: 1; padding: 30px 20px; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .questions-list { display: flex; flex-direction: column; gap: 20px; }
+        .question-card { background-color: var(--bg-secondary); border-left: 4px solid var(--accent-gold); padding: 20px; border-radius: 6px; }
+        .question-card:hover { box-shadow: 0 4px 12px rgba(193, 91, 124, 0.3); }
+        .question-number { font-size: 0.85em; color: var(--accent-gold); font-weight: bold; margin-bottom: 10px; }
+        .question-text { font-size: 1em; margin-bottom: 15px; line-height: 1.6; font-weight: bold; }
+        .options-list { margin-left: 20px; margin-bottom: 15px; }
+        .option { padding: 10px 0; display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .option input[type="radio"], .option input[type="checkbox"] { cursor: pointer; width: 18px; height: 18px; }
+        .option-text { flex: 1; }
+        .answer-display { display: none; margin-top: 15px; padding: 15px; background-color: var(--accent-gold); color: #000; border-radius: 6px; }
+        .answer-display.show { display: block; }
+        .answer-label { font-weight: bold; margin-bottom: 5px; }
+        .show-answer-btn { background-color: var(--accent-blue); color: white; border: 2px solid var(--accent-gold); padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: all 0.3s; margin-top: 10px; }
+        .show-answer-btn:hover { background-color: var(--button-hover); }
+        nav { background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue)); padding: 15px 20px; display: flex; align-items: center; gap: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 20px; }
+        nav a:hover { color: var(--accent-gold); }
+        .sata-indicator { display: inline-block; background-color: var(--accent-gold); color: #000; padding: 4px 8px; border-radius: 3px; font-size: 0.75em; font-weight: bold; margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">← Back to Study Guide</a>
+    </nav>
+
+    <header>
+        <h1>📚 Exam 2 Comprehensive Review</h1>
+        <p>All 20 Practice Questions - NUR 334 Fall 2026</p>
+    </header>
+
+    <div class="controls">
+        <div style="font-weight: bold;">20 Total Questions</div>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark/Light</button>
+    </div>
+
+    <div class="content-container">
+        <div class="questions-list" id="questionsList"></div>
+    </div>
+
+    <script>
+        const EXAM_QUESTIONS = [
+            {
+                id: 1,
+                question: "A patient has been involved in a traumatic accident and is hemorrhaging from multiple sites. The nurse expects the compensatory mechanisms associated with hypovolemia would cause which objective cue?",
+                type: "single",
+                options: ["Hypertension", "Polyuria", "Bradycardia", "Tachypnea"],
+                correct: "Tachypnea"
+            },
+            {
+                id: 2,
+                question: "A patient's electronic health record notes that the patient has previously undergone treatment for secondary polycythemia. Which condition most likely contributed to the development of this disorder?",
+                type: "single",
+                options: ["Recent blood donation", "Evidence of lung disease", "A history of venous thromboembolism", "Impaired renal function"],
+                correct: "Evidence of lung disease"
+            },
+            {
+                id: 3,
+                question: "The patient has just returned from major surgery. Which lab finding is most concerning and will warrant notifying the healthcare provider (HCP) immediately?",
+                type: "single",
+                options: ["K+ = 3.0 (3.5-5.0)", "Na+ = 132 (135-145)", "Hgb = 10 (14-18)", "BUN = 22 (10-20)"],
+                correct: "Na+ = 132 (135-145)"
+            },
+            {
+                id: 4,
+                question: "A patient recovering from a total gastrectomy has a low red blood cell count. Which medication will the nurse expect to be prescribed for this patient?",
+                type: "single",
+                options: ["Oral iron tablets", "Vitamin B12 injections", "Erythropoietin injections", "Transfusions of packed RBCs"],
+                correct: "Vitamin B12 injections"
+            },
+            {
+                id: 5,
+                question: "The nurse is caring for a patient with an acute exacerbation of advanced chronic obstructive pulmonary disease (COPD). Which assessment findings does the nurse expect?",
+                type: "single",
+                options: ["Crackles on auscultation and increased blood pressure", "Dyspnea, wheezing on auscultation, and polycythemia", "Rhinitis, frequent coughing, and low oxygen saturation", "Prolonged inspiratory phase and peripheral edema"],
+                correct: "Dyspnea, wheezing on auscultation, and polycythemia"
+            },
+            {
+                id: 6,
+                question: "A postoperative patient has just returned from PACU after an Appendectomy. He is 6'1, 180 pounds. V.S. = BP 150/80, HR 80, RR 20. His lab values determined immediately before discharge in PACU include: Hct 39% (42-52), platelet count 200,000 (150-300,000), K+ 3.6 (3.5-5), and glucose 350mg/dl (80-110). His nurse knows from this information that the patient is at risk for:",
+                type: "single",
+                options: ["Atelectasis", "Fluid volume excess", "Infection", "Delayed wound healing"],
+                correct: "Delayed wound healing"
+            },
+            {
+                id: 7,
+                question: "A patient who received massive packed red blood cell (PRBC) blood transfusions due to trauma has a potassium level of 7.1 mEq/L (3.5-5.0). Which medication should the nurse expect to administer?",
+                type: "single",
+                options: ["IV insulin", "IV sodium chloride", "Oral spironolactone", "Oral lisinopril"],
+                correct: "IV insulin"
+            },
+            {
+                id: 8,
+                question: "A patient with cancer has a right subclavian central venous catheter in place. The nurse who is caring for the patient is teaching a student nurse about CVC care. How often should the nurse instruct the student to change the dressing? (Select all that apply)",
+                type: "multiple",
+                options: ["When the dressing is soiled", "Every 24 hours", "Per hospital policy", "With every IV tubing change", "When the dressing becomes loose"],
+                correct: ["When the dressing is soiled", "Per hospital policy", "When the dressing becomes loose"]
+            },
+            {
+                id: 9,
+                question: "A patient is on oral iron for the treatment of anemia. The nurse should instruct the patient about what side effects of oral iron preparations? (Select all that apply)",
+                type: "multiple",
+                options: ["Diarrhea", "Red stools", "Heartburn", "Black stools", "Constipation", "Chalky stools"],
+                correct: ["Diarrhea", "Black stools", "Constipation"]
+            },
+            {
+                id: 10,
+                question: "A nurse is caring for a patient with a chest tube connected to underwater seal. The nurse notes 2 cm of water and intermittent bubbling in the water seal chamber. Which action will the nurse take?",
+                type: "single",
+                options: ["Document the findings", "Add water to the water seal chamber", "Check for an air leak", "Notify the health care provider"],
+                correct: "Document the findings"
+            },
+            {
+                id: 11,
+                question: "The O.R. nurse would anticipate being suspicious of malignant hyperthermia when the patient demonstrates which of the following during surgery? (Select all that apply)",
+                type: "multiple",
+                options: ["Acidosis", "Muscle rigidity", "Decreased body temperature", "Excessive pain upon arousal from anesthesia", "Reversal of signs/symptoms with dantrolene", "Tachycardia"],
+                correct: ["Acidosis", "Muscle rigidity", "Excessive pain upon arousal from anesthesia", "Reversal of signs/symptoms with dantrolene", "Tachycardia"]
+            },
+            {
+                id: 12,
+                question: "The nurse on the surgical floor receives a new patient from PACU. Initial assessment reveals that the patient has a patent airway and stable vital signs. The nurse should next:",
+                type: "single",
+                options: ["Check the dressing for signs of bleeding", "Empty any peri-incisional drains", "Assess the patient's pain level", "Assess the patient's bladder"],
+                correct: "Assess the patient's pain level"
+            },
+            {
+                id: 13,
+                question: "The health care provider's (HCP's) prescription for an iv infusion is 3% normal saline to infuse at 125 mL/h. The patient's most recent sodium level is 132 (135-145) mEq/L. What should the nurse do next?",
+                type: "single",
+                options: ["Hang 0.9% sodium chloride at 125 mL/h", "Start the IV solution as prescribed", "Consult the health care provider about the prescription", "Ensure the patient's IV is a 20 gauge or larger"],
+                correct: "Consult the health care provider about the prescription"
+            },
+            {
+                id: 14,
+                question: "A patient with a spontaneous pneumothorax has a chest tube that is ordered to under-water seal. The drainage unit is not attached to suction. The water level in the water-seal chamber is fluctuating. What action should the nurse take?",
+                type: "single",
+                options: ["Notify the HCP immediately", "Decrease the amount of water in the water-seal chamber", "Document the findings", "Clamp the chest tube as close as possible to the insertion site"],
+                correct: "Document the findings"
+            },
+            {
+                id: 15,
+                question: "A nurse is caring for 70-year-old patient admitted from a nursing home that is obtunded and notes the lab results as listed: Hematocrit 61% (42-52), BUN 32 mg/dl (10-20), Sodium 159 mEq/L (135-145). Based on the lab results, which intervention should the nurse include in the plan of care?",
+                type: "single",
+                options: ["Assess for neck vein distention", "Prepare for a phlebotomy draw", "Weigh the patient daily", "Limit fluid intake"],
+                correct: "Weigh the patient daily"
+            },
+            {
+                id: 16,
+                question: "The nurse has taken on a new role in the operating room as circulating nurse. The nurse knows which patient would be most at risk for developing a latex allergy?",
+                type: "single",
+                options: ["The patient who is currently thrombocytopenic", "The patient with a family history of latex reactions", "The patient who has had repeated exposure to latex", "The patient who has had a history of a blood transfusion reaction"],
+                correct: "The patient who has had repeated exposure to latex"
+            },
+            {
+                id: 17,
+                question: "Which safety measures would be most important to implement when caring for a patient who is receiving two units of packed red blood cells (PRBC's)? (Select all that apply)",
+                type: "multiple",
+                options: ["Verify that the ABO and Rh of the two units are the exact same", "Infuse each unit of PRBCs in less than 4 hours", "Stop the transfusion if a reaction occurs and start a line with Normal Saline", "Take vital signs every 15 minutes the duration of the transfusion", "Use a 23 gauge or larger for optimal flow of a blood transfusion", "Auscultate breath sounds prior to infusion to obtain a baseline lung assessment"],
+                correct: ["Verify that the ABO and Rh of the two units are the exact same", "Infuse each unit of PRBCs in less than 4 hours", "Stop the transfusion if a reaction occurs and start a line with Normal Saline", "Take vital signs every 15 minutes the duration of the transfusion", "Auscultate breath sounds prior to infusion to obtain a baseline lung assessment"]
+            },
+            {
+                id: 18,
+                question: "The nurse is reading the nurse's note from the previous shift to evaluate the patient who is recovering from fluid volume excess (FVE). Which part of the note would demonstrate an improvement in the FVE?",
+                type: "single",
+                options: ["Presence of urine output that is medium, clear amber in color", "Foot of bed elevated 30 degrees for peripheral edema", "Ambulation to the bathroom without noted dyspnea", "Patient statement of thirst and request for the cup of water"],
+                correct: "Ambulation to the bathroom without noted dyspnea"
+            },
+            {
+                id: 19,
+                question: "The nurse documents pitting edema in the bilateral lower extremities of the patient. What does this documentation mean?",
+                type: "single",
+                options: ["There is excess fluid volume in the interstitial space in areas affected by gravity", "There is excess fluid volume in the hepatic system", "There is excess fluid volume in the venous system of the lower extremities", "There is excess fluid volume in the arterial system of the lower extremities"],
+                correct: "There is excess fluid volume in the interstitial space in areas affected by gravity"
+            },
+            {
+                id: 20,
+                question: "The provider inserts a chest tube into a patient to treat a pneumothorax. The tube is connected to water-seal drainage. The nurse can best prevent chest tube air leaks by:",
+                type: "single",
+                options: ["Keeping the chest drainage system below the level of the chest", "Checking and taping all connections", "Keeping the head of the bed elevated at all times", "Checking patency of the chest tube"],
+                correct: "Checking and taping all connections"
+            }
+        ];
+
+        function renderQuestions() {
+            const questionsList = document.getElementById('questionsList');
+            questionsList.innerHTML = '';
+            
+            EXAM_QUESTIONS.forEach((q) => {
+                let optionsHtml = '';
+                const inputType = q.type === 'single' ? 'radio' : 'checkbox';
+                
+                q.options.forEach((opt, idx) => {
+                    optionsHtml += `<label class="option">
+                        <input type="${inputType}" name="q${q.id}" value="${opt}">
+                        <span class="option-text">${opt}</span>
+                    </label>`;
+                });
+                
+                let correctText = '';
+                if (q.type === 'single') {
+                    correctText = `Correct Answer: ${q.correct}`;
+                } else {
+                    correctText = `Correct Answers: ${q.correct.join(', ')}`;
+                }
+                
+                const sataLabel = [8, 9, 11, 17].includes(q.id) ? '<span class="sata-indicator">SELECT ALL</span>' : '';
+                
+                const qCard = document.createElement('div');
+                qCard.className = 'question-card';
+                qCard.innerHTML = `
+                    <div class="question-number">Question ${q.id}${sataLabel}</div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="options-list">${optionsHtml}</div>
+                    <button class="show-answer-btn" onclick="toggleAnswer(this)">Reveal Answer</button>
+                    <div class="answer-display">
+                        <div class="answer-label">${correctText}</div>
+                    </div>
+                `;
+                questionsList.appendChild(qCard);
+            });
+        }
+
+        function toggleAnswer(btn) {
+            const card = btn.closest('.question-card');
+            const answerDisplay = card.querySelector('.answer-display');
+            answerDisplay.classList.toggle('show');
+            btn.textContent = answerDisplay.classList.contains('show') ? 'Hide Answer' : 'Reveal Answer';
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            localStorage.setItem('exam2-review-theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+
+        window.addEventListener('load', function() {
+            if (localStorage.getItem('exam2-review-theme') === 'light') {
+                document.body.classList.add('light-theme');
+            }
+            renderQuestions();
+        });
+    </script>
+</body>
+</html>
