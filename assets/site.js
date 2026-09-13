@@ -23,11 +23,11 @@
    two study guides opened in the same browser never collide. site.js
    loads before exam.js and study.js on every page, so setting it here is
    enough. */
-window.STORE_PREFIX = "nur334";
+window.STORE_PREFIX = "nur326";
 
 const SITE = {
   /* ---- EDIT THESE TWO for your course ---- */
-  brand: "NUR 334 \u00b7 Med-Surg I",  // big text, top-left of the nav bar
+  brand: "NUR 326 · Pathopharmacology I",  // big text, top-left of the nav bar
   course: "Study Guide",              // small text under it
 
   home: { id: "home", title: "Home", file: "index.html" },
@@ -45,51 +45,40 @@ const SITE = {
     {
       label: "Week 1",
       items: [
-        { id: "week1-resp-labs-dx", num: "1", title: "Respiratory Labs &amp; Diagnostics", file: "week1-respiratory-labs-diagnostics.html" },
-        { id: "week1-upper-resp", num: "2", title: "Upper Respiratory Problems", file: "week1-upper-respiratory-problems.html" },
-        { id: "week1-head-neck-ca", num: "3", title: "Head &amp; Neck Cancer", file: "week1-head-neck-cancer.html" },
-        { id: "week1-lower-resp", num: "4", title: "Lower Respiratory Problems", file: "week1-lower-respiratory-problems.html" },
-        { id: "week1-respiratory-live-lecture-review", num: "5", title: "Respiratory — Live Lecture Review", file: "week1-respiratory-live-lecture-review.html" },
+        { id: "week1-study-guide", num: "0", title: "Comprehensive Study Guide", file: "week1-study-guide.html" },
+        { id: "week1-abx", num: "1", title: "Antimicrobials &amp; Antibiotics (ABX)", file: "week1-antimicrobials-antibiotics.html" },
+        { id: "week1-antivirals", num: "2", title: "Antivirals", file: "week1-antivirals.html" },
+        { id: "week1-hiv", num: "3", title: "HIV &amp; Antiretroviral Therapy (ART)", file: "week1-hiv.html" },
+        { id: "week1-big-picture-overview", num: "4", title: "Big Picture Overview", file: "week1-big-picture-overview.html" },
       ]
     },
     {
       label: "Week 2",
       items: [
-        { id: "week2-heme-labs-dx", num: "1", title: "Hematology Labs &amp; Diagnostics", file: "week2-hematology-labs-diagnostics.html" },
-        { id: "week2-anemias-poly", num: "2", title: "Anemias &amp; Polycythemia", file: "week2-anemias-polycythemia.html" },
-        { id: "week2-blood-component", num: "3", title: "Blood Component Therapy", file: "week2-blood-component-therapy.html" },
-        { id: "week2-cvc", num: "4", title: "Central Venous Catheters", file: "week2-central-venous-catheters.html" },
+        { id: "week2-uri", num: "1", title: "Upper Respiratory Infections (URI)", file: "week2-uri.html" },
+        { id: "week2-obstructive", num: "2", title: "Obstructive Airway Disorders", file: "week2-obstructive-airway-disorders.html" },
+        { id: "week2-pneumonia", num: "3", title: "Pneumonia", file: "week2-pneumonia.html" },
+        { id: "week2-tuberculosis", num: "4", title: "Tuberculosis (TB)", file: "week2-tuberculosis.html" },
+        { id: "week2-anemia", num: "5", title: "Anemia", file: "week2-anemia.html" },
+        { id: "week2-polycythemia", num: "6", title: "Polycythemia", file: "week2-polycythemia.html" },
+        { id: "week2-big-picture-overview", num: "7", title: "Big Picture Overview", file: "week2-big-picture-overview.html" },
       ]
     },
     {
-      label: "Week 3",
+      label: "Pathopharm Review",
       items: [
-        { id: "week3-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week3-study-guide.html" },
-        { id: "week3-electrolytes", num: "1", title: "Electrolytes", file: "week3-electrolytes.html" },
-        { id: "week3-fluid-mgmt", num: "2", title: "Fluid Management", file: "week3-fluid-management.html" },
-        { id: "week3-preop", num: "3", title: "Preoperative Nursing", file: "week3-preoperative-nursing.html" },
-        { id: "week3-intraop", num: "4", title: "Intraoperative Nursing", file: "week3-intraoperative-nursing.html" },
-        { id: "week3-postop", num: "5", title: "Postoperative Nursing", file: "week3-postoperative-nursing.html" },
-        { id: "week3-big-picture", num: "6", title: "Big Picture Overview", file: "week3-big-picture.html" },
-        { id: "week3-flashcards", num: "📚", title: "Flashcards", file: "week3-flashcards.html" },
-      ]
-    },
-    {
-      label: "Fundamentals Review",
-      items: [
-        { id: "fund-legal-ethical", num: "1", title: "Legal &amp; Ethical Issues", file: "fundamentals-legal-ethical-issues.html" },
-        { id: "fund-nursing-process", num: "2", title: "Nursing Process, Clinical Judgment &amp; SBAR", file: "fundamentals-nursing-process-sbar.html" },
-        { id: "fund-obesity", num: "3", title: "Obesity &amp; Metabolic Syndrome", file: "fundamentals-obesity-metabolic-syndrome.html" },
-        { id: "fund-oxygenation", num: "4", title: "Oxygenation &amp; Tracheostomy", file: "fundamentals-oxygenation-tracheostomy.html" },
-        { id: "fund-cardiovascular", num: "5", title: "Cardiovascular", file: "fundamentals-cardiovascular.html" },
-        { id: "fund-diabetic-nutrition", num: "6", title: "Diabetic Care &amp; Nutrition", file: "fundamentals-diabetic-care-nutrition.html" },
-        { id: "fund-urinary-bowel", num: "7", title: "Urinary &amp; Bowel Elimination", file: "fundamentals-urinary-bowel-elimination.html" },
-        { id: "fund-integumentary", num: "8", title: "Integumentary", file: "fundamentals-integumentary.html" },
-        { id: "fund-neurosensory-pain", num: "9", title: "Neurosensory &amp; Pain", file: "fundamentals-neurosensory-pain.html" },
-        { id: "fund-older-adults-discharge", num: "10", title: "Older Adults &amp; Discharge Planning", file: "fundamentals-older-adults-discharge.html" },
-        { id: "fund-palliative-hospice-eol", num: "11", title: "Palliative, Hospice &amp; End of Life", file: "fundamentals-palliative-hospice-eol.html" },
-        { id: "fund-big-picture", num: "12", title: "Big Picture Overview", file: "fundamentals-big-picture-overview.html" },
-        { id: "fund-review-exam", num: "13", title: "Practice Exam — All Sections", file: "fundamentals-review-exam.html" },
+        { id: "review-pharm-foundations", num: "1", title: "Pharmacology Foundations", file: "review-pharm-foundations.html" },
+        { id: "review-cellular-immunity", num: "2", title: "Cellular Adaptation, Infection &amp; Immunity", file: "review-cellular-adaptation-infection-immunity.html" },
+        { id: "review-htn-hld", num: "3", title: "Hypertension &amp; Hyperlipidemia (HTN/HLD)", file: "review-hypertension-hyperlipidemia.html" },
+        { id: "review-diabetes-metsyn", num: "4", title: "Diabetes &amp; Metabolic Syndrome", file: "review-diabetes-metabolic-syndrome.html" },
+        { id: "review-coagulation-dvt", num: "5", title: "Coagulation &amp; DVT", file: "review-coagulation-dvt.html" },
+        { id: "review-blood-cells-cbc", num: "6", title: "Blood Cells &amp; CBC Interpretation", file: "review-blood-cells-cbc.html" },
+        { id: "review-fluid-electrolytes", num: "7", title: "Fluid &amp; Electrolytes", file: "review-fluid-electrolytes.html" },
+        { id: "review-pain-seizures", num: "8", title: "Pain &amp; Seizures", file: "review-pain-seizures.html" },
+        { id: "review-dementia-depression-sud", num: "9", title: "Dementia, Depression &amp; SUD", file: "review-dementia-depression-sud.html" },
+        { id: "review-gi-gu-skin-hypersensitivity", num: "10", title: "GI, GU, Skin &amp; Hypersensitivity", file: "review-gi-gu-skin-hypersensitivity.html" },
+        { id: "review-stress-steroids", num: "11", title: "Stress &amp; Steroids", file: "review-stress-steroids.html" },
+        { id: "review-big-picture-overview", num: "12", title: "Big Picture Overview", file: "review-big-picture-overview.html" },
       ]
     },
     {
@@ -99,6 +88,9 @@ const SITE = {
         { id: "quiz-builder",    num: "2", title: "Build Your Own Exam",       file: "quiz-builder.html" },
         { id: "torture-chamber", num: "3", title: "The Torture Chamber",       file: "torture-chamber.html" },
         { id: "lecture-review-template", num: "4", title: "Lecture Review Template", file: "lecture-review-template.html" },
+        { id: "exam2-jeopardy-game1", num: "🎮 G1", title: "Exam 2 Jeopardy — Game 1", file: "exam2-jeopardy-game1.html" },
+        { id: "exam2-jeopardy-game2", num: "🎮 G2", title: "Exam 2 Jeopardy — Game 2", file: "exam2-jeopardy-game2.html" },
+        { id: "exam2-jeopardy-game3", num: "🎮 G3", title: "Exam 2 Jeopardy — Game 3", file: "exam2-jeopardy-game3.html" },
       ]
     }
   ]
@@ -436,11 +428,11 @@ const SITE_VER = (function () {
     // Show a windowed snippet around the match (entries may be full sentences).
     function mark(text, q) {
       const i = text.toLowerCase().indexOf(q);
-      if (i < 0) return esc(text.length > 100 ? text.slice(0, 100) + "\u2026" : text);
+      if (i < 0) return esc(text.length > 100 ? text.slice(0, 100) + "…" : text);
       const pad = 48;
       const start = Math.max(0, i - pad), end = Math.min(text.length, i + q.length + pad);
-      const pre = (start > 0 ? "\u2026" : "") + text.slice(start, i);
-      const post = text.slice(i + q.length, end) + (end < text.length ? "\u2026" : "");
+      const pre = (start > 0 ? "…" : "") + text.slice(start, i);
+      const post = text.slice(i + q.length, end) + (end < text.length ? "…" : "");
       return esc(pre) + "<mark>" + esc(text.slice(i, i + q.length)) + "</mark>" + esc(post);
     }
 
