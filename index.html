@@ -25,11 +25,16 @@
 <main id="content">
 <div class="page-inner">
 
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h1 style="margin: 0; font-size: 1.5rem;">NUR334 Study Guide</h1>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark/Light</button>
+  </div>
+
   <section class="home-section">
     <div style="display: flex; align-items: center; gap: 15px;">
       <h2 style="margin: 0; flex: 1;">Exam Prep</h2>
       <details class="jeopardy-dropdown">
-        <summary style="cursor: pointer; padding: 8px 15px; background: var(--accent-blue); color: white; border-radius: 5px; font-weight: bold; user-select: none;">🎮 Jeopardy Games</summary>
+        <summary class="jeopardy-summary">🎮 Jeopardy Games</summary>
         <div class="dropdown-menu">
           <a href="exam2-jeopardy-game1.html" class="dropdown-item">Game 1</a>
           <a href="exam2-jeopardy-game2.html" class="dropdown-item">Game 2</a>
@@ -222,5 +227,18 @@
 </main>
 
 <script src="assets/site.js?v=20260913"></script>
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try {
+    localStorage.setItem('theme', next);
+  } catch (e) {
+    // localStorage may be blocked; theme still works for this session
+  }
+}
+</script>
 </body>
 </html>
