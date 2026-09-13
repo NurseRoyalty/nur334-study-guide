@@ -27,7 +27,7 @@ window.STORE_PREFIX = "nur334";
 
 const SITE = {
   /* ---- EDIT THESE TWO for your course ---- */
-  brand: "Fall 2026 - NUR334 Study Guide",  // big text, top-left of the nav bar
+  brand: "NUR334 Med Surg I",  // big text, top-left of the nav bar
   course: "Study Guide",              // small text under it
 
   home: { id: "home", title: "Home", file: "index.html" },
@@ -64,9 +64,6 @@ const SITE = {
         { id: "week2-big-picture-overview", num: "7", title: "Big Picture Overview", file: "week2-big-picture-overview.html" },
       ]
     },
-    {
-      label: "Fundamentals Review",
-      items: [
     {
       label: "Week 3",
       items: [
