@@ -34,7 +34,7 @@
     <div style="display: flex; align-items: center; gap: 15px;">
       <h2 style="margin: 0; flex: 1;">Exam Prep</h2>
       <details class="jeopardy-dropdown">
-        <summary class="jeopardy-summary">🎮 Exam 2 Jeopardy Games</summary>
+        <summary class="jeopardy-summary">🎮 Jeopardy Games</summary>
         <div class="dropdown-menu">
           <a href="exam2-jeopardy-game1.html" class="dropdown-item">Game 1</a>
           <a href="exam2-jeopardy-game2.html" class="dropdown-item">Game 2</a>
