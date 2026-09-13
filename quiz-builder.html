@@ -54,6 +54,104 @@
 <script src="data/quiz-bank.js?v=20260913"></script>
 <script src="data/week2-questions.js?v=20260913"></script>
 <script src="data/week3-questions.js?v=20260913"></script>
+<script>
+(function() {
+  // IDs of old topics to remove from quiz-bank
+  const oldTopicIds = [
+    'hematology-labs-dx',
+    'anemias-polycythemia',
+    'blood-component-therapy',
+    'central-venous-catheters',
+    'electrolyte-imbalances',
+    'fluid-management',
+    'preoperative-nursing',
+    'intraoperative-nursing',
+    'postoperative-nursing'
+  ];
+
+  // Remove old duplicate topics from quiz-bank
+  if (window.QUIZ_BANK && window.QUIZ_BANK.topics) {
+    window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !oldTopicIds.includes(t.id));
+  }
+
+  // Process Week 2 questions
+  if (window.EXAM_DATA_WEEK2 && window.EXAM_DATA_WEEK2.questions && window.QUIZ_BANK) {
+    // Remove any existing week2- prefixed topics
+    window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !t.id.startsWith('week2-'));
+
+    // Group questions by topic
+    const topicGroups2 = {};
+    window.EXAM_DATA_WEEK2.questions.forEach(q => {
+      const topic = q.topic || 'Week 2';
+      if (!topicGroups2[topic]) topicGroups2[topic] = [];
+      topicGroups2[topic].push({
+        stem: q.stem,
+        options: q.options,
+        answer: q.answer,
+        rationale: q.rationale,
+        topic: q.topic,
+        source: "quiz-bank"
+      });
+    });
+
+    // Add grouped questions to QUIZ_BANK as new topics
+    Object.keys(topicGroups2).sort().forEach(topicName => {
+      const topicId = 'week2-' + topicName.toLowerCase().replace(/\s+/g, '-');
+      window.QUIZ_BANK.topics.push({
+        id: topicId,
+        label: topicName,
+        week: 2,
+        sets: {
+          mustKnow: topicGroups2[topicName],
+          extraPractice: [],
+          eaq: []
+        }
+      });
+    });
+
+    console.log('Week 2 questions loaded: ' + window.EXAM_DATA_WEEK2.questions.length + ' questions in ' + Object.keys(topicGroups2).length + ' topics');
+  }
+
+  // Process Week 3 questions
+  if (window.EXAM_DATA_WEEK3 && window.EXAM_DATA_WEEK3.questions && window.QUIZ_BANK) {
+    // Remove any existing week3- prefixed topics
+    window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !t.id.startsWith('week3-'));
+
+    // Group questions by topic
+    const topicGroups3 = {};
+    window.EXAM_DATA_WEEK3.questions.forEach(q => {
+      const topic = q.topic || 'Week 3';
+      if (!topicGroups3[topic]) topicGroups3[topic] = [];
+      topicGroups3[topic].push({
+        stem: q.stem,
+        options: q.options,
+        answer: q.answer,
+        rationale: q.rationale,
+        topic: q.topic,
+        source: "quiz-bank"
+      });
+    });
+
+    // Add grouped questions to QUIZ_BANK as new topics
+    Object.keys(topicGroups3).sort().forEach(topicName => {
+      const topicId = 'week3-' + topicName.toLowerCase().replace(/\s+/g, '-');
+      window.QUIZ_BANK.topics.push({
+        id: topicId,
+        label: topicName,
+        week: 3,
+        sets: {
+          mustKnow: topicGroups3[topicName],
+          extraPractice: [],
+          eaq: []
+        }
+      });
+    });
+
+    console.log('Week 3 questions loaded: ' + window.EXAM_DATA_WEEK3.questions.length + ' questions in ' + Object.keys(topicGroups3).length + ' topics');
+  }
+})();
+
+</script>
 <script src="assets/site.js?v=20260913"></script>
 <script src="assets/quiz.js?v=20260913"></script>
 </body>
