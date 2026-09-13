@@ -3,293 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUR334 Exam 2 Jeopardy - NCLEX-NGN</title>
+    <title>NUR334 Exam 2 Jeopardy - NCLEX NGN Clinical Judgment</title>
+    <link rel="stylesheet" href="assets/jeopardy.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg-primary: #1a1a2e;
-            --bg-secondary: #16213e;
-            --text-primary: #ffffff;
-            --accent-blue: #0f3460;
-            --accent-gold: #e94560;
-            --button-hover: #528aff;
-        }
-        body.light-theme {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f5f5f5;
-            --text-primary: #1a1a1a;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            min-height: 100vh;
+        .custom-header {
+            background: rgba(0, 0, 0, 0.6);
+            border-bottom: 3px solid #d4a574;
+            padding: 20px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        header { background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold)); padding: 20px; text-align: center; }
-        header h1 { font-size: 2.5em; margin-bottom: 5px; }
-        .controls { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background-color: var(--bg-secondary); gap: 10px; flex-wrap: wrap; }
-        .theme-toggle { background-color: var(--accent-blue); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        .theme-toggle:hover { background-color: var(--button-hover); }
-        .scores { display: flex; gap: 30px; font-size: 1.1em; font-weight: bold; }
-        .score-value { color: var(--accent-gold); font-size: 1.3em; }
-        .game-container { flex: 1; padding: 30px 20px; max-width: 1400px; margin: 0 auto; width: 100%; }
-        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .category { background-color: var(--accent-blue); border: 3px solid var(--accent-gold); border-radius: 8px; padding: 15px; text-align: center; }
-        .category-name { font-size: 1.1em; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
-        .points-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-        .point-cell { background-color: var(--accent-gold); color: #000; padding: 12px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: all 0.2s; }
-        .point-cell:hover:not(.answered) { transform: scale(1.05); box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4); }
-        .point-cell.answered { background-color: #666; color: #999; cursor: not-allowed; opacity: 0.6; }
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); }
-        .modal-content { background-color: var(--bg-primary); margin: 5% auto; padding: 30px; border: 3px solid var(--accent-gold); border-radius: 10px; width: 90%; max-width: 900px; max-height: 90vh; overflow-y: auto; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid var(--accent-gold); padding-bottom: 15px; }
-        .modal-title { font-size: 1.3em; font-weight: bold; color: var(--accent-gold); }
-        .close-btn { background: none; border: none; font-size: 28px; cursor: pointer; color: var(--accent-gold); }
-        .question-section { margin-bottom: 25px; }
-        .section-label { font-size: 0.9em; text-transform: uppercase; margin-bottom: 8px; font-weight: bold; color: var(--accent-gold); }
-        .question-text { background-color: var(--bg-secondary); padding: 15px; border-radius: 6px; font-size: 0.95em; line-height: 1.6; margin-bottom: 10px; }
-        .answer-text { background-color: var(--accent-gold); color: #000; padding: 15px; border-radius: 6px; font-weight: bold; margin-bottom: 15px; line-height: 1.6; font-size: 0.95em; }
-        .rationale-text { background-color: var(--bg-secondary); padding: 15px; border-radius: 6px; border-left: 4px solid var(--accent-gold); font-style: italic; line-height: 1.6; font-size: 0.9em; }
-        .score-display { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-        .score-btn { background-color: var(--accent-blue); color: white; border: 2px solid var(--accent-gold); padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
-        .score-btn:hover { background-color: var(--button-hover); }
-        .close-modal-btn { background-color: var(--accent-blue); color: white; border: 2px solid var(--accent-gold); padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; }
+
+        .custom-header h1 {
+            font-size: 28px;
+            color: #d4a574;
+            margin: 0;
+        }
+
+        .custom-header p {
+            font-size: 14px;
+            color: #999;
+            margin: 4px 0 0 0;
+        }
+
+        .header-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .header-button {
+            padding: 8px 16px;
+            border: 1px solid #d4a574;
+            background: transparent;
+            color: #d4a574;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .header-button:hover {
+            background: #d4a574;
+            color: #1a1a1a;
+        }
     </style>
-    <script src="data/exam2-jeopardy.js"></script>
 </head>
 <body>
-    <header>
-        <h1>🎯 NUR334 Exam 2 Jeopardy</h1>
-        <p>NCLEX-NGN Clinical Judgment - EXTREMELY HIGH-YIELD</p>
-    </header>
-
-    <div class="controls">
-        <div class="scores">
-            <div><span>Player 1:</span> <span class="score-value" id="player1Score">0</span></div>
-            <div><span>Player 2:</span> <span class="score-value" id="player2Score">0</span></div>
+    <div class="custom-header">
+        <div class="header-content">
+            <h1>🎯 NUR334 Exam 2 Jeopardy</h1>
+            <p>NCLEX-NGN Clinical Judgment - 105 High-Yield Questions</p>
         </div>
-        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark/Light</button>
+        <button class="header-button" onclick="window.location.href='index.html'">← Back to Study Guide</button>
     </div>
 
-    <div class="game-container">
-        <div id="gameBoard"></div>
-    </div>
+    <div id="jp-root"></div>
 
-    <div id="questionModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title" id="modalTitle">Question</div>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="question-section">
-                <div class="section-label">Question</div>
-                <div class="question-text" id="questionText"></div>
-            </div>
-            <div class="question-section">
-                <div class="section-label">Answer</div>
-                <div class="answer-text" id="answerText"></div>
-                <div class="section-label">Rationale</div>
-                <div class="rationale-text" id="rationaleText"></div>
-            </div>
-            <div class="score-display">
-                <button class="score-btn" onclick="awardPoints(1)">Player 1 Correct</button>
-                <button class="score-btn" onclick="awardPoints(2)">Player 2 Correct</button>
-                <button class="score-btn" onclick="skipQuestion()">Skip</button>
-            </div>
-            <button class="close-modal-btn" onclick="closeModal()">Close</button>
-        </div>
-    </div>
-
+    <script src="data/exam2-jeopardy.js"></script>
     <script>
-        const CATEGORIES = {
-            "Hematology: Multisystem": {
-                100: [
-                    { q: "A 68-year-old on long-term warfarin (INR 2.5-3.0 therapeutic) for atrial fibrillation develops severe GI hemorrhage (hemodynamically unstable: BP 88/52, HR 138). INR today 8.3. He has received 2L normal saline and 2 units PRBC. Labs: Hgb 7.1, PT 94 seconds, aPTT 48, Fibrinogen 320. What is the PRIORITY reversal strategy given his hemodynamic instability?", a: "Fresh frozen plasma (FFP) 15 mL/kg STAT for immediate factor replacement + vitamin K 10mg IV (slow) + consider PCC (prothrombin complex concentrate) if available — FFP buys immediate time while vitamin K takes 12-24 hours; this patient needs RAPID reversal for ongoing hemorrhage", r: "This patient has ACTIVE MAJOR BLEEDING with hemodynamic instability from warfarin overdose. Vitamin K alone is TOO SLOW (12-24 hour onset). Options: (1) FFP 15mL/kg gives immediate factor replacement BUT requires large volume (3-4L for average adult) → fluid overload risk, especially in elderly. (2) PCC (fresh frozen plasma concentrate) if available = SUPERIOR: smaller volume, faster reversal, less fluid overload. (3) Vitamin K 10mg IV (adds long-term control, works slowly). In this case: FFP STAT is appropriate if PCC unavailable. Correct approach: (1) FFP 3-4 units STAT (or PCC if available), (2) Vitamin K 10mg IV, (3) Continue resuscitation, (4) Transfusion to maintain Hgb >8, (5) Identify bleeding source (endoscopy likely needed)." },
-                    { q: "A 45-year-old with sickle cell disease presents with acute chest syndrome (fever 38.9°C, new infiltrates on CXR, chest pain, dyspnea, SpO2 85% on room air). Labs: Hgb 7.2, retic 18%, LDH 950, bilirubin 4.2, negative blood cultures x2. He received 2 units PRBC in ER 2 hours ago. Chest pain worsened POST-transfusion. What is the critical complication and management adjustment?", a: "Acute chest syndrome WORSENED by simple transfusion (increased blood viscosity from added RBCs without removing sickled cells) — STOP further simple transfusions immediately, arrange EXCHANGE transfusion (remove patient's RBCs while infusing donor RBCs) to reduce HgbS <30%, avoid simple transfusion in ACS", r: "Critical error: simple transfusion WORSENS acute chest syndrome in sickle cell disease. Mechanism: added RBCs → increased viscosity → worsens microvascular occlusion → worsens sickling crisis. This patient's chest pain WORSENING post-transfusion is the clue. Management: (1) STOP simple transfusion, (2) Exchange transfusion (partial exchange) to reduce HgbS <30%, (3) Hydroxyurea for ongoing management, (4) Antibiotics (bacterial + atypical organisms: Mycoplasma, Chlamydia cause ACS), (5) Oxygen, hydration, pain management. This is a CRITICAL distinction: simple transfusion for ACS can be HARMFUL; exchange transfusion is indicated." },
-                    { q: "A 72-year-old with relapsed multiple myeloma (on bortezomib) presents with Hgb 6.8, WBC 1.2 (absolute neutrophil count 200), Plt 25K. He's febrile (38.8°C) with productive cough (yellow sputum), no obvious source on exam. Blood cultures pending. He's on piperacillin-tazobactam for past 2 days with no improvement. What is the critical next step?", a: "Patient likely has invasive FUNGAL pneumonia (Aspergillus or Pneumocystis) given severe immunosuppression + failed bacterial coverage; CONTINUE antibiotics, ADD voriconazole (Aspergillus coverage) and high-dose TMP-SMX or pentamidine (PCP coverage), obtain CT chest with contrast, consider bronchoscopy with BAL for diagnosis, check galactomannan/beta-D-glucan", r: "Severely immunocompromised patient (ANC 200, on myelotoxic chemo) with fever + pneumonia refractory to standard antibiotics = FUNGAL INFECTION until proven otherwise. Aspergillus and PCP are highest risk in this setting. Blood cultures negative doesn't rule out fungal disease (less bacteremia with fungi). Management: (1) Add voriconazole 6mg/kg IV q12h (Aspergillus), (2) Add high-dose TMP-SMX (high-dose prophylaxis also treats PCP) or pentamidine, (3) CT chest looking for halo sign (Aspergillus), (4) Bronchoscopy with BAL for lavage culture/stain, (5) Check galactomannan (Aspergillus antigen), beta-D-glucan (fungal marker), (6) G-CSF to boost neutrophil recovery, (7) Continue antibacterial coverage. Do NOT assume bacterial etiology in severely immunocompromised — fungal coverage essential." },
-                    { q: "A 38-year-old with acute leukemia (day 8 post-chemotherapy) develops sudden onset dyspnea, chest pain, and hypotension (BP 88/55). Labs: Hgb 6.2, WBC 0.1 (absolute blast count 20%), Plt 8K. He's febrile (38.2°C). CXR normal. Troponin elevated (0.28). What is the life-threatening diagnosis given chemo day 8 timing?", a: "Tumor lysis syndrome (TLS) with secondary cardiomyopathy and shock — STAT labs: K+, PO4, uric acid, creatinine, calcium; likely has severe hyperkalemia + hypocalcemia + hyperphosphatemia; give calcium gluconate for cardiac protection, insulin/glucose for K shift, aggressive hydration, sodium bicarbonate, consider dialysis emergently", r: "Day 8 post-chemotherapy is PEAK time for tumor lysis syndrome. Dying leukemic blasts release: (1) K+ → hyperkalemia (cardiac dysrhythmias), (2) PO4 → hyperphosphatemia (binds calcium → hypocalcemia), (3) Uric acid → urate precipitation (kidney injury). This patient's cardiogenic shock (elevated troponin, hypotension) is from: (1) Severe hyperkalemia (causes myocardial irritability), (2) Hypocalcemia (worsens cardiac function), (3) Possible secondary myocarditis from chemo toxicity. Management: (1) STAT comprehensive metabolic panel, LDH, uric acid, (2) Calcium gluconate 10-20 mL IV immediately (cardiac protection from hypocalcemia/hyperkalemia), (3) Insulin 10 units + dextrose 50% (shifts K intracellularly), (4) Sodium bicarbonate (alkalinizes urine, prevents uric acid precipitation), (5) AGGRESSIVE IV hydration (goal: urine output 200-300 mL/hr) — use normal saline initially (NOT lactated Ringer's which has K), (6) Allopurinol or FEBUXOSTAT (reduce uric acid production), (7) Monitor for acute kidney injury (likely already present with elevated creatinine), (8) Prepare for emergency dialysis if K >7 or creatinine severely elevated." },
-                    { q: "A 58-year-old with newly diagnosed stage IV non-small cell lung cancer (with bone metastases) presents hypotensive (BP 92/54) with altered mental status, weakness, and confusion. Labs: Na 118 (severely low), K 5.8, Ca 14.2, glucose 68. He received 2L normal saline in ER with no improvement in BP/mental status. What is the DUAL problem that explains this presentation?", a: "Tumor lysis syndrome (hyperkalemia from bone mets) PLUS SIADH-induced severe hyponatremia (often from lung cancer) creating 'perfect storm'; immediate management: calcium gluconate + insulin/glucose for K shift, restrict fluids for SIADH hyponatremia (do NOT continue normal saline which worsens hyponatremia), address glucose <70 concurrently", r: "This is a TRAP scenario where simple fluid resuscitation makes things WORSE. Dual pathophysiology: (1) Tumor lysis syndrome from bone metastases → hyperkalemia (K 5.8), (2) SIADH from lung cancer → hyponatremia (Na 118). Normal saline in SIADH patient WORSENS hyponatremia (dilutes existing sodium further). Additionally: hypoglycemia (glucose 68) from metabolic stress. Management sequence: (1) Dextrose 50% for hypoglycemia FIRST, (2) Calcium gluconate for cardiac protection (hyperkalemia), (3) Insulin + glucose for K shift, (4) FLUID RESTRICTION for SIADH (do NOT continue normal saline), (5) Sodium bicarbonate for TLS management, (6) Hypertonic saline (3%) ONLY if seizing from hyponatremia (slow correction), (7) Monitor K, Na, glucose q2-4h. This patient NEEDS dialysis likely for both K and Na management." }
-                ],
-                200: [
-                    { q: "A 55-year-old trauma patient (motor vehicle crash) in hemorrhagic shock (BP 74/48, HR 162) receives massive transfusion protocol (18 units PRBC, 12 units FFP, 6 units platelets over 90 minutes). He develops sudden-onset coma with fixed dilated pupils bilaterally. Core temperature 32.8°C (91°F), K 7.8, Ca 5.2, pH 6.88. What is the IMMEDIATE management sequence?", a: "Severe hypothermia-induced metabolic derangement ('scoop and run' from scene means profound cooling occurred); STOP resuscitation temporarily, initiate EXTRACORPOREAL REWARMING (ECMO/ECLS preferred), hold all medications (hypothermia reduces metabolism → meds accumulate → toxicity), continue compressions if in arrest, do NOT pronounce dead until 'warm and dead'", r: "Core temperature 32.8°C = profound hypothermia (CRITICAL). Fixed dilated pupils + coma suggests severe CNS depression but hypothermia can mimic death. Mechanism: (1) Hypothermia → metabolic rate ↓50% per 1°C drop → medications ineffective (no cardiac output), (2) Massive transfusion trauma + hypothermia = 'lethal triad' (hypothermia + coagulopathy + acidosis), (3) Hyperkalemia + hypocalcemia from hypothermia + transfusion = cardiac dysrhythmia risk, (4) Acidosis pH 6.88 = life-threatening. Management: (1) STOP resuscitation temporarily IF in true asystole (hypothermia prevents defibrillation response), (2) Initiate EXTRACORPOREAL REWARMING (ECMO is GOLD STANDARD for severe hypothermia — can rewarm 1°C per 2-3 minutes), (3) HOLD ALL MEDICATIONS until core temp >30°C (ineffective + accumulate), (4) If in cardiac arrest: defer CPR until core temp improves OR initiate CPR if transport to ECMO <15 min away, (5) Continue compressions if ANY perfusing rhythm (hypothermia can present with 'incompatible with life' but patient survives), (6) Aggressive correction of K/Ca/acidosis once ECMO initiated, (7) Avoid re-warming with standard methods (peripheral warming can cause afterdrop — warm central circulation first). Prognosis: survival possible even with prolonged hypothermia + arrest." },
-                    { q: "A 48-year-old with thrombotic thrombocytopenic purpura (TTP, confirmed by adamts13 <10%, normal PT/aPTT, schistocytes on smear) is undergoing plasma exchange. Day 3 of treatment: Plt remains 25K (not improving), new microangiopathic hemolytic anemia (Hgb 5.8 down from 6.2), acute kidney injury worsening (Cr 3.2 up from 2.8). He's neurologically unchanged (not deteriorating). What is the critical consideration?", a: "Treatment-resistant TTP (plasma exchange failure despite ADAMTS13 correction) — consider switching from FFP to cryoprecipitate-poor plasma (Cyto-poor FFP) or Solvent Detergent (SD-plasma) which has less contaminating substances that worsen TTP; evaluate for possible diagnosis revision (atypical HUS, MAHA from malignancy), continue exchanges but prepare for additional therapies (rituximab, eculizumab for complement-mediated TTP)", r: "Standard plasma exchange (using FFP) works for classic TTP by removing ADAMTS13 inhibitors. However, ~10-20% of patients are 'refractory' to PE alone. This patient's worsening despite PE suggests: (1) Possible FFP contamination with procoagulant substances worsening TTP, (2) Possible alternative pathophysiology (complement-mediated TTP, secondary MAHA), (3) Need for additional therapies. Management: (1) Continue plasma exchange but switch to cyto-poor FFP or SD-plasma (eliminates leukocyte aggregates + other substances that may worsen hemolysis), (2) Add rituximab (anti-CD20) for inhibitor-mediated TTP, (3) Consider eculizumab (complement inhibitor) if complement-mediated variant suspected, (4) Evaluate for triggers (malignancy, infection, drugs causing secondary MAHA), (5) Daily monitoring: Plt count, Hgb, reticulocyte count, LDH, Schistocytes on smear. Most TTP patients respond to PE by day 3-4; lack of response requires aggressive intervention." }
-                ]
-            },
-            "Anemias: Critical Mgmt": {
-                100: [
-                    { q: "A 35-year-old with severe pernicious anemia (B12 level 110, Hgb 5.8, MCV 112, neurologic symptoms: ataxia + paresthesias) is started on IM B12 injections. Day 3 post-B12: patient develops acute hypokalemia (K 2.8, baseline 4.2), hypomagnesemia (Mg 1.3), hypophosphatemia (PO4 1.8), and weakness. What is the CRITICAL concept and management priority?", a: "REFEEDING SYNDROME from rapid B12 correction stimulating RBC production — cells suddenly import massive K+, Mg, PO4 intracellularly → acute hypokalemia/hypomagnesemia/hypophosphatemia despite total body deficiency; SLOW B12 dosing, AGGRESSIVELY replete K/Mg/PO4 IV, continuous cardiac monitoring (risk of sudden cardiac death from electrolyte shifts), reassess B12 repletion rate", r: "Classic refeeding syndrome: severely deficient patients suddenly corrected → cells begin biosynthesis requiring MASSIVE electrolyte influx intracellularly → acute depletion from serum. Patient went from severe B12 deficiency → normal stimulation of erythropoiesis → sudden cellular demand for K/Mg/PO4. This can cause SUDDEN CARDIAC DEATH. Management: (1) STOP IM B12 temporarily or reduce dose, (2) Aggressive IV electrolyte replacement: IV potassium chloride (goal K >3.5), IV magnesium sulfate, IV phosphate, (3) Continuous cardiac monitoring (arrhythmia risk from electrolyte chaos), (4) SLOW B12 repletion: lower dose or less frequent (every other week instead of weekly), (5) Monitor K/Mg/PO4 every 4-6 hours initially, (6) Once stable, resume B12 at slower pace. This is a PARADOX where treating B12 deficiency causes acute complications — clinicians often miss this." },
-                    { q: "A 42-year-old with Crohn's disease (terminal ileum involvement) on infliximab + azathioprine has Hgb 7.2, MCV 68, ferritin 8, TSAT 12% (iron deficiency), PLUS B12 97 (B12 deficiency) and folate 2.1 (folate deficiency). What is the PRIORITY repletion sequence and WHY?", a: "B12 FIRST or simultaneously with folate; if folate repleted alone → masks B12 neurologic damage (peripheral neuropathy can progress to irreversible spinal cord demyelination while B12 remains untreated); then iron ONLY after GI inflammation controlled (iron supplementation worsens Crohn's inflammation initially)", r: "CRITICAL concept: DUAL B12 + folate deficiency requires CAREFUL sequencing. Mechanism: folate supplements RBC production BUT does NOT address B12's neurologic role. If folate corrected alone: (1) Hgb improves → neurologic B12 symptoms continue/worsen silently → demyelination progresses, (2) By time B12 deficiency recognized, irreversible spinal cord damage has occurred. Management sequence: (1) B12 IM injections (monthly indefinitely for Crohn's terminal ileum) + folate supplementation SIMULTANEOUSLY, (2) Iron supplementation DELAYED until Crohn's inflammation controlled (iron worsens intestinal inflammation → flares), (3) Address Crohn's with biologics (infliximab ongoing), (4) Recheck B12/folate/iron in 4-6 weeks, (5) Neurology evaluation if neurologic symptoms present (assess cord integrity with MRI if red flags). The mistake: starting iron + folate but forgetting B12 → catastrophic delayed neurologic damage." }
-                ],
-                200: []
-            },
-            "Polycythemia: Thrombotic": {
-                100: [
-                    { q: "A 64-year-old with polycythemia vera (Hct 62%, Hgb 21) on hydroxyurea + aspirin presents with sudden-onset severe abdominal pain, vomiting, and shock (BP 82/48). Abdomen distended. Labs: elevated LDH, elevated bilirubin, elevated amylase (380). What is the life-threatening complication?", a: "Thrombotic mesenteric infarction from superior mesenteric artery (SMA) thrombosis (visceral thrombosis is high-risk in PV despite aspirin + hydroxyurea) — STAT CT angiography abdomen/pelvis, cardiothoracic surgery consult for possible embolectomy, aggressive anticoagulation (heparin), prepare for emergent surgery if necrosis evident, pain out of proportion to exam findings is key sign", r: "Polycythemia vera patients have inherently HIGH viscosity + hypercoagulability from clonal platelet dysfunction. Abdominal pain + shock + elevated amylase = likely mesenteric infarction. This is LIFE-THREATENING with mortality >50% even with treatment. Management: (1) STAT CT angiography of abdomen/pelvis (look for thrombus in SMA/portal vein), (2) Aggressive heparin (unfractionated, bolus + infusion) immediately (don't wait for imaging), (3) Cardiothoracic surgery consultation (may need emergent thrombectomy if early enough), (4) Surgical consult (assess for bowel necrosis — if necrotic bowel present, resection needed), (5) Support: NPO, nasogastric tube, fluids, vasopressors for shock, (6) Post-treatment: increase phlebotomy target (get Hct <45%), add hydroxyurea if not already maximum, high-dose aspirin (if not contraindicated by GI bleed history). Prognosis depends on: time to diagnosis (earlier = more salvageable), extent of infarction." }
-                ],
-                200: []
-            },
-            "Transfusion: Complications": {
-                100: [
-                    { q: "A 58-year-old in septic shock from necrotizing soft tissue infection receives massive transfusion (20 units PRBC, 14 units FFP, 8 units platelets over 2 hours). Develops suddenly: ARDS-level hypoxemia (P/F ratio 88), coagulopathy (PT >30, aPTT immeasurable, Fib 65), hemorrhage from ALL sites, core temp 32.1°C, pH 6.74. What is the cascade of complications?", a: "Combination: (1) TRALI from transfused blood, (2) Massive dilutional coagulopathy + DIC from sepsis, (3) Profound hypothermia from cold blood, (4) Metabolic acidosis from shock/transfusion; EMERGENCY management: STOP massive transfusion temporarily, initiate ECMO for rewarming + oxygenation, hold medications (hypothermia), correct K/Ca/acid-base aggressively, prepare for OR (source control of necrotizing infection)", r: "This is a 'PERFECT STORM' with mortality 50-80% despite treatment. Multiple catastrophes colliding: (1) TRALI → bilateral infiltrates, hypoxemia, pulmonary edema (non-cardiogenic), (2) Dilutional coagulopathy + DIC → bleeding from everywhere (ARDS worsened by hemorrhage), (3) Profound hypothermia from massive cold transfusion → cardiac instability, medication inefficacy, (4) Acidosis → cellular dysfunction, cardiac dysrhythmias, (5) Ongoing sepsis/tissue necrosis → continued insult. Management: (1) ECMO/ECLS immediately (only way to adequately rewarm + oxygenate + allow blood perfusion), (2) Transfusion temporarily PAUSED (let ECMO stabilize patient), (3) Hold all medications (ineffective until warm), (4) Aggressive K/Ca correction, (5) Source control: OR for necrotizing fasciitis debridement cannot wait, (6) ICU-level support. This patient needs MULTIDISCIPLINARY team (trauma surgery, cardiothoracic, infectious disease, ICU)." }
-                ],
-                200: []
-            },
-            "Electrolytes: Extreme": {
-                100: [
-                    { q: "A 64-year-old SIADH patient on fluid restriction (500 mL/day) + vaptans for chronic hyponatremia (Na baseline 120, stable 6 months) is admitted with acute delirium, seizures, and altered mental status. Today's Na = 98 (ACUTE drop from baseline 120 = 22 mEq/L drop in hours). What is the PRIORITY distinction and management?", a: "ACUTE hyponatremia (hours) is MORE symptomatic than chronic (same severity) — seizures from ACUTE drop; HYPERTONIC saline (3%) is now INDICATED (paradoxically — usually avoided in SIADH) because acute symptomatic hyponatremia overrides usual restrictions; correct at 4-6 mEq/L per hour until seizures stop, then slow to 8 mEq/L per 24h", r: "CRITICAL distinction: Chronicity of hyponatremia determines symptoms + management. Acute hyponatremia (develops over hours) causes MORE symptoms at same Na level because brain has NOT had time to adapt. Chronic hyponatremia (weeks-months) causes LESS symptoms because brain has compensated by reducing intracellular osmolytes. This patient's acute drop from 120 to 98 (22 mEq/L in hours) is SYMPTOMATIC (seizures). Management: (1) Hypertonic saline is NOW appropriate (ONLY exception to fluid restriction in SIADH — acute symptomatic), (2) Correct at 4-6 mEq/L per hour UNTIL seizures STOP, then slower (8 mEq/L per 24h thereafter to prevent overcorrection → ODS), (3) Seizure precautions, (4) Identify cause of acute Na drop (diuretics, drugs, increased SIADH trigger?), (5) Once Na >100, switch back to fluid restriction approach. The trap: some clinicians restrict fluids even in acute severe hyponatremia — WRONG; acute symptomatic disease requires hypertonic saline." },
-                    { q: "A 72-year-old with CKD (Cr 3.8, eGFR 12) on combination ACE-I + spironolactone develops severe hyperkalemia (K 7.4), metabolic acidosis (HCO3 15, pH 7.28), and new acute kidney injury (Cr 5.2 from 3.8 in 48 hours). He's asymptomatic at this moment. EKG shows peaked T-waves, widened QRS. What is the PRIORITY?", a: "Severe hyperkalemia with EKG changes + acute AKI crisis — STOP ACE-I and spironolactone immediately, STAT calcium gluconate for cardiac protection (peaked T-waves are red flag for dysrhythmia risk), insulin/glucose + sodium bicarbonate + albuterol for K shift, AGGRESSIVE EVALUATION for cause of AKI (prerenal vs. acute tubular necrosis vs. obstructive), prepare for URGENT dialysis (likely needed for both K removal + AKI management)", r: "This patient has TRIPLE emergency: (1) Severe hyperkalemia (K 7.4) with EKG changes (peaked T-waves, wide QRS) = CARDIAC EMERGENCY, (2) Acute kidney injury worsening (Cr 5.2) = can't excrete K, (3) Metabolic acidosis worsening hyperkalemia. The ACE-I + spironolactone combination is CONTRAINDICATED in renal failure — both drugs cause K retention + this patient's kidneys can't excrete. Management sequence: (1) STOP both ACE-I AND spironolactone (permanent decision likely — can't restart without closer monitoring), (2) STAT calcium gluconate 10-20 mL IV (stabilizes cardiac membrane from peaked T-wave hyperkalemia), (3) Insulin 10 units + dextrose 50% (shifts K into cells), (4) Sodium bicarbonate for acidosis + K shift, (5) URGENT evaluation for AKI cause: assess volume status (prerenal?), urine sodium/osmolality, renal ultrasound (obstruction?), (6) Likely needs EMERGENT DIALYSIS (both hyperkalemia + renal failure require it). Do NOT give normal saline (volume overload in AKI); avoid further potassium exposure." }
-                ],
-                200: []
-            },
-            "Perioperative: Complex": {
-                100: [
-                    { q: "A 68-year-old post-op day 2 from coronary artery bypass graft (CABG) develops sudden atrial fibrillation with rapid ventricular response (HR 168), hypotension (BP 92/58), decreased urine output (20 mL/hr), and altered mental status. He's on metoprolol + amiodarone (loaded intraoperatively). Recent labs: Mg 1.2 (low), K 3.8 (low-normal), calcium normal. Chest tube output 180 mL/hr (high). What is the PRIORITY intervention sequence?", a: "Post-op AF likely from electrolyte derangement (hypomagnesemia + borderline hypokalemia) + surgical stress, worsened by ongoing mediastinal bleeding (high chest tube output) causing hypovolemia + shock — PRIORITY: (1) Aggressive Mg + K replacement IV (correct hypomagnesemia FIRST — enables beta-blocker/amiodarone effectiveness), (2) Increase metoprolol IV for rate control, (3) Address bleeding source (chest tube bleeding 180 mL/hr = significant — may need return to OR for hemostasis), (4) Fluid resuscitation with blood/colloid (not crystalloid alone), (5) Monitor cardiac output/BP response, (6) Once stabilized, may need transesophageal echocardiogram (TEE) if AF persists to rule out clot formation", r: "Post-op atrial fibrillation (occurs in 20-40% after CABG) is MULTIFACTORIAL: (1) Hypomagnesemia worsens AF (Mg needed for cardiac repolarization), (2) Hypokalemia worsens AF (K needed for cardiac conduction), (3) Surgical trauma + stress triggers AF, (4) Hypovolemia from ongoing mediastinal bleeding precipitates AF. Trap: clinicians see AF + hypotension and escalate amiodarone/metoprolol WITHOUT addressing root cause (electrolytes + bleeding). Management sequence: (1) IV magnesium sulfate 2-4g (corrects hypomagnesemia, stabilizes myocardium, makes beta-blockers/amiodarone work), (2) IV potassium to K >4.0, (3) Increase metoprolol IV, (4) URGENT evaluation of high chest tube output (normal is <50-100 mL/hr; 180 is excessive) — may need return to OR if active bleeding, (5) Blood transfusion for ongoing losses, (6) Vasopressor support (phenylephrine) for BP if needed, (7) Once stable: consider transoesophageal echo (TEE) to rule out AF-induced thrombus (CABG patients on aspirin have reduced stroke risk but still present)." }
-                ],
-                200: []
-            },
-            "Malignant Hyperthermia": {
-                100: [
-                    { q: "During induction with succinylcholine + sevoflurane for hip surgery, patient develops masseter rigidity. Anesthesia STOPS triggering agents immediately, hyperventilates 100% O2, and PREPARES dantrolene. 2 minutes later: ETCO2 rises to 75, temperature 38.2°C, HR 158, BP 168/95, venous blood dark/brown. What is the IMMEDIATE next step?", a: "FULMINANT MALIGNANT HYPERTHERMIA with rhabdomyolysis + DIC in progress — ABORT SURGERY immediately (if possible) or finish EMERGENTLY with non-triggering agents, STAT dantrolene 2.5 mg/kg IV (repeat q5 min), aggressive cooling (ice packs, cold IV saline, cooling blanket), ICU admission with continuous monitoring, prepare for complications: rhabdomyolysis (myoglobinuria risk), hyperkalemia (cardiac dysrhythmia risk), DIC (coagulopathy)", r: "This is a FULMINANT MH crisis (ETCO2 75 = severe hypermetabolism, dark venous blood = myoglobinuria/DIC, temp rising 38.2°C). Mortality 5-10% even WITH dantrolene. Management sequence: (1) Abort surgery if safe/possible (finish EMERGENTLY if emergency case with non-triggering agents + minimal anesthesia), (2) Dantrolene 2.5 mg/kg IV STAT, repeat every 5 minutes until: ETCO2 normalizes, muscle rigidity resolves, temperature stabilizes <38.5°C (target 10 mg/kg max), (3) Cooling measures: ice packs (axillae, groin), cold normal saline IV, cooling blanket, (4) AGGRESSIVE fluid resuscitation (goal: myoglobin-free urine, urine output 200-300 mL/hr) — target urine color clears, (5) STAT labs: K+, Ca, Mg, CK, myoglobin, coagulation studies, (6) Hyperventilate to lower ETCO2 (reduces CO2 stimulus for further hypermetabolism), (7) Continuous cardiac monitoring (peaked T-waves from hyperkalemia risk), (8) Prepare for: dialysis (AKI from myoglobinuria), DIC management (FFP, platelets, cryoprecipitate), (9) POST-CRISIS: Dantrolene 1 mg/kg IV q4-6h for 24-48 hours (prevent recrudescence — occurs 25% of time!). This patient needs ICU-level care for >=48 hours post-crisis." }
-                ],
-                200: []
-            }
-        };
+      // Force all 7 categories to display (not just 5 random)
+      window.NUM_CATEGORIES = 7;
 
-        let player1Score = 0;
-        let player2Score = 0;
-        let answeredClues = new Set();
-        let currentCategory = null;
-        let currentPoints = null;
-
-        function initializeGame() {
-            loadScores();
-            loadAnsweredClues();
-            renderBoard();
-        }
-
-        function renderBoard() {
-            const board = document.getElementById('gameBoard');
-            board.innerHTML = '';
-            const grid = document.createElement('div');
-            grid.className = 'categories-grid';
-
-            Object.keys(CATEGORIES).forEach(categoryName => {
-                const categoryDiv = document.createElement('div');
-                categoryDiv.className = 'category';
-                const nameDiv = document.createElement('div');
-                nameDiv.className = 'category-name';
-                nameDiv.textContent = categoryName;
-                categoryDiv.appendChild(nameDiv);
-                const pointsGridDiv = document.createElement('div');
-                pointsGridDiv.className = 'points-grid';
-                [100, 200].forEach(points => {
-                    if (CATEGORIES[categoryName][points] && CATEGORIES[categoryName][points].length > 0) {
-                        const clueKey = categoryName + '-' + points;
-                        const cellDiv = document.createElement('div');
-                        cellDiv.className = 'point-cell';
-                        cellDiv.textContent = points + ' pts';
-                        if (answeredClues.has(clueKey)) {
-                            cellDiv.classList.add('answered');
-                        } else {
-                            cellDiv.onclick = () => openQuestion(categoryName, points);
-                        }
-                        pointsGridDiv.appendChild(cellDiv);
-                    }
-                });
-                categoryDiv.appendChild(pointsGridDiv);
-                grid.appendChild(categoryDiv);
-            });
-            board.appendChild(grid);
-        }
-
-        function openQuestion(categoryName, points) {
-            currentCategory = categoryName;
-            currentPoints = points;
-            const clues = CATEGORIES[categoryName][points];
-            if (!clues || clues.length === 0) return;
-            const clue = clues[Math.floor(Math.random() * clues.length)];
-            document.getElementById('modalTitle').textContent = categoryName + ' - ' + points + ' pts';
-            document.getElementById('questionText').textContent = clue.q;
-            document.getElementById('answerText').textContent = clue.a;
-            document.getElementById('rationaleText').textContent = clue.r;
-            document.getElementById('questionModal').style.display = 'block';
-        }
-
-        function awardPoints(player) {
-            if (player === 1) player1Score += currentPoints;
-            else player2Score += currentPoints;
-            markClueAnswered();
-            saveScores();
-            updateScoreDisplay();
-            closeModal();
-        }
-
-        function skipQuestion() {
-            markClueAnswered();
-            closeModal();
-        }
-
-        function markClueAnswered() {
-            answeredClues.add(currentCategory + '-' + currentPoints);
-            saveAnsweredClues();
-            renderBoard();
-        }
-
-        function closeModal() {
-            document.getElementById('questionModal').style.display = 'none';
-            currentCategory = null;
-            currentPoints = null;
-        }
-
-        function updateScoreDisplay() {
-            document.getElementById('player1Score').textContent = player1Score;
-            document.getElementById('player2Score').textContent = player2Score;
-        }
-
-        function saveScores() {
-            localStorage.setItem('exam2-scores-1', player1Score.toString());
-            localStorage.setItem('exam2-scores-2', player2Score.toString());
-        }
-
-        function loadScores() {
-            player1Score = parseInt(localStorage.getItem('exam2-scores-1') || '0');
-            player2Score = parseInt(localStorage.getItem('exam2-scores-2') || '0');
-            updateScoreDisplay();
-        }
-
-        function saveAnsweredClues() {
-            localStorage.setItem('exam2-answered-clues', JSON.stringify(Array.from(answeredClues)));
-        }
-
-        function loadAnsweredClues() {
-            const saved = localStorage.getItem('exam2-answered-clues');
-            if (saved) answeredClues = new Set(JSON.parse(saved));
-        }
-
-        function toggleTheme() {
-            document.body.classList.toggle('light-theme');
-            localStorage.setItem('exam2-theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
-        }
-
-        window.onclick = function(event) {
-            if (event.target === document.getElementById('questionModal')) closeModal();
-        };
-
-        window.addEventListener('load', function() {
-            if (localStorage.getItem('exam2-theme') === 'light') document.body.classList.add('light-theme');
-            initializeGame();
-        });
-    </script>
-</body>
-</html>
-    <script>
-      // Convert JEOPARDY_EXAM2 to CATEGORIES format for the game
-      if (window.JEOPARDY_EXAM2 && window.JEOPARDY_EXAM2.categories) {
-        window.CATEGORIES = {};
-        window.JEOPARDY_EXAM2.categories.forEach(cat => {
-          window.CATEGORIES[cat.name] = cat.clues;
-        });
+      // Map JEOPARDY_EXAM2 to JEOPARDY_WEEK2 for the game engine
+      if (window.JEOPARDY_EXAM2 !== undefined && window.JEOPARDY_WEEK2 === undefined) {
+        window.JEOPARDY_WEEK2 = window.JEOPARDY_EXAM2;
       }
     </script>
+    <script src="assets/jeopardy.js"></script>
+</body>
+</html>
