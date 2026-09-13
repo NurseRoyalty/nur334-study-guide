@@ -440,7 +440,7 @@
     const board = categories.map(cat => ({
       name: cat.name,
       slots: VALUES.map(value => {
-        const clues = (cat.clues && cat.clues[value]) || [];
+        const clues = (cat[value]) || [];
         return {
           value,
           clue: clues.length > 0 ? clues[Math.floor(Math.random() * clues.length)] : null,
