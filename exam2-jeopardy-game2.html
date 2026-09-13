@@ -92,13 +92,16 @@
                 <div class="section-label">Question</div>
                 <div class="question-text" id="questionText"></div>
             </div>
-            <div class="question-section">
+            <div class="question-section" id="answerSection" style="display: none;">
                 <div class="section-label">Answer</div>
                 <div class="answer-text" id="answerText"></div>
                 <div class="section-label">Rationale</div>
                 <div class="rationale-text" id="rationaleText"></div>
             </div>
             <div class="score-display">
+                <button class="score-btn" id="revealBtn" onclick="revealAnswer()" style="background-color: #463a6e; border-color: #c15b7c;">Reveal Answer</button>
+            </div>
+            <div class="score-display" id="scoreButtons" style="display: none;">
                 <button class="score-btn" onclick="awardPoints(1)">Player 1 Correct</button>
                 <button class="score-btn" onclick="awardPoints(2)">Player 2 Correct</button>
                 <button class="score-btn" onclick="skipQuestion()">Skip</button>
@@ -168,6 +171,10 @@
             document.getElementById('questionText').textContent = clue.q;
             document.getElementById('answerText').textContent = clue.a;
             document.getElementById('rationaleText').textContent = clue.rationale;
+            // Reset reveal state
+            document.getElementById('answerSection').style.display = 'none';
+            document.getElementById('scoreButtons').style.display = 'none';
+            document.getElementById('revealBtn').style.display = 'block';
             document.getElementById('questionModal').style.display = 'block';
         }
 
@@ -195,6 +202,12 @@
             document.getElementById('questionModal').style.display = 'none';
             currentCategory = null;
             currentPoints = null;
+        }
+
+        function revealAnswer() {
+            document.getElementById('answerSection').style.display = 'block';
+            document.getElementById('scoreButtons').style.display = 'flex';
+            document.getElementById('revealBtn').style.display = 'none';
         }
 
         function updateScoreDisplay() {
