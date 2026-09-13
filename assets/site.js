@@ -65,7 +65,7 @@ const SITE = {
       ]
     },
     {
-      label: "Pathopharm Review",
+      label: "Fundamentals Review",
       items: [
     {
       label: "Week 3",
@@ -80,7 +80,7 @@ const SITE = {
       ]
     },
     {
-      label: "Pathopharm Review",
+      label: "Fundamentals Review",
       items: [
         { id: "review-pharm-foundations", num: "1", title: "Pharmacology Foundations", file: "review-pharm-foundations.html" },
         { id: "review-cellular-immunity", num: "2", title: "Cellular Adaptation, Infection &amp; Immunity", file: "review-cellular-adaptation-infection-immunity.html" },
