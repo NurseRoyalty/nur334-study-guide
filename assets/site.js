@@ -45,23 +45,20 @@ const SITE = {
     {
       label: "Week 1",
       items: [
-        { id: "week1-study-guide", num: "0", title: "Comprehensive Study Guide", file: "week1-study-guide.html" },
-        { id: "week1-abx", num: "1", title: "Antimicrobials &amp; Antibiotics (ABX)", file: "week1-antimicrobials-antibiotics.html" },
-        { id: "week1-antivirals", num: "2", title: "Antivirals", file: "week1-antivirals.html" },
-        { id: "week1-hiv", num: "3", title: "HIV &amp; Antiretroviral Therapy (ART)", file: "week1-hiv.html" },
-        { id: "week1-big-picture-overview", num: "4", title: "Big Picture Overview", file: "week1-big-picture-overview.html" },
+        { id: "week1-upper-respiratory", num: "1", title: "Upper Respiratory Problems", file: "week1-upper-respiratory-problems.html" },
+        { id: "week1-lower-respiratory", num: "2", title: "Lower Respiratory Problems", file: "week1-lower-respiratory-problems.html" },
+        { id: "week1-head-neck-cancer", num: "3", title: "Head &amp; Neck Cancer", file: "week1-head-neck-cancer.html" },
+        { id: "week1-respiratory-labs", num: "4", title: "Labs &amp; Diagnostics", file: "week1-respiratory-labs-diagnostics.html" },
+        { id: "week1-respiratory-lecture", num: "5", title: "Live Lecture Review", file: "week1-respiratory-live-lecture-review.html" },
       ]
     },
     {
       label: "Week 2",
       items: [
-        { id: "week2-uri", num: "1", title: "Upper Respiratory Infections (URI)", file: "week2-uri.html" },
-        { id: "week2-obstructive", num: "2", title: "Obstructive Airway Disorders", file: "week2-obstructive-airway-disorders.html" },
-        { id: "week2-pneumonia", num: "3", title: "Pneumonia", file: "week2-pneumonia.html" },
-        { id: "week2-tuberculosis", num: "4", title: "Tuberculosis (TB)", file: "week2-tuberculosis.html" },
-        { id: "week2-anemia", num: "5", title: "Anemia", file: "week2-anemia.html" },
-        { id: "week2-polycythemia", num: "6", title: "Polycythemia", file: "week2-polycythemia.html" },
-        { id: "week2-big-picture-overview", num: "7", title: "Big Picture Overview", file: "week2-big-picture-overview.html" },
+        { id: "week2-anemias-polycythemia", num: "1", title: "Anemias &amp; Polycythemia", file: "week2-anemias-polycythemia.html" },
+        { id: "week2-hematology-labs", num: "2", title: "Labs &amp; Diagnostics", file: "week2-hematology-labs-diagnostics.html" },
+        { id: "week2-blood-component", num: "3", title: "Blood Component Therapy", file: "week2-blood-component-therapy.html" },
+        { id: "week2-central-venous", num: "4", title: "Central Venous Catheters", file: "week2-central-venous-catheters.html" },
       ]
     },
     {
