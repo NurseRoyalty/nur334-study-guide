@@ -168,6 +168,89 @@
             }
         }
 
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 25px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 150px;
+            box-shadow: 0 4px 6px rgba(107, 70, 193, 0.2);
+            border: none;
+            width: 100%;
+        }
+
+        .dropdown-toggle:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(107, 70, 193, 0.3);
+        }
+
+        .dropdown-toggle h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.3em;
+        }
+
+        .dropdown-toggle p {
+            margin: 0;
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: var(--color-primary);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f0f0f0;
+            color: var(--color-secondary);
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .dropdown-content {
+                background-color: #2a2a2a;
+            }
+
+            .dropdown-content a {
+                color: #0099ff;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #333;
+                color: #00ccff;
+            }
+        }
+
         footer {
             text-align: center;
             margin-top: 60px;
@@ -206,10 +289,15 @@
                 <p>Week 2 & Week 3 Content (40+ questions)</p>
             </a>
 
-            <a href="exam2-jeopardy-game1.html" class="exam-prep-card">
-                <h3>🎮 Jeopardy Games</h3>
-                <p>Exam 2 interactive game review</p>
-            </a>
+            <div class="dropdown">
+                <button class="dropdown-toggle">
+                    <h3>🎮 Jeopardy Games</h3>
+                    <p>Interactive game review</p>
+                </button>
+                <div class="dropdown-content">
+                    <a href="exam2-jeopardy-game1.html">Exam 2 Jeopardy</a>
+                </div>
+            </div>
 
             <a href="exam2-comprehensive-review.html" class="exam-prep-card">
                 <h3>Exam 2 Comprehensive Review</h3>
@@ -306,5 +394,31 @@
 
     <!-- Navigation setup handled by assets/site.js -->
     <script src="assets/site.js?v=20260823"></script>
+
+    <script>
+        // Dropdown toggle functionality
+        document.querySelectorAll('.dropdown-toggle').forEach(button => {
+            button.addEventListener('click', function() {
+                const dropdown = this.parentElement;
+                dropdown.classList.toggle('active');
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    d.classList.remove('active');
+                });
+            }
+        });
+
+        // Close dropdown when a link is clicked
+        document.querySelectorAll('.dropdown-content a').forEach(link => {
+            link.addEventListener('click', function() {
+                this.closest('.dropdown').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
