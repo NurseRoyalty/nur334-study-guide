@@ -66,7 +66,7 @@
     </nav>
 
     <header>
-        <h1>🎯 NUR334 Exam 2 Jeopardy — Game 1</h1>
+        <h1>🎯 NUR334 Exam 2 Jeopardy</h1>
         <p>NCLEX-NGN Clinical Judgment - EXTREMELY HIGH-YIELD</p>
     </header>
 
@@ -75,7 +75,11 @@
             <div><span>Player 1:</span> <span class="score-value" id="player1Score">0</span></div>
             <div><span>Player 2:</span> <span class="score-value" id="player2Score">0</span></div>
         </div>
-        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark/Light</button>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark/Light</button>
+            <button class="theme-toggle" onclick="practiceAgain()" style="background-color: #463a6e;">🔄 Practice Again</button>
+            <button class="theme-toggle" onclick="newGame()" style="background-color: #c15b7c;">🆕 New Game</button>
+        </div>
     </div>
 
     <div class="game-container">
@@ -307,6 +311,26 @@
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
             localStorage.setItem('exam2-game1-theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+
+        function practiceAgain() {
+            answeredClues.clear();
+            saveAnsweredClues();
+            renderBoard();
+            closeModal();
+        }
+
+        function newGame() {
+            if (confirm('Start a new game? Scores will reset.')) {
+                player1Score = 0;
+                player2Score = 0;
+                answeredClues.clear();
+                saveScores();
+                saveAnsweredClues();
+                updateScoreDisplay();
+                renderBoard();
+                closeModal();
+            }
         }
 
         window.onclick = function(event) {
