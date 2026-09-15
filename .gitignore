@@ -1,1 +1,42 @@
 .DS_Store
+
+# System and config directories
+.cache/
+.claude/
+.config/
+.npm/
+.npm-global/
+.ssh/
+.gitconfig
+.wget-hsts
+
+# Temporary and backup files
+*.bak
+*-backup.html
+*-old.html
+current-*.html
+current-*.css
+new-*.html
+index-*.html
+NUR334-*.html
+
+# Working files and scripts from development
+add-nav.sh
+create_week3_topics.py
+merge-week3.js
+*.jeopardy*.js
+exam2-jeopardy-*.html
+exam2-jeopardy-*.js
+jeopardy-*.js
+jeopardy.css
+torture-chamber-*.html
+sata-torture-chamber-*.js
+
+# Documentation and summary files
+DEPLOYMENT_READY.txt
+GAMES_SUMMARY.txt
+WEEK3-INTEGRATION-GUIDE.md
+
+# Directories
+site/
+updates-to-website/
