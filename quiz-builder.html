@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Build Your Own Exam — Study Guide</title>
 <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-<link rel="stylesheet" href="assets/styles.css?v=20260913">
+<link rel="stylesheet" href="assets/styles.css?v=20260915">
 </head>
 <body>
 <a class="skip-link" href="#content">Skip to content</a>
@@ -51,9 +51,10 @@
 </div>
 </main>
 
-<script src="data/quiz-bank.js?v=20260913"></script>
-<script src="data/week2-questions.js?v=20260913"></script>
-<script src="data/week3-questions.js?v=20260913"></script>
+<script src="data/quiz-bank.js?v=20260915"></script>
+<script src="data/week2-questions.js?v=20260915"></script>
+<script src="data/week3-questions.js?v=20260915"></script>
+<script src="data/week4-questions.js?v=20260915"></script>
 <script>
 (function() {
   // IDs of old topics to remove from quiz-bank
@@ -149,10 +150,48 @@
 
     console.log('Week 3 questions loaded: ' + window.EXAM_DATA_WEEK3.questions.length + ' questions in ' + Object.keys(topicGroups3).length + ' topics');
   }
+
+  // Process Week 4 questions
+  if (window.EXAM_DATA_WEEK4 && window.EXAM_DATA_WEEK4.questions && window.QUIZ_BANK) {
+    // Remove any existing week4- prefixed topics
+    window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !t.id.startsWith('week4-'));
+
+    // Group questions by topic
+    const topicGroups4 = {};
+    window.EXAM_DATA_WEEK4.questions.forEach(q => {
+      const topic = q.topic || 'Week 4';
+      if (!topicGroups4[topic]) topicGroups4[topic] = [];
+      topicGroups4[topic].push({
+        stem: q.stem,
+        options: q.options,
+        answer: q.answer,
+        rationale: q.rationale,
+        topic: q.topic,
+        source: "quiz-bank"
+      });
+    });
+
+    // Add grouped questions to QUIZ_BANK as new topics
+    Object.keys(topicGroups4).sort().forEach(topicName => {
+      const topicId = 'week4-' + topicName.toLowerCase().replace(/\s+/g, '-');
+      window.QUIZ_BANK.topics.push({
+        id: topicId,
+        label: topicName,
+        week: 4,
+        sets: {
+          mustKnow: topicGroups4[topicName],
+          extraPractice: [],
+          eaq: []
+        }
+      });
+    });
+
+    console.log('Week 4 questions loaded: ' + window.EXAM_DATA_WEEK4.questions.length + ' questions in ' + Object.keys(topicGroups4).length + ' topics');
+  }
 })();
 
 </script>
-<script src="assets/site.js?v=20260913"></script>
-<script src="assets/quiz.js?v=20260913"></script>
+<script src="assets/site.js?v=20260915"></script>
+<script src="assets/quiz.js?v=20260915"></script>
 </body>
 </html>
