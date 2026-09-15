@@ -74,6 +74,17 @@ const SITE = {
       ]
     },
     {
+      label: "Week 4",
+      items: [
+        { id: "week4-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week4-study-guide.html" },
+        { id: "week4-uti", num: "1", title: "Urinary Tract Infections", file: "week4-uti.html" },
+        { id: "week4-pyelonephritis", num: "2", title: "Pyelonephritis", file: "week4-pyelonephritis.html" },
+        { id: "week4-nephrolithiasis", num: "3", title: "Nephrolithiasis", file: "week4-nephrolithiasis.html" },
+        { id: "week4-aki", num: "4", title: "Acute Kidney Injury", file: "week4-aki.html" },
+        { id: "week4-ckd", num: "5", title: "Chronic Kidney Disease", file: "week4-ckd.html" },
+      ]
+    },
+    {
       label: "Fundamentals Review",
       items: [
         { id: "review-pharm-foundations", num: "1", title: "Pharmacology Foundations", file: "review-pharm-foundations.html" },
@@ -97,9 +108,7 @@ const SITE = {
         { id: "quiz-builder",    num: "2", title: "Build Your Own Exam",       file: "quiz-builder.html" },
         { id: "torture-chamber", num: "3", title: "The Torture Chamber",       file: "torture-chamber.html" },
         { id: "lecture-review-template", num: "4", title: "Lecture Review Template", file: "lecture-review-template.html" },
-        { id: "exam2-jeopardy-game1", num: "🎮 G1", title: "Exam 2 Jeopardy — Game 1", file: "exam2-jeopardy-game1.html" },
-        { id: "exam2-jeopardy-game2", num: "🎮 G2", title: "Exam 2 Jeopardy — Game 2", file: "exam2-jeopardy-game2.html" },
-        { id: "exam2-jeopardy-game3", num: "🎮 G3", title: "Exam 2 Jeopardy — Game 3", file: "exam2-jeopardy-game3.html" },
+        { id: "exam2-jeopardy-games", num: "🎮", title: "Jeopardy Games", file: "exam2-jeopardy-game1.html" },
       ]
     }
   ]
