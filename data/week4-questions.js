@@ -1,4 +1,4 @@
-const EXAM_DATA_WEEK4 = {
+window.EXAM_DATA_WEEK4 = {
   questions: [
     // ===== UTI QUESTIONS (10 questions) =====
     {
