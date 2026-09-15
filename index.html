@@ -25,13 +25,32 @@
 <main id="content">
 <div class="page-inner">
 
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h1 style="margin: 0; font-size: 1.5rem;">NUR334 Study Guide</h1>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <details class="jeopardy-dropdown">
+        <summary class="jeopardy-summary">📚 Week 3</summary>
+        <div class="dropdown-menu">
+          <a href="week3-preoperative-nursing.html" class="dropdown-item">Preoperative</a>
+          <a href="week3-intraoperative-nursing.html" class="dropdown-item">Intraoperative</a>
+          <a href="week3-postoperative-nursing.html" class="dropdown-item">Postoperative</a>
+          <a href="week3-electrolytes.html" class="dropdown-item">Electrolytes</a>
+          <a href="week3-fluid-management.html" class="dropdown-item">Fluid Management</a>
+        </div>
+      </details>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark/Light</button>
+    </div>
+  </div>
+
   <section class="home-section">
-    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+    <div style="display: flex; align-items: center; gap: 15px;">
       <h2 style="margin: 0; flex: 1;">Exam Prep</h2>
       <details class="jeopardy-dropdown">
         <summary class="jeopardy-summary">🎮 Jeopardy Games</summary>
         <div class="dropdown-menu">
-          <a href="exam2-jeopardy-game1.html" class="dropdown-item">Exam 2 Jeopardy</a>
+          <a href="exam2-jeopardy-game1.html" class="dropdown-item">Game 1</a>
+          <a href="exam2-jeopardy-game2.html" class="dropdown-item">Game 2</a>
+          <a href="exam2-jeopardy-game3.html" class="dropdown-item">Game 3</a>
         </div>
       </details>
     </div>
@@ -44,6 +63,8 @@
         <span class="tnum">2</span>
         <span class="tbody"><h3>Build Your Own Exam</h3><p>Pick any combination of topics for a custom practice exam.</p></span>
       </a>
+      <!-- .tile-torture turns the title oxblood. Keep the class on this
+           one tile only; that is the whole point of it. -->
       <a class="tile tile-torture" href="torture-chamber.html">
         <span class="tnum">3</span>
         <span class="tbody"><h3>The Torture Chamber</h3><p>Enter if you dare.</p></span>
@@ -51,10 +72,6 @@
       <a class="tile" href="lecture-review-template.html">
         <span class="tnum">4</span>
         <span class="tbody"><h3>Lecture Review Template</h3></span>
-      </a>
-      <a class="tile" href="exam2-comprehensive-review.html">
-        <span class="tnum">📋</span>
-        <span class="tbody"><h3>Exam 2 Comprehensive Review</h3><p>All 20 practice questions from Exam 2 with answer key and rationales.</p></span>
       </a>
     </div>
   </section>
@@ -65,25 +82,25 @@
     <div class="wk-row">
       <span class="wk-badge" aria-label="Week 1">1</span>
       <div class="wk-strip">
-        <a class="tile" href="week1-upper-respiratory-problems.html">
+        <a class="tile" href="week1-respiratory-live-lecture-review.html">
           <span class="tnum">1</span>
+          <span class="tbody"><h3>Respiratory Live Lecture Review</h3></span>
+        </a>
+        <a class="tile" href="week1-head-neck-cancer.html">
+          <span class="tnum">2</span>
+          <span class="tbody"><h3>Head &amp; Neck Cancer</h3></span>
+        </a>
+        <a class="tile" href="week1-upper-respiratory-problems.html">
+          <span class="tnum">3</span>
           <span class="tbody"><h3>Upper Respiratory Problems</h3></span>
         </a>
         <a class="tile" href="week1-lower-respiratory-problems.html">
-          <span class="tnum">2</span>
+          <span class="tnum">4</span>
           <span class="tbody"><h3>Lower Respiratory Problems</h3></span>
         </a>
-        <a class="tile" href="week1-head-neck-cancer.html">
-          <span class="tnum">3</span>
-          <span class="tbody"><h3>Head &amp; Neck Cancer</h3></span>
-        </a>
         <a class="tile" href="week1-respiratory-labs-diagnostics.html">
-          <span class="tnum">4</span>
-          <span class="tbody"><h3>Labs &amp; Diagnostics</h3></span>
-        </a>
-        <a class="tile" href="week1-respiratory-live-lecture-review.html">
           <span class="tnum">5</span>
-          <span class="tbody"><h3>Live Lecture Review</h3></span>
+          <span class="tbody"><h3>Respiratory Labs &amp; Diagnostics</h3></span>
         </a>
       </div>
     </div>
@@ -91,21 +108,33 @@
     <div class="wk-row">
       <span class="wk-badge" aria-label="Week 2">2</span>
       <div class="wk-strip">
-        <a class="tile" href="week2-anemias-polycythemia.html">
+        <a class="tile" href="week2-anemias.html">
           <span class="tnum">1</span>
-          <span class="tbody"><h3>Anemias &amp; Polycythemia</h3></span>
+          <span class="tbody"><h3>Anemias</h3></span>
         </a>
-        <a class="tile" href="week2-hematology-labs-diagnostics.html">
+        <a class="tile" href="week2-polycythemia.html">
           <span class="tnum">2</span>
-          <span class="tbody"><h3>Labs &amp; Diagnostics</h3></span>
+          <span class="tbody"><h3>Polycythemia</h3></span>
+        </a>
+        <a class="tile" href="week2-hematology-labs.html">
+          <span class="tnum">3</span>
+          <span class="tbody"><h3>Hematology Labs &amp; Diagnostics</h3></span>
         </a>
         <a class="tile" href="week2-blood-component-therapy.html">
-          <span class="tnum">3</span>
+          <span class="tnum">4</span>
           <span class="tbody"><h3>Blood Component Therapy</h3></span>
         </a>
+        <a class="tile" href="week2-transfusion-reactions.html">
+          <span class="tnum">5</span>
+          <span class="tbody"><h3>Transfusion Reactions</h3></span>
+        </a>
         <a class="tile" href="week2-central-venous-catheters.html">
-          <span class="tnum">4</span>
+          <span class="tnum">6</span>
           <span class="tbody"><h3>Central Venous Catheters</h3></span>
+        </a>
+        <a class="tile" href="week2-big-picture.html">
+          <span class="tnum">7</span>
+          <span class="tbody"><h3>Big Picture Overview</h3></span>
         </a>
       </div>
     </div>
@@ -117,9 +146,9 @@
           <span class="tnum">★</span>
           <span class="tbody"><h3>Comprehensive Study Guide</h3></span>
         </a>
-        <a class="tile" href="week3-electrolyte-imbalances.html">
+        <a class="tile" href="week3-electrolytes.html">
           <span class="tnum">1</span>
-          <span class="tbody"><h3>Electrolytes &amp; Imbalances</h3></span>
+          <span class="tbody"><h3>Electrolytes</h3></span>
         </a>
         <a class="tile" href="week3-fluid-management.html">
           <span class="tnum">2</span>
@@ -138,6 +167,44 @@
           <span class="tbody"><h3>Postoperative Nursing</h3></span>
         </a>
         <a class="tile" href="week3-big-picture.html">
+          <span class="tnum">6</span>
+          <span class="tbody"><h3>Big Picture Overview</h3></span>
+        </a>
+        <a class="tile" href="exam2-comprehensive-review.html">
+          <span class="tnum">📝</span>
+          <span class="tbody"><h3>Exam 2 Comprehensive Review</h3><p>All 20 practice questions from Exam 2 with answer key and rationales.</p></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="wk-row">
+      <span class="wk-badge" aria-label="Week 4">4</span>
+      <div class="wk-strip">
+        <a class="tile" href="week4-study-guide.html">
+          <span class="tnum">★</span>
+          <span class="tbody"><h3>Comprehensive Study Guide</h3></span>
+        </a>
+        <a class="tile" href="week4-study-guide.html#uti">
+          <span class="tnum">1</span>
+          <span class="tbody"><h3>UTI (Urinary Tract Infections)</h3></span>
+        </a>
+        <a class="tile" href="week4-study-guide.html#pyelonephritis">
+          <span class="tnum">2</span>
+          <span class="tbody"><h3>Pyelonephritis</h3></span>
+        </a>
+        <a class="tile" href="week4-study-guide.html#nephrolithiasis">
+          <span class="tnum">3</span>
+          <span class="tbody"><h3>Nephrolithiasis (Kidney Stones)</h3></span>
+        </a>
+        <a class="tile" href="week4-study-guide.html#aki">
+          <span class="tnum">4</span>
+          <span class="tbody"><h3>Acute Kidney Injury (AKI)</h3></span>
+        </a>
+        <a class="tile" href="week4-study-guide.html#ckd">
+          <span class="tnum">5</span>
+          <span class="tbody"><h3>Chronic Kidney Disease (CKD)</h3></span>
+        </a>
+        <a class="tile" href="week4-study-guide.html#big-picture">
           <span class="tnum">6</span>
           <span class="tbody"><h3>Big Picture Overview</h3></span>
         </a>
@@ -206,5 +273,18 @@
 </main>
 
 <script src="assets/site.js?v=20260913"></script>
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try {
+    localStorage.setItem('theme', next);
+  } catch (e) {
+    // localStorage may be blocked; theme still works for this session
+  }
+}
+</script>
 </body>
 </html>
