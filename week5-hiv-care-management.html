@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 5 HIV Care & Management — NUR 334 Study Guide</title>
+  <script>
+    (function(){
+      try {
+        var p = new URLSearchParams(location.search).get('theme');
+        var t = p || localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+        if (p) { try { localStorage.setItem('theme', p) } catch(e){} }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <style>/* styles.css — NUR 334 Study Guide
+   Color scheme: Indigo + Rose
+   No build step, no framework, no dependencies.
+*/
+
+:root {
+  /* ---- neutrals ---- */
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --surface-3: #e4e8ed;
+  --border: #e0e4ea;
+  --border-strong: #cbd1da;
+  --text: #1e2530;
+  --text-soft: #556070;
+  --text-faint: #89929f;
+  --stripe: #f6f8fa;
+
+  /* ---- brand: indigo ---- */
+  --brand: #5b4b8a;
+  --brand-strong: #453966;
+  --brand-deep: #2d2547;
+  --brand-tint: #f0ecf7;
+  --brand-tint-2: #e3ddf0;
+
+  /* ---- accent: rose ---- */
+  --accent: #c15b7c;
+  --accent-strong: #a54765;
+  --accent-tint: #f8e8f0;
+
+  /* ---- text on brand nav ---- */
+  --on-brand-soft: #e8e0f0;
+  --on-brand-faint: #b8a8d1;
+  --on-brand-dim: #d4cae3;
+
+  /* ---- semantic ---- */
+  --ok: #2f8f6b;
+  --ok-strong: #237a58;
+  --ok-tint: #e6f4ee;
+  --bad: #c0392b;
+  --bad-strong: #a52f22;
+  --bad-tint: #fbeceb;
+
+  /* ---- callout lines ---- */
+  --line-accent: #e5b8cc;
+  --line-bad: #f3d2ce;
+
+  /* ---- metrics ---- */
+  --content-max: 1120px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 3px rgba(24,28,45,.07), 0 1px 2px rgba(24,28,45,.04);
+  --shadow-md: 0 4px 14px rgba(24,28,45,.10);
+  --shadow-lg: 0 12px 30px rgba(24,28,45,.16);
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+}
+
+:root[data-theme="dark"] {
+  --bg: #12161a;
+  --surface: #1b2027;
+  --surface-2: #232a33;
+  --surface-3: #2c343f;
+  --border: #323b47;
+  --border-strong: #45505f;
+  --text: #e6eaef;
+  --text-soft: #a7b1bd;
+  --text-faint: #7b8593;
+  --stripe: rgba(255,255,255,.025);
+  --brand: #8f80c4;
+  --brand-strong: #b3a6e0;
+  --brand-deep: #d3caee;
+  --brand-tint: #282540;
+  --brand-tint-2: #332e4e;
+  --accent: #d67e99;
+  --accent-strong: #ec9fb6;
+  --accent-tint: #3a2431;
+  --on-brand-soft: #e2ddf1;
+  --on-brand-faint: #c3b9e4;
+  --on-brand-dim: #d9d4ee;
+  --line-accent: #f0d3dd;
+  --line-bad: #4a2f2b;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* GLOBAL */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font: 1rem var(--sans); line-height: 1.6; }
+main { display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding-bottom: 60px; }
+
+#content { width: 100%; max-width: var(--content-max); padding: 40px 32px; }
+.page-inner { display: flex; flex-direction: column; }
+
+/* THEME TOGGLE */
+.theme-toggle { position: fixed; top: 16px; right: 16px; width: 50px; height: 50px; border: 2px solid var(--border); background: var(--surface); border-radius: 50%; cursor: pointer; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; z-index: 999; box-shadow: var(--shadow-md); transition: .2s; }
+.theme-toggle:hover { border-color: var(--brand); }
+:root[data-theme="light"] .sun { display: block; }
+:root[data-theme="light"] .moon { display: none; }
+:root[data-theme="dark"] .sun { display: none; }
+:root[data-theme="dark"] .moon { display: block; }
+
+/* TYPOGRAPHY */
+h1,h2,h3,h4,h5,h6 { margin: 0; font-weight: 600; line-height: 1.3; }
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+.page-head { margin-bottom: 32px; }
+.page-head .eyebrow { font-size: .85rem; font-weight: 600; color: var(--brand); margin: 0 0 8px 0; letter-spacing: .04em; text-transform: uppercase; }
+.page-head h1 { margin-bottom: 4px; }
+
+.lead { font-size: 1.1rem; color: var(--text-soft); margin: 0 0 32px 0; line-height: 1.5; }
+
+/* SECTIONS & BLOCKS */
+section { margin-bottom: 48px; }
+section:last-child { margin-bottom: 0; }
+h2.block { padding-bottom: 12px; border-bottom: 2px solid var(--brand); margin-bottom: 24px; }
+
+/* CARDS */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.card h4 { margin-top: 0; margin-bottom: 12px; color: var(--brand); }
+.card.alt { background: var(--surface-2); border-color: var(--border-strong); }
+
+.card ul,
+.card ol { margin: 12px 0; padding-left: 20px; }
+.card li { margin-bottom: 8px; }
+.card li strong { color: var(--brand-strong); }
+
+/* CALLOUT */
+.callout {
+  background: var(--accent-tint);
+  border-left: 4px solid var(--accent);
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: var(--radius-sm);
+}
+.callout.bad {
+  background: var(--bad-tint);
+  border-left-color: var(--bad);
+}
+.callout.good {
+  background: var(--ok-tint);
+  border-left-color: var(--ok);
+}
+.callout strong { color: var(--accent-strong); }
+.callout.bad strong { color: var(--bad-strong); }
+.callout.good strong { color: var(--ok-strong); }
+
+/* TABLES */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+th { background: var(--brand); color: #fff; padding: 12px 14px; text-align: left; font-weight: 600; }
+td { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+tbody tr:nth-child(even) { background: var(--stripe); }
+td.term { background: var(--brand-tint); color: var(--brand-strong); font-weight: 600; }
+
+/* NOTES & EMPHASIS */
+.note { font-size: .95rem; color: var(--text-soft); font-style: italic; margin: 12px 0; }
+strong { color: var(--brand-deep); }
+em { color: var(--accent); }
+
+/* SUBHEADINGS */
+h3.sub { margin: 24px 0 12px; color: var(--brand); font-size: 1.1rem; }
+
+/* FLASHCARDS */
+.flash-toolbar { display: flex; gap: 12px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; }
+.flash-btn { background: var(--brand); color: #fff; border: none; padding: 10px 16px; border-radius: var(--radius-sm); font-size: .9rem; font-weight: 600; cursor: pointer; transition: .14s; }
+.flash-btn:hover { background: var(--brand-strong); }
+.flash-btn.alt { background: var(--accent); }
+.flash-btn.alt:hover { background: var(--accent-strong); }
+.flash-count { font-size: .9rem; color: var(--text-soft); }
+
+.flash-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 16px; }
+.flash-card { cursor: pointer; perspective: 1000px; }
+.flash-inner { position: relative; width: 100%; aspect-ratio: 1 / 1.2; transition: transform .6s cubic-bezier(.68, -.55, .265, 1.55); transform-style: preserve-3d; }
+
+.flash-card.flipped .flash-inner { transform: rotateY(180deg); }
+
+.flash-front,
+.flash-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: .86rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.flash-front {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--brand-deep);
+  font-weight: 600;
+}
+
+.flash-back {
+  background: linear-gradient(160deg, var(--brand), var(--brand-strong));
+  color: #fff;
+  transform: rotateY(180deg);
+  font-weight: 500;
+}
+
+/* PAGE NAVIGATION */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.nav-btn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .14s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-btn:hover { background: var(--brand-strong); }
+.nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  #content { padding: 20px 16px 80px; }
+  .page-head h1 { font-size: 1.5rem; }
+  h2.block { font-size: 1.2rem; }
+  .flash-grid { grid-template-columns: 1fr; }
+  .page-nav { flex-direction: column; }
+  .nav-btn { width: 100%; text-align: center; }
+}
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
+  <main id="content">
+    <div class="page-inner">
+
+      <header class="page-head">
+        <p class="eyebrow">Week 5 · Page 7</p>
+        <h1>HIV Care & Management</h1>
+      </header>
+
+      <div class="lead">Comprehensive guide to HIV treatment, antiretroviral therapy, prevention strategies (PrEP/PEP), adherence challenges, psychosocial aspects, and nursing care for people living with HIV.</div>
+
+      <section id="management">
+        <h2 class="block">Clinical Management and Treatment</h2>
+
+        <h3 class="sub">HIV Disease Progression and Clinical Course</h3>
+        <div class="card">
+          <h4>Four Stages of HIV Infection</h4>
+          <ul>
+            <li><strong>Stage 1 — Acute Infection (Early):</strong> Virus replicates rapidly but remains undetectable on lab tests; patient is asymptomatic but HIGHLY INFECTIOUS; window period before antibodies develop</li>
+            <li><strong>Stage 2 — Seroconversion:</strong> Antibodies become detectable; patient feels "the worst flu ever"; highly symptomatic (fever, malaise, lymphadenopathy); still highly infectious; may not seek testing due to symptom interpretation</li>
+            <li><strong>Stage 3 — Clinical Latency (Asymptomatic Period):</strong> Body effectively fighting infection; can last 3-12+ years; patient is asymptomatic or has only mild symptoms; virus continues rapid replication; CD4 steadily drops; patient may not know they're HIV positive if undiagnosed</li>
+            <li><strong>Stage 4 — AIDS:</strong> Defined as CD4 &lt; 200 cells/μL OR presence of AIDS-defining opportunistic infections; patient becomes severely immunocompromised; without treatment, becomes symptomatic and vulnerable to multiple OIs</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Collaborative and Nursing Management</h3>
+        <div class="card alt">
+          <h4>Key Nursing Responsibilities</h4>
+          <ul>
+            <li><strong>Monitor Progression and Immune Function:</strong> Assess CD4 counts, viral loads; educate patient on meaning of these values; recognize when CD4 drops indicate need for OI prophylaxis</li>
+            <li><strong>Initiate and Monitor Antiretroviral Therapy:</strong> Teach medication regimen (timing, how to take, interactions); monitor for side effects; assess adherence; report concerns to provider</li>
+            <li><strong>Prevent Opportunistic Infections:</strong> Keep patient as healthy as possible; monitor, detect, and report signs of OIs; ensure prophylaxis medications when CD4 indicates need</li>
+            <li><strong>Manage Symptoms:</strong> Address pain, fatigue, GI symptoms, cognitive changes (AIDS dementia complex); provide comfort measures</li>
+            <li><strong>Manage ART Complications:</strong> Monitor for and address medication side effects (lipodystrophy, peripheral neuropathy, hyperglycemia, liver toxicity); support adherence despite side effects</li>
+            <li><strong>Prevent Further Transmission:</strong> Teach prevention strategies, safe sex practices, avoiding sharing items that may have blood contact</li>
+            <li><strong>Psychosocial Support:</strong> Address fear, depression, anxiety related to diagnosis; discuss stigma; support disclosure decisions; connect with mental health resources</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Antiretroviral Therapy (ART)</h3>
+        <div class="card">
+          <h4>Medication Classes and Mechanisms</h4>
+          <ul>
+            <li><strong>Nucleoside/Nucleotide Reverse Transcriptase Inhibitors (NRTIs/NtRTIs):</strong> Block reverse transcriptase; prevent RNA → DNA conversion; include AZT, lamivudine, emtricitabine, tenofovir</li>
+            <li><strong>Non-Nucleoside Reverse Transcriptase Inhibitors (NNRTIs):</strong> Block reverse transcriptase at different site; include efavirenz, rilpivirine; often cause dizziness, vivid dreams, liver toxicity</li>
+            <li><strong>Protease Inhibitors (PIs):</strong> Block protease; prevent viral protein processing; include ritonavir (used as booster), lopinavir, darunavir; require food for absorption; cause lipodystrophy, hyperglycemia</li>
+            <li><strong>Integrase Inhibitors:</strong> Block integrase; prevent viral DNA integration into host genome; include dolutegravir, bictegravir; well-tolerated; allow once-daily dosing</li>
+            <li><strong>Entry/Fusion Inhibitors:</strong> Block viral entry; include maraviroc (CCR5 antagonist), enfuvirtide; reserved for treatment-experienced patients</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Treatment Initiation and Monitoring</h4>
+          <ul>
+            <li><strong>When to Start ART:</strong> Initiated immediately upon HIV diagnosis regardless of CD4 count (Start treatment as soon as diagnosed)</li>
+            <li><strong>Adherence — Critical Factor:</strong> Non-adherence leads to treatment failure, drug resistance, and disease progression; if patient doesn't feel sick, adherence becomes harder</li>
+            <li><strong>Promoting Adherence:</strong> Motivate patient BEFORE giving prescription; ensure social support present; negotiate treatment plan giving patient autonomy; devise simple plan; anticipate side effects and address preemptively; establish trust</li>
+            <li><strong>Single-Tablet Regimens (STR):</strong> Preferred for simplicity; examples include Biktarvy (bictegravir/emtricitabine/tenofovir), Triumeq (dolutegravir/abacavir/lamivudine); once-daily dosing improves adherence</li>
+            <li><strong>Monitoring During Treatment:</strong> CD4 count and viral load every 3-4 months until stable; baseline and periodic labs for liver/kidney function, glucose, lipids; assess for side effects regularly</li>
+            <li><strong>Treatment Goals:</strong> Undetectable = Untransmittable (U=U); viral load &lt; 50 copies/mL achieves this; patient with undetectable viral load cannot transmit HIV to sexual partners</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Pre-Exposure Prophylaxis (PrEP)</h3>
+        <div class="card">
+          <h4>Prevention for High-Risk Individuals</h4>
+          <ul>
+            <li><strong>Candidates for PrEP:</strong> Anyone with anal/vaginal sex in past 6 months WITH sexual partner(s) with HIV (especially unknown/detectable viral load) OR inconsistent condom use; IV drug users with shared injection partners with HIV; sexually transmitted disease in past 6 months</li>
+            <li><strong>Mechanism:</strong> Daily medication (or event-based) to lower chance of acquiring HIV before possible exposure</li>
+            <li><strong>Effectiveness:</strong> 99% effective at preventing HIV infection through sexual contact WHEN TAKEN AS PRESCRIBED; 74% effective for IV drug users; requires consistent adherence</li>
+            <li><strong>Common Regimen:</strong> Tenofovir/Emtricitabine (Truvada) once daily; alternative: Bictegravir/Emtricitabine/Tenofovir (Biktarvy)</li>
+            <li><strong>Critical Education:</strong> PrEP does NOT protect against other STIs; patient must continue condom use; requires regular monitoring (baseline and follow-up labs every 3 months)</li>
+            <li><strong>Insurance Coverage:</strong> Most insurance and Medicaid cover PrEP medications, reducing cost barrier</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Post-Exposure Prophylaxis (PEP)</h3>
+        <div class="card">
+          <h4>Emergency Prevention After Exposure</h4>
+          <ul>
+            <li><strong>Indications:</strong> Needle stick/cut with sharp from HIV+ source, mucosal membrane exposure to blood/certain body fluids, unprotected sexual exposure to HIV+ partner</li>
+            <li><strong>Needle Stick Risk:</strong> Occupational exposure (needle stick) carries only 0.3% transmission risk even from HIV+ source — GOOD NEWS but still requires action</li>
+            <li><strong>Timing — CRITICAL:</strong> Must be started within 1-2 hours of exposure (IDEAL), but MUST start within 3 days maximum; efficacy decreases with delayed initiation</li>
+            <li><strong>Regimen:</strong> 28-day combination antiretroviral therapy (usually 3-drug combination); specific drugs chosen based on source's treatment history and resistance pattern</li>
+            <li><strong>Follow-Up Testing:</strong> HIV testing required at 6 weeks, 12 weeks, and 6 months post-exposure</li>
+            <li><strong>Hospital Protocol:</strong> Rapid incident reporting, blood draws from both exposed person and source, quick turnaround for testing = all reasons why needle stick procedures move fast</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Patient Education and Psychosocial Care</h3>
+        <div class="card alt">
+          <h4>Critical Nursing Counseling Topics</h4>
+          <ul>
+            <li><strong>Immunosuppression Awareness:</strong> Patient with CD4 &lt; 200 is severely immunosuppressed; teach avoidance of crowded areas, poor sanitation, foods with bacterial risk (undercooked meats, unpasteurized dairy)</li>
+            <li><strong>Environmental Precautions:</strong> Avoid cleaning pet litter boxes (Toxoplasma risk), keep home environment clean, don't allow sick visitors during advanced immunosuppression</li>
+            <li><strong>Oral Assessment Importance:</strong> Oral manifestations (thrush, herpes, ulcers, candidiasis) are common with CD4 drop; regular oral exams detect early problems</li>
+            <li><strong>Cognitive Changes:</strong> AIDS dementia complex can develop with advanced HIV; patient/family need to understand this is neurological manifestation, not mental illness</li>
+            <li><strong>Infection Types:</strong> Manifestations can be fungal, viral, bacterial, or cancerous; educate on recognition of each type</li>
+            <li><strong>Sensitive Discussions:</strong> Nurse must initiate discussions about sexual practices, drug use, adherence, disclosure; patients are often eager to discuss if nurse brings it up; practice these conversations to become comfortable</li>
+            <li><strong>Coping with Initial Diagnosis:</strong> Many patients discover diagnosis unexpectedly; support them through emotional processing; connect with mental health resources, support groups</li>
+            <li><strong>Stigma and Mental Health:</strong> Living with HIV is lifelong battle; stigma causes depression/anxiety; screening for depression essential; refer to mental health counseling; express empathy and non-judgment</li>
+          </ul>
+        </div>
+
+        <div class="callout good">
+          <strong>💡 CRITICAL NURSING PRINCIPLE:</strong> Living with HIV and AIDS is a lifelong battle. As a nurse, express empathy and maintain a judgment-free approach. The patient's emotional and mental health support are as important as medical treatment. Often the nurse is the person who brings up sensitive topics that others avoid — make that conversation safe and supportive.
+        </div>
+
+        <h3 class="sub">Adherence Strategies and Outcomes</h3>
+        <div class="card">
+          <h4>Promoting Treatment Success</h4>
+          <ul>
+            <li><strong>Patient Motivation:</strong> Ensure patient is motivated BEFORE prescribing ART; unmotivated patients will not adhere; take time to discuss why treatment matters</li>
+            <li><strong>Social Support — PRIMARY PRIORITY:</strong> Patients with strong social support have better outcomes; help identify/strengthen support systems (family, friends, partner, support groups)</li>
+            <li><strong>Autonomy and Negotiation:</strong> Give patient input on treatment decisions; simple plans work better than complex ones; patient has better outcomes when feeling control over decisions</li>
+            <li><strong>Side Effect Anticipation:</strong> Discuss likely side effects, how to manage them, when they improve; unprepared patients stop taking meds when side effects occur</li>
+            <li><strong>Trust-Building:</strong> Ongoing relationships with consistent care providers build trust; patient must trust healthcare team to move forward successfully</li>
+            <li><strong>Monitoring Labs:</strong> CD4 and viral load every 3-4 months (usually); helps patient understand if treatment is working; provides objective feedback</li>
+            <li><strong>Drug Interactions:</strong> Keep vigilant about potential interactions with OTC medications, supplements, foods; educate patient on what to avoid</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Prevention of HIV Transmission</h3>
+        <div class="card">
+          <h4>Risk Reduction Strategies</h4>
+          <ul>
+            <li><strong>Needle Exchange Programs:</strong> Reduce transmission among IV drug users; provide clean needles, education</li>
+            <li><strong>Perinatal Transmission Prevention:</strong> Pregnant women on ART with undetectable viral load have &lt; 1% risk of transmission to baby; early prenatal care critical</li>
+            <li><strong>Routine HIV Testing:</strong> Encourages early diagnosis; allows early treatment initiation; reduces transmission window</li>
+            <li><strong>Universal Precautions:</strong> Blood and certain body fluids are potentially infectious (blood, semen, vaginal secretions, CSF, synovial fluid, pleural fluid, peritoneal fluid, pericardial fluid); NOT transmitted through saliva, sweat, tears, urine, feces</li>
+            <li><strong>Occupational Exposure Protocol:</strong> Know your facility's protocols for needle stick incidents; blood-borne pathogen training mandatory; report exposures immediately</li>
+            <li><strong>Patient Education:</strong> Teach safe sex practices, consistent condom use, disclosure to partners, avoiding sharing of items with blood contact; patients who receive this education from nurse often report feeling empowered</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section id="flashcards-management">
+        <h2 class="block">Self-Test Flashcards</h2>
+        <p class="note">Test your understanding of HIV treatment, PrEP/PEP, adherence, and psychosocial care. Click cards to flip.</p>
+
+        <div class="flash-toolbar">
+          <button class="flash-btn" onclick="shuffleFlashcards('management')">🔀 Shuffle</button>
+          <button class="flash-btn alt" onclick="resetFlashcards('management')">↻ Reset</button>
+          <span class="flash-count" id="flash-count-management"></span>
+        </div>
+
+        <div class="flash-grid" id="management-cards">
+          <!-- Cards will be generated by JavaScript -->
+        </div>
+      </section>
+
+      <section id="navigation">
+        <h2 class="block">Navigation</h2>
+        <div class="page-nav">
+          <a href="week5-integumentary-system.html" class="nav-btn">← Previous: Integumentary System</a>
+          <a href="week5-wound-complications.html" class="nav-btn">Next: Wound Complications →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const flashcardData = {
+      management: [
+        { q: "Describe the clinical course of HIV infection through all four stages.", a: "Stage 1 (Acute): Rapid replication, undetectable, asymptomatic but infectious. Stage 2 (Seroconversion): Antibodies detectable, worst flu ever, highly infectious. Stage 3 (Clinical Latency): 3-12+ years asymptomatic, virus replicating, CD4 drops steadily. Stage 4 (AIDS): CD4 <200 or OIs present, severe immunosuppression." },
+        { q: "What is the meaning of 'U=U' and why is it significant for patient care?", a: "Undetectable = Untransmittable. When viral load <50 copies/mL on ART, patient cannot sexually transmit HIV to partners. This is major breakthrough reducing transmission risk; improves patient adherence knowing treatment prevents harm to others." },
+        { q: "List the five major ART medication classes and give one example of each.", a: "NRTIs (emtricitabine), NNRTIs (efavirenz), Protease Inhibitors (ritonavir/lopinavir), Integrase Inhibitors (dolutegravir), Entry Inhibitors (maraviroc). All must be combined (never monotherapy) for treatment." },
+        { q: "What is the timing window for PEP administration and what is the risk of HIV transmission from needle stick?", a: "PEP must start within 1-2 hours (ideal), MUST start within 3 days maximum. Needle stick transmission risk is 0.3% (3 in 1000) from HIV+ source — low but still requires action. 28-day PEP regimen + testing at 6, 12 weeks and 6 months." },
+        { q: "Who is a candidate for PrEP and what is its effectiveness when taken as prescribed?", a: "Candidates: anal/vaginal sex partners with HIV (especially unknown detectable viral load) OR inconsistent condom use, OR IV drug users sharing needles with HIV+ person. Effectiveness: 99% for sexual contact, 74% for IV drug users — REQUIRES CONSISTENT ADHERENCE to work." },
+        { q: "Describe three strategies to promote ART adherence in HIV patients.", a: "1) Ensure patient motivation BEFORE prescribing; 2) Emphasize social support as PRIMARY priority for outcomes; 3) Negotiate treatment plan giving autonomy; 4) Devise simple plan; 5) Anticipate side effects and address preemptively; 6) Build trust with consistent providers." },
+        { q: "What are the manifestations of AIDS dementia complex and how should you educate patients about it?", a: "Cognitive changes including memory loss, difficulty concentrating, personality changes; ranges from mild to severe dementia. Educate that this is neurological manifestation of advanced HIV, NOT mental illness; supports important for safety; medication may help; important to understand for both patient and family." },
+        { q: "List the types of infections that can occur in patients with CD4 <200.", a: "Fungal (oral/esophageal candidiasis, cryptococcal meningitis), Viral (HSV, VZV, CMV), Bacterial (TB, MAC), Parasitic (toxoplasmosis, PCP when CD4 <200), Cancerous (Kaposi Sarcoma at CD4 <50). Each requires specific prophylaxis and treatment." },
+        { q: "A patient with CD4 <200 is being discharged home. What are three critical environmental/behavioral precautions you should teach?", a: "1) Avoid crowded areas and places with poor sanitation; 2) Avoid foods with bacterial risk (undercooked meats, unpasteurized dairy, unwashed vegetables); 3) Avoid cleaning pet litter boxes (Toxoplasma risk); 4) Keep home clean; 5) Don't allow sick visitors; 6) Continue ART and lab monitoring every 3-4 months." },
+        { q: "Why is oral assessment particularly important in HIV+ patients and what findings should concern you?", a: "Oral manifestations (thrush, herpes, ulcers, candidiasis, warts) are common with CD4 drop; often first sign of opportunistic infection. Presence indicates declining immune function and may indicate need for OI prophylaxis. Teach patient importance of regular oral assessment and reporting findings." },
+        { q: "Discuss the nursing role in managing stigma and psychosocial aspects of HIV diagnosis.", a: "Express empathy and maintain judgment-free approach; acknowledge lifelong nature of HIV; recognize depression/anxiety risk; screen for mental health issues; refer to counseling/support groups; often the NURSE brings up sensitive topics patients want to discuss but others avoid; make conversation safe; support disclosure decisions; importance of sexual health education." },
+        { q: "A patient presents with newly diagnosed HIV and is feeling overwhelmed. How do you approach initial counseling on ART adherence?", a: "Take time to assess patient's readiness/motivation FIRST; ensure social support identified; explain why treatment matters (U=U principle, CD4 recovery, OI prevention); discuss realistic side effects (don't hide them); devise SIMPLE plan; give autonomy (negotiated approach); establish trust; offer support groups/mental health; follow up regularly. Success requires time and relationship." },
+        { q: "What is the needle stick protocol in hospitals and why do things move so quickly?", a: "1) Report exposure immediately; 2) Complete incident report quickly; 3) Draw blood from exposed person and source rapidly; 4) Start PEP within 1-2 hours ideally (must be within 3 days); 5) Testing at 6, 12 weeks, 6 months. Things move fast because timing is critical — window for PEP is short; also because transmission risk is only 0.3%." },
+        { q: "List the most common side effects of major ART drug classes and nursing interventions.", a: "NRTIs: peripheral neuropathy, lipodystrophy. NNRTIs: dizziness, vivid dreams, liver toxicity. PIs: lipodystrophy, hyperglycemia, GI upset. Integrase: generally well-tolerated. Nursing: anticipate side effects BEFORE giving medications; discuss management strategies; monitor labs (liver, glucose, lipids); reassure patient many improve over time; never allow side effects to go unaddressed (leads to non-adherence)." }
+      ]
+    };
+
+    function generateFlashcards(sectionId) {
+      const container = document.getElementById(sectionId + '-cards');
+      const data = flashcardData[sectionId];
+
+      container.innerHTML = data.map((card, idx) => `
+        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
+          <div class="flash-inner">
+            <div class="flash-front">
+              <div>${card.q}</div>
+            </div>
+            <div class="flash-back">
+              <div>${card.a}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      updateFlashcardCount(sectionId);
+    }
+
+    function updateFlashcardCount(sectionId) {
+      const count = flashcardData[sectionId].length;
+      const el = document.getElementById('flash-count-' + sectionId);
+      if (el) el.textContent = `${count} cards`;
+    }
+
+    function shuffleFlashcards(sectionId) {
+      const arr = flashcardData[sectionId];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      generateFlashcards(sectionId);
+    }
+
+    function resetFlashcards(sectionId) {
+      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
+      cards.forEach(card => card.classList.remove('flipped'));
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      try { localStorage.setItem('theme', newTheme); } catch(e){}
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      generateFlashcards('management');
+    });
+  </script>
+</body>
+</html>

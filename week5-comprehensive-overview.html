@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 5 Overview — NUR 334 Study Guide</title>
+  <script>
+    (function(){
+      try {
+        var p = new URLSearchParams(location.search).get('theme');
+        var t = p || localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+        if (p) { try { localStorage.setItem('theme', p) } catch(e){} }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <style>/* styles.css — NUR 334 Study Guide
+   Color scheme: Indigo + Rose
+   No build step, no framework, no dependencies.
+*/
+
+:root {
+  /* ---- neutrals ---- */
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --surface-3: #e4e8ed;
+  --border: #e0e4ea;
+  --border-strong: #cbd1da;
+  --text: #1e2530;
+  --text-soft: #556070;
+  --text-faint: #89929f;
+  --stripe: #f6f8fa;
+
+  /* ---- brand: indigo ---- */
+  --brand: #5b4b8a;
+  --brand-strong: #453966;
+  --brand-deep: #2d2547;
+  --brand-tint: #f0ecf7;
+  --brand-tint-2: #e3ddf0;
+
+  /* ---- accent: rose ---- */
+  --accent: #c15b7c;
+  --accent-strong: #a54765;
+  --accent-tint: #f8e8f0;
+
+  /* ---- text on brand nav ---- */
+  --on-brand-soft: #e8e0f0;
+  --on-brand-faint: #b8a8d1;
+  --on-brand-dim: #d4cae3;
+
+  /* ---- semantic ---- */
+  --ok: #2f8f6b;
+  --ok-strong: #237a58;
+  --ok-tint: #e6f4ee;
+  --bad: #c0392b;
+  --bad-strong: #a52f22;
+  --bad-tint: #fbeceb;
+
+  /* ---- callout lines ---- */
+  --line-accent: #e5b8cc;
+  --line-bad: #f3d2ce;
+
+  /* ---- metrics ---- */
+  --content-max: 1120px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 3px rgba(24,28,45,.07), 0 1px 2px rgba(24,28,45,.04);
+  --shadow-md: 0 4px 14px rgba(24,28,45,.10);
+  --shadow-lg: 0 12px 30px rgba(24,28,45,.16);
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+}
+
+:root[data-theme="dark"] {
+  --bg: #12161a;
+  --surface: #1b2027;
+  --surface-2: #232a33;
+  --surface-3: #2c343f;
+  --border: #323b47;
+  --border-strong: #45505f;
+  --text: #e6eaef;
+  --text-soft: #a7b1bd;
+  --text-faint: #7b8593;
+  --stripe: rgba(255,255,255,.025);
+  --brand: #8f80c4;
+  --brand-strong: #b3a6e0;
+  --brand-deep: #d3caee;
+  --brand-tint: #282540;
+  --brand-tint-2: #332e4e;
+  --accent: #d67e99;
+  --accent-strong: #ec9fb6;
+  --accent-tint: #3a2431;
+  --on-brand-soft: #e2ddf1;
+  --on-brand-faint: #c3b9e4;
+  --on-brand-dim: #d9d4ee;
+  --line-accent: #f0d3dd;
+  --line-bad: #4a2f2b;
+  --ok: #43b085;
+  --ok-strong: #6bcfa4;
+  --ok-tint: #173029;
+  --bad: #e46557;
+  --bad-strong: #f28c82;
+  --bad-tint: #361f1d;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.45);
+  --shadow-md: 0 4px 14px rgba(0,0,0,.5);
+  --shadow-lg: 0 12px 30px rgba(0,0,0,.6);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  color: var(--brand-deep);
+  margin: 0 0 .3em;
+  line-height: 1.25;
+}
+
+a { color: var(--brand); }
+img { max-width: 100%; }
+
+#content {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 34px 40px 100px;
+}
+
+.page-inner { max-width: 100%; margin: 0 auto; }
+
+/* PAGE HEADER */
+.page-head { margin: 6px 0 22px; }
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+.page-head h1 { font-size: 2rem; margin: 0; }
+
+@media (min-width: 900px) {
+  .page-head h1 { font-size: 2.25rem; }
+}
+
+.lead {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  margin: 0 0 26px;
+  color: var(--text-soft);
+  font-size: .95rem;
+  box-shadow: var(--shadow-sm);
+}
+
+h2.block {
+  font-size: 1.4rem;
+  color: var(--brand-strong);
+  border-bottom: 2px solid var(--brand-tint-2);
+  padding-bottom: 8px;
+  margin-top: 46px;
+}
+
+h3.sub {
+  font-size: 1.08rem;
+  color: var(--brand-deep);
+  margin-top: 28px;
+}
+
+p.note {
+  color: var(--text-soft);
+  font-size: .9rem;
+  margin-top: 2px;
+}
+
+code.pill {
+  background: var(--brand-tint);
+  color: var(--brand-strong);
+  padding: 1px 7px;
+  border-radius: 5px;
+  font-size: .85em;
+}
+
+/* TABLES */
+.table-wrap {
+  overflow-x: auto;
+  margin: 14px 0 8px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--surface);
+  font-size: .9rem;
+}
+
+thead th {
+  background: var(--brand);
+  color: #fff;
+  text-align: left;
+  padding: 11px 13px;
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .02em;
+}
+
+tbody td {
+  padding: 10px 13px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: var(--stripe); }
+tbody tr:hover { background: var(--brand-tint); }
+
+td.term {
+  font-weight: 700;
+  color: var(--brand-strong);
+  white-space: nowrap;
+  width: 1%;
+}
+
+/* CARDS */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 17px;
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--brand);
+  margin: 16px 0;
+}
+
+.card.alt { border-top-color: var(--accent); }
+.card h4 { margin-bottom: 8px; color: var(--brand-strong); font-size: .98rem; }
+.card.alt h4 { color: var(--accent-strong); }
+.card ul { margin: 0; padding-left: 18px; font-size: .9rem; }
+.card li { margin-bottom: 5px; }
+
+/* TWO COLUMN */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* CALLOUTS */
+.mnemonic {
+  background: var(--accent-tint);
+  border: 1px solid var(--line-accent);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: .9rem;
+}
+
+.mnemonic b { color: var(--accent-strong); }
+
+.callout-danger {
+  background: var(--bad-tint);
+  border: 1px solid var(--line-bad);
+  border-left: 4px solid var(--bad);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: .9rem;
+}
+
+.callout-danger b { color: var(--bad-strong); }
+
+/* FLASHCARDS */
+.flash-toolbar {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flash-btn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 9px 15px;
+  border-radius: 8px;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .14s;
+  font-family: inherit;
+}
+
+.flash-btn:hover { background: var(--brand-strong); }
+.flash-btn.alt { background: var(--surface); color: var(--brand-strong); border: 1px solid var(--border-strong); }
+.flash-btn.alt:hover { background: var(--brand-tint); }
+
+.flash-count {
+  align-self: center;
+  font-size: .8rem;
+  color: var(--text-faint);
+  margin-left: 2px;
+}
+
+.flash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.flash-card {
+  perspective: 1200px;
+  height: 190px;
+  cursor: pointer;
+}
+
+.flash-card:focus { outline: none; }
+.flash-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: var(--radius); }
+
+.flash-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform .5s cubic-bezier(.4,.2,.2,1);
+  transform-style: preserve-3d;
+}
+
+.flash-card.flipped .flash-inner { transform: rotateY(180deg); }
+
+.flash-front,
+.flash-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: .86rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.flash-front {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--brand-deep);
+  font-weight: 600;
+}
+
+.flash-back {
+  background: linear-gradient(160deg, var(--brand), var(--brand-strong));
+  color: #fff;
+  transform: rotateY(180deg);
+  font-weight: 500;
+}
+
+/* PAGE NAVIGATION */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.nav-btn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .14s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-btn:hover { background: var(--brand-strong); }
+.nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  #content { padding: 20px 16px 80px; }
+  .page-head h1 { font-size: 1.5rem; }
+  h2.block { font-size: 1.2rem; }
+  .flash-grid { grid-template-columns: 1fr; }
+  .page-nav { flex-direction: column; }
+  .nav-btn { width: 100%; text-align: center; }
+}
+</style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
+  <main id="content">
+    <div class="page-inner">
+
+      <header class="page-head">
+        <p class="eyebrow">Week 5 · Page 1</p>
+        <h1>Comprehensive Overview</h1>
+      </header>
+
+      <div class="lead">Complete summary of all Week 5 material covering HIV/AIDS, skin conditions, wounds, and burns.</div>
+
+      <section id="overview">
+        <h2 class="block">Disease Process Overview</h2>
+
+        <h3 class="sub">HIV and AIDS Fundamentals</h3>
+        <div class="card">
+          <h4>Definition and Stages</h4>
+          <ul>
+            <li><strong>HIV</strong> (Human Immunodeficiency Virus) attacks CD4+ T cells, which are crucial for coordinating immune responses</li>
+            <li><strong>AIDS</strong> is the final stage of HIV infection, occurring when CD4 count drops below 200 cells/μL or when AIDS-defining opportunistic infections develop</li>
+            <li><strong>Stage 1 (Acute Infection):</strong> Virus replicates rapidly but is undetectable on lab tests; no symptoms present but patient is highly infectious</li>
+            <li><strong>Stage 2 (Seroconversion):</strong> Antibodies become detectable; patient feels extremely ill (worst flu ever); highly infectious period</li>
+            <li><strong>Stage 3 (Clinical Latency):</strong> Can last 3-12+ years with no or mild symptoms; virus continues replicating; CD4 steadily drops</li>
+            <li><strong>Stage 4 (AIDS):</strong> CD4 &lt; 200 or opportunistic infections present; patient becomes severely immunocompromised</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">CD4 Count Significance</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>CD4 Count</th><th>Immune Status</th><th>Risk Factors</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="term">&gt; 500</td><td>Normal/Healthy</td><td>TB, acute bacterial infections</td></tr>
+              <tr><td class="term">200-500</td><td>Early Immunosuppression</td><td>Oral candidiasis, cryptococcal disease, TB</td></tr>
+              <tr><td class="term">&lt; 200</td><td>AIDS-Defining</td><td>PCP, toxoplasmosis, CMV, esophageal candidiasis</td></tr>
+              <tr><td class="term">&lt; 100</td><td>Severe Immunosuppression</td><td>CMV retinitis, MAC, cryptococcal meningitis</td></tr>
+              <tr><td class="term">&lt; 50</td><td>Critical</td><td>Kaposi Sarcoma (KS), CMV disease, PCP prophylaxis failure</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">Transmission Routes</h3>
+        <div class="card alt">
+          <ul>
+            <li><strong>Sexual Contact:</strong> Anal or vaginal intercourse (primary mode of transmission)</li>
+            <li><strong>Parenteral (Blood):</strong> Needle sharing among IV drug users; occupational needle sticks (0.3% risk even with HIV+ source)</li>
+            <li><strong>Mother-to-Child:</strong> During pregnancy, labor, delivery, or breastfeeding</li>
+            <li><strong>NOT Transmitted By:</strong> Casual contact, sharing food/drink, kissing, hugging, hand-holding, sharing toilets, or sharing office equipment</li>
+            <li><strong>Bloodborne Fluid Exposure:</strong> Semen, vaginal secretions, breast milk, cerebrospinal fluid, synovial fluid, pleural fluid, peritoneal fluid, and pericardial fluid</li>
+            <li><strong>Highest Risk Groups:</strong> Men who have sex with men (MSM), IV drug users, individuals who exchange sex for money/drugs, sex partners of HIV+ individuals</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Integumentary Manifestations</h3>
+        <div class="card">
+          <h4>Skin Conditions Associated with HIV</h4>
+          <ul>
+            <li><strong>Kaposi Sarcoma (KS):</strong> Purple/brown non-blanching painless lesions; caused by HHV-8; appears when CD4 &lt; 50; highly associated with advanced AIDS; can metastasize to any organ</li>
+            <li><strong>Oral Candidiasis (Thrush):</strong> White patches in mouth; occurs when CD4 &lt; 200; indicates risk for esophageal involvement; requires antifungal therapy</li>
+            <li><strong>Herpes Simplex Virus (HSV):</strong> Recurrent or severe vesicles; can be severe in immunocompromised states; distinguish from VZV by dermatomal distribution</li>
+            <li><strong>Varicella-Zoster Virus (VZV/Shingles):</strong> Vesicles in dermatomal distribution; can be severe with low CD4; dermatomal pattern helps differentiate from HSV</li>
+            <li><strong>Molluscum Contagiosum:</strong> Umbilicated lesions; more common, numerous, and severe when CD4 &lt; 100; may improve with ART</li>
+            <li><strong>Seborrheic Dermatitis:</strong> Greasy yellowish scales on face/scalp; fungal (Malassezia) condition; worse with stress and poor hygiene</li>
+            <li><strong>Oral Manifestations:</strong> Extremely common with advancing HIV; includes thrush, herpes, aphthous ulcers, warts</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Skin Cancer Types and Risk</h3>
+        <div class="card">
+          <h4>Non-Melanoma and Melanoma Classification</h4>
+          <ul>
+            <li><strong>Basal Cell Carcinoma:</strong> Locally invasive; red pearly lesions with defined borders; barely elevated plaques; may have central depression; most common</li>
+            <li><strong>Squamous Cell Carcinoma:</strong> From keratinized epidermal cells; aggressive; presents with scaling; can metastasize</li>
+            <li><strong>Malignant Melanoma:</strong> From melanocytes; genetic and environmental factors; poor prognosis unless diagnosed early; may metastasize to any organ</li>
+            <li><strong>ABCDE Rule for Melanoma:</strong> <strong>A</strong>symmetry (not symmetrical), <strong>B</strong>order irregularity (ragged/notched), <strong>C</strong>olor variation (multiple colors), <strong>D</strong>iameter (&gt;6mm), <strong>E</strong>volving (changing)</li>
+            <li><strong>Risk Factors for Skin Cancer:</strong> Fair skin, blonde/red hair, blue eyes, family/personal history, outdoor occupation, high altitude/equator living, indoor tanning</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Wound Healing Process</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Phase</th><th>Timeline</th><th>Characteristics</th><th>Nursing Focus</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="term">Hemostasis/Inflammatory</td><td>0-4 days</td><td>Bleeding stops, inflammation begins, WBC infiltration, cytokine release</td><td>Monitor for infection signs, assess pain, promote rest</td></tr>
+              <tr><td class="term">Proliferative</td><td>4-21 days</td><td>Collagen deposition, angiogenesis (new blood vessels), granulation tissue forms, epithelialization</td><td>Maintain moist wound bed, prevent infection, promote nutrition</td></tr>
+              <tr><td class="term">Maturation/Remodeling</td><td>21 days-2 years</td><td>Collagen cross-linking and reorganization, wound strengthening, scar formation and remodeling</td><td>Monitor for contractures, manage scar appearance, continue PT/OT</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">Burn Classification and Depth</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Depth</th><th>Layer Affected</th><th>Appearance</th><th>Pain Level</th><th>Healing</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="term">Superficial</td><td>Epidermis only</td><td>Red, dry, sunburn-like</td><td>Very painful</td><td>5-7 days, no scarring</td></tr>
+              <tr><td class="term">Partial-Thickness</td><td>Epidermis + Dermis</td><td>Blistered, moist, pale pink, weeping</td><td>Very painful (intact nerves)</td><td>2-3 weeks, minimal scarring</td></tr>
+              <tr><td class="term">Full-Thickness</td><td>All layers (epidermis, dermis, subcutaneous)</td><td>Charred, leathery, eschar (black)</td><td>Painless (nerve destruction)</td><td>Requires grafting, significant scarring</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">Rule of 9s for Body Surface Area</h3>
+        <div class="card alt">
+          <ul>
+            <li><strong>Each leg:</strong> 18% (9% anterior + 9% posterior)</li>
+            <li><strong>Each arm:</strong> 9% (4.5% anterior + 4.5% posterior)</li>
+            <li><strong>Trunk anterior:</strong> 18%</li>
+            <li><strong>Trunk posterior:</strong> 18%</li>
+            <li><strong>Head/Neck:</strong> 9% (4.5% face + 4.5% posterior)</li>
+            <li><strong>Genitalia:</strong> 1%</li>
+            <li><strong>Total:</strong> 100%</li>
+            <li><strong>Application:</strong> Quick initial assessment for fluid resuscitation calculations and burn severity determination</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section id="flashcards-overview">
+        <h2 class="block">Self-Test Flashcards</h2>
+        <p class="note">Test your understanding of comprehensive Week 5 material. Click cards to flip.</p>
+
+        <div class="flash-toolbar">
+          <button class="flash-btn" onclick="shuffleFlashcards('overview')">🔀 Shuffle</button>
+          <button class="flash-btn alt" onclick="resetFlashcards('overview')">↻ Reset</button>
+          <span class="flash-count" id="flash-count-overview"></span>
+        </div>
+
+        <div class="flash-grid" id="overview-cards">
+          <!-- Cards will be generated by JavaScript -->
+        </div>
+      </section>
+
+      <section id="navigation">
+        <h2 class="block">Navigation</h2>
+        <div class="page-nav">
+          <button class="nav-btn" disabled>← Previous</button>
+          <a href="week5-hiv-labs-diagnosis.html" class="nav-btn">Next: HIV Labs &amp; Diagnosis →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const flashcardData = {
+      overview: [
+        { q: "What is the difference between HIV and AIDS?", a: "HIV is the virus; AIDS is the final stage when CD4 < 200 or AIDS-defining OIs develop. HIV progresses to AIDS over years without treatment." },
+        { q: "List the four stages of HIV infection.", a: "1) Acute infection (rapid replication, undetectable), 2) Seroconversion (antibodies detectable, worst flu), 3) Clinical latency (asymptomatic, 3-12+ years), 4) AIDS (CD4 < 200, severe immunosuppression)." },
+        { q: "What is the significance of CD4 count of 200?", a: "CD4 < 200 indicates AIDS diagnosis. Patient becomes vulnerable to opportunistic infections like PCP, toxoplasmosis, CMV, and cryptococcal meningitis. Prophylaxis is indicated." },
+        { q: "How is HIV transmitted?", a: "Sexual contact (anal/vaginal), parenteral (needle sharing, occupational exposure), mother-to-child (pregnancy/delivery/breastfeeding). NOT transmitted by casual contact." },
+        { q: "What is the needle stick risk for HIV transmission from HIV+ source?", a: "Approximately 0.3% (3 in 1000). Very low but requires post-exposure prophylaxis (PEP) within 1-2 hours, ideally within 3 days." },
+        { q: "Name three AIDS-defining opportunistic infections.", a: "Pneumocystis pneumonia (PCP), toxoplasmosis, CMV, cryptococcal meningitis, tuberculosis, oral candidiasis, Kaposi Sarcoma, MAC (mycobacterium avium)." },
+        { q: "What causes Kaposi Sarcoma and when does it appear?", a: "HHV-8 (human herpesvirus 8) causes KS. Appears when CD4 < 50. Presents as purple/brown non-blanching painless lesions that can occur anywhere and metastasize." },
+        { q: "How does oral candidiasis differ from oral herpes in HIV?", a: "Candidiasis = white patches, no dermatomal pattern, occurs at CD4 < 200; HSV = painful vesicles, can appear anywhere, severe with low CD4. VZV = dermatomal distribution (shingles pattern)." },
+        { q: "What is the ABCDE rule for detecting melanoma?", a: "A=Asymmetry, B=Border irregularity (ragged/notched), C=Color variation (multiple colors), D=Diameter >6mm, E=Evolving (changing). Any present = refer for biopsy." },
+        { q: "What are the three phases of wound healing?", a: "1) Hemostasis/Inflammatory (0-4 days) = clotting, inflammation; 2) Proliferative (4-21 days) = collagen, angiogenesis, granulation tissue; 3) Maturation (21 days-2 years) = remodeling, scarring." },
+        { q: "Distinguish between partial-thickness and full-thickness burns.", a: "Partial-thickness = epidermis + dermis, blistered, pink, very painful, heals in 2-3 weeks; Full-thickness = all layers, charred/black, painless (nerves destroyed), requires grafting." },
+        { q: "Calculate body surface area for a 70kg patient with 40% BSA burn using Rule of 9s.", a: "40% BSA means 40% of total body surface is burned. This determines severity (moderate-severe) and guides Parkland formula: 4 mL × 70 kg × 40% = 11,200 mL LR in 24 hours." }
+      ]
+    };
+
+    function generateFlashcards(sectionId) {
+      const container = document.getElementById(sectionId + '-cards');
+      const data = flashcardData[sectionId];
+
+      container.innerHTML = data.map((card, idx) => `
+        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
+          <div class="flash-inner">
+            <div class="flash-front">
+              <div>${card.q}</div>
+            </div>
+            <div class="flash-back">
+              <div>${card.a}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      updateFlashcardCount(sectionId);
+    }
+
+    function updateFlashcardCount(sectionId) {
+      const count = flashcardData[sectionId].length;
+      const el = document.getElementById('flash-count-' + sectionId);
+      if (el) el.textContent = `${count} cards`;
+    }
+
+    function shuffleFlashcards(sectionId) {
+      const arr = flashcardData[sectionId];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      generateFlashcards(sectionId);
+    }
+
+    function resetFlashcards(sectionId) {
+      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
+      cards.forEach(card => card.classList.remove('flipped'));
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      try { localStorage.setItem('theme', newTheme); } catch(e){}
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      generateFlashcards('overview');
+    });
+  </script>
+</body>
+</html>

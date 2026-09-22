@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 5 Overview — NUR 334 Study Guide</title>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    }
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-surface: #f5f5f5;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #666666;
+      --color-border: #e0e0e0;
+      --color-accent: #2563eb;
+      --color-success: #059669;
+      --color-warning: #d97706;
+      --color-danger: #dc2626;
+      --color-primary: #3b82f6;
+      --color-secondary: #8b5cf6;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) {
+        --color-bg: #0f172a;
+        --color-surface: #1e293b;
+        --color-text: #f1f5f9;
+        --color-text-secondary: #cbd5e1;
+        --color-border: #334155;
+        --color-accent: #60a5fa;
+        --color-success: #10b981;
+        --color-warning: #fbbf24;
+        --color-danger: #f87171;
+        --color-primary: #60a5fa;
+        --color-secondary: #a78bfa;
+      }
+    }
+    
+    html[data-theme="dark"] {
+      --color-bg: #0f172a;
+      --color-surface: #1e293b;
+      --color-text: #f1f5f9;
+      --color-text-secondary: #cbd5e1;
+      --color-border: #334155;
+      --color-accent: #60a5fa;
+      --color-success: #10b981;
+      --color-warning: #fbbf24;
+      --color-danger: #f87171;
+      --color-primary: #60a5fa;
+      --color-secondary: #a78bfa;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      border: 2px solid var(--color-border);
+      background-color: var(--color-surface);
+      color: var(--color-text);
+      cursor: pointer;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      z-index: 100;
+    }
+    
+    .theme-toggle:hover {
+      background-color: var(--color-accent);
+      color: white;
+      border-color: var(--color-accent);
+    }
+    
+    main {
+      width: 100%;
+      background-color: var(--color-bg);
+    }
+    
+    .page-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    
+    .page-head {
+      margin-bottom: 3rem;
+      border-bottom: 2px solid var(--color-border);
+      padding-bottom: 2rem;
+    }
+    
+    .eyebrow {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    h2.block {
+      border-left: 4px solid var(--color-accent);
+      padding-left: 1rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      color: var(--color-text-secondary);
+    }
+    
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+      color: var(--color-text-secondary);
+    }
+    
+    .card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--color-accent);
+    }
+    
+    .card.success {
+      border-left-color: var(--color-success);
+      background-color: rgba(5, 150, 105, 0.05);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      background-color: var(--color-surface);
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    
+    th {
+      background-color: var(--color-accent);
+      color: white;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .flashcard {
+      height: 300px;
+      background-color: var(--color-surface);
+      border: 2px solid var(--color-border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    
+    .flashcard:hover {
+      border-color: var(--color-accent);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+    
+    .flashcard.flipped {
+      background-color: var(--color-accent);
+      color: white;
+    }
+    
+    .flashcard-content {
+      text-align: center;
+      width: 100%;
+      font-weight: 500;
+      line-height: 1.4;
+      font-size: 0.95rem;
+    }
+    
+    .flashcard-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    
+    .flashcard.flipped .flashcard-label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .page-flip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid var(--color-border);
+    }
+    
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--color-accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .nav-button:hover {
+      background-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      .page-inner {
+        padding: 1.5rem 1rem;
+      }
+      
+      h1 {
+        font-size: 1.75rem;
+      }
+      
+      h2 {
+        font-size: 1.25rem;
+      }
+      
+      .page-flip {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .nav-button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  
+  <main id="content">
+    <div class="page-inner">
+      <header class="page-head">
+        <p class="eyebrow">Week 5 Content Module</p>
+        <h1>Week 5 · Overview</h1>
+      </header>
+      
+      <div class="card success">
+        <strong>Learning Outcomes:</strong> By the end of this week, you will be able to assess and manage patients with HIV/AIDS, identify and treat common skin conditions, manage acute and chronic wounds, and provide emergency care for burn injuries.
+      </div>
+      
+      <h2 class="block">Week 5 Topics at a Glance</h2>
+      <p>This week focuses on four critical areas of nursing practice that require immediate assessment and intervention skills. These conditions frequently present in clinical settings and are prevalent on the NCLEX-NGN examination.</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Key Focus</th>
+            <th>NCLEX-NGN Relevance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>HIV/AIDS & Labs</strong></td>
+            <td>Pathophysiology, diagnostic testing, antiretroviral therapy</td>
+            <td>High - Prioritization, safety protocols, client education</td>
+          </tr>
+          <tr>
+            <td><strong>Skin Conditions</strong></td>
+            <td>Dermatologic assessment, infectious and noninfectious conditions</td>
+            <td>Medium-High - Assessment, infection prevention, treatment</td>
+          </tr>
+          <tr>
+            <td><strong>Wounds</strong></td>
+            <td>Wound healing, dressing selection, infection prevention</td>
+            <td>High - Clinical judgment, intervention selection</td>
+          </tr>
+          <tr>
+            <td><strong>Burns</strong></td>
+            <td>Classification, fluid management, rehabilitation</td>
+            <td>High - Emergency care, delegation, fluid calculation</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h2 class="block">Integrated Concepts for Week 5</h2>
+      
+      <div class="card">
+        <strong>Safety & Infection Prevention</strong>
+        <p style="margin-top: 0.5rem;">All four topics require strict adherence to standard precautions, appropriate use of PPE, and understanding transmission routes. HIV requires additional bloodborne pathogen precautions; skin conditions require contact precautions; wounds require aseptic technique; burns require protection from infection.</p>
+      </div>
+      
+      <div class="card">
+        <strong>Assessment & Prioritization</strong>
+        <p style="margin-top: 0.5rem;">Rapid assessment is critical. For HIV patients: CD4+ count interpretation is paramount. For skin: distinguish infectious from noninfectious. For wounds: assess depth, drainage, edges. For burns: calculate body surface area (BSA) and anticipate complications.</p>
+      </div>
+      
+      <div class="card">
+        <strong>Fluid & Electrolyte Management</strong>
+        <p style="margin-top: 0.5rem;">Major theme across all topics. HIV/AIDS patients experience fluid shifts from diarrhea. Skin conditions affect fluid loss. Wounds require moisture balance. Burns demand immediate fluid resuscitation using precise formulas.</p>
+      </div>
+      
+      <h2 class="block">Clinical Reasoning Framework</h2>
+      
+      <p>Use this framework throughout Week 5:</p>
+      <ol>
+        <li><strong>Recognize:</strong> What condition is the patient presenting with?</li>
+        <li><strong>Interpret:</strong> What diagnostic findings support this? What are the risk factors?</li>
+        <li><strong>Respond:</strong> What are the immediate nursing priorities?</li>
+        <li><strong>Reflect:</strong> What are potential complications? How will I monitor?</li>
+      </ol>
+      
+      <h2 class="block">Self-Test Flashcards</h2>
+      
+      <div class="flashcard-grid">
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Question</div>
+            <div>CD4+ is 45 cells/uL. What is the most dangerous OI and why?</div>
+          </div>
+        </div>
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Answer</div>
+            <div>CMV - disseminated disease is life-threatening at this level. Requires IV therapy immediately.</div>
+          </div>
+        </div>
+        
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Question</div>
+            <div>Stage 3 vs Stage 4 pressure injury - what's the key difference for treatment?</div>
+          </div>
+        </div>
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Answer</div>
+            <div>Stage 3: dermis exposed (can heal with wound care). Stage 4: muscle/bone exposed (requires surgical consult and likely grafting).</div>
+          </div>
+        </div>
+        
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Question</div>
+            <div>80 kg patient, 40% BSA burn. First 8-hour fluid rate?</div>
+          </div>
+        </div>
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Answer</div>
+            <div>Parkland: 4 × 40 × 80 = 12,800 mL total; first 8 hours = 6,400 mL (titrate based on UOP, not time).</div>
+          </div>
+        </div>
+        
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Question</div>
+            <div>Patient with HIV has dysphagia and white oral patches. What prophylaxis?</div>
+          </div>
+        </div>
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Answer</div>
+            <div>Candida esophagitis - start fluconazole. Also indicates need for CD4 testing and OI prophylaxis assessment.</div>
+          </div>
+        </div>
+        
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Question</div>
+            <div>Patient with red, bumpy granulation tissue after burn. What dressing?</div>
+          </div>
+        </div>
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Answer</div>
+            <div>Moist non-adherent (foam, hydrocolloid, alginate) - promotes healing. Never dry gauze (damages tissue).</div>
+          </div>
+        </div>
+        
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Question</div>
+            <div>Cellulitis vs erysipelas - which has well-demarcated borders?</div>
+          </div>
+        </div>
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Answer</div>
+            <div>Erysipelas - well-demarcated, raised, superficial. Cellulitis is deeper with poorly demarcated edges.</div>
+          </div>
+        </div>
+        
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Question</div>
+            <div>Dermatomal vesicular rash. What precautions?</div>
+          </div>
+        </div>
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Answer</div>
+            <div>Herpes zoster (shingles) - Contact + Airborne precautions until lesions crust over (7-10 days).</div>
+          </div>
+        </div>
+        
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Question</div>
+            <div>Wound with undermining/tunneling. What does this indicate?</div>
+          </div>
+        </div>
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Answer</div>
+            <div>Non-healing wound - likely infection or ongoing pressure. Requires probe assessment to determine true dimensions.</div>
+          </div>
+        </div>
+        
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Question</div>
+            <div>Post-burn day 2: UOP 0.3 mL/kg/hr. What's the problem and action?</div>
+          </div>
+        </div>
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-content">
+            <div class="flashcard-label">Answer</div>
+            <div>Inadequate resuscitation - risk of AKI. Increase IV rate immediately to achieve goal UOP (0.5 mL/kg/hr for deep burns).</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="page-flip">
+        <div></div>
+        <a href="week5-hiv-labs-diagnosis.html" class="nav-button">
+          Next: HIV & Labs →
+        </a>
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const flashcards = document.querySelectorAll('.flashcard');
+      flashcards.forEach(card => {
+        card.style.cursor = 'pointer';
+      });
+    });
+  </script>
+</body>
+</html>

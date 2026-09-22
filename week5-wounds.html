@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wounds — NUR 334 Study Guide</title>
+  <script>
+    (function(){
+      try {
+        var p = new URLSearchParams(location.search).get('theme');
+        var t = p || localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+        if (p) { try { localStorage.setItem('theme', p) } catch(e){} }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <style>:root{--bg:#f6f7f9;--surface:#ffffff;--surface-2:#eef0f3;--surface-3:#e4e8ed;--border:#e0e4ea;--border-strong:#cbd1da;--text:#1e2530;--text-soft:#556070;--text-faint:#89929f;--stripe:#f6f8fa;--brand:#5b4b8a;--brand-strong:#453966;--brand-deep:#2d2547;--brand-tint:#f0ecf7;--brand-tint-2:#e3ddf0;--accent:#c15b7c;--accent-strong:#a54765;--accent-tint:#f8e8f0;--on-brand-soft:#e8e0f0;--on-brand-faint:#b8a8d1;--on-brand-dim:#d4cae3;--ok:#2f8f6b;--ok-strong:#237a58;--ok-tint:#e6f4ee;--bad:#c0392b;--bad-strong:#a52f22;--bad-tint:#fbeceb;--line-accent:#e5b8cc;--line-bad:#f3d2ce;--content-max:1120px;--radius:12px;--radius-sm:8px;--shadow-sm:0 1px 3px rgba(24,28,45,.07),0 1px 2px rgba(24,28,45,.04);--shadow-md:0 4px 14px rgba(24,28,45,.10);--shadow-lg:0 12px 30px rgba(24,28,45,.16);--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif}:root[data-theme="dark"]{--bg:#12161a;--surface:#1b2027;--surface-2:#232a33;--surface-3:#2c343f;--border:#323b47;--border-strong:#45505f;--text:#e6eaef;--text-soft:#a7b1bd;--text-faint:#7b8593;--stripe:rgba(255,255,255,.025);--brand:#8f80c4;--brand-strong:#b3a6e0;--brand-deep:#d3caee;--brand-tint:#282540;--brand-tint-2:#332e4e;--accent:#d67e99;--accent-strong:#ec9fb6;--accent-tint:#3a2431;--on-brand-soft:#e2ddf1;--on-brand-faint:#c3b9e4;--on-brand-dim:#d9d4ee;--line-accent:#f0d3dd;--line-bad:#4a2f2b;--ok:#43b085;--ok-strong:#6bcfa4;--ok-tint:#173029;--bad:#e46557;--bad-strong:#f28c82;--bad-tint:#361f1d;--shadow-sm:0 1px 3px rgba(0,0,0,.45);--shadow-md:0 4px 14px rgba(0,0,0,.5);--shadow-lg:0 12px 30px rgba(0,0,0,.6)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}h1,h2,h3,h4{font-family:var(--serif);color:var(--brand-deep);margin:0 0 .3em;line-height:1.25}a{color:var(--brand)}img{max-width:100%}#content{max-width:var(--content-max);margin:0 auto;padding:34px 40px 100px}.page-inner{max-width:100%;margin:0 auto}.page-head{margin:6px 0 22px}.eyebrow{margin:0 0 6px;font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-strong)}.page-head h1{font-size:2rem;margin:0}@media(min-width:900px){.page-head h1{font-size:2.25rem}}.lead{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--brand);padding:14px 18px;border-radius:var(--radius-sm);margin:0 0 26px;color:var(--text-soft);font-size:.95rem;box-shadow:var(--shadow-sm)}h2.block{font-size:1.4rem;color:var(--brand-strong);border-bottom:2px solid var(--brand-tint-2);padding-bottom:8px;margin-top:46px}h3.sub{font-size:1.08rem;color:var(--brand-deep);margin-top:28px}p.note{color:var(--text-soft);font-size:.9rem;margin-top:2px}.table-wrap{overflow-x:auto;margin:14px 0 8px;border-radius:var(--radius);box-shadow:var(--shadow-sm);border:1px solid var(--border)}table{border-collapse:collapse;width:100%;background:var(--surface);font-size:.9rem}thead th{background:var(--brand);color:#fff;text-align:left;padding:11px 13px;font-weight:600;font-size:.82rem;letter-spacing:.02em}tbody td{padding:10px 13px;border-bottom:1px solid var(--border);vertical-align:top}tbody tr:last-child td{border-bottom:none}tbody tr:nth-child(even){background:var(--stripe)}tbody tr:hover{background:var(--brand-tint)}td.term{font-weight:700;color:var(--brand-strong);white-space:nowrap;width:1%}.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--shadow-sm);border-top:4px solid var(--brand);margin:16px 0}.card.alt{border-top-color:var(--accent)}.card h4{margin-bottom:8px;color:var(--brand-strong);font-size:.98rem}.card.alt h4{color:var(--accent-strong)}.card ul{margin:0;padding-left:18px;font-size:.9rem}.card li{margin-bottom:5px}.callout-danger{background:var(--bad-tint);border:1px solid var(--line-bad);border-left:4px solid var(--bad);border-radius:var(--radius-sm);padding:12px 16px;margin:16px 0;font-size:.9rem}.callout-danger b{color:var(--bad-strong)}.flash-toolbar{display:flex;gap:10px;margin:12px 0 20px;flex-wrap:wrap;align-items:center}.flash-btn{background:var(--brand);color:#fff;border:none;padding:9px 15px;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;transition:.14s;font-family:inherit}.flash-btn:hover{background:var(--brand-strong)}.flash-btn.alt{background:var(--surface);color:var(--brand-strong);border:1px solid var(--border-strong)}.flash-btn.alt:hover{background:var(--brand-tint)}.flash-count{align-self:center;font-size:.8rem;color:var(--text-faint);margin-left:2px}.flash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:16px;margin-bottom:36px}.flash-card{perspective:1200px;height:190px;cursor:pointer}.flash-card:focus{outline:0}.flash-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:var(--radius)}.flash-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}.flash-card.flipped .flash-inner{transform:rotateY(180deg)}.flash-front,.flash-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-size:.86rem;box-shadow:var(--shadow-sm)}.flash-front{background:var(--surface);border:1px solid var(--border-strong);color:var(--brand-deep);font-weight:600}.flash-back{background:linear-gradient(160deg,var(--brand),var(--brand-strong));color:#fff;transform:rotateY(180deg);font-weight:500}.page-nav{display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}.nav-btn{background:var(--brand);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:.14s;text-decoration:none;display:inline-block}.nav-btn:hover{background:var(--brand-strong)}.nav-btn:disabled{opacity:.5;cursor:not-allowed}@media(max-width:640px){#content{padding:20px 16px 80px}.page-head h1{font-size:1.5rem}h2.block{font-size:1.2rem}.flash-grid{grid-template-columns:1fr}.page-nav{flex-direction:column}.nav-btn{width:100%;text-align:center}}</style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">☀️/🌙</button>
+  <main id="content">
+    <div class="page-inner">
+      <header class="page-head">
+        <p class="eyebrow">Week 5 · Page 4</p>
+        <h1>Wound Healing</h1>
+      </header>
+      <div class="lead">Comprehensive coverage of wound assessment, healing phases, dressing selection, and complication management.</div>
+
+      <section id="content-main">
+        <h2 class="block">Wound Healing Phases</h2>
+        <h3 class="sub">Three Phases of Wound Healing</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Phase</th><th>Timeline</th><th>Cellular Activity</th><th>Nursing Actions</th></tr></thead>
+            <tbody>
+              <tr><td class="term">Hemostasis/Inflammatory</td><td>0-4 days</td><td>Platelets aggregate, coagulation cascade, neutrophils infiltrate, macrophages remove debris, cytokines released</td><td>Control bleeding, assess for infection signs, monitor pain, promote rest and elevation</td></tr>
+              <tr><td class="term">Proliferative</td><td>4-21 days</td><td>Collagen (Type III) deposition, angiogenesis (new blood vessels), fibroblasts active, epithelialization, granulation tissue forms</td><td>Maintain moist wound environment, prevent infection, promote nutrition (protein, vitamin C), assess for signs of healing</td></tr>
+              <tr><td class="term">Maturation/Remodeling</td><td>21 days-2 years</td><td>Collagen Type III converts to Type I, cross-linking and reorganization, wound strengthens, scar remodeling, angiogenesis decreases</td><td>Monitor for contractures, manage scar appearance (massage, pressure garments), continue PT/OT, support psychosocial adjustment</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">Wound Strength Progression</h3>
+        <div class="card">
+          <h4>Percentage of Tensile Strength Over Time</h4>
+          <ul>
+            <li><strong>1 Week:</strong> ~10% of pre-wound strength; still very fragile</li>
+            <li><strong>3 Weeks:</strong> ~25% of strength; sutures often removed but wound still vulnerable</li>
+            <li><strong>1 Month:</strong> ~50% of strength; continuing collagen deposition</li>
+            <li><strong>2-3 Months:</strong> ~70-80% of strength</li>
+            <li><strong>6 Months:</strong> ~90% of strength; plateau thereafter (never 100%)</li>
+            <li><strong>Clinical Implications:</strong> Avoid heavy lifting/strenuous activity during early healing; scar tissue is more fragile than original tissue</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Factors Affecting Wound Healing</h2>
+        <h3 class="sub">Intrinsic and Extrinsic Factors That Impair Healing</h3>
+        <div class="card">
+          <h4>Age and Physiologic Changes</h4>
+          <ul>
+            <li><strong>Elderly Patients:</strong> Skin becomes thinner and more fragile; collagen production decreases; inflammatory response diminished; wound tensile strength develops more slowly; healing timeline extends significantly</li>
+            <li><strong>Pediatric Patients:</strong> Generally heal faster due to better circulation and robust immune response; however, thicker scarring possible</li>
+          </ul>
+        </div>
+
+        <div class="card alt">
+          <h4>Circulation and Perfusion</h4>
+          <ul>
+            <li><strong>Peripheral Vascular Disease:</strong> Reduced blood flow to wound → decreased oxygen delivery → prolonged healing, increased infection risk</li>
+            <li><strong>Venous Insufficiency/Edema:</strong> Fluid accumulation prevents normal tissue perfusion; chronic venous insufficiency wounds notoriously difficult to heal</li>
+            <li><strong>Positioning:</strong> Elevation promotes venous return and decreases edema; proper positioning critical for healing</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Medications and Medical Conditions</h4>
+          <ul>
+            <li><strong>Steroids:</strong> Suppress inflammatory response and collagen production; impair immune function; even topical steroids can affect healing</li>
+            <li><strong>Anticoagulants:</strong> Increase bleeding risk; may complicate hemostasis during initial phase</li>
+            <li><strong>NSAIDs:</strong> Interfere with inflammatory phase; may delay collagen deposition</li>
+            <li><strong>Diabetes:</strong> Hyperglycemia impairs immune function and collagen synthesis; increased infection risk</li>
+            <li><strong>Renal Disease:</strong> Uremic toxins and electrolyte abnormalities impair healing; anemia reduces oxygen capacity</li>
+            <li><strong>Malignancy:</strong> Direct effect of cancer and chemotherapy on healing; protein depletion</li>
+            <li><strong>Immunosuppression (HIV, chemotherapy, transplant meds):</strong> Impaired immune response prolongs inflammatory phase, increases infection risk</li>
+          </ul>
+        </div>
+
+        <div class="card alt">
+          <h4>Lifestyle and Habits</h4>
+          <ul>
+            <li><strong>Smoking:</strong> Nicotine causes vasoconstriction reducing oxygen delivery; carbon monoxide decreases hemoglobin's oxygen-carrying capacity; major risk factor for healing complications</li>
+            <li><strong>Nutrition Deficiencies:</strong> Protein (collagen synthesis), Vitamin C (cross-linking of collagen), Vitamin A (epithelialization), Zinc (enzyme cofactor); deficiencies dramatically slow healing</li>
+            <li><strong>Alcohol Use Disorder:</strong> Malnutrition, liver disease, impaired immune function, poor wound care compliance</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Wound Assessment & Measurement</h2>
+        <h3 class="sub">Comprehensive Wound Evaluation Technique</h3>
+        <div class="card alt">
+          <h4>Systematic Assessment Parameters</h4>
+          <ul>
+            <li><strong>Location:</strong> Body area affected; affects blood supply (face heals faster, sacrum slower), healing rate, infection risk, functional outcome</li>
+            <li><strong>Dimensions:</strong> Length × Width × Depth in centimeters; measure at deepest point; trendy with photography at each assessment to objectively track healing</li>
+            <li><strong>Color Assessment (Critical for Wound Status):</strong> RED = healthy granulation tissue (good blood supply, appropriate healing); YELLOW = slough/fibrin (dead tissue, may need debridement); BLACK = eschar/full-thickness necrotic tissue (must be debrided); PALE/WHITE = poor perfusion (may indicate vascular compromise)</li>
+            <li><strong>Edges:</strong> Well-approximated (good for healing) vs. rolled/inverted edges (delays healing, may need surgical revision) vs. undermined (tissue extends beyond visible wound, indicates deeper infection/poor healing)</li>
+            <li><strong>Base Tissue Composition:</strong> Estimate percentage of granulation tissue, slough, eschar; affects treatment approach</li>
+            <li><strong>Drainage Assessment:</strong> Type (serous vs. sanguineous vs. purulent), amount (scant &lt;5mL, small 5-10mL, moderate 10-25mL, large &gt;25mL/8-hour shift), color, odor, consistency</li>
+            <li><strong>Surrounding Skin:</strong> Erythema (may indicate infection), induration (tissue firmness), maceration (white, waterlogged tissue from moisture), dryness (may need different dressing)</li>
+            <li><strong>Tunneling/Undermining:</strong> Use sterile cotton-tipped applicator or probe; gently explore wound margins; note direction and depth; indicates deeper infection tract or poor healing; requires different management (cavity dressings)</li>
+            <li><strong>Pain Assessment:</strong> Rate pain on scale; note if pain increases with dressing changes (may need pre-medication or different dressing choice)</li>
+            <li><strong>Signs of Infection:</strong> Increased purulent drainage, erythema, warmth, odor, pain, fever, elevated WBC; culture if suspected</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Wound Drainage Types</h2>
+        <h3 class="sub">Classification and Management</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Drainage Type</th><th>Color/Appearance</th><th>Composition</th><th>Indicates</th><th>Management</th></tr></thead>
+            <tbody>
+              <tr><td class="term">Serous</td><td>Clear/pale yellow</td><td>Plasma (protein, electrolytes)</td><td>Normal early healing; clean wound</td><td>Maintain dressing; monitor volume</td></tr>
+              <tr><td class="term">Sanguineous</td><td>Bright red/dark red</td><td>Blood cells + plasma</td><td>Fresh bleeding; may indicate excessive tissue trauma or friable tissue</td><td>Assess cause; consider hemostatic measures</td></tr>
+              <tr><td class="term">Serosanguineous</td><td>Pink/pale red</td><td>Mixture of serous + blood</td><td>Normal healing phase; most common</td><td>Normal; document as reference</td></tr>
+              <tr><td class="term">Purulent</td><td>Yellow/green/cloudy</td><td>WBC + bacteria + tissue debris</td><td>INFECTION; serious complication</td><td>Culture & sensitivity; systemic antibiotics; debridement; wound care escalation</td></tr>
+              <tr><td class="term">Fibrinous</td><td>Yellow/tan stringy</td><td>Fibrin + tissue debris</td><td>Normal slough during healing or early infection</td><td>Assess for other infection signs; maintain moist environment for autolysis</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="block">Wound Dressing Types & Selection</h2>
+        <h3 class="sub">Dressing Characteristics and Use</h3>
+        <div class="card">
+          <h4>Modern Moist Wound Healing Dressings</h4>
+          <ul>
+            <li><strong>Transparent Film (Tegaderm):</strong> Allows visualization, maintains moisture, for clean/dry wounds; not for infected/draining wounds</li>
+            <li><strong>Hydrocolloid (DuoDerm):</strong> Absorbs moderate drainage, maintains moisture, promotes autolytic debridement, provides insulation for comfort</li>
+            <li><strong>Hydrogel (AquaForm):</strong> Maintains moisture, promotes debridement, for dry wounds and burns; absorbs minimal drainage</li>
+            <li><strong>Foam Dressings (Lyofoam):</strong> Absorbs moderate-to-heavy drainage, provides cushioning, maintains moisture, good for pressure ulcers</li>
+            <li><strong>Alginate (Kaltostat):</strong> Absorbs heavy drainage, promotes hemostasis (calcium alginate), converts to gel; for draining wounds, cavity wounds</li>
+            <li><strong>Collagen Dressings (Biostep):</strong> Promotes collagen synthesis, provides scaffold for healing, for chronic wounds and burns</li>
+            <li><strong>Vacuum-Assisted Closure (VAC):</strong> Negative pressure therapy, removes exudate, promotes angiogenesis, for large/complex wounds, grafts</li>
+            <li><strong>Antimicrobial Dressings:</strong> Silver (Silvadine), iodine (Iodoform) for infected wounds; use short-term as bacteria can develop resistance</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Dressing Selection Principles and Clinical Decision-Making</h3>
+        <div class="card alt">
+          <h4>Choosing the Right Dressing</h4>
+          <ul>
+            <li><strong>Wound Assessment First:</strong> Type of wound (acute vs chronic), location, drainage amount, presence of infection guides selection; reassess frequently</li>
+            <li><strong>Moist Wound Environment (Evidence-Based):</strong> Modern principle; accelerates healing up to 2x faster vs. traditional wet-to-dry dressings; promotes autolytic debridement (body's own enzymes remove dead tissue); reduces pain; improves epithelialization</li>
+            <li><strong>Wet-to-Dry Dressings (OUTDATED):</strong> Was standard for infected wounds; now recognized as traumatizing to healing tissue; damages new granulation and epithelial cells with each change; increases pain; NOT recommended for new wounds unless specific institutional protocol</li>
+            <li><strong>Frequency of Changes:</strong> Transparent film/hydrocolloid q2-3 days; foam/alginate daily or per drainage (change when saturated); VAC per protocol (typically q3 days if clean, more often if infected)</li>
+            <li><strong>Cost-Benefit Analysis:</strong> Modern dressings more expensive upfront but reduce overall time-to-healing, fewer dressing changes, less nursing time; cost-effective despite higher unit cost</li>
+            <li><strong>Patient Comfort and Compliance:</strong> Minimize pain with dressing changes; choose non-adherent options when possible; assess for allergies (iodine, latex, adhesives); patient compliance improves with less painful care</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Pain Management During Wound Care</h2>
+        <h3 class="sub">Analgesia and Comfort Strategies for Dressing Changes</h3>
+        <div class="card">
+          <h4>Pharmacologic and Non-Pharmacologic Approaches</h4>
+          <ul>
+            <li><strong>Timing of Medications:</strong> Pre-medicate 30-45 minutes BEFORE dressing change when using opioids (allows peak effect); shorter interval for fast-acting agents</li>
+            <li><strong>Opioid Selection:</strong> Use appropriate analgesics for moderate-to-severe pain; dressing changes can be extremely painful; dose adequately</li>
+            <li><strong>Anxiolytics:</strong> Benzodiazepines (midazolam) useful for patients with anxiety about wound care; reduces anticipatory pain</li>
+            <li><strong>Nitrous Oxide:</strong> Rapid onset, useful for quick procedures; dissociative effect helps with anxiety</li>
+            <li><strong>Topical Anesthetics:</strong> Lidocaine spray or cream on smaller wounds; useful for procedures like wound cleaning or suture removal</li>
+            <li><strong>Non-Pharmacologic Strategies:</strong> Distraction (music, TV, conversation), relaxation techniques, positioning comfort, warm normal saline for cleansing (vs. cold saline), gentle technique to minimize trauma</li>
+            <li><strong>Dressing Selection Impact:</strong> Choose non-adherent dressings to reduce pain with removal; some patients tolerate certain dressings better than others</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Drain and Tubing Assessment</h2>
+        <h3 class="sub">Monitoring Drains, Jackson-Pratt Tubes, and Output Management</h3>
+        <div class="card alt">
+          <h4>Drain Management Principles</h4>
+          <ul>
+            <li><strong>Purpose of Drains:</strong> Remove fluid collection (seroma, hematoma) that could compromise healing; prevent abscess formation; maintain wound apposition</li>
+            <li><strong>Output Monitoring:</strong> Measure amount each shift; note color, consistency, odor; excessive output (>100 mL/8 hours) may indicate bleeding or infection; decreasing output indicates ready for removal</li>
+            <li><strong>Jackson-Pratt (JP) Drains:</strong> Passive gravity drain; keep bulb compressed (creates suction) for optimal drainage; note if drain becomes clogged (output stops) and notify provider</li>
+            <li><strong>Penrose Drains:</strong> Passive gravity drainage; keep sterile gauze around drain to prevent skin damage from drainage</li>
+            <li><strong>Drain Placement Assessment:</strong> Ensure drain enters at lowest point of wound; verify it hasn't migrated (shifted position); assess surrounding skin for signs of irritation or infection</li>
+            <li><strong>Drain Removal Criteria:</strong> Typically removed when output &lt;25-30 mL per 24 hours and clear/serous (not purulent); provider order required; patient taught about increased monitoring for seroma after removal</li>
+            <li><strong>Complications:</strong> Monitor for obstruction (no drainage when there should be), erosion through skin, infection (purulent output, fever)</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Suture and Staple Removal Timing</h2>
+        <h3 class="sub">Location-Based Removal Schedules</h3>
+        <div class="card">
+          <h4>Optimal Timing for Suture/Staple Removal</h4>
+          <ul>
+            <li><strong>Face/Scalp:</strong> 3-5 days (excellent blood supply, heals quickly, cosmesis important)</li>
+            <li><strong>Trunk:</strong> 7-10 days (intermediate healing, under tension)</li>
+            <li><strong>Extremities/Joints:</strong> 10-14 days (slower healing, higher tension/movement)</li>
+            <li><strong>Over Joints:</strong> 14 days minimum (movement interferes with healing; remove late to maintain strength)</li>
+            <li><strong>Principles:</strong> Never remove sutures early (wound will dehisce); assess wound integrity before removal; if dehiscent, notify provider before removal; approximately 50% of wound strength at removal time</li>
+            <li><strong>Technique:</strong> Clean suture line with sterile technique; cut suture at skin level and pull gently to remove; if resistance, do not force (may indicate inadequate healing); use suture removal kit (special scissors and tweezers)</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Wound Complications & Prevention</h2>
+        <h3 class="sub">Common Complications and Nursing Management</h3>
+        <div class="callout-danger">
+          <b>INFECTION/SEPSIS:</b> Increased purulent drainage, erythema, warmth, odor, fever, elevated WBC. Culture wound; start antibiotics empirically; escalate care for systemic signs.
+          <br/><b>DEHISCENCE vs EVISCERATION:</b> Dehiscence = wound separation (outer layers); Evisceration = organs protrude through wound (EMERGENCY—cover, NPO, OR). Both risk infection.
+          <br/><b>HYPERTROPHIC SCARS:</b> Raised scars within wound boundaries; pressure garments, massage, silicone gel, possible steroid injection.
+          <br/><b>KELOID SCARS:</b> Extend beyond original wound; permanent; more common in darker skin; difficult to treat (steroid injection, cryotherapy, laser).
+        </div>
+
+        <h2 class="block">Nutritional Support for Wound Healing</h2>
+        <h3 class="sub">Specific Nutritional Requirements to Optimize Healing</h3>
+        <div class="card alt">
+          <h4>Critical Nutrients and Healing Impact</h4>
+          <ul>
+            <li><strong>Protein (PRIMARY):</strong> Essential for collagen synthesis; requirement increases with wound size; goal 1.5-2 g/kg/day for healing wounds (vs. 0.8 g/kg maintenance); insufficient protein dramatically delays healing</li>
+            <li><strong>Vitamin C (Ascorbic Acid):</strong> Essential cofactor for collagen cross-linking; required for immune function; deficiency causes wound reopening; goal 500-1000 mg daily during active healing phase</li>
+            <li><strong>Vitamin A:</strong> Promotes epithelialization; required for immune function; goal 10,000-15,000 IU daily during healing phase; caution with excessive doses (toxicity risk)</li>
+            <li><strong>Zinc:</strong> Enzyme cofactor for collagen synthesis and immune function; deficiency impairs healing; goal 15-30 mg daily; found in protein sources (meat, poultry, legumes, nuts)</li>
+            <li><strong>Calories:</strong> Increased metabolic demand for healing; may need 1.5-2x maintenance calories depending on wound size</li>
+            <li><strong>B Vitamins:</strong> Coenzymes in metabolism; support immune function</li>
+            <li><strong>Hydration:</strong> Critical for all metabolic processes; adequate fluid intake essential</li>
+            <li><strong>Nutritional Assessment:</strong> Screen at admission and weekly; consider supplements if intake inadequate; dietitian consult for complex cases</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Wound Cleanliness Categories and Infection Risk</h2>
+        <h3 class="sub">Surgical Wound Classification and Implications</h3>
+        <div class="card">
+          <h4>Clean vs. Contaminated vs. Infected Wound Management</h4>
+          <ul>
+            <li><strong>Clean Wounds:</strong> Elective surgery, untraumatic, no break in sterile technique, no infection present; low infection risk (&lt;2%); primary closure, normal healing expected</li>
+            <li><strong>Clean-Contaminated Wounds:</strong> Minor break in sterile technique, controlled surgical procedure with minor trauma; higher infection risk; may require prophylactic antibiotics; monitor closely</li>
+            <li><strong>Contaminated Wounds:</strong> Significant break in sterile technique, traumatic wounds &lt;12 hours old, gross spillage of GI contents; infection risk 10-15%; prophylactic antibiotics recommended</li>
+            <li><strong>Infected Wounds:</strong> Visibly infected at time of assessment; purulent drainage, signs of active infection; require culture, systemic antibiotics, possible surgical intervention</li>
+            <li><strong>Nursing Implications:</strong> Cleaner wounds can use different care protocols than contaminated wounds; infection prevention strategies escalate with contamination level</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section id="flashcards-wounds">
+        <h2 class="block">Self-Test Flashcards</h2>
+        <p class="note">Test your wound healing knowledge. Click cards to flip.</p>
+        <div class="flash-toolbar">
+          <button class="flash-btn" onclick="shuffleFlashcards('wounds')">🔀 Shuffle</button>
+          <button class="flash-btn alt" onclick="resetFlashcards('wounds')">↻ Reset</button>
+          <span class="flash-count" id="flash-count-wounds"></span>
+        </div>
+        <div class="flash-grid" id="wounds-cards"></div>
+      </section>
+
+      <section id="navigation">
+        <h2 class="block">Navigation</h2>
+        <div class="page-nav">
+          <a href="week5-skin-conditions.html" class="nav-btn">← Previous: Skin Conditions</a>
+          <a href="week5-burns.html" class="nav-btn">Next: Burns →</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const flashcardData = {
+      wounds: [
+        { q: "What cellular activity occurs in the proliferative phase of wound healing?", a: "Collagen (Type III) deposition, angiogenesis (new blood vessel formation), fibroblasts active, granulation tissue forms, epithelialization (4-21 days). Nursing: maintain moist environment, promote nutrition, prevent infection." },
+        { q: "How do you assess and document purulent wound drainage?", a: "Yellow/green cloudy drainage indicates INFECTION. Assess amount (scant <5mL, small 5-10mL, moderate 10-25mL, large >25mL), odor, surrounding erythema, pain. Culture & sensitivity required. Start antibiotics empirically. Escalate care." },
+        { q: "Describe a pressure ulcer with tunneling and explain nursing management.", a: "Tunneling = tissue extends beyond visible wound boundaries (use sterile probe to measure depth/direction). Indicates deeper infection or poor healing. Risk of abscess formation. Manage: assess daily, may require surgical debridement, appropriate dressing for cavity wounds (alginate, foam)." },
+        { q: "What is the difference between dehiscence and evisceration?", a: "Dehiscence = outer wound layers separate; may self-resolve. Evisceration = organs protrude through wound; EMERGENCY—cover immediately, NPO, notify physician, prepare for OR. Both carry infection risk." },
+        { q: "Explain moist wound environment principle vs traditional wet-to-dry dressings.", a: "Moist environment speeds healing 2x vs wet-to-dry; promotes autolytic debridement; reduces pain with dressing changes. Modern dressings (hydrocolloid, foam, alginate) maintain moisture. Wet-to-dry is outdated; can damage healthy tissue." },
+        { q: "What is the progression of wound tensile strength over 6 months?", a: "Week 1: ~10% (very fragile); Week 3: ~25%; Month 1: ~50%; Month 2-3: 70-80%; Month 6: ~90% (plateaus, never reaches 100%). Clinical: avoid heavy lifting early; scar tissue always more fragile than original." },
+        { q: "When would you use an alginate dressing vs hydrocolloid vs transparent film?", a: "Alginate: heavy drainage, cavity wounds, hemostasis needed. Hydrocolloid: moderate drainage, chronic wounds, provides insulation. Transparent film: clean/dry wounds, allows visualization. Choice depends on wound assessment." },
+        { q: "List three major factors that impair wound healing and how to address them.", a: "Nutrition (protein, vitamin C, zinc deficiency slows healing—supplement), Infection (bacteria prolong inflammatory phase—culture & antibiotics), Poor circulation (peripheral vascular disease reduces oxygen—optimize perfusion, elevation). Age also slows healing." },
+        { q: "Why is hypertrophic scarring more common in burns and darker skin?", a: "Deeper thermal injury triggers exaggerated collagen deposition. Darker skin has more melanin and higher risk of abnormal scarring (hypertrophic/keloid). Manage: pressure garments, silicone gel, scar massage, avoid sun exposure." },
+        { q: "What are the components of comprehensive wound assessment?", a: "Location, dimensions (L×W×D in cm), color/appearance (red vs yellow vs black), edges (well-approximated vs rolled vs undermined), drainage (type, amount), surrounding skin (erythema, maceration), tunneling/undermining, photograph for trending." },
+        { q: "How do you manage an infected surgical wound (VAC indicated)?", a: "Purulent drainage = infection; culture & sensitivity required. Start systemic antibiotics. Consider debridement of necrotic tissue. Apply VAC therapy for large/complex wounds—negative pressure removes exudate, promotes angiogenesis, accelerates healing." },
+        { q: "Why is immunosuppression a critical healing factor and how does CD4 count affect wounds?", a: "CD4 <200 severely impairs immune response (HIV); chemotherapy/steroids also suppress healing. Infection risk increases; inflammatory phase prolonged. Optimize immune status (ART for HIV, nutritional support, maintain normothermia/normoglycemia)." }
+      ]
+    };
+
+    function generateFlashcards(sectionId) {
+      const container = document.getElementById(sectionId + '-cards');
+      const data = flashcardData[sectionId];
+      container.innerHTML = data.map((card, idx) => `
+        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
+          <div class="flash-inner">
+            <div class="flash-front"><div>${card.q}</div></div>
+            <div class="flash-back"><div>${card.a}</div></div>
+          </div>
+        </div>
+      `).join('');
+      updateFlashcardCount(sectionId);
+    }
+
+    function updateFlashcardCount(sectionId) {
+      const count = flashcardData[sectionId].length;
+      const el = document.getElementById('flash-count-' + sectionId);
+      if (el) el.textContent = `${count} cards`;
+    }
+
+    function shuffleFlashcards(sectionId) {
+      const arr = flashcardData[sectionId];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      generateFlashcards(sectionId);
+    }
+
+    function resetFlashcards(sectionId) {
+      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
+      cards.forEach(card => card.classList.remove('flipped'));
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      try { localStorage.setItem('theme', newTheme); } catch(e){}
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      generateFlashcards('wounds');
+    });
+  </script>
+</body>
+</html>

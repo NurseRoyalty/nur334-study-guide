@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Big Picture Synthesis — NUR 334 Study Guide</title>
+  <script>
+    (function(){
+      try {
+        var p = new URLSearchParams(location.search).get('theme');
+        var t = p || localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+        if (p) { try { localStorage.setItem('theme', p) } catch(e){} }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <style>:root{--bg:#f6f7f9;--surface:#ffffff;--surface-2:#eef0f3;--surface-3:#e4e8ed;--border:#e0e4ea;--border-strong:#cbd1da;--text:#1e2530;--text-soft:#556070;--text-faint:#89929f;--stripe:#f6f8fa;--brand:#5b4b8a;--brand-strong:#453966;--brand-deep:#2d2547;--brand-tint:#f0ecf7;--brand-tint-2:#e3ddf0;--accent:#c15b7c;--accent-strong:#a54765;--accent-tint:#f8e8f0;--on-brand-soft:#e8e0f0;--on-brand-faint:#b8a8d1;--on-brand-dim:#d4cae3;--ok:#2f8f6b;--ok-strong:#237a58;--ok-tint:#e6f4ee;--bad:#c0392b;--bad-strong:#a52f22;--bad-tint:#fbeceb;--line-accent:#e5b8cc;--line-bad:#f3d2ce;--content-max:1120px;--radius:12px;--radius-sm:8px;--shadow-sm:0 1px 3px rgba(24,28,45,.07),0 1px 2px rgba(24,28,45,.04);--shadow-md:0 4px 14px rgba(24,28,45,.10);--shadow-lg:0 12px 30px rgba(24,28,45,.16);--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif}:root[data-theme="dark"]{--bg:#12161a;--surface:#1b2027;--surface-2:#232a33;--surface-3:#2c343f;--border:#323b47;--border-strong:#45505f;--text:#e6eaef;--text-soft:#a7b1bd;--text-faint:#7b8593;--stripe:rgba(255,255,255,.025);--brand:#8f80c4;--brand-strong:#b3a6e0;--brand-deep:#d3caee;--brand-tint:#282540;--brand-tint-2:#332e4e;--accent:#d67e99;--accent-strong:#ec9fb6;--accent-tint:#3a2431;--on-brand-soft:#e2ddf1;--on-brand-faint:#c3b9e4;--on-brand-dim:#d9d4ee;--line-accent:#f0d3dd;--line-bad:#4a2f2b;--ok:#43b085;--ok-strong:#6bcfa4;--ok-tint:#173029;--bad:#e46557;--bad-strong:#f28c82;--bad-tint:#361f1d;--shadow-sm:0 1px 3px rgba(0,0,0,.45);--shadow-md:0 4px 14px rgba(0,0,0,.5);--shadow-lg:0 12px 30px rgba(0,0,0,.6)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}h1,h2,h3,h4{font-family:var(--serif);color:var(--brand-deep);margin:0 0 .3em;line-height:1.25}a{color:var(--brand)}img{max-width:100%}#content{max-width:var(--content-max);margin:0 auto;padding:34px 40px 100px}.page-inner{max-width:100%;margin:0 auto}.page-head{margin:6px 0 22px}.eyebrow{margin:0 0 6px;font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-strong)}.page-head h1{font-size:2rem;margin:0}@media(min-width:900px){.page-head h1{font-size:2.25rem}}.lead{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--brand);padding:14px 18px;border-radius:var(--radius-sm);margin:0 0 26px;color:var(--text-soft);font-size:.95rem;box-shadow:var(--shadow-sm)}h2.block{font-size:1.4rem;color:var(--brand-strong);border-bottom:2px solid var(--brand-tint-2);padding-bottom:8px;margin-top:46px}h3.sub{font-size:1.08rem;color:var(--brand-deep);margin-top:28px}p.note{color:var(--text-soft);font-size:.9rem;margin-top:2px}.table-wrap{overflow-x:auto;margin:14px 0 8px;border-radius:var(--radius);box-shadow:var(--shadow-sm);border:1px solid var(--border)}table{border-collapse:collapse;width:100%;background:var(--surface);font-size:.9rem}thead th{background:var(--brand);color:#fff;text-align:left;padding:11px 13px;font-weight:600;font-size:.82rem;letter-spacing:.02em}tbody td{padding:10px 13px;border-bottom:1px solid var(--border);vertical-align:top}tbody tr:last-child td{border-bottom:none}tbody tr:nth-child(even){background:var(--stripe)}tbody tr:hover{background:var(--brand-tint)}td.term{font-weight:700;color:var(--brand-strong);white-space:nowrap;width:1%}.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--shadow-sm);border-top:4px solid var(--brand);margin:16px 0}.card.alt{border-top-color:var(--accent)}.card h4{margin-bottom:8px;color:var(--brand-strong);font-size:.98rem}.card.alt h4{color:var(--accent-strong)}.card ul{margin:0;padding-left:18px;font-size:.9rem}.card li{margin-bottom:5px}.flash-toolbar{display:flex;gap:10px;margin:12px 0 20px;flex-wrap:wrap;align-items:center}.flash-btn{background:var(--brand);color:#fff;border:none;padding:9px 15px;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;transition:.14s;font-family:inherit}.flash-btn:hover{background:var(--brand-strong)}.flash-btn.alt{background:var(--surface);color:var(--brand-strong);border:1px solid var(--border-strong)}.flash-btn.alt:hover{background:var(--brand-tint)}.flash-count{align-self:center;font-size:.8rem;color:var(--text-faint);margin-left:2px}.flash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:16px;margin-bottom:36px}.flash-card{perspective:1200px;height:190px;cursor:pointer}.flash-card:focus{outline:0}.flash-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:var(--radius)}.flash-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}.flash-card.flipped .flash-inner{transform:rotateY(180deg)}.flash-front,.flash-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-size:.86rem;box-shadow:var(--shadow-sm)}.flash-front{background:var(--surface);border:1px solid var(--border-strong);color:var(--brand-deep);font-weight:600}.flash-back{background:linear-gradient(160deg,var(--brand),var(--brand-strong));color:#fff;transform:rotateY(180deg);font-weight:500}.page-nav{display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}.nav-btn{background:var(--brand);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:.14s;text-decoration:none;display:inline-block}.nav-btn:hover{background:var(--brand-strong)}.nav-btn:disabled{opacity:.5;cursor:not-allowed}@media(max-width:640px){#content{padding:20px 16px 80px}.page-head h1{font-size:1.5rem}h2.block{font-size:1.2rem}.flash-grid{grid-template-columns:1fr}.page-nav{flex-direction:column}.nav-btn{width:100%;text-align:center}}</style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">☀️/🌙</button>
+  <main id="content">
+    <div class="page-inner">
+      <header class="page-head">
+        <p class="eyebrow">Week 5 · Page 6</p>
+        <h1>Big Picture: Integumentary System & Healing</h1>
+      </header>
+      <div class="lead">Comprehensive synthesis connecting all Week 5 topics: skin as first defense, wound healing as universal model, infection prevention, immune function, nutrition, and psychological impact.</div>
+
+      <section id="content-main">
+        <h2 class="block">Integumentary System as First Defense</h2>
+        <h3 class="sub">Skin Structure and Function</h3>
+        <div class="card">
+          <h4>Anatomy and Immune Role</h4>
+          <ul>
+            <li><strong>Epidermis:</strong> Outermost layer; provides waterproof barrier; contains melanocytes (pigment/UV protection)</li>
+            <li><strong>Dermis:</strong> Contains collagen, blood vessels, sensory nerves, hair follicles, sweat glands; provides mechanical strength</li>
+            <li><strong>Subcutaneous Tissue:</strong> Fat layer; insulation; shock absorption</li>
+            <li><strong>Barrier Function:</strong> pH, resident flora, lysozyme, and antimicrobial peptides prevent pathogen colonization</li>
+            <li><strong>HIV Manifestations on Skin:</strong> Kaposi Sarcoma (HHV-8, CD4 < 50), oral candidiasis (CD4 < 200), HSV/VZV recurrence, seborrheic dermatitis; skin changes indicate immune status</li>
+            <li><strong>Skin as Immune Indicator:</strong> CD4 < 200 = high OI risk; visible skin conditions guide opportunistic infection screening</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Wound Healing as Universal Model</h2>
+        <h3 class="sub">Three Phases Apply Across All Tissue Injury</h3>
+        <div class="card alt">
+          <h4>Hemostasis/Inflammatory → Proliferative → Maturation</h4>
+          <ul>
+            <li><strong>Acute Surgical Wounds:</strong> Follow standard healing; sutures removed week 1-2; full strength ~6 months</li>
+            <li><strong>Chronic Ulcers (Pressure/Diabetic):</strong> Prolonged inflammatory phase; impaired perfusion/immune response delays proliferation; may never reach full strength</li>
+            <li><strong>Burn Wounds:</strong> Massive tissue destruction; prolonged inflammatory phase; infection risk high; require active debridement and grafting</li>
+            <li><strong>Skin Cancers & Kaposi Sarcoma:</strong> Tissue destruction extends deeper; healing impaired at low CD4; ART restoration of immunity critical for recovery</li>
+            <li><strong>Moist Wound Environment:</strong> Universal principle across all wound types; speeds healing 2x; promotes autolytic debridement</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Infection Prevention as Unifying Theme</h2>
+        <h3 class="sub">Multi-Level Defense Strategy</h3>
+        <div class="card">
+          <h4>Preventing Complications Across HIV, Wounds, and Burns</h4>
+          <ul>
+            <li><strong>Topical Antimicrobials:</strong> Silvadine/silver nitrate for burns; antifungals (nystatin) for oral candidiasis; antivirals for HSV</li>
+            <li><strong>Sterile Technique:</strong> Central line care, wound dressing changes, urinary catheter care prevent iatrogenic infection</li>
+            <li><strong>Surgical Debridement:</strong> Remove necrotic tissue (burns, ulcers, Kaposi) to prevent bacterial colonization and toxin production</li>
+            <li><strong>Systemic Antibiotics:</strong> Culture-guided therapy for purulent wounds, cellulitis, burn sepsis, TB coinfection</li>
+            <li><strong>Immune Restoration:</strong> ART for HIV restores CD4 count → resolves OIs (candidiasis, MAC prophylaxis can be stopped at CD4 > 50-100); prevents future infections</li>
+            <li><strong>Prophylaxis by CD4 Count:</strong> PCP (CD4 < 200), MAC (CD4 < 50), toxo (CD4 < 100), CMV monitoring (CD4 < 50)</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Immune Function & Healing Connection</h2>
+        <h3 class="sub">CD4 Count Determines Healing Capacity</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>CD4 Count</th><th>Immune Status</th><th>Healing Impact</th><th>Nursing Interventions</th></tr></thead>
+            <tbody>
+              <tr><td class="term">>500</td><td>Normal</td><td>Optimal immune response; standard wound healing</td><td>Standard care; nutritional support; infection prevention</td></tr>
+              <tr><td class="term">200-500</td><td>Moderate suppression</td><td>Delayed healing; increased infection risk; OI risk emerging</td><td>ART, prophylaxis for TB, increased surveillance, optimize nutrition</td></tr>
+              <tr><td class="term"><200</td><td>Severe suppression</td><td>Severely impaired healing; high OI risk; poor prognosis without ART</td><td>Aggressive ART, multiple OI prophylaxis, intensive wound/skin care, mental health support</td></tr>
+              <tr><td class="term"><100</td><td>Critical</td><td>Almost no healing capacity; maximal infection/complication risk</td><td>ICU-level care, consider hospitalization, emergency debridement, aggressive infection management</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="block">Nutritional Support as Foundation</h2>
+        <h3 class="sub">Protein, Vitamins, Minerals Critical for All Healing</h3>
+        <div class="card">
+          <h4>Nutritional Requirements and Deficiency Consequences</h4>
+          <ul>
+            <li><strong>Protein:</strong> Essential for collagen synthesis; deficiency = impaired wound strength, slow epithelialization; needs 1.5-2.5 g/kg in acute wounds/burns</li>
+            <li><strong>Vitamin C:</strong> Cofactor for collagen cross-linking; deficiency = fragile collagen, poor scar formation; supplement 250-500 mg daily in wounds</li>
+            <li><strong>Vitamin A:</strong> Essential for epithelialization; deficiency = poor skin healing, recurrent infections; supplement if deficient</li>
+            <li><strong>Zinc:</strong> Cofactor for numerous enzymes; deficiency = impaired immune function, slow healing; supplementation if low</li>
+            <li><strong>Calories:</strong> Hypermetabolism in burns/sepsis requires 2-3x normal intake; malnutrition prolongs healing weeks-to-months</li>
+            <li><strong>HIV Wasting Syndrome:</strong> Severe malnutrition at low CD4; ART partially reverses; nutritional supplementation + appetite stimulants necessary</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Psychological Impact & Holistic Care</h2>
+        <h3 class="sub">Mental Health as Critical Component of Recovery</h3>
+        <div class="card alt">
+          <h4>Psychosocial Considerations Across Week 5 Topics</h4>
+          <ul>
+            <li><strong>Visible Skin Conditions (Acne, Eczema, Rosacea):</strong> Body image disruption, social anxiety, isolation; impact on self-esteem and quality of life</li>
+            <li><strong>Skin Cancers & Kaposi Sarcoma:</strong> Cancer diagnosis triggers fear of mortality, metastasis; Kaposi visible indication of advanced AIDS, stigma, grief</li>
+            <li><strong>Burn Survivors:</strong> PTSD from trauma, depression, body image disruption from scars/contractures, social reintegration challenges; long rehabilitation affects psychosocial wellbeing</li>
+            <li><strong>HIV Diagnosis:</strong> Stigma, fear of disclosure, relationship concerns, grief about health/future; psychological screening at baseline and ongoing</li>
+            <li><strong>Nursing Role:</strong> Mental health screening (PHQ-9 for depression, GAD-7 for anxiety); referral to psychology/psychiatry; support groups; education to reduce stigma; family involvement; celebration of recovery milestones</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section id="flashcards-bigpicture">
+        <h2 class="block">Integrated Scenario Flashcards</h2>
+        <p class="note">Complex multi-system scenarios integrating all Week 5 material. Click cards to flip.</p>
+        <div class="flash-toolbar">
+          <button class="flash-btn" onclick="shuffleFlashcards('bigpicture')">🔀 Shuffle</button>
+          <button class="flash-btn alt" onclick="resetFlashcards('bigpicture')">↻ Reset</button>
+          <span class="flash-count" id="flash-count-bigpicture"></span>
+        </div>
+        <div class="flash-grid" id="bigpicture-cards"></div>
+      </section>
+
+      <section id="navigation">
+        <h2 class="block">Navigation</h2>
+        <div class="page-nav">
+          <a href="week5-burns.html" class="nav-btn">← Previous: Burns</a>
+          <a href="week5-comprehensive-overview.html" class="nav-btn">Return to Start →</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const flashcardData = {
+      bigpicture: [
+        { q: "Patient: HIV+ CD4 100, with oral candidiasis (white patches), non-healing pressure ulcer on sacrum, fever. What's your comprehensive assessment and plan?", a: "CD4 100 = critical immunosuppression. Candidiasis indicates CD4 < 200 (OI risk). Non-healing wound + fever = possible sepsis/infection. Plan: (1) Culture wound and blood; (2) Start IV antibiotics; (3) Fluconazole for candidiasis; (4) Assess nutrition (protein, vitamin C); (5) Check viral load/CD4; (6) Aggressive ART; (7) MAC/toxo/PCP/CMV prophylaxis; (8) Wound: debridement, moist dressing, VAC if indicated; (9) Mental health screen." },
+        { q: "Burn patient: 50kg, 35% TBSA thermal burn, Day 1. Calculate Parkland formula fluids. What are your priorities?", a: "Parkland: 4 mL × 50 kg × 35% = 7,000 mL LR in 24 hours; 3,500 mL in first 8 hours, 3,500 in next 16 hours. Priorities: (1) Airway/breathing (inhalation injury?); (2) Parkland formula (monitor UOP 0.5 mL/kg/hr); (3) Pain management; (4) Escharotomy for circumferential burns; (5) Nutritional support (hypermetabolism starts immediately); (6) Prophylaxis: Curling's ulcer (PPI), infection (topical antimicrobials); (7) Psychological support." },
+        { q: "Compare healing in 3 scenarios: (A) clean surgical incision, (B) diabetic foot ulcer CD4 normal, (C) Kaposi Sarcoma at CD4 50. How do immune status and nutrition affect outcomes?", a: "A (surgical): 10% strength week 1, 50% month 1, 90% month 6; normal inflammation. B (diabetic): impaired microcirculation + hyperglycemia delay healing; chronic; may never heal without intervention. C (Kaposi): CD4 50 = severe immunosuppression; tissue destruction ongoing; healing impossible without ART; restores immunity → OI resolution → allows scar formation. Nutrition critical ALL: protein/vit C essential; deficiency = fragile collagen, slow epithelialization." },
+        { q: "Burn survivor at 6-month follow-up: hypertrophic scars on chest, contracture at right shoulder limiting ROM, reports depression and body image distress. What's your multi-disciplinary plan?", a: "Scar management: pressure garments (12+ hours/day), massage, silicone gel, avoid sun, consider steroid injection/laser. Contracture: PT/OT (ROM exercises, splinting, positioning), possible surgical release if severe. Psychological: PHQ-9 screen, refer to psychiatry/psychology for depression, trauma-focused CBT for PTSD, support groups, family involvement. Rehabilitation timeline: continued improvements possible over 1-2 years. Monitor for new complications (cataract from burn trauma)." },
+        { q: "Post-needlestick exposure from HIV+ patient: What's your immediate action for window period, PEP, and follow-up testing?", a: "IMMEDIATE (<72 hours, ideally <2 hours): (1) Notify occupational health; (2) Start 28-day PEP (efavirenz/FTC/TDF or bictegravir/FTC/TAF preferred); (3) Baseline HIV test (4th gen); (4) Counsel on window period (18-45 days); (5) Prevention: no unprotected sex, don't breastfeed, no blood/organ donation. Follow-up: repeat testing at 1 month (covers most window periods), 3 months (definitive). Support: occupational counseling, may develop acute retroviral syndrome (fever, rash, lymphadenopathy despite negative test)." },
+        { q: "HIV+ patient CD4 200 with TB coinfection, three active OIs (PCP, MAC, toxoplasmosis), and severe malnutrition (wasting). What's your nursing priority?", a: "Multi-system crisis. Priorities: (1) Respiratory support if PCP pneumonia severe; (2) ART (initiate or optimize) → immune reconstitution reverses OIs; (3) OI prophylaxis/treatment: PCP (TMP-SMX), MAC (azithromycin), toxo (same TMP-SMX covers both); (4) TB therapy (check interactions with ART); (5) Nutrition: high protein/calorie, supplements, appetite stimulants, may need nasogastric feeding; (6) Monitor for IRIS (immune recovery inflammatory syndrome) as CD4 rises; (7) Mental health screen (depression common); (8) Adherence support." },
+        { q: "Patient with severe full-thickness burns (40% TBSA) on Day 10: fever, purulent wound drainage, tachycardia, confusion. What's the emergency?", a: "BURN WOUND SEPSIS. This is life-threatening. Actions: (1) Blood cultures immediately; (2) Broad-spectrum IV antibiotics (cover Pseudomonas, Staph, others); (3) Emergency debridement of necrotic tissue/eschar (in OR); (4) Aggressive fluid resuscitation (reassess Parkland given increased output from sepsis); (5) Consider vasopressors if hypotensive; (6) Infection control (isolation); (7) Nutritional support (hypermetabolism peaks with sepsis); (8) Pain management; (9) Psychological support (critical illness)." },
+        { q: "Compile discharge teaching for HIV+ patient transitioning from CD4 40 to CD4 500 after 8 months ART. What can you discontinue?", a: "CD4 recovery trajectory: MAC prophylaxis (azithromycin) STOP at CD4 > 50; PCP prophylaxis (TMP-SMX) STOP at CD4 > 200; Toxo prophylaxis STOP at CD4 > 100. Continue: ART (absolutely), TB preventive therapy if indicated, CMV monitoring eye exams until CD4 > 100. Teach: U=U principle (undetectable = untransmittable), adherence critical to prevent rebound and resistance, safe sex practices, regular follow-up (CD4/viral load q3 months), maintain nutrition, mental health support ongoing, skin cancer screening (Kaposi may resolve with CD4 recovery but monitor)." },
+        { q: "Needlestick exposure scenario: Your baseline HIV test is negative BUT symptoms develop 2 weeks later (fever, rash, lymphadenopathy, muscle pain). Are you infected? What's next?", a: "HIGHLY SUSPICIOUS for acute retroviral syndrome despite negative test. This is the ECLIPSE PERIOD: viral replication at peak but antibodies/p24 antigen not yet detectable. The 2-week window is still within 18-45 day window period. Continue PEP (if haven't already, critical now). Repeat 4th generation test immediately (may be positive now). Contact occupational health/infectious disease urgently. Symptoms alone are not diagnostic but clinical + exposure history = treat as presumptive infection. Repeat testing at 1 and 3 months for confirmation." },
+        { q: "Post-burn patient with severe hypertrophic scar (6 months post-injury): reports itching, pain with movement, and says scar is 'ruined his life.' How do you approach holistically?", a: "Biopsychosocial approach: Scar management (pressure garments, massage, silicone, possible steroid injection); Pain: assess severity, analgesia, discuss topical agents; Itching: hydroxyzine, topical agents, avoid irritants; Psychological: PHQ-9 for depression (common post-trauma), may need antidepressants, refer to therapist for CBT/trauma-focused therapy, support groups with other burn survivors; Social: return-to-work planning, family/relationship counseling, sexuality concerns. Timeline: scars improve 1-2 years; continued rehabilitation critical. Validate: 'Your feelings are normal after trauma; many burn survivors recover emotionally with support.'" },
+        { q: "Complex case: Elderly patient with pressure ulcer (stage 3, cavity), malnutrition (albumin 2.5), on steroids for COPD, smokes 2 packs/day, and reports depression. What's blocking healing?", a: "Multiple barriers: (1) Nutrition (albumin 2.5 = severe protein deficiency; protein needed for collagen); (2) Steroids (suppress immune/inflammatory phase); (3) Smoking (vasoconstriction reduces oxygen delivery); (4) COPD (lower oxygenation); (5) Age (slower healing inherently); (6) Depression (affects motivation for care, wound inspection). Interventions: (1) Nutritional support (high protein, vitamin C, zinc); (2) Smoking cessation (if willing—major impact); (3) Wound: debridement, moist dressing, VAC for cavity; (4) Steroids: discuss with MD (necessary for COPD but impairs healing); (5) Mental health: treat depression (SSRIs); (6) Pressure relief: turning, repositioning, support surface." },
+        { q: "Test yourself on integrating Week 5: Compare management of CD4 50 patient with skin condition (Kaposi) to burn patient with hypermetabolism. What's similar? What's different?", a: "SIMILAR: Both require infection prevention (topical antimicrobials), nutritional support (protein, calories), wound assessment/management, psychological support. Both tissues destroyed; healing requires immune + nutritional support. DIFFERENT: Kaposi management focuses on immune restoration (ART → OI resolution); burn management focuses on active debridement + grafting + infection control. Kaposi: CD4 restoration is primary; burn: immediate fluid resuscitation + escharotomy + grafting are primary. Timing: Kaposi healing may take weeks-months after CD4 recovery; burn healing is acute/urgent (sepsis risk in days). Both benefit from holistic approach (physical + psychological support)." }
+      ]
+    };
+
+    function generateFlashcards(sectionId) {
+      const container = document.getElementById(sectionId + '-cards');
+      const data = flashcardData[sectionId];
+      container.innerHTML = data.map((card, idx) => `
+        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
+          <div class="flash-inner">
+            <div class="flash-front"><div>${card.q}</div></div>
+            <div class="flash-back"><div>${card.a}</div></div>
+          </div>
+        </div>
+      `).join('');
+      updateFlashcardCount(sectionId);
+    }
+
+    function updateFlashcardCount(sectionId) {
+      const count = flashcardData[sectionId].length;
+      const el = document.getElementById('flash-count-' + sectionId);
+      if (el) el.textContent = `${count} cards`;
+    }
+
+    function shuffleFlashcards(sectionId) {
+      const arr = flashcardData[sectionId];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      generateFlashcards(sectionId);
+    }
+
+    function resetFlashcards(sectionId) {
+      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
+      cards.forEach(card => card.classList.remove('flipped'));
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      try { localStorage.setItem('theme', newTheme); } catch(e){}
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      generateFlashcards('bigpicture');
+    });
+  </script>
+</body>
+</html>

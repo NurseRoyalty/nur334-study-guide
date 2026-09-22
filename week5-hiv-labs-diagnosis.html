@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HIV Labs & Diagnosis — NUR 334 Study Guide</title>
+  <script>
+    (function(){
+      try {
+        var p = new URLSearchParams(location.search).get('theme');
+        var t = p || localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+        if (p) { try { localStorage.setItem('theme', p) } catch(e){} }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <style>/* styles.css — NUR 334 Study Guide
+   Color scheme: Indigo + Rose
+   No build step, no framework, no dependencies.
+*/
+
+:root {
+  /* ---- neutrals ---- */
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --surface-3: #e4e8ed;
+  --border: #e0e4ea;
+  --border-strong: #cbd1da;
+  --text: #1e2530;
+  --text-soft: #556070;
+  --text-faint: #89929f;
+  --stripe: #f6f8fa;
+
+  /* ---- brand: indigo ---- */
+  --brand: #5b4b8a;
+  --brand-strong: #453966;
+  --brand-deep: #2d2547;
+  --brand-tint: #f0ecf7;
+  --brand-tint-2: #e3ddf0;
+
+  /* ---- accent: rose ---- */
+  --accent: #c15b7c;
+  --accent-strong: #a54765;
+  --accent-tint: #f8e8f0;
+
+  /* ---- text on brand nav ---- */
+  --on-brand-soft: #e8e0f0;
+  --on-brand-faint: #b8a8d1;
+  --on-brand-dim: #d4cae3;
+
+  /* ---- semantic ---- */
+  --ok: #2f8f6b;
+  --ok-strong: #237a58;
+  --ok-tint: #e6f4ee;
+  --bad: #c0392b;
+  --bad-strong: #a52f22;
+  --bad-tint: #fbeceb;
+
+  /* ---- callout lines ---- */
+  --line-accent: #e5b8cc;
+  --line-bad: #f3d2ce;
+
+  /* ---- metrics ---- */
+  --content-max: 1120px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 3px rgba(24,28,45,.07), 0 1px 2px rgba(24,28,45,.04);
+  --shadow-md: 0 4px 14px rgba(24,28,45,.10);
+  --shadow-lg: 0 12px 30px rgba(24,28,45,.16);
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+}
+
+:root[data-theme="dark"] {
+  --bg: #12161a;
+  --surface: #1b2027;
+  --surface-2: #232a33;
+  --surface-3: #2c343f;
+  --border: #323b47;
+  --border-strong: #45505f;
+  --text: #e6eaef;
+  --text-soft: #a7b1bd;
+  --text-faint: #7b8593;
+  --stripe: rgba(255,255,255,.025);
+  --brand: #8f80c4;
+  --brand-strong: #b3a6e0;
+  --brand-deep: #d3caee;
+  --brand-tint: #282540;
+  --brand-tint-2: #332e4e;
+  --accent: #d67e99;
+  --accent-strong: #ec9fb6;
+  --accent-tint: #3a2431;
+  --on-brand-soft: #e2ddf1;
+  --on-brand-faint: #c3b9e4;
+  --on-brand-dim: #d9d4ee;
+  --line-accent: #f0d3dd;
+  --line-bad: #4a2f2b;
+  --ok: #43b085;
+  --ok-strong: #6bcfa4;
+  --ok-tint: #173029;
+  --bad: #e46557;
+  --bad-strong: #f28c82;
+  --bad-tint: #361f1d;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.45);
+  --shadow-md: 0 4px 14px rgba(0,0,0,.5);
+  --shadow-lg: 0 12px 30px rgba(0,0,0,.6);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  color: var(--brand-deep);
+  margin: 0 0 .3em;
+  line-height: 1.25;
+}
+
+a { color: var(--brand); }
+img { max-width: 100%; }
+
+#content {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 34px 40px 100px;
+}
+
+.page-inner { max-width: 100%; margin: 0 auto; }
+
+/* PAGE HEADER */
+.page-head { margin: 6px 0 22px; }
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+.page-head h1 { font-size: 2rem; margin: 0; }
+
+@media (min-width: 900px) {
+  .page-head h1 { font-size: 2.25rem; }
+}
+
+.lead {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  margin: 0 0 26px;
+  color: var(--text-soft);
+  font-size: .95rem;
+  box-shadow: var(--shadow-sm);
+}
+
+h2.block {
+  font-size: 1.4rem;
+  color: var(--brand-strong);
+  border-bottom: 2px solid var(--brand-tint-2);
+  padding-bottom: 8px;
+  margin-top: 46px;
+}
+
+h3.sub {
+  font-size: 1.08rem;
+  color: var(--brand-deep);
+  margin-top: 28px;
+}
+
+p.note {
+  color: var(--text-soft);
+  font-size: .9rem;
+  margin-top: 2px;
+}
+
+code.pill {
+  background: var(--brand-tint);
+  color: var(--brand-strong);
+  padding: 1px 7px;
+  border-radius: 5px;
+  font-size: .85em;
+}
+
+/* TABLES */
+.table-wrap {
+  overflow-x: auto;
+  margin: 14px 0 8px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--surface);
+  font-size: .9rem;
+}
+
+thead th {
+  background: var(--brand);
+  color: #fff;
+  text-align: left;
+  padding: 11px 13px;
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .02em;
+}
+
+tbody td {
+  padding: 10px 13px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: var(--stripe); }
+tbody tr:hover { background: var(--brand-tint); }
+
+td.term {
+  font-weight: 700;
+  color: var(--brand-strong);
+  white-space: nowrap;
+  width: 1%;
+}
+
+/* CARDS */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 17px;
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--brand);
+  margin: 16px 0;
+}
+
+.card.alt { border-top-color: var(--accent); }
+.card h4 { margin-bottom: 8px; color: var(--brand-strong); font-size: .98rem; }
+.card.alt h4 { color: var(--accent-strong); }
+.card ul { margin: 0; padding-left: 18px; font-size: .9rem; }
+.card li { margin-bottom: 5px; }
+
+/* TWO COLUMN */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* CALLOUTS */
+.mnemonic {
+  background: var(--accent-tint);
+  border: 1px solid var(--line-accent);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: .9rem;
+}
+
+.mnemonic b { color: var(--accent-strong); }
+
+.callout-danger {
+  background: var(--bad-tint);
+  border: 1px solid var(--line-bad);
+  border-left: 4px solid var(--bad);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: .9rem;
+}
+
+.callout-danger b { color: var(--bad-strong); }
+
+/* FLASHCARDS */
+.flash-toolbar {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flash-btn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 9px 15px;
+  border-radius: 8px;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .14s;
+  font-family: inherit;
+}
+
+.flash-btn:hover { background: var(--brand-strong); }
+.flash-btn.alt { background: var(--surface); color: var(--brand-strong); border: 1px solid var(--border-strong); }
+.flash-btn.alt:hover { background: var(--brand-tint); }
+
+.flash-count {
+  align-self: center;
+  font-size: .8rem;
+  color: var(--text-faint);
+  margin-left: 2px;
+}
+
+.flash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.flash-card {
+  perspective: 1200px;
+  height: 190px;
+  cursor: pointer;
+}
+
+.flash-card:focus { outline: none; }
+.flash-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: var(--radius); }
+
+.flash-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform .5s cubic-bezier(.4,.2,.2,1);
+  transform-style: preserve-3d;
+}
+
+.flash-card.flipped .flash-inner { transform: rotateY(180deg); }
+
+.flash-front,
+.flash-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: .86rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.flash-front {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--brand-deep);
+  font-weight: 600;
+}
+
+.flash-back {
+  background: linear-gradient(160deg, var(--brand), var(--brand-strong));
+  color: #fff;
+  transform: rotateY(180deg);
+  font-weight: 500;
+}
+
+/* PAGE NAVIGATION */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.nav-btn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .14s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-btn:hover { background: var(--brand-strong); }
+.nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  #content { padding: 20px 16px 80px; }
+  .page-head h1 { font-size: 1.5rem; }
+  h2.block { font-size: 1.2rem; }
+  .flash-grid { grid-template-columns: 1fr; }
+  .page-nav { flex-direction: column; }
+  .nav-btn { width: 100%; text-align: center; }
+}
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
+  <main id="content">
+    <div class="page-inner">
+
+      <header class="page-head">
+        <p class="eyebrow">Week 5 · Page 2</p>
+        <h1>HIV Labs & Diagnosis</h1>
+      </header>
+
+      <div class="lead">Comprehensive coverage of HIV testing, laboratory monitoring, and diagnostic criteria for managing HIV-positive patients.</div>
+
+      <section id="content-main">
+        <h2 class="block">Screening Recommendations & Testing Guidelines</h2>
+
+        <h3 class="sub">CDC Testing Recommendations</h3>
+        <div class="card">
+          <h4>Universal and Risk-Based Screening</h4>
+          <ul>
+            <li><strong>Universal Screening:</strong> CDC recommends all adults 13-64 get tested at least once as part of routine medical care</li>
+            <li><strong>Annual Testing:</strong> Recommended for sexually active persons not in mutually monogamous relationships</li>
+            <li><strong>Risk-Based Screening:</strong> Persons with multiple or anonymous sexual partners, those with STI history, MSM, transgender persons, persons with injection drug use history, incarcerated persons, sex workers, clients of sex workers</li>
+            <li><strong>Pregnant Women:</strong> All pregnant women should be screened as early as possible in pregnancy; repeat at third trimester if initially negative</li>
+            <li><strong>Occupational Exposure:</strong> Healthcare workers after needlestick or sharps injuries</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Fourth Generation Testing (Recommended)</h2>
+
+        <h3 class="sub">Fourth Generation Test Characteristics</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Test Feature</th><th>Details</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="term">What It Detects</td><td>Antibodies to HIV AND p24 antigen (core protein of HIV); detects both immune response AND virus</td></tr>
+              <tr><td class="term">Sensitivity</td><td>99% sensitive; detects infection earlier than 3rd gen (antibody-only tests)</td></tr>
+              <tr><td class="term">Specificity</td><td>99% specific; very few false positives</td></tr>
+              <tr><td class="term">Window Period</td><td>18-45 days average (compared to 23-35 days for 3rd gen); p24 antigen detectable before antibodies</td></tr>
+              <tr><td class="term">Test Types Available</td><td>Blood test (most reliable), oral fluid test, rapid testing (20 minutes)</td></tr>
+              <tr><td class="term">False Positives</td><td>Rare; any positive result requires confirmation with Western blot or HIV-1/HIV-2 differentiation immunoassay</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">Window Period & Eclipse Period Concepts</h3>
+        <div class="card alt">
+          <ul>
+            <li><strong>Window Period (Diagnostic Window):</strong> Time between HIV infection and when tests become positive; ranges 18-45 days for 4th generation tests</li>
+            <li><strong>During Window Period:</strong> Person is acutely infected, highly infectious, but test is negative; most dangerous transmission period</li>
+            <li><strong>Eclipse Period:</strong> Very early infection when viral load is highest but neither p24 antigen nor antibodies are detectable; typically only 3-5 days but most infectious period</li>
+            <li><strong>Clinical Implications:</strong> Persons with negative test but recent exposure (within 72 hours) should start post-exposure prophylaxis (PEP) immediately; do not wait for confirmation</li>
+            <li><strong>Repeat Testing:</strong> If negative test but high-risk exposure, repeat at 1 month (covers most window periods) and 3 months to fully exclude infection</li>
+          </ul>
+        </div>
+
+        <h2 class="block">CD4 Count Monitoring</h2>
+
+        <h3 class="sub">CD4 Count Classifications and Clinical Significance</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>CD4 Count (cells/μL)</th><th>Immune Status</th><th>Clinical Implications</th><th>OI Prophylaxis</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="term">&gt; 500</td><td>Normal/Healthy</td><td>Normal immune function; low OI risk</td><td>None unless prior OI or specific risk</td></tr>
+              <tr><td class="term">200-500</td><td>Early Immunosuppression</td><td>Increased TB and fungal infection risk; oral candidiasis common</td><td>TB preventive therapy if positive; consider prophylaxis</td></tr>
+              <tr><td class="term">&lt; 200</td><td>AIDS-Defining</td><td>Meets AIDS diagnosis if CD4 count; severe immunosuppression; high OI risk</td><td>TMP-SMX for PCP prophylaxis; toxoplasmosis if CD4 &lt;100</td></tr>
+              <tr><td class="term">&lt; 100</td><td>Severe Immunosuppression</td><td>Very high risk CMV, MAC, cryptococcal disease; consider hospitalization risk</td><td>PCP + toxo + MAC prophylaxis; acyclovir for HSV/VZV</td></tr>
+              <tr><td class="term">&lt; 50</td><td>Critical</td><td>Extreme risk for Kaposi Sarcoma, CMV retinitis, cryptococcal meningitis; immediate ART critical</td><td>Aggressive prophylaxis: PCP, toxo, MAC, CMV monitoring</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">CD4 Percentage vs Absolute Count</h3>
+        <div class="card">
+          <h4>Understanding CD4 Percentage</h4>
+          <ul>
+            <li><strong>CD4 Percentage:</strong> Proportion of lymphocytes that are CD4+ cells; normal range 30-60%; more stable than absolute count</li>
+            <li><strong>Absolute Count vs Percentage:</strong> Absolute count reflects true CD4 status in severe immunosuppression; use percentage if absolute count unreliable (hemolysis, technical issues)</li>
+            <li><strong>AIDS Diagnosis by CD4%:</strong> CD4% &lt; 14% is equivalent to CD4 count &lt; 200 cells/μL</li>
+            <li><strong>Clinical Use:</strong> Monitor both; percentage helps identify discordant results that may indicate need for retesting</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Viral Load Testing & Treatment Goals</h2>
+
+        <h3 class="sub">Viral Load Monitoring</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Viral Load Measure</th><th>Details</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="term">What It Measures</td><td>Quantitative PCR (qPCR) measuring HIV RNA copies per milliliter of plasma; indicates viral replication rate</td></tr>
+              <tr><td class="term">Normal Range</td><td>Undetectable = &lt; 50 copies/mL (some tests &lt; 20 copies/mL); indicates successful ART</td></tr>
+              <tr><td class="term">Acute Infection</td><td>Viral load &gt; 100,000 copies/mL; extremely infectious period</td></tr>
+              <tr><td class="term">Baseline Viral Load</td><td>Measured at initial diagnosis; helps predict CD4 decline rate and mortality risk</td></tr>
+              <tr><td class="term">Monitoring Schedule</td><td>Baseline, then 2-4 weeks after starting ART (to confirm efficacy), then every 3 months if undetectable</td></tr>
+              <tr><td class="term">Treatment Failure Signs</td><td>Viral load increases above 50 copies/mL (rebound); indicates drug resistance development or non-adherence</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">U=U Principle (Undetectable = Untransmittable)</h3>
+        <div class="card alt">
+          <ul>
+            <li><strong>The U=U Statement:</strong> People with HIV on effective ART with undetectable viral loads cannot sexually transmit HIV</li>
+            <li><strong>Evidence Base:</strong> Multiple large studies (PARTNER, Opposites Attract studies) demonstrate zero transmission with undetectable status</li>
+            <li><strong>Maintained Undetectability:</strong> Requires adherence to ART; viral rebound can occur if treatment interrupted</li>
+            <li><strong>Clinical Significance:</strong> Eliminates treatment-as-prevention barrier for reproduction; reduces stigma; guides sexual health counseling</li>
+            <li><strong>Nursing Role:</strong> Educate patients on U=U principle; emphasize importance of maintaining undetectable status for themselves AND their partners</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Additional Monitoring Laboratories</h2>
+
+        <h3 class="sub">Baseline Labs at Diagnosis</h3>
+        <div class="card">
+          <h4>Essential Initial Laboratory Testing</h4>
+          <ul>
+            <li><strong>Complete Blood Count (CBC):</strong> Assesses for anemia, thrombocytopenia, neutropenia; baseline for monitoring ART effects</li>
+            <li><strong>Liver Function Tests (LFTs):</strong> AST, ALT, bilirubin, albumin; establishes baseline; critical for some ART drugs (hepatotoxicity risk)</li>
+            <li><strong>Renal Function:</strong> BUN, creatinine, creatinine clearance; important for dosing certain ART medications (TDF, PI-based regimens)</li>
+            <li><strong>Lipid Panel:</strong> Cholesterol, triglycerides; baseline for protease inhibitor side effects</li>
+            <li><strong>Blood Glucose:</strong> Screen for diabetes; important as ART can affect glucose metabolism</li>
+            <li><strong>Genotype Resistance Testing:</strong> Performed at baseline to identify drug-resistant strains and guide ART selection</li>
+            <li><strong>STI Screening:</strong> Syphilis, gonorrhea, chlamydia, hepatitis B and C, HSV serology</li>
+            <li><strong>TB Screening:</strong> Tuberculin skin test or IGRA; critical as TB coinfection is common</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Ongoing Monitoring with ART</h3>
+        <div class="card">
+          <h4>Regular Lab Monitoring Schedule</h4>
+          <ul>
+            <li><strong>Viral Load & CD4:</strong> 2-4 weeks after starting ART (assess initial response), then every 3 months initially, then every 6-12 months if stable</li>
+            <li><strong>CBC, LFTs, Renal:</strong> Baseline, then 2-4 weeks after ART initiation, then every 3-6 months depending on ART regimen</li>
+            <li><strong>Lipid Panel:</strong> Baseline, then 4-8 weeks after starting lipid-affecting drugs, then annually</li>
+            <li><strong>Glucose Monitoring:</strong> Baseline, then periodic screening; consider hemoglobin A1C if elevated glucose</li>
+            <li><strong>Drug Level Monitoring:</strong> Some PI-based regimens require therapeutic drug monitoring</li>
+            <li><strong>Resistance Testing:</strong> Repeat if viral load rebounds despite adherence (confirms resistance development)</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">OI Screening by CD4 Count</h3>
+        <div class="card alt">
+          <ul>
+            <li><strong>TB Screening (All CD4):</strong> IGRA preferred over TST; repeat annually if negative and CD4 &lt; 100</li>
+            <li><strong>MAC Prophylaxis Indication:</strong> CD4 &lt; 50; azithromycin weekly; stop when CD4 &gt; 50 for 3+ months on ART</li>
+            <li><strong>CMV Monitoring:</strong> CD4 &lt; 50; baseline retinal exam; dilated exam every 1-3 months; symptoms warrant urgent ophthalmology referral</li>
+            <li><strong>Cryptococcal Antigen (CrAg):</strong> Screen when CD4 &lt; 100; positive result indicates need for antifungal prophylaxis</li>
+            <li><strong>Toxoplasmosis Prevention:</strong> CD4 &lt; 100 with positive IgG serology; requires TMP-SMX (covers both toxo and PCP)</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section id="flashcards-hiv">
+        <h2 class="block">Self-Test Flashcards</h2>
+        <p class="note">Test your understanding of HIV testing, labs, and diagnosis. Click cards to flip.</p>
+
+        <div class="flash-toolbar">
+          <button class="flash-btn" onclick="shuffleFlashcards('hiv')">🔀 Shuffle</button>
+          <button class="flash-btn alt" onclick="resetFlashcards('hiv')">↻ Reset</button>
+          <span class="flash-count" id="flash-count-hiv"></span>
+        </div>
+
+        <div class="flash-grid" id="hiv-cards">
+          <!-- Cards will be generated by JavaScript -->
+        </div>
+      </section>
+
+      <section id="navigation">
+        <h2 class="block">Navigation</h2>
+        <div class="page-nav">
+          <a href="week5-comprehensive-overview.html" class="nav-btn">← Previous: Overview</a>
+          <a href="week5-skin-conditions.html" class="nav-btn">Next: Skin Conditions →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const flashcardData = {
+      hiv: [
+        { q: "What is the window period for 4th generation HIV testing?", a: "18-45 days average. 4th generation tests detect both antibodies AND p24 antigen, making them faster than 3rd generation (23-35 days). During window period, person is infected but tests negative—highest transmission risk." },
+        { q: "Explain the difference between 4th generation and 3rd generation testing.", a: "4th gen detects antibodies + p24 antigen (earlier detection). 3rd gen detects only antibodies. 4th gen window = 18-45 days vs 3rd gen window = 23-35 days. 4th gen is CDC-recommended standard." },
+        { q: "What CD4 count triggers PCP (Pneumocystis) prophylaxis?", a: "CD4 < 200 cells/μL. Prophylaxis is TMP-SMX (trimethoprim-sulfamethoxazole). Can discontinue if CD4 > 200 for 3+ months on ART." },
+        { q: "Explain immune reconstitution inflammatory syndrome (IRIS).", a: "Paradoxical worsening of infections when immune system recovers on ART. CD4 rises rapidly but inflammatory response to existing OIs intensifies. Manage with NSAIDs or steroids; continue ART." },
+        { q: "What does U=U mean and why is it important?", a: "Undetectable = Untransmittable. People with HIV on effective ART with viral load < 50 copies/mL cannot sexually transmit HIV. Critical for sexual health counseling and reducing stigma." },
+        { q: "When should CD4 percentage be used instead of absolute count?", a: "When absolute count is unreliable (hemolysis, severe leukopenia, technical error). Normal CD4% = 30-60%. AIDS diagnosis by CD4% = < 14% (equivalent to CD4 < 200)." },
+        { q: "How urgently should someone with negative HIV test but recent exposure start PEP?", a: "Within 72 hours of exposure, ideally within 2 hours. 28-day course of ART significantly reduces transmission risk. Window period is 18-45 days, so retest at 1 and 3 months." },
+        { q: "What is genotype resistance testing and why is baseline important?", a: "Tests for drug-resistant HIV strains before starting ART. Baseline testing guides initial drug selection. Repeat if viral load rebounds (failure despite adherence) to identify new resistance." },
+        { q: "List three baseline labs besides CD4 and viral load required at HIV diagnosis.", a: "CBC (anemia/thrombocytopenia), LFTs (liver function), renal function (creatinine clearance), lipid panel, glucose, STI screening, TB screening (TB preventive therapy), hepatitis B/C." },
+        { q: "When should toxoplasmosis prophylaxis be started?", a: "CD4 < 100 AND positive IgG serology. TMP-SMX covers both toxoplasmosis AND PCP simultaneously. Can discontinue if CD4 > 100 for 3+ months on ART." },
+        { q: "What does a viral load rebound (> 50 copies/mL) indicate?", a: "Treatment failure. Either non-adherence to ART or development of drug-resistant strains. Order resistance testing. Assess adherence barriers. Consider ART modification." },
+        { q: "Calculate TB risk: Patient with CD4 150 and no TB history. What screening is needed?", a: "Baseline IGRA (interferon-gamma release assay; preferred over TST). Chest X-ray if symptomatic. TB preventive therapy not indicated if negative. Repeat IGRA annually until CD4 > 100." }
+      ]
+    };
+
+    function generateFlashcards(sectionId) {
+      const container = document.getElementById(sectionId + '-cards');
+      const data = flashcardData[sectionId];
+
+      container.innerHTML = data.map((card, idx) => `
+        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
+          <div class="flash-inner">
+            <div class="flash-front">
+              <div>${card.q}</div>
+            </div>
+            <div class="flash-back">
+              <div>${card.a}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      updateFlashcardCount(sectionId);
+    }
+
+    function updateFlashcardCount(sectionId) {
+      const count = flashcardData[sectionId].length;
+      const el = document.getElementById('flash-count-' + sectionId);
+      if (el) el.textContent = `${count} cards`;
+    }
+
+    function shuffleFlashcards(sectionId) {
+      const arr = flashcardData[sectionId];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      generateFlashcards(sectionId);
+    }
+
+    function resetFlashcards(sectionId) {
+      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
+      cards.forEach(card => card.classList.remove('flipped'));
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      try { localStorage.setItem('theme', newTheme); } catch(e){}
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      generateFlashcards('hiv');
+    });
+  </script>
+</body>
+</html>

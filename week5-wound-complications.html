@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 5 Wound Complications — NUR 334 Study Guide</title>
+  <script>
+    (function(){
+      try {
+        var p = new URLSearchParams(location.search).get('theme');
+        var t = p || localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+        if (p) { try { localStorage.setItem('theme', p) } catch(e){} }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <style>/* styles.css — NUR 334 Study Guide
+   Color scheme: Indigo + Rose
+   No build step, no framework, no dependencies.
+*/
+
+:root {
+  /* ---- neutrals ---- */
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --surface-3: #e4e8ed;
+  --border: #e0e4ea;
+  --border-strong: #cbd1da;
+  --text: #1e2530;
+  --text-soft: #556070;
+  --text-faint: #89929f;
+  --stripe: #f6f8fa;
+
+  /* ---- brand: indigo ---- */
+  --brand: #5b4b8a;
+  --brand-strong: #453966;
+  --brand-deep: #2d2547;
+  --brand-tint: #f0ecf7;
+  --brand-tint-2: #e3ddf0;
+
+  /* ---- accent: rose ---- */
+  --accent: #c15b7c;
+  --accent-strong: #a54765;
+  --accent-tint: #f8e8f0;
+
+  /* ---- text on brand nav ---- */
+  --on-brand-soft: #e8e0f0;
+  --on-brand-faint: #b8a8d1;
+  --on-brand-dim: #d4cae3;
+
+  /* ---- semantic ---- */
+  --ok: #2f8f6b;
+  --ok-strong: #237a58;
+  --ok-tint: #e6f4ee;
+  --bad: #c0392b;
+  --bad-strong: #a52f22;
+  --bad-tint: #fbeceb;
+
+  /* ---- callout lines ---- */
+  --line-accent: #e5b8cc;
+  --line-bad: #f3d2ce;
+
+  /* ---- metrics ---- */
+  --content-max: 1120px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 3px rgba(24,28,45,.07), 0 1px 2px rgba(24,28,45,.04);
+  --shadow-md: 0 4px 14px rgba(24,28,45,.10);
+  --shadow-lg: 0 12px 30px rgba(24,28,45,.16);
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+}
+
+:root[data-theme="dark"] {
+  --bg: #12161a;
+  --surface: #1b2027;
+  --surface-2: #232a33;
+  --surface-3: #2c343f;
+  --border: #323b47;
+  --border-strong: #45505f;
+  --text: #e6eaef;
+  --text-soft: #a7b1bd;
+  --text-faint: #7b8593;
+  --stripe: rgba(255,255,255,.025);
+  --brand: #8f80c4;
+  --brand-strong: #b3a6e0;
+  --brand-deep: #d3caee;
+  --brand-tint: #282540;
+  --brand-tint-2: #332e4e;
+  --accent: #d67e99;
+  --accent-strong: #ec9fb6;
+  --accent-tint: #3a2431;
+  --on-brand-soft: #e2ddf1;
+  --on-brand-faint: #c3b9e4;
+  --on-brand-dim: #d9d4ee;
+  --line-accent: #f0d3dd;
+  --line-bad: #4a2f2b;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* GLOBAL */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font: 1rem var(--sans); line-height: 1.6; }
+main { display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding-bottom: 60px; }
+
+#content { width: 100%; max-width: var(--content-max); padding: 40px 32px; }
+.page-inner { display: flex; flex-direction: column; }
+
+/* THEME TOGGLE */
+.theme-toggle { position: fixed; top: 16px; right: 16px; width: 50px; height: 50px; border: 2px solid var(--border); background: var(--surface); border-radius: 50%; cursor: pointer; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; z-index: 999; box-shadow: var(--shadow-md); transition: .2s; }
+.theme-toggle:hover { border-color: var(--brand); }
+:root[data-theme="light"] .sun { display: block; }
+:root[data-theme="light"] .moon { display: none; }
+:root[data-theme="dark"] .sun { display: none; }
+:root[data-theme="dark"] .moon { display: block; }
+
+/* TYPOGRAPHY */
+h1,h2,h3,h4,h5,h6 { margin: 0; font-weight: 600; line-height: 1.3; }
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+.page-head { margin-bottom: 32px; }
+.page-head .eyebrow { font-size: .85rem; font-weight: 600; color: var(--brand); margin: 0 0 8px 0; letter-spacing: .04em; text-transform: uppercase; }
+.page-head h1 { margin-bottom: 4px; }
+
+.lead { font-size: 1.1rem; color: var(--text-soft); margin: 0 0 32px 0; line-height: 1.5; }
+
+/* SECTIONS & BLOCKS */
+section { margin-bottom: 48px; }
+section:last-child { margin-bottom: 0; }
+h2.block { padding-bottom: 12px; border-bottom: 2px solid var(--brand); margin-bottom: 24px; }
+
+/* CARDS */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.card h4 { margin-top: 0; margin-bottom: 12px; color: var(--brand); }
+.card.alt { background: var(--surface-2); border-color: var(--border-strong); }
+
+.card ul,
+.card ol { margin: 12px 0; padding-left: 20px; }
+.card li { margin-bottom: 8px; }
+.card li strong { color: var(--brand-strong); }
+
+/* CALLOUT */
+.callout {
+  background: var(--accent-tint);
+  border-left: 4px solid var(--accent);
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: var(--radius-sm);
+}
+.callout.bad {
+  background: var(--bad-tint);
+  border-left-color: var(--bad);
+}
+.callout.good {
+  background: var(--ok-tint);
+  border-left-color: var(--ok);
+}
+.callout strong { color: var(--accent-strong); }
+.callout.bad strong { color: var(--bad-strong); }
+.callout.good strong { color: var(--ok-strong); }
+
+/* TABLES */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+th { background: var(--brand); color: #fff; padding: 12px 14px; text-align: left; font-weight: 600; }
+td { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+tbody tr:nth-child(even) { background: var(--stripe); }
+td.term { background: var(--brand-tint); color: var(--brand-strong); font-weight: 600; }
+
+/* NOTES & EMPHASIS */
+.note { font-size: .95rem; color: var(--text-soft); font-style: italic; margin: 12px 0; }
+strong { color: var(--brand-deep); }
+em { color: var(--accent); }
+
+/* SUBHEADINGS */
+h3.sub { margin: 24px 0 12px; color: var(--brand); font-size: 1.1rem; }
+
+/* FLASHCARDS */
+.flash-toolbar { display: flex; gap: 12px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; }
+.flash-btn { background: var(--brand); color: #fff; border: none; padding: 10px 16px; border-radius: var(--radius-sm); font-size: .9rem; font-weight: 600; cursor: pointer; transition: .14s; }
+.flash-btn:hover { background: var(--brand-strong); }
+.flash-btn.alt { background: var(--accent); }
+.flash-btn.alt:hover { background: var(--accent-strong); }
+.flash-count { font-size: .9rem; color: var(--text-soft); }
+
+.flash-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 16px; }
+.flash-card { cursor: pointer; perspective: 1000px; }
+.flash-inner { position: relative; width: 100%; aspect-ratio: 1 / 1.2; transition: transform .6s cubic-bezier(.68, -.55, .265, 1.55); transform-style: preserve-3d; }
+
+.flash-card.flipped .flash-inner { transform: rotateY(180deg); }
+
+.flash-front,
+.flash-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: .86rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.flash-front {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--brand-deep);
+  font-weight: 600;
+}
+
+.flash-back {
+  background: linear-gradient(160deg, var(--brand), var(--brand-strong));
+  color: #fff;
+  transform: rotateY(180deg);
+  font-weight: 500;
+}
+
+/* PAGE NAVIGATION */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.nav-btn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .14s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-btn:hover { background: var(--brand-strong); }
+.nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  #content { padding: 20px 16px 80px; }
+  .page-head h1 { font-size: 1.5rem; }
+  h2.block { font-size: 1.2rem; }
+  .flash-grid { grid-template-columns: 1fr; }
+  .page-nav { flex-direction: column; }
+  .nav-btn { width: 100%; text-align: center; }
+}
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
+  <main id="content">
+    <div class="page-inner">
+
+      <header class="page-head">
+        <p class="eyebrow">Week 5 · Page 6</p>
+        <h1>Wound Complications</h1>
+      </header>
+
+      <div class="lead">Comprehensive guide to post-operative and post-wound emergencies including hemorrhage, dehiscence, evisceration, infection, and necrotizing fasciitis with nursing management protocols.</div>
+
+      <section id="complications">
+        <h2 class="block">Major Wound Complications</h2>
+
+        <h3 class="sub">Hemorrhage and Hematoma</h3>
+        <div class="card">
+          <h4>Overview and Pathophysiology</h4>
+          <ul>
+            <li><strong>Timing:</strong> Greatest risk is up to 48 hours post-injury or post-surgery; highest concern in immediate post-operative period</li>
+            <li><strong>Causes:</strong> Clot coming loose, sutures slipping, blood vessel damage from surgical trauma, inadequate hemostasis during closure</li>
+            <li><strong>Internal Bleeding Presentation:</strong> Swelling and distension in the surgical area, sanguineous (bloody) drainage on dressings</li>
+            <li><strong>Vital Sign Changes:</strong> Initial increase in heart rate (compensatory mechanism to maintain stroke volume), tachycardia is earliest sign</li>
+            <li><strong>Hematoma:</strong> Local collection of blood appearing as blue or red bruise; may be self-limiting or require drainage</li>
+            <li><strong>Severity Assessment:</strong> Monitor ongoing bleeding, assess for signs of hypovolemic shock (decreased BP, increased HR, decreased urine output)</li>
+          </ul>
+        </div>
+
+        <div class="callout bad">
+          <strong>🚨 EMERGENCY ALERT:</strong> Severe hemorrhage requires immediate direct pressure to wound and provider notification. Be prepared for return to OR for surgical hemostasis.
+        </div>
+
+        <h3 class="sub">Dehiscence and Evisceration</h3>
+        <div class="card">
+          <h4>Dehiscence: Wound Separation</h4>
+          <ul>
+            <li><strong>Definition:</strong> Separation of wound layers, usually affects few underlying skin layers; appears as wound pulling apart/gap opening</li>
+            <li><strong>Presentation:</strong> Visible separation along surgical line, increase in sanguineous or serosanguineous drainage, possible drainage on dressings</li>
+            <li><strong>Common Timeline:</strong> Often occurs 5-8 days post-op as initial inflammation resolves and before adequate collagen deposition</li>
+            <li><strong>Risk Factors for Dehiscence:</strong> Advanced age, obesity, abdominal cancer, infection present at time of surgery, vomiting, poor wound care</li>
+            <li><strong>Additional Risk Factors:</strong> Inadequate suturing technique, dehydration, malnutrition, immunosuppression, anything causing increased abdominal pressure</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Evisceration: EMERGENCY Complication</h4>
+          <ul>
+            <li><strong>Definition:</strong> Protrusion of internal organs/viscera through the wound opening; most commonly occurs with abdominal incisions</li>
+            <li><strong>Clinical Presentation:</strong> Significant increase in flow of sanguineous or serosanguineous fluid from wound, patient reports feeling something "pop" or "give way" during activity</li>
+            <li><strong>Visual Findings:</strong> Actual visualization of abdominal contents (bowel loops, omentum, etc.) protruding through wound; clear indication of organ displacement</li>
+            <li><strong>Precipitating Events:</strong> Sudden straining (getting up, coughing, sneezing, vomiting, hiccuping, straining for bowel movements), increased abdominal pressure</li>
+            <li><strong>Critical Timing:</strong> This is a SURGICAL EMERGENCY requiring immediate operative intervention; patient will almost certainly require return to surgery</li>
+          </ul>
+        </div>
+
+        <div class="callout bad">
+          <strong>🚨 EVISCERATION NURSING MANAGEMENT:</strong>
+          <ul style="margin: 12px 0 0 20px;">
+            <li><strong>Immediately notify provider</strong> — patient needs emergency surgery</li>
+            <li><strong>Stay with patient</strong> — provide reassurance and keep calm</li>
+            <li><strong>Cover wound and organs</strong> with sterile dressings soaked in sterile normal saline (MUST memorize for exams)</li>
+            <li><strong>DO NOT attempt to reinsert organs</strong> — risk of contamination and tissue damage</li>
+            <li><strong>Reposition patient:</strong> Bend hips and knees to reduce tension/stretch on abdominal wound</li>
+            <li><strong>Keep patient NPO</strong> — surgery is highly likely; also maintain calm environment</li>
+            <li><strong>Monitor vitals closely</strong> — watch for signs of shock, maintain IV access, prepare for operating room</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Wound Infection and Sepsis</h3>
+        <div class="card">
+          <h4>Infection Development and Assessment</h4>
+          <ul>
+            <li><strong>Critical Timing:</strong> Infection does NOT develop within first 24-48 hours; manifestations typically appear 2-11 days post-surgery/injury</li>
+            <li><strong>Why This Matters:</strong> Low-grade fever in first 24-48 hours is not infection; low post-op fever is normal response to tissue trauma; allows adequate time for bacterial colonization and inflammatory response</li>
+            <li><strong>Risk Factors for Infection:</strong> Impaired circulation (PVD, diabetes with poor perfusion), malnutrition, chronic disease (diabetes, renal disease), poor wound care, contaminated wound</li>
+            <li><strong>Key Manifestations:</strong> Erythema (redness) and swelling around wound, purulent (pus-like) drainage with possible odor/malodorous smell, pain/tenderness increasing</li>
+            <li><strong>Systemic Signs:</strong> Fever and chills, elevated vital signs (HR, RR, BP may increase), leukocytosis (elevated WBC count indicating infection fight)</li>
+            <li><strong>Drainage Assessment:</strong> Change from normal serous/sanguineous to purulent indicates bacterial colonization and active infection</li>
+          </ul>
+        </div>
+
+        <div class="card alt">
+          <h4>Infection Prevention and Treatment</h4>
+          <ul>
+            <li><strong>Meticulous Aseptic Technique:</strong> "Asepsis is an absolute" — either sterile or not sterile, no gray area in wound care</li>
+            <li><strong>Nutritional Optimization:</strong> Ensure adequate protein, vitamin C, vitamin A, zinc, calories — nutrition enhances immune function and collagen synthesis</li>
+            <li><strong>Adequate Rest:</strong> Sleep and rest are critical for immune function; educate patient on importance</li>
+            <li><strong>Antibiotic Administration:</strong> Draw cultures and sensitivities BEFORE starting antibiotics when possible; if empiric treatment needed, start broad-spectrum then tailor after C&S results</li>
+            <li><strong>Culture-Driven Therapy:</strong> Once C&S results return, switch from broad-spectrum to organism-specific antibiotic to reduce resistance and side effects</li>
+            <li><strong>Wound Care Specialists:</strong> Wound care nurses exist in hospitals — they are wealth of knowledge on wound management and should be consulted/followed when available</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Necrotizing Fasciitis</h3>
+        <div class="card">
+          <h4>Rapidly Progressive Deep Infection</h4>
+          <ul>
+            <li><strong>Definition:</strong> Acute, rapidly spreading, potentially life-threatening infection of the deep fascial layers beneath muscles; often polymicrobial</li>
+            <li><strong>Common Causative Organisms:</strong> Group A Streptococcus (beta-hemolytic), Clostridium perfringens (gas-forming), often polymicrobial with aerobic and anaerobic bacteria</li>
+            <li><strong>Clinical Presentation:</strong> Severe pain out of proportion to visible wound findings (hallmark sign), rapid spread beyond apparent wound borders, systemic toxicity</li>
+            <li><strong>Physical Findings:</strong> Erythema and swelling that progresses rapidly, skin may develop purple/black discoloration (necrosis), possible crepitus (air/gas in tissues), bullae formation</li>
+            <li><strong>Systemic Signs:</strong> High fever, severe pain, tachycardia, hypotension, altered mental status, possible septic shock</li>
+            <li><strong>Critical Diagnosis:</strong> High mortality rate (10-40%); requires immediate surgical intervention with aggressive debridement of necrotic tissue</li>
+            <li><strong>Management:</strong> Multiple debridements often necessary (may need 2-3+ return visits to OR), IV broad-spectrum antibiotics, aggressive fluid resuscitation, ICU-level care</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Compartment Syndrome</h3>
+        <div class="card">
+          <h4>Pressure-Related Tissue Damage</h4>
+          <ul>
+            <li><strong>Pathophysiology:</strong> Increased pressure within a closed compartment (fascial space) compromises microvascular perfusion, leading to ischemia and tissue necrosis</li>
+            <li><strong>Causes:</strong> Tight dressings/casts, extensive edema from trauma/inflammation, crush injuries, vascular injury with bleeding into compartment, electrical burns</li>
+            <li><strong>Classic Signs (5 P's):</strong> Pain (especially with passive stretching of muscles in compartment — HALLMARK), Pressure (tense compartment), Pallor, Pulselessness (late finding), Paresthesias, Paralysis (very late)</li>
+            <li><strong>Critical Finding:</strong> Pain with passive stretching of fingers/toes is earliest and most sensitive sign; do not wait for other signs</li>
+            <li><strong>Diagnosis:</strong> Compartment pressure measurement (>30 mmHg or within 30 of diastolic BP indicates emergency); clinical suspicion often sufficient to warrant surgery</li>
+            <li><strong>Management:</strong> Remove constrictive dressings/casts immediately; if suspected, urgent fasciotomy required to decompress compartment and restore perfusion</li>
+            <li><strong>Timing:</strong> Tissue damage is irreversible after 6-8 hours of ischemia; early recognition and fasciotomy are critical for limb salvage</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Scarring and Contractures</h3>
+        <div class="card">
+          <h4>Hypertrophic and Keloid Scarring</h4>
+          <ul>
+            <li><strong>Hypertrophic Scars:</strong> Excessive collagen deposition within wound boundaries; appears raised and discolored; may limit ROM if over joints</li>
+            <li><strong>Keloid Scars:</strong> Collagen extends beyond original wound borders; more common in darker skin tones; can become disfiguring; painful and itchy</li>
+            <li><strong>Prevention Strategies:</strong> Minimize tension on wound (proper closure technique, avoid excessive movement early), keep wound clean, UV protection, pressure garments (12+ hours daily for 12-18 months)</li>
+            <li><strong>Management:</strong> Silicone gel sheeting, pressure garments, steroid injections (for keloids), possible surgical revision, laser therapy</li>
+            <li><strong>Contractures:</strong> Myofibroblast contraction of wound during healing phase; normal up to point but can limit ROM if excessive; PT/OT for ROM exercises</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section id="flashcards-complications">
+        <h2 class="block">Self-Test Flashcards</h2>
+        <p class="note">Test your understanding of wound complications and emergency management. Click cards to flip.</p>
+
+        <div class="flash-toolbar">
+          <button class="flash-btn" onclick="shuffleFlashcards('complications')">🔀 Shuffle</button>
+          <button class="flash-btn alt" onclick="resetFlashcards('complications')">↻ Reset</button>
+          <span class="flash-count" id="flash-count-complications"></span>
+        </div>
+
+        <div class="flash-grid" id="complications-cards">
+          <!-- Cards will be generated by JavaScript -->
+        </div>
+      </section>
+
+      <section id="navigation">
+        <h2 class="block">Navigation</h2>
+        <div class="page-nav">
+          <a href="week5-burns.html" class="nav-btn">← Previous: Burns</a>
+          <a href="week5-bigpicture.html" class="nav-btn">Next: Big Picture →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const flashcardData = {
+      complications: [
+        { q: "What is the greatest risk timeframe for post-operative hemorrhage?", a: "Up to 48 hours after surgery. Causes include clots coming loose, sutures slipping, or blood vessel damage. Tachycardia is the earliest vital sign change as the body compensates for decreased stroke volume." },
+        { q: "How do you distinguish between dehiscence and evisceration?", a: "Dehiscence = wound separation affecting few underlying layers; appears as gap/pulling apart. Evisceration = protrusion of actual organs through wound; patient reports 'pop' sensation; this is a SURGICAL EMERGENCY requiring immediate OR." },
+        { q: "What is the emergency management protocol for evisceration?", a: "1) Notify provider immediately; 2) Stay with patient; 3) Cover organs with sterile normal saline-soaked dressings (DO NOT reinsert); 4) Bend hips/knees to reduce tension; 5) Keep NPO; 6) Monitor vitals; 7) Prepare for surgery." },
+        { q: "When do wound infections typically manifest post-operatively?", a: "2-11 days post-surgery. NOT in first 24-48 hours. Manifestations: erythema, swelling, purulent drainage, odor, fever, chills, leukocytosis. Low-grade fever in first 48 hours is normal inflammatory response, not infection." },
+        { q: "What are risk factors for wound infection in surgical patients?", a: "Impaired circulation (PVD, diabetes), malnutrition, chronic disease (diabetes, renal disease), poor wound care, contaminated wound, immunosuppression. Adequate nutrition (protein, Vitamin C, Vitamin A, zinc) enhances healing." },
+        { q: "Describe the key features of necrotizing fasciitis.", a: "Rapidly spreading deep fascial infection with high mortality (10-40%). Hallmark: severe pain out of proportion to visible findings. Organisms: Group A Streptococcus, Clostridium perfringens (polymicrobial). Management: immediate aggressive surgical debridement (multiple surgeries often needed), IV antibiotics, ICU care." },
+        { q: "What is the earliest and most sensitive sign of compartment syndrome?", a: "Pain with passive stretching of muscles in the affected compartment. Do NOT wait for later signs (pulselessness, paralysis, paresthesias). Compartment pressure >30 mmHg or within 30 of diastolic BP indicates emergency. Urgent fasciotomy needed to prevent irreversible tissue damage (6-8 hour window)." },
+        { q: "A patient 2 days post-op abdominal surgery feels a sudden 'pop' during movement, with increased bloody drainage. What is your emergency action?", a: "Suspect evisceration. Notify provider immediately. Cover wound with sterile saline-soaked dressings. DO NOT reinsert organs. Bend patient's hips/knees. Keep NPO. Monitor vitals. Prepare for emergency surgery. This is a surgical emergency requiring immediate OR intervention." },
+        { q: "How do you prevent hypertrophic and keloid scar formation?", a: "Minimize wound tension (proper closure, avoid excessive early movement), keep wound clean, UV protection, pressure garments (12+ hours daily for 12-18 months post-injury), silicone gel sheeting. More common in darker skin; consider steroid injections for keloids." },
+        { q: "What is the relationship between nutrition and wound healing complications?", a: "Adequate protein (1.5-2 g/kg), Vitamin C (500-1000 mg), Vitamin A (10,000-15,000 IU), zinc (15-30 mg), calories, and hydration are essential for immune function and collagen synthesis. Malnutrition significantly increases infection risk and impairs all healing phases." },
+        { q: "A patient has severe pain out of proportion to physical findings, with rapid spread of erythema and possible crepitus. What condition is suspected and what is the immediate management?", a: "Suspect necrotizing fasciitis (possibly gas-forming with Clostridium). This is a surgical emergency. Immediate management: notify provider, aggressive IV broad-spectrum antibiotics, prepare for emergency OR for urgent surgical debridement (may require multiple surgeries). Early recognition critical — mortality 10-40%." },
+        { q: "Explain why 'pain with passive stretch' is the hallmark sign of compartment syndrome and why urgent fasciotomy is needed.", a: "Increased compartment pressure compromises microvascular perfusion → ischemia. Pain with passive stretch is earliest/most sensitive sign because muscle ischemia causes pain with extension. Fasciotomy needed urgently (within 6-8 hours) to decompress and restore perfusion before irreversible necrosis occurs. Late signs (pulselessness, paralysis) indicate advanced damage." }
+      ]
+    };
+
+    function generateFlashcards(sectionId) {
+      const container = document.getElementById(sectionId + '-cards');
+      const data = flashcardData[sectionId];
+
+      container.innerHTML = data.map((card, idx) => `
+        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
+          <div class="flash-inner">
+            <div class="flash-front">
+              <div>${card.q}</div>
+            </div>
+            <div class="flash-back">
+              <div>${card.a}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      updateFlashcardCount(sectionId);
+    }
+
+    function updateFlashcardCount(sectionId) {
+      const count = flashcardData[sectionId].length;
+      const el = document.getElementById('flash-count-' + sectionId);
+      if (el) el.textContent = `${count} cards`;
+    }
+
+    function shuffleFlashcards(sectionId) {
+      const arr = flashcardData[sectionId];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      generateFlashcards(sectionId);
+    }
+
+    function resetFlashcards(sectionId) {
+      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
+      cards.forEach(card => card.classList.remove('flipped'));
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      try { localStorage.setItem('theme', newTheme); } catch(e){}
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      generateFlashcards('complications');
+    });
+  </script>
+</body>
+</html>

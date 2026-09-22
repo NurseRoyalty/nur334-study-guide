@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Burns — NUR 334 Study Guide</title>
+  <script>
+    (function(){
+      try {
+        var p = new URLSearchParams(location.search).get('theme');
+        var t = p || localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+        if (p) { try { localStorage.setItem('theme', p) } catch(e){} }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <style>:root{--bg:#f6f7f9;--surface:#ffffff;--surface-2:#eef0f3;--surface-3:#e4e8ed;--border:#e0e4ea;--border-strong:#cbd1da;--text:#1e2530;--text-soft:#556070;--text-faint:#89929f;--stripe:#f6f8fa;--brand:#5b4b8a;--brand-strong:#453966;--brand-deep:#2d2547;--brand-tint:#f0ecf7;--brand-tint-2:#e3ddf0;--accent:#c15b7c;--accent-strong:#a54765;--accent-tint:#f8e8f0;--on-brand-soft:#e8e0f0;--on-brand-faint:#b8a8d1;--on-brand-dim:#d4cae3;--ok:#2f8f6b;--ok-strong:#237a58;--ok-tint:#e6f4ee;--bad:#c0392b;--bad-strong:#a52f22;--bad-tint:#fbeceb;--line-accent:#e5b8cc;--line-bad:#f3d2ce;--content-max:1120px;--radius:12px;--radius-sm:8px;--shadow-sm:0 1px 3px rgba(24,28,45,.07),0 1px 2px rgba(24,28,45,.04);--shadow-md:0 4px 14px rgba(24,28,45,.10);--shadow-lg:0 12px 30px rgba(24,28,45,.16);--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif}:root[data-theme="dark"]{--bg:#12161a;--surface:#1b2027;--surface-2:#232a33;--surface-3:#2c343f;--border:#323b47;--border-strong:#45505f;--text:#e6eaef;--text-soft:#a7b1bd;--text-faint:#7b8593;--stripe:rgba(255,255,255,.025);--brand:#8f80c4;--brand-strong:#b3a6e0;--brand-deep:#d3caee;--brand-tint:#282540;--brand-tint-2:#332e4e;--accent:#d67e99;--accent-strong:#ec9fb6;--accent-tint:#3a2431;--on-brand-soft:#e2ddf1;--on-brand-faint:#c3b9e4;--on-brand-dim:#d9d4ee;--line-accent:#f0d3dd;--line-bad:#4a2f2b;--ok:#43b085;--ok-strong:#6bcfa4;--ok-tint:#173029;--bad:#e46557;--bad-strong:#f28c82;--bad-tint:#361f1d;--shadow-sm:0 1px 3px rgba(0,0,0,.45);--shadow-md:0 4px 14px rgba(0,0,0,.5);--shadow-lg:0 12px 30px rgba(0,0,0,.6)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}h1,h2,h3,h4{font-family:var(--serif);color:var(--brand-deep);margin:0 0 .3em;line-height:1.25}a{color:var(--brand)}img{max-width:100%}#content{max-width:var(--content-max);margin:0 auto;padding:34px 40px 100px}.page-inner{max-width:100%;margin:0 auto}.page-head{margin:6px 0 22px}.eyebrow{margin:0 0 6px;font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-strong)}.page-head h1{font-size:2rem;margin:0}@media(min-width:900px){.page-head h1{font-size:2.25rem}}.lead{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--brand);padding:14px 18px;border-radius:var(--radius-sm);margin:0 0 26px;color:var(--text-soft);font-size:.95rem;box-shadow:var(--shadow-sm)}h2.block{font-size:1.4rem;color:var(--brand-strong);border-bottom:2px solid var(--brand-tint-2);padding-bottom:8px;margin-top:46px}h3.sub{font-size:1.08rem;color:var(--brand-deep);margin-top:28px}p.note{color:var(--text-soft);font-size:.9rem;margin-top:2px}.table-wrap{overflow-x:auto;margin:14px 0 8px;border-radius:var(--radius);box-shadow:var(--shadow-sm);border:1px solid var(--border)}table{border-collapse:collapse;width:100%;background:var(--surface);font-size:.9rem}thead th{background:var(--brand);color:#fff;text-align:left;padding:11px 13px;font-weight:600;font-size:.82rem;letter-spacing:.02em}tbody td{padding:10px 13px;border-bottom:1px solid var(--border);vertical-align:top}tbody tr:last-child td{border-bottom:none}tbody tr:nth-child(even){background:var(--stripe)}tbody tr:hover{background:var(--brand-tint)}td.term{font-weight:700;color:var(--brand-strong);white-space:nowrap;width:1%}.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--shadow-sm);border-top:4px solid var(--brand);margin:16px 0}.card.alt{border-top-color:var(--accent)}.card h4{margin-bottom:8px;color:var(--brand-strong);font-size:.98rem}.card.alt h4{color:var(--accent-strong)}.card ul{margin:0;padding-left:18px;font-size:.9rem}.card li{margin-bottom:5px}.callout-danger{background:var(--bad-tint);border:1px solid var(--line-bad);border-left:4px solid var(--bad);border-radius:var(--radius-sm);padding:12px 16px;margin:16px 0;font-size:.9rem}.callout-danger b{color:var(--bad-strong)}.flash-toolbar{display:flex;gap:10px;margin:12px 0 20px;flex-wrap:wrap;align-items:center}.flash-btn{background:var(--brand);color:#fff;border:none;padding:9px 15px;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;transition:.14s;font-family:inherit}.flash-btn:hover{background:var(--brand-strong)}.flash-btn.alt{background:var(--surface);color:var(--brand-strong);border:1px solid var(--border-strong)}.flash-btn.alt:hover{background:var(--brand-tint)}.flash-count{align-self:center;font-size:.8rem;color:var(--text-faint);margin-left:2px}.flash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:16px;margin-bottom:36px}.flash-card{perspective:1200px;height:190px;cursor:pointer}.flash-card:focus{outline:0}.flash-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:var(--radius)}.flash-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}.flash-card.flipped .flash-inner{transform:rotateY(180deg)}.flash-front,.flash-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-size:.86rem;box-shadow:var(--shadow-sm)}.flash-front{background:var(--surface);border:1px solid var(--border-strong);color:var(--brand-deep);font-weight:600}.flash-back{background:linear-gradient(160deg,var(--brand),var(--brand-strong));color:#fff;transform:rotateY(180deg);font-weight:500}.page-nav{display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}.nav-btn{background:var(--brand);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:.14s;text-decoration:none;display:inline-block}.nav-btn:hover{background:var(--brand-strong)}.nav-btn:disabled{opacity:.5;cursor:not-allowed}@media(max-width:640px){#content{padding:20px 16px 80px}.page-head h1{font-size:1.5rem}h2.block{font-size:1.2rem}.flash-grid{grid-template-columns:1fr}.page-nav{flex-direction:column}.nav-btn{width:100%;text-align:center}}</style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">☀️/🌙</button>
+  <main id="content">
+    <div class="page-inner">
+      <header class="page-head">
+        <p class="eyebrow">Week 5 · Page 5</p>
+        <h1>Burns</h1>
+      </header>
+      <div class="lead">Comprehensive coverage of burn etiology, classification, Rule of Nines assessment, three phases of management, critical complications, and rehabilitation strategies for burn injury.</div>
+
+      <section id="content-main">
+        <h2 class="block">Types of Burns</h2>
+        <h3 class="sub">Thermal Burns (Most Common)</h3>
+        <div class="card">
+          <h4>Flame, Scalding, and Contact Burns</h4>
+          <ul>
+            <li><strong>Thermal Burns (80% of all burns):</strong> Flame injury (most common cause of severe burns), scalding water/hot liquids, contact with hot surfaces; depth depends on temperature and exposure duration</li>
+            <li><strong>Flame Burns:</strong> Typically result from house fires, explosions, occupational exposure; can involve clothing combustion and deeper tissue damage</li>
+            <li><strong>Scalding Burns:</strong> Common in pediatric population; hot water/beverages; usually partial-thickness; depth depends on water temperature and duration</li>
+            <li><strong>Contact Burns:</strong> Hot metal, cooking surfaces, cigarettes; usually circumscribed burns with clear demarcation</li>
+            <li><strong>Clinical Pearl:</strong> Flash burns from rapid combustion produce superficial burns despite high temperature due to brief exposure</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Chemical Burns</h3>
+        <div class="card alt">
+          <h4>Acid vs. Alkali Mechanisms and Management</h4>
+          <ul>
+            <li><strong>Alkali Burns (MORE DESTRUCTIVE):</strong> Penetrate deeper than acids; cause liquefactive necrosis (protein dissolution); damage continues over hours if not rinsed; examples: lye, ammonia, bleach</li>
+            <li><strong>Acid Burns (LESS DESTRUCTIVE):</strong> Cause coagulative necrosis (protein precipitation forms eschar barrier); limits penetration; examples: hydrochloric acid, sulfuric acid</li>
+            <li><strong>Emergency Management:</strong> Immediate dilution with copious water for 15-20 minutes MINIMUM; remove contaminated clothing; never apply neutralizing agents (exothermic reaction); cover with dry dressing; systemic toxicity possible (cyanide from some compounds)</li>
+            <li><strong>Common Industrial Chemicals:</strong> Hydrofluoric acid (HF) - systemic fluoride toxicity with cardiac dysrhythmias; phenol - CNS toxicity, cardiac dysrhythmias</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Electrical Burns</h3>
+        <div class="card">
+          <h4>Current Pathway and Internal Damage</h4>
+          <ul>
+            <li><strong>Mechanism:</strong> Electrical current follows path of least resistance through body; creates entry AND exit wounds; internal damage along current path (muscle, organs, nerves)</li>
+            <li><strong>Tissue Damage:</strong> Heat generation proportional to resistance; muscle tissue has high resistance → high heat → deep muscle necrosis (rhabdomyolysis) despite minimal skin injury</li>
+            <li><strong>High-Voltage (>1000V):</strong> Severe internal injury, rhabdomyolysis, myoglobinuria; Arc burns from contact across joints; compartment syndrome from muscle swelling</li>
+            <li><strong>Low-Voltage (<1000V):</strong> Often household current; risk of cardiac dysrhythmias even with small contact area</li>
+            <li><strong>Ventricular Fibrillation Risk:</strong> Most dangerous immediate complication; can occur with as little as 100mA of current; monitor continuously for dysrhythmias</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Inhalation Injuries</h3>
+        <div class="card alt">
+          <h4>Carbon Monoxide and Thermal Airway Injury</h4>
+          <ul>
+            <li><strong>Carbon Monoxide (CO) Poisoning:</strong> CO binds hemoglobin with 200x greater affinity than oxygen → carboxyhemoglobin; patient appears pink/flushed (not cyanotic); headache, confusion, loss of consciousness</li>
+            <li><strong>Carboxyhemoglobin Levels:</strong> &lt;10%: mild toxicity; 10-20%: headache, dizziness; 20-40%: confusion, agitation; &gt;40%: loss of consciousness, death possible</li>
+            <li><strong>Management:</strong> High-flow oxygen immediately (FiO2 100%); hyperbaric oxygen if carboxyhemoglobin &gt;10%; monitor carboxyhemoglobin levels</li>
+            <li><strong>Thermal Airway Injury:</strong> Inhalation of superheated air causes thermal injury to upper/lower airways; edema develops gradually (peak at 24-48 hours); risk of upper airway obstruction, bronchospasm, pulmonary edema, ARDS</li>
+            <li><strong>Smoke Inhalation:</strong> Toxic gases from incomplete combustion (cyanide, ammonia, acrolein); chemical injury to airways; parenchymal damage</li>
+            <li><strong>ARDS Risk:</strong> Inhalation injury increases ARDS risk significantly; bilateral infiltrates, refractory hypoxemia; may require intubation and mechanical ventilation</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Radiation and Frostbite Burns</h3>
+        <div class="card">
+          <h4>UV, Ionizing Radiation, and Cold Injury</h4>
+          <ul>
+            <li><strong>Radiation Burns:</strong> UV burns (sunburn) - superficial, painless initially; ionizing radiation (occupational/nuclear) - deep penetrating injury, delayed effect possible</li>
+            <li><strong>Frostbite (Cold Injury):</strong> Vasoconstriction → tissue hypoxia; ice crystal formation damages cell membranes; occurs in extremities, nose, ears; staged by depth similar to burn classification (1st-4th degree)</li>
+            <li><strong>Frostbite Management:</strong> Rapid rewarming (NOT massage - damages crystals); immersion in 40-42°C water; avoid re-freezing; monitor for compartment syndrome; tissue demarcation takes weeks</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Burn Depth Classification</h2>
+        <h3 class="sub">Depth Categories, Healing, and Scarring</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Depth</th><th>Layers Affected</th><th>Appearance</th><th>Pain</th><th>Healing</th><th>Scarring</th></tr></thead>
+            <tbody>
+              <tr><td class="term">Superficial</td><td>Epidermis only</td><td>Red, dry, sunburn-like, blanches with pressure</td><td>Very painful (intact nerves)</td><td>5-7 days spontaneously; re-epithelialization from basal layer</td><td>None</td></tr>
+              <tr><td class="term">Partial-Thickness</td><td>Epidermis + partial dermis</td><td>Blistered, moist, pale pink/white, weeping, hair still present in some areas, blanches slowly</td><td>Very painful (intact nerves); hypersensitive</td><td>2-3 weeks if shallow; deep partials require grafting for optimal outcome</td><td>Minimal if shallow; moderate if deep</td></tr>
+              <tr><td class="term">Full-Thickness</td><td>Epidermis, entire dermis, into subcutaneous tissue</td><td>Charred/black, leathery, dry, hard (eschar), hair pulls out easily, does NOT blanch with pressure, painless</td><td>Painless (nerves destroyed); surrounding area very painful</td><td>REQUIRES skin grafting (autograft, allograft); cannot re-epithelialization without graft</td><td>Severe hypertrophic/keloid scarring without prevention measures</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">Re-epithelialization and Collagen Synthesis</h3>
+        <div class="card alt">
+          <h4>Healing Mechanisms and Timeline</h4>
+          <ul>
+            <li><strong>Partial-Thickness Healing:</strong> Re-epithelialization occurs from skin appendages (hair follicles, sweat glands) at margins; collagen in dermis provides structural support; can regenerate functionally intact skin</li>
+            <li><strong>Full-Thickness Healing:</strong> No skin appendages remain; scarring inevitable; only healing possible is contraction (myofibroblasts pull edges together) or skin grafting; without graft, chronic wound results</li>
+            <li><strong>Collagen Synthesis:</strong> Begins during proliferative phase (3-5 days post-burn); peak synthesis at 1-2 weeks; collagen type III (weak, more compliant) initially → gradually replaced by type I (stronger); remodeling continues for years</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Rule of Nines for Body Surface Area Assessment</h2>
+        <h3 class="sub">Rapid Severity Determination and Fluid Resuscitation Calculation</h3>
+        <div class="card">
+          <h4>Adult Rule of Nines</h4>
+          <ul>
+            <li><strong>Head/Neck:</strong> 9% (face 4.5%, posterior scalp 4.5%)</li>
+            <li><strong>Each Arm:</strong> 9% (anterior 4.5%, posterior 4.5%); including hands</li>
+            <li><strong>Trunk Anterior:</strong> 18% (chest 9%, abdomen 9%)</li>
+            <li><strong>Trunk Posterior:</strong> 18% (upper back 9%, lower back 9%)</li>
+            <li><strong>Each Leg:</strong> 18% (anterior 9%, posterior 9%); including foot</li>
+            <li><strong>Perineum/Genitalia:</strong> 1%</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Pediatric Modifications</h3>
+        <div class="card alt">
+          <h4>Age-Specific Proportions</h4>
+          <ul>
+            <li><strong>Head (Proportionally Larger):</strong> Infants/toddlers: 18% (vs. 9% adults); decreases to adult proportions by adolescence</li>
+            <li><strong>Legs (Proportionally Smaller):</strong> Infants/toddlers: 13.5% each (vs. 18% adults)</li>
+            <li><strong>Arms/Trunk:</strong> Similar to adults (9% and 18% respectively)</li>
+            <li><strong>Clinical Use:</strong> Critical for accurate Parkland formula calculation; larger head burns in children require more aggressive fluid resuscitation</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Burn Severity Classifications</h3>
+        <div class="card">
+          <h4>American Burn Association Criteria</h4>
+          <ul>
+            <li><strong>Major/Severe Burns:</strong> &gt;20% TBSA (15% in elderly/children &lt;10 years); all full-thickness &gt;5%; inhalation injury; electrical burns; complicated by trauma; involves special areas (face, joints, genitals)</li>
+            <li><strong>Moderate Burns:</strong> 10-20% TBSA partial-thickness; &lt;10% full-thickness; no inhalation injury</li>
+            <li><strong>Minor Burns:</strong> &lt;10% TBSA partial-thickness; &lt;2% full-thickness; can manage outpatient</li>
+            <li><strong>Burn Center Referral Indicated:</strong> All major/severe burns; moderate burns in extremes of age; special considerations; circumferential burns</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Three Phases of Burn Management</h2>
+        <h3 class="sub">Emergent Phase (0-72 hours)</h3>
+        <div class="card">
+          <h4>Burn Shock and Immediate Resuscitation</h4>
+          <ul>
+            <li><strong>Pathophysiology of Burn Shock:</strong> Massive inflammatory response triggered by thermal injury; increased capillary permeability; fluid shifts from intravascular to interstitial space (edema); loss of plasma proteins; hypovolemia → decreased cardiac output → tissue hypoperfusion → shock</li>
+            <li><strong>Fluid Shift Timing:</strong> Greatest fluid loss in first 8 hours; continues for 24-36 hours; peaks at 24 hours post-burn</li>
+            <li><strong>Parkland Formula Fluid Resuscitation:</strong> 4 mL LR × %TBSA × weight(kg) = total LR in 24 hours; administer half in first 8 hours, half over next 16 hours; CRITICAL: adjust based on urine output (0.5 mL/kg/hr for adults, 1 mL/kg/hr for children)</li>
+            <li><strong>Fluid Resuscitation Monitoring:</strong> Large-bore IV lines (2-3 lines); place Foley catheter for accurate urine measurement; vital signs q15 minutes initially; trending of vital signs critical; under-resuscitation → shock, organ failure; over-resuscitation → pulmonary edema, compartment syndrome</li>
+            <li><strong>Escharotomy (Surgical Opening of Eschar):</strong> Performed during emergent phase if circumferential full-thickness burns present; incisions through eschar (not into viable tissue) to relieve constrictive eschar; prevents compartment syndrome, allows chest wall expansion, restores distal circulation</li>
+            <li><strong>Fasciotomy (Deeper Incision):</strong> If escharotomy insufficient; incisions through fascia to reduce compartment pressure in muscle compartments; more invasive, higher morbidity</li>
+            <li><strong>Inhalation Injury Management:</strong> High-flow oxygen (100% FiO2); aggressive airway management; intubation early if significant inhalation injury (stridor, carbonaceous sputum, singed nasal hairs); carboxyhemoglobin monitoring; hyperbaric oxygen if level &gt;10%; mechanical ventilation with PEEP if ARDS develops</li>
+            <li><strong>Tetanus Prophylaxis:</strong> All burn patients unless current; IV tetanus immune globulin if none previously; booster if &gt;5 years since last</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Acute Phase (72 hours to Weeks/Months)</h3>
+        <div class="card alt">
+          <h4>Hypermetabolism, Wound Management, Grafting, and Infection Prevention</h4>
+          <ul>
+            <li><strong>Hypermetabolism:</strong> Metabolic rate increases to 1.5-2x normal; persists until major wounds healed; fever, tachycardia, tachypnea; driven by inflammatory mediators and catecholamines</li>
+            <li><strong>Nutritional Support:</strong> Massive caloric demands; high protein (1.5-2.5 g/kg) for collagen synthesis and immune function; high carbohydrates for energy; vitamins A, C, zinc essential for healing; often requires enteral feeding (TPN if unable to tolerate PO)</li>
+            <li><strong>Burn Wound Infection Risk:</strong> Eschar becomes necrotic tissue → bacteria colonize → proliferate exponentially → invade into viable tissue (invasive burn wound infection) → bacteremia → systemic sepsis/septic shock → death (leading cause of burn mortality)</li>
+            <li><strong>Infection Prevention Strategies:</strong> Meticulous aseptic technique with dressing changes; topical antimicrobials (silver sulfadiazine = Silvadene, silver nitrate, mafenide acetate = Sulfamylon); daily wound inspection for signs of invasive infection; blood cultures if fever/sepsis suspected; broad-spectrum antibiotics empirically if sepsis; surgical debridement of necrotic tissue</li>
+            <li><strong>Topical Antimicrobial Agents:</strong> Silvadene (silver sulfadiazine) - most common, painless application, poor eschar penetration; Silver Nitrate - good penetration, stains everything black, electrolyte imbalance; Mafenide Acetate - excellent penetration, painful application, metabolic acidosis</li>
+            <li><strong>Wound Debridement:</strong> Removal of necrotic tissue (eschar); promotes healing; can be mechanical (wet-to-dry dressings), enzymatic (collagenase), or surgical (most effective); surgical debridement often done in OR</li>
+            <li><strong>Skin Grafting:</strong> Autograft (own skin, gold standard, no rejection) preferred; harvested from unburned areas (donor sites); takes 7-14 days to adhere; allograft (cadaver skin, temporary) or xenograft (pig skin) for temporary covering/biological dressing; homograft used until autografts available; skin grafts are fragile initially - careful wound care post-graft</li>
+            <li><strong>Curling's Ulcer Prophylaxis:</strong> Stress ulcer from severe burn; acute gastric/duodenal ulceration; prophylaxis with H2 blockers (famotidine) or PPI (omeprazole); monitor for coffee-ground emesis, tarry stools, abdominal distention</li>
+            <li><strong>Pain Management During Dressing Changes:</strong> Most painful part of burn care; pre-medicate 30-45 minutes before; use opioids, anxiolytics (benzodiazepines), nitrous oxide; consider topical anesthetics on smaller burns</li>
+          </ul>
+        </div>
+
+        <h3 class="sub">Rehabilitation Phase (Weeks to Years)</h3>
+        <div class="card">
+          <h4>Contracture Prevention, Scar Management, and Psychosocial Recovery</h4>
+          <ul>
+            <li><strong>Contractures:</strong> Progressive shortening of scar tissue → joint contracture → permanent loss of function; prevented with range-of-motion exercises (active &gt; passive), positioning to oppose contracture, splinting/orthoses during sleep and periods of inactivity</li>
+            <li><strong>Hypertrophic Scarring:</strong> Excessive collagen deposition within wound boundaries (raised, firm, itchy); occurs in deep partial and full-thickness burns; managed with pressure garments (worn 12+ hours daily for 12-18 months), scar massage, silicone gel sheeting, sun avoidance, possible steroid injection, laser therapy, or surgical revision</li>
+            <li><strong>Physical Therapy:</strong> ROM exercises to prevent contractures; strengthening; gradual return to ambulation; progression of activity; address functional deficits from graft sites and donor sites</li>
+            <li><strong>Occupational Therapy:</strong> Activities of daily living retraining; hand function; self-care skills; return to work/school planning; adaptive equipment as needed</li>
+            <li><strong>Psychological Impact:</strong> PTSD, depression, anxiety extremely common; body image disruption; social isolation; difficulty with relationships; screen for mental health concerns early and often; refer for psychological counseling; support groups; cognitive behavioral therapy; family involvement critical</li>
+            <li><strong>Long-term Follow-up:</strong> Monitor graft durability; watch for late contractures; assess need for reconstructive surgery; vision screening (cataracts can develop years post-burn); continued scar management; psychosocial support; return to activities/work gradual and supported</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Critical Burn Complications</h2>
+        <h3 class="sub">Life-Threatening Emergencies</h3>
+        <div class="callout-danger">
+          <b>HYPOVOLEMIC SHOCK:</b> Severe fluid shift in first 24-48 hours; leads to decreased cardiac output, tissue hypoperfusion, multi-organ failure, death. Manage with aggressive Parkland formula resuscitation; monitor CVP, urine output (goal 0.5 mL/kg/hr); avoid both under-resuscitation (shock) and over-resuscitation (pulmonary edema, compartment syndrome).
+          <br/><b>ACUTE RESPIRATORY DISTRESS SYNDROME (ARDS):</b> From inhalation injury or sepsis; characterized by bilateral infiltrates, severe hypoxemia refractory to oxygen, poor lung compliance. Manage with early intubation if indicated; mechanical ventilation with PEEP; fluid management; prone positioning considered; mortality high if develops.
+          <br/><b>ACUTE KIDNEY INJURY (AKI) / MYOGLOBINURIA:</b> Electrical burns → rhabdomyolysis (muscle breakdown) → myoglobin in urine (dark/cola-colored); myoglobin precipitates in renal tubules → acute tubular necrosis. Manage with aggressive fluid resuscitation (goal urine output 1 mL/kg/hr in electrical burns, higher than normal); monitor creatinine, BUN, K+; may require dialysis.
+          <br/><b>BURN WOUND SEPSIS:</b> Bacterial invasion beyond burn eschar into viable tissue and bloodstream; fever, hemodynamic instability, confusion, thrombocytopenia, hyperglycemia. Take blood cultures; start broad-spectrum antibiotics empirically; aggressive surgical debridement; sometimes requires fasciotomy or amputation of non-viable tissue. Leading cause of death in burn patients.
+          <br/><b>CURLING'S ULCER (STRESS ULCER):</b> Acute gastric/duodenal ulceration from severe burn stress; manifests as GI bleeding (coffee-ground emesis, tarry stools, anemia). Prophylaxis with H2 blockers (famotidine) or PPI (omeprazole) started on admission; monitor Hgb/Hct; consider proton pump inhibitor over H2 blocker; endoscopy if active bleeding.
+        </div>
+
+        <h3 class="sub">Additional Critical Complications</h3>
+        <div class="card">
+          <ul>
+            <li><strong>Cardiac Dysrhythmias (Electrical Burns):</strong> Ventricular fibrillation (VF) most immediately lethal; can occur even with small current; other dysrhythmias including asystole, bradycardia possible. Continuous cardiac monitoring essential; ACLS protocol if dysrhythmia; even if initial rhythm normal, monitor for delayed dysrhythmias for 24+ hours</li>
+            <li><strong>Compartment Syndrome:</strong> Circumferential full-thickness burns or electrical burns cause constrictive effect; increased pressure within muscle compartments → compromised perfusion → muscle necrosis → rhabdomyolysis; presents with pain out of proportion, paresthesias, decreased distal pulses, muscle necrosis. Escharotomy/fasciotomy relieves pressure; monitor compartment pressures if suspected</li>
+            <li><strong>Hyperkalemia (Electrical Burns and Rhabdomyolysis):</strong> Cell destruction releases intracellular potassium; peaked T-waves on ECG, ventricular dysrhythmias possible. Manage with calcium (stabilizes myocardium), insulin + glucose (shifts K intracellularly), albuterol, sodium bicarbonate if acidotic, diuretics, possible dialysis</li>
+            <li><strong>Inhalation Injury Complications:</strong> Upper airway obstruction from edema (stridor, difficulty breathing); lower airway obstruction from bronchospasm or pulmonary edema; ARDS from direct thermal injury or sepsis; acute lung injury may require intubation</li>
+            <li><strong>Cataract Formation:</strong> Can develop months to years post-severe burn; monitor vision closely; increased risk with very high-temperature burns or prolonged recovery</li>
+            <li><strong>Acute Hemolysis:</strong> Transient RBC destruction from burn heat; anemia possible; monitor CBC; transfuse if Hgb &lt;7 (or symptomatically)</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Special Considerations and Clinical Pearls</h2>
+        <h3 class="sub">Burn Center Transfer and Management Decisions</h3>
+        <div class="card alt">
+          <h4>When to Refer and Special Populations</h4>
+          <ul>
+            <li><strong>Burn Center Referral Criteria:</strong> All patients with major burns (&gt;15-20% TBSA); all full-thickness burns &gt;5%; inhalation injury; chemical/electrical burns; circumferential burns; burns involving special areas (face, hands, feet, genitals, joints); concurrent trauma; age extremes (&lt;10 or &gt;50 years); medical comorbidities</li>
+            <li><strong>Pediatric Considerations:</strong> Higher metabolic rate; larger proportional head requires larger fluid volumes; different caloric requirements; pain control challenging; psychological trauma greater; family separation issues</li>
+            <li><strong>Elderly Considerations:</strong> Lower survival rates; delayed healing; increased infection risk; comorbidities complicate management; depression/isolation post-injury</li>
+            <li><strong>Transport:</strong> Cover burns with clean dry dressing; establish IV access during transport; avoid hypothermia; do not apply ice directly (causes further damage); rapid transfer to burn center in major burns</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section id="flashcards-burns">
+        <h2 class="block">Self-Test Flashcards</h2>
+        <p class="note">Test your burn management knowledge. Click cards to flip.</p>
+        <div class="flash-toolbar">
+          <button class="flash-btn" onclick="shuffleFlashcards('burns')">🔀 Shuffle</button>
+          <button class="flash-btn alt" onclick="resetFlashcards('burns')">↻ Reset</button>
+          <span class="flash-count" id="flash-count-burns"></span>
+        </div>
+        <div class="flash-grid" id="burns-cards"></div>
+      </section>
+
+      <section id="navigation">
+        <h2 class="block">Navigation</h2>
+        <div class="page-nav">
+          <a href="week5-wounds.html" class="nav-btn">← Previous: Wounds</a>
+          <a href="week5-bigpicture.html" class="nav-btn">Next: Big Picture →</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const flashcardData = {
+      burns: [
+        { q: "Calculate Parkland formula for 70kg patient with 40% TBSA burn. How much LR in first 8 hours?", a: "4 mL × 70 kg × 40% = 11,200 mL total in 24 hours. First 8 hours = 5,600 mL LR; next 16 hours = 5,600 mL. Adjust based on urine output (goal 0.5 mL/kg/hr for adults). This prevents hypovolemic shock." },
+        { q: "Why is myoglobinuria a medical emergency in electrical burns and how is it managed?", a: "Electrical current causes rhabdomyolysis (muscle breakdown) → myoglobin in urine (cola-colored). Myoglobin precipitates in tubules → acute kidney injury. Manage: aggressive fluid resuscitation (increase UOP to 1 mL/kg/hr minimum), monitor creatinine/BUN/K+, possible dialysis if AKI develops." },
+        { q: "When is escharotomy indicated and why?", a: "Full-thickness circumferential burns restrict blood flow and breathing. Escharotomy (incisions through eschar/burned skin) relieves compartment syndrome, restores distal circulation, allows chest wall expansion during fluid resuscitation. Typically done in emergent phase (0-72 hours) before compartment syndrome develops." },
+        { q: "Describe the pathophysiology of burn shock and why fluid resuscitation is critical.", a: "Massive inflammatory response → increased capillary permeability → fluid shifts from intravascular to interstitial (edema) → loss of plasma proteins → hypovolemia → decreased cardiac output → tissue hypoperfusion → shock. Parkland formula resuscitation prevents organ failure; must monitor and adjust based on urine output." },
+        { q: "What is Curling's ulcer and how is it prevented in burn patients?", a: "Acute gastric/duodenal ulceration from severe burn stress. Prophylaxis started on admission with H2 blockers (famotidine) or PPI (omeprazole). Monitor for coffee-ground emesis, tarry stools, anemia. Maintain adequate nutrition and manage sepsis to prevent GI bleeding." },
+        { q: "Distinguish between partial-thickness and full-thickness burn healing and scarring outcomes.", a: "Partial: epithelialization from hair follicles/sweat glands in 2-3 weeks if shallow; minimal scarring. Full: nerves destroyed (painless), requires autograft for healing; severe hypertrophic/keloid scarring common. Full-thickness never heals without skin grafting." },
+        { q: "Why are electrical burns particularly dangerous and what complications can occur?", a: "Current follows path of least resistance → entry/exit wounds + deep internal damage (muscle, organs, nerves). Immediate VF most lethal; delayed dysrhythmias possible. Rhabdomyolysis with myoglobinuria causes AKI. Hyperkalemia from cell destruction causes cardiac dysrhythmias. Compartment syndrome common." },
+        { q: "What does the Rule of Nines tell you clinically about burn severity and how does pediatric anatomy differ?", a: "Rapid %TBSA assessment → guides severity classification (major >20%, moderate 10-20%, minor <10%) → determines Parkland formula calculation for fluid resuscitation. Pediatric: head = 18% (larger), each leg = 13.5% (smaller). Different proportions = different fluid requirements." },
+        { q: "How does inhalation injury increase mortality and what are management priorities?", a: "Carboxyhemoglobin (CO poisoning); thermal injury to airways; smoke inhalation; ARDS risk. Manage: high-flow O2 (100% FiO2), carboxyhemoglobin monitoring (>10% needs hyperbaric O2), early intubation if significant injury, mechanical ventilation with PEEP if ARDS develops." },
+        { q: "Describe hypertrophic scarring post-burn and what management strategies prevent/minimize it.", a: "Raised scars within wound boundaries from excessive collagen deposition. Manage: pressure garments (12+ hours daily for 12-18 months started in acute phase), scar massage, silicone gel sheeting, sun avoidance, possible steroid injection, laser therapy, surgical revision if contractures limit function." },
+        { q: "Why is nutrition critically important in acute phase burns and what are specific requirements?", a: "Hypermetabolism increases to 1.5-2x normal; massive caloric demands. Requirements: protein 1.5-2.5 g/kg for collagen synthesis and immune function, high carbohydrates for energy, vitamins A/C/zinc for healing. Curling's ulcer prophylaxis essential. Malnutrition significantly delays healing and increases infection risk." },
+        { q: "What psychological complications occur post-burn and how should nurses address them?", a: "PTSD, depression, anxiety, body image disruption, social isolation common. Nursing: screen for mental health early/often, refer for psychological counseling, facilitate support groups, cognitive behavioral therapy, family involvement, gradual return to activities, long-term psychological follow-up. Mental health critical to functional recovery." }
+      ]
+    };
+
+    function generateFlashcards(sectionId) {
+      const container = document.getElementById(sectionId + '-cards');
+      const data = flashcardData[sectionId];
+      container.innerHTML = data.map((card, idx) => `
+        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
+          <div class="flash-inner">
+            <div class="flash-front"><div>${card.q}</div></div>
+            <div class="flash-back"><div>${card.a}</div></div>
+          </div>
+        </div>
+      `).join('');
+      updateFlashcardCount(sectionId);
+    }
+
+    function updateFlashcardCount(sectionId) {
+      const count = flashcardData[sectionId].length;
+      const el = document.getElementById('flash-count-' + sectionId);
+      if (el) el.textContent = `${count} cards`;
+    }
+
+    function shuffleFlashcards(sectionId) {
+      const arr = flashcardData[sectionId];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      generateFlashcards(sectionId);
+    }
+
+    function resetFlashcards(sectionId) {
+      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
+      cards.forEach(card => card.classList.remove('flipped'));
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      try { localStorage.setItem('theme', newTheme); } catch(e){}
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      generateFlashcards('burns');
+    });
+  </script>
+</body>
+</html>
