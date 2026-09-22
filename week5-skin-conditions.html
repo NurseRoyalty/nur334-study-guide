@@ -20,7 +20,7 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  
+
   <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
     <span class="sun">☀️</span>
     <span class="moon">🌙</span>
@@ -36,7 +36,186 @@
 
       <section id="content-main">
         <h2 class="block">Skin Assessment and Lesion Terminology</h2>
-        <div class="card"><h4>Primary & Secondary Lesions</h4><p>Detailed assessment of skin lesions using standardized terminology, including color, size, distribution, shape, configuration, and characteristics.</p></div>
+        <div class="card">
+          <h4>Primary & Secondary Lesions</h4>
+          <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color);">
+                <th style="text-align: left; padding: 0.75rem;">Lesion Type</th>
+                <th style="text-align: left; padding: 0.75rem;">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem;"><strong>Macule</strong></td>
+                <td style="padding: 0.75rem;">Flat, non-palpable lesion <6mm (freckles, petechiae)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem;"><strong>Patch</strong></td>
+                <td style="padding: 0.75rem;">Flat, non-palpable lesion >6mm (vitiligo, port-wine stain)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem;"><strong>Papule</strong></td>
+                <td style="padding: 0.75rem;">Palpable lesion <6mm, raised (acne, warts)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem;"><strong>Plaque</strong></td>
+                <td style="padding: 0.75rem;">Palpable, raised lesion >6mm (psoriasis, eczema)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem;"><strong>Vesicle</strong></td>
+                <td style="padding: 0.75rem;">Fluid-filled blister <6mm (herpes, chickenpox)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem;"><strong>Bulla</strong></td>
+                <td style="padding: 0.75rem;">Fluid-filled blister >6mm (pemphigus, bullous pemphigoid)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem;"><strong>Pustule</strong></td>
+                <td style="padding: 0.75rem;">Pus-filled lesion (acne, impetigo)</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.75rem;"><strong>Nodule</strong></td>
+                <td style="padding: 0.75rem;">Palpable, solid lesion >6mm in dermis (moles, cysts)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="block">Malignant Skin Lesions</h2>
+        <div class="card">
+          <h4>Basal Cell Carcinoma (BCC)</h4>
+          <p><strong>Characteristics:</strong> Red, pearly lesion with well-defined borders; waxy appearance; may have central depression or ulceration; most common type (80% of skin cancers).</p>
+          <p><strong>Risk factors:</strong> UV exposure, fair skin, age >50, male predominance.</p>
+          <p><strong>Nursing considerations:</strong> Most common but least aggressive; 95%+ survival; rarely metastasizes; treat with surgical excision, cryotherapy, or topical agents.</p>
+        </div>
+
+        <div class="card">
+          <h4>Squamous Cell Carcinoma (SCC)</h4>
+          <p><strong>Characteristics:</strong> Scaly, crusty, erythematous nodule or plaque; often with central ulceration; 15-20% of skin cancers. Can metastasize, especially to regional lymph nodes.</p>
+          <p><strong>Risk factors:</strong> UV exposure, immunosuppression, chronic wounds, actinic keratosis.</p>
+          <p><strong>Nursing considerations:</strong> Higher metastatic potential than BCC; treat with surgical excision; may require Mohs micrographic surgery for high-risk lesions; check regional lymph nodes.</p>
+        </div>
+
+        <div class="card">
+          <h4>Melanoma</h4>
+          <p><strong>ABCDE Rule for detection:</strong></p>
+          <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+            <li><strong>A - Asymmetry:</strong> Not mirror-image; one half doesn't match the other</li>
+            <li><strong>B - Border:</strong> Irregular, ragged, or notched borders</li>
+            <li><strong>C - Color:</strong> Variation in color (brown, black, red, white, blue)</li>
+            <li><strong>D - Diameter:</strong> >6mm (larger than pencil eraser)</li>
+            <li><strong>E - Evolving:</strong> Changing in size, shape, color, or appearance</li>
+          </ul>
+          <p><strong>Breslow Thickness Classification (prognosis):</strong></p>
+          <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+            <li><strong>Thin (<0.76mm):</strong> 5-yr survival ~95%; may not require lymph node dissection</li>
+            <li><strong>Intermediate (0.76-4mm):</strong> 5-yr survival 60-90%; sentinel lymph node biopsy considered</li>
+            <li><strong>Thick (>4mm):</strong> 5-yr survival <50%; high risk of metastasis; requires comprehensive staging</li>
+          </ul>
+          <p><strong>Nursing considerations:</strong> Most aggressive; 20% of skin cancer deaths despite lower incidence; educate on sun protection, self-monitoring, family screening (genetic risk).</p>
+        </div>
+
+        <div class="card">
+          <h4>Skin Cancer Risk Factors</h4>
+          <ul style="margin: 0.5rem 0; padding-left: 2rem;">
+            <li>UV exposure (cumulative and acute/sunburn)</li>
+            <li>Fair skin, blue/green eyes, red/blonde hair</li>
+            <li>Personal or family history of skin cancer</li>
+            <li>Age >50 (cumulative exposure)</li>
+            <li>Immunosuppression (HIV, transplant, chemotherapy)</li>
+            <li>Chemical exposures (arsenic, tar, petroleum)</li>
+            <li>Chronic wounds or scars</li>
+          </ul>
+        </div>
+
+        <h2 class="block">Bacterial Skin Infections</h2>
+        <div class="card">
+          <h4>Impetigo (Pyoderma)</h4>
+          <p><strong>Causative organisms:</strong> Streptococcus pyogenes (Group A Strep) or Staphylococcus aureus (including MRSA).</p>
+          <p><strong>Characteristics:</strong> Honey-crusted lesions on face or extremities; highly contagious; common in children and immunocompromised; begins as vesicles → pustules → crusts.</p>
+          <p><strong>Treatment:</strong> Topical antibiotics (mupirocin) for localized; oral/IV antibiotics for extensive disease; good hygiene to prevent spread.</p>
+          <p><strong>Nursing considerations:</strong> Isolate from others; cover lesions; educate on hand hygiene; monitor for post-streptococcal glomerulonephritis.</p>
+        </div>
+
+        <div class="card">
+          <h4>Cellulitis</h4>
+          <p><strong>Causative organisms:</strong> Group A Streptococcus or Staphylococcus aureus; may involve deeper dermis and subcutaneous tissue.</p>
+          <p><strong>Characteristics:</strong> Red, warm, edematous, poorly demarcated borders; spreading erythema; may have systemic symptoms (fever, chills); lymphangitis and regional lymphadenopathy common.</p>
+          <p><strong>Treatment:</strong> IV antibiotics (cephalosporins, fluoroquinolones); elevation; warm compresses; may require hospitalization if severe or immunocompromised.</p>
+          <p><strong>Nursing considerations:</strong> Assess for rapidly spreading borders (possible streptococcal cellulitis); monitor for sepsis; educate on prevention of entry sites (breaks in skin).</p>
+        </div>
+
+        <h2 class="block">Viral Skin Infections</h2>
+        <div class="card">
+          <h4>Herpes Simplex Virus (HSV)</h4>
+          <p><strong>Characteristics:</strong> Recurrent vesicles on erythematous base; grouped "on an erythematous base"; extremely painful; prodrome (tingling, burning).</p>
+          <p><strong>Phases:</strong> Vesicles → pustules → erosions → crusts → healing (5-10 days).</p>
+          <p><strong>HSV-1:</strong> Oral herpes ("cold sores"); reactivation triggered by stress, fever, immunosuppression, UV exposure.</p>
+          <p><strong>HSV-2:</strong> Genital herpes; sexually transmitted; recurrent, painful outbreaks.</p>
+          <p><strong>Treatment:</strong> Antiviral therapy (acyclovir, valacyclovir, famciclovir) most effective within 48 hours of symptom onset; prophylaxis for recurrent cases.</p>
+        </div>
+
+        <div class="card">
+          <h4>Varicella-Zoster Virus (VZV) / Shingles (Herpes Zoster)</h4>
+          <p><strong>Characteristics:</strong> Reactivation of varicella virus in dorsal root ganglia; painful vesicular rash in dermatomal distribution (follows one nerve root); burning precedes lesions by 2-3 days.</p>
+          <p><strong>Dermatomal distribution:</strong> Thoracic (50%), lumbar (20%), cervical/trigeminal (20%); typically unilateral on torso or face.</p>
+          <p><strong>Complications:</strong> Postherpetic neuralgia (pain lasting >3 months); ophthalmic zoster (eye involvement, vision loss); facial nerve involvement (Ramsay Hunt syndrome).</p>
+          <p><strong>Treatment:</strong> Antiviral therapy CRITICAL within 72 hours of onset (reduces duration and post-herpetic neuralgia risk); supportive care; gabapentin or pregabalin for neuropathic pain.</p>
+          <p><strong>Nursing considerations:</strong> Pain management is priority; maintain lesion hygiene; prevent secondary bacterial infection; monitor vision if ophthalmic involvement; reassure patient rash is not contagious to non-immune individuals.</p>
+        </div>
+
+        <div class="card">
+          <h4>Molluscum Contagiosum</h4>
+          <p><strong>Characteristics:</strong> Viral infection causing small (2-5mm), firm, skin-colored papules with central umbilication; highly contagious by contact; common in children and immunocompromised.</p>
+          <p><strong>Treatment:</strong> Usually self-limited; may use curettage, topical medications, or cryotherapy to prevent spread; avoid squeezing (spreads virus).</p>
+        </div>
+
+        <h2 class="block">Fungal Skin Infections</h2>
+        <div class="card">
+          <h4>Tinea Pedis (Athlete's Foot)</h4>
+          <p><strong>Causative agent:</strong> Dermatophytes (Trichophyton).</p>
+          <p><strong>Characteristics:</strong> Itching and burning between toes; maceration, erythema; may spread to sole of foot.</p>
+          <p><strong>Treatment:</strong> Topical antifungals (terbinafine, miconazole); keep feet dry; use antifungal powder; may require oral therapy for resistant cases.</p>
+        </div>
+
+        <div class="card">
+          <h4>Tinea Corporis (Ringworm)</h4>
+          <p><strong>Characteristics:</strong> Circular, scaly patches with clearing center ("annular" lesions); pruritic; may have vesicles at edges.</p>
+          <p><strong>Treatment:</strong> Topical antifungals; may require oral griseofulvin or terbinafine if extensive.</p>
+        </div>
+
+        <div class="card">
+          <h4>Candidiasis</h4>
+          <p><strong>Causative agent:</strong> Candida albicans (normal flora overgrowth).</p>
+          <p><strong>Common sites:</strong> Inframammary folds, skin creases, mucous membranes (oral thrush), vaginal, nail beds.</p>
+          <p><strong>Risk factors:</strong> Immunosuppression, diabetes, prolonged antibiotic use, moisture/maceration, corticosteroid use.</p>
+          <p><strong>Characteristics:</strong> Erythematous with satellite pustules; maceration; white patches (oral); severe itching.</p>
+          <p><strong>Treatment:</strong> Topical or oral antifungals (fluconazole, clotrimazole); reduce moisture; address underlying cause.</p>
+        </div>
+
+        <h2 class="block">Inflammatory Skin Conditions</h2>
+        <div class="card">
+          <h4>Atopic Dermatitis (Eczema)</h4>
+          <p><strong>Characteristics:</strong> Intense pruritus (itching), erythematous patches, lichenification from scratching; worse with stress, irritants; often personal/family history of atopy.</p>
+          <p><strong>Treatment:</strong> Emollients, topical corticosteroids, topical calcineurin inhibitors; avoid irritants; antihistamines for itching.</p>
+        </div>
+
+        <div class="card">
+          <h4>Psoriasis</h4>
+          <p><strong>Characteristics:</strong> Well-demarcated erythematous plaques with silvery scale; common on elbows, knees, scalp, nails; chronic, relapsing; genetic predisposition; triggered by stress, infection, medications.</p>
+          <p><strong>Types:</strong> Plaque (most common), guttate, inverse, pustular, erythrodermic (severe).</p>
+          <p><strong>Treatment:</strong> Topical therapies (corticosteroids, vitamin D analogues), phototherapy, systemic biologics for moderate/severe disease.</p>
+        </div>
+
+        <div class="card">
+          <h4>Urticaria (Hives)</h4>
+          <p><strong>Characteristics:</strong> Transient, raised, erythematous wheals with pruritus; appear and disappear within hours; may be accompanied by angioedema.</p>
+          <p><strong>Causes:</strong> Allergens (food, drugs, insect bites), infection, stress, physical triggers (heat, cold, pressure).</p>
+          <p><strong>Acute vs. Chronic:</strong> Acute resolves within 6 weeks; chronic persists >6 weeks despite treatment.</p>
+          <p><strong>Treatment:</strong> Identify and avoid triggers; antihistamines (H1 blockers); corticosteroids for severe; consider allergy testing if chronic.</p>
+        </div>
+
       </section>
 
       <section id="flashcards-skin">
@@ -59,13 +238,83 @@
   <script src="study.js"></script>
   <script src="section-quiz.js"></script>
   <script>
-    const flashcardData = { skin: [] };
-    function generateFlashcards(sectionId) { document.getElementById(sectionId + '-cards').innerHTML = ''; updateFlashcardCount(sectionId); }
-    function updateFlashcardCount(sectionId) { const el = document.getElementById('flash-count-' + sectionId); if (el) el.textContent = '0 cards'; }
-    function shuffleFlashcards(sectionId) { }
-    function resetFlashcards(sectionId) { }
-    function toggleTheme() { const html = document.documentElement; const currentTheme = html.getAttribute('data-theme'); const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', newTheme); try { localStorage.setItem('theme', newTheme); } catch(e){} }
-    document.addEventListener('DOMContentLoaded', function() { generateFlashcards('skin'); });
+    const flashcardData = {
+      skin: [
+        {
+          question: "What does the ABCDE rule in melanoma detection stand for?",
+          answer: "A = Asymmetry (not mirror-image); B = Border irregularity (ragged/notched); C = Color variation (multiple colors); D = Diameter >6mm; E = Evolving (changing in size, shape, color, or appearance)"
+        },
+        {
+          question: "How do you distinguish between Basal Cell Carcinoma and Squamous Cell Carcinoma?",
+          answer: "BCC: Red, pearly lesion with well-defined borders, waxy appearance, central depression; 80% of skin cancers; rarely metastasizes. SCC: Scaly, crusty, erythematous nodule; 15-20% of skin cancers; can metastasize to regional lymph nodes"
+        },
+        {
+          question: "What does Breslow thickness classify in melanoma?",
+          answer: "Breslow thickness measures depth of melanoma invasion (in mm) and indicates prognosis: Thin <0.76mm (95% 5-yr survival), Intermediate 0.76-4mm (60-90% survival), Thick >4mm (<50% survival)"
+        },
+        {
+          question: "Compare impetigo and cellulitis in presentation and treatment.",
+          answer: "Impetigo: Honey-crusted lesions, superficial, highly contagious, treat with topical antibiotics (mupirocin). Cellulitis: Red, warm, edematous with poorly demarcated borders; deep dermis/subcutaneous involvement; treat with IV antibiotics and elevation"
+        },
+        {
+          question: "Why is early antiviral therapy critical for herpes zoster (shingles)?",
+          answer: "Antiviral therapy must begin within 72 hours of symptom onset to reduce disease duration and significantly decrease the risk of postherpetic neuralgia (pain lasting >3 months after lesions heal)"
+        },
+        {
+          question: "What is dermatomal distribution in varicella-zoster virus reactivation?",
+          answer: "VZV reactivates in a single dermatome (nerve root distribution), typically thoracic (50%), lumbar (20%), or cervical/trigeminal (20%), usually on one side of the body following one nerve pathway"
+        }
+      ]
+    };
+
+    function generateFlashcards(sectionId) {
+      const container = document.getElementById(sectionId + '-cards');
+      container.innerHTML = '';
+      const cards = flashcardData[sectionId] || [];
+      cards.forEach((card, index) => {
+        const cardEl = document.createElement('div');
+        cardEl.className = 'flash-card';
+        cardEl.innerHTML = `
+          <div class="flash-inner" onclick="this.parentElement.classList.toggle('flipped')">
+            <div class="flash-front"><strong>Q:</strong> ${card.question}</div>
+            <div class="flash-back"><strong>A:</strong> ${card.answer}</div>
+          </div>
+        `;
+        container.appendChild(cardEl);
+      });
+      updateFlashcardCount(sectionId);
+    }
+
+    function updateFlashcardCount(sectionId) {
+      const el = document.getElementById('flash-count-' + sectionId);
+      const count = (flashcardData[sectionId] || []).length;
+      if (el) el.textContent = count + ' card' + (count !== 1 ? 's' : '');
+    }
+
+    function shuffleFlashcards(sectionId) {
+      const cards = flashcardData[sectionId] || [];
+      for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+      }
+      generateFlashcards(sectionId);
+    }
+
+    function resetFlashcards(sectionId) {
+      generateFlashcards(sectionId);
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      try { localStorage.setItem('theme', newTheme); } catch(e){}
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      generateFlashcards('skin');
+    });
   </script>
 </body>
 </html>
