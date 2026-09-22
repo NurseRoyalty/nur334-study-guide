@@ -80,6 +80,17 @@ const SITE = {
       ]
     },
     {
+      label: "Week 5",
+      items: [
+        { id: "week5-overview", num: "★", title: "Comprehensive Overview", file: "week5-comprehensive-overview.html" },
+        { id: "week5-hiv", num: "1", title: "HIV Management", file: "week5-hiv-comprehensive.html" },
+        { id: "week5-skin", num: "2", title: "Skin Conditions", file: "week5-skin-conditions.html" },
+        { id: "week5-wounds", num: "3", title: "Wounds & Complications", file: "week5-wounds.html" },
+        { id: "week5-burns", num: "4", title: "Burns", file: "week5-burns.html" },
+        { id: "week5-bigpicture", num: "5", title: "Big Picture Review", file: "week5-bigpicture.html" },
+      ]
+    },
+    {
       label: "Fundamentals Review",
       items: [
         { id: "review-pharm-foundations", num: "1", title: "Pharmacology Foundations", file: "review-pharm-foundations.html" },
