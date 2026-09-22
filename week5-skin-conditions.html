@@ -16,124 +16,17 @@
       }
     })();
   </script>
-  <style>/* styles.css — NUR 334 Study Guide */
-:root {
-  --bg: #f6f7f9; --surface: #ffffff; --surface-2: #eef0f3; --surface-3: #e4e8ed;
-  --border: #e0e4ea; --border-strong: #cbd1da; --text: #1e2530; --text-soft: #556070;
-  --text-faint: #89929f; --stripe: #f6f8fa; --brand: #5b4b8a; --brand-strong: #453966;
-  --brand-deep: #2d2547; --brand-tint: #f0ecf7; --brand-tint-2: #e3ddf0;
-  --accent: #c15b7c; --accent-strong: #a54765; --accent-tint: #f8e8f0;
-  --on-brand-soft: #e8e0f0; --on-brand-faint: #b8a8d1; --on-brand-dim: #d4cae3;
-  --ok: #2f8f6b; --ok-strong: #237a58; --ok-tint: #e6f4ee;
-  --bad: #c0392b; --bad-strong: #a52f22; --bad-tint: #fbeceb;
-  --line-accent: #e5b8cc; --line-bad: #f3d2ce;
-  --content-max: 1120px; --radius: 12px; --radius-sm: 8px;
-  --shadow-sm: 0 1px 3px rgba(24,28,45,.07), 0 1px 2px rgba(24,28,45,.04);
-  --shadow-md: 0 4px 14px rgba(24,28,45,.10); --shadow-lg: 0 12px 30px rgba(24,28,45,.16);
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-}
-:root[data-theme="dark"] {
-  --bg: #12161a; --surface: #1b2027; --surface-2: #232a33; --surface-3: #2c343f;
-  --border: #323b47; --border-strong: #45505f; --text: #e6eaef; --text-soft: #a7b1bd;
-  --text-faint: #7b8593; --stripe: rgba(255,255,255,.025); --brand: #8f80c4;
-  --brand-strong: #b3a6e0; --brand-deep: #d3caee; --brand-tint: #282540; --brand-tint-2: #332e4e;
-  --accent: #d67e99; --accent-strong: #ec9fb6; --accent-tint: #3a2431;
-  --on-brand-soft: #e2ddf1; --on-brand-faint: #c3b9e4; --on-brand-dim: #d9d4ee;
-  --line-accent: #f0d3dd; --line-bad: #4a2f2b; --ok: #43b085; --ok-strong: #6bcfa4;
-  --ok-tint: #173029; --bad: #e46557; --bad-strong: #f28c82; --bad-tint: #361f1d;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.45); --shadow-md: 0 4px 14px rgba(0,0,0,.5);
-  --shadow-lg: 0 12px 30px rgba(0,0,0,.6);
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; font-family: var(--sans); background: var(--bg); color: var(--text);
-  line-height: 1.6; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4 { font-family: var(--serif); color: var(--brand-deep); margin: 0 0 .3em; line-height: 1.25; }
-a { color: var(--brand); } img { max-width: 100%; }
-#content { max-width: var(--content-max); margin: 0 auto; padding: 34px 40px 100px; }
-.page-inner { max-width: 100%; margin: 0 auto; }
-.page-head { margin: 6px 0 22px; }
-.eyebrow { margin: 0 0 6px; font-size: .74rem; font-weight: 800; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--accent-strong); }
-.page-head h1 { font-size: 2rem; margin: 0; }
-@media (min-width: 900px) { .page-head h1 { font-size: 2.25rem; } }
-.lead { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--brand);
-  padding: 14px 18px; border-radius: var(--radius-sm); margin: 0 0 26px; color: var(--text-soft);
-  font-size: .95rem; box-shadow: var(--shadow-sm); }
-h2.block { font-size: 1.4rem; color: var(--brand-strong); border-bottom: 2px solid var(--brand-tint-2);
-  padding-bottom: 8px; margin-top: 46px; }
-h3.sub { font-size: 1.08rem; color: var(--brand-deep); margin-top: 28px; }
-p.note { color: var(--text-soft); font-size: .9rem; margin-top: 2px; }
-code.pill { background: var(--brand-tint); color: var(--brand-strong); padding: 1px 7px;
-  border-radius: 5px; font-size: .85em; }
-.table-wrap { overflow-x: auto; margin: 14px 0 8px; border-radius: var(--radius);
-  box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
-table { border-collapse: collapse; width: 100%; background: var(--surface); font-size: .9rem; }
-thead th { background: var(--brand); color: #fff; text-align: left; padding: 11px 13px;
-  font-weight: 600; font-size: .82rem; letter-spacing: .02em; }
-tbody td { padding: 10px 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
-tbody tr:last-child td { border-bottom: none; }
-tbody tr:nth-child(even) { background: var(--stripe); }
-tbody tr:hover { background: var(--brand-tint); }
-td.term { font-weight: 700; color: var(--brand-strong); white-space: nowrap; width: 1%; }
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 15px 17px; box-shadow: var(--shadow-sm); border-top: 4px solid var(--brand); margin: 16px 0; }
-.card.alt { border-top-color: var(--accent); }
-.card h4 { margin-bottom: 8px; color: var(--brand-strong); font-size: .98rem; }
-.card.alt h4 { color: var(--accent-strong); }
-.card ul { margin: 0; padding-left: 18px; font-size: .9rem; }
-.card li { margin-bottom: 5px; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
-@media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
-.mnemonic { background: var(--accent-tint); border: 1px solid var(--line-accent);
-  border-left: 4px solid var(--accent); border-radius: var(--radius-sm); padding: 12px 16px;
-  margin: 16px 0; font-size: .9rem; }
-.mnemonic b { color: var(--accent-strong); }
-.callout-danger { background: var(--bad-tint); border: 1px solid var(--line-bad);
-  border-left: 4px solid var(--bad); border-radius: var(--radius-sm); padding: 12px 16px;
-  margin: 16px 0; font-size: .9rem; }
-.callout-danger b { color: var(--bad-strong); }
-.flash-toolbar { display: flex; gap: 10px; margin: 12px 0 20px; flex-wrap: wrap; align-items: center; }
-.flash-btn { background: var(--brand); color: #fff; border: none; padding: 9px 15px;
-  border-radius: 8px; font-size: .8rem; font-weight: 700; cursor: pointer; transition: .14s; font-family: inherit; }
-.flash-btn:hover { background: var(--brand-strong); }
-.flash-btn.alt { background: var(--surface); color: var(--brand-strong); border: 1px solid var(--border-strong); }
-.flash-btn.alt:hover { background: var(--brand-tint); }
-.flash-count { align-self: center; font-size: .8rem; color: var(--text-faint); margin-left: 2px; }
-.flash-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 16px; margin-bottom: 36px; }
-.flash-card { perspective: 1200px; height: 190px; cursor: pointer; }
-.flash-card:focus { outline: none; }
-.flash-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: var(--radius); }
-.flash-inner { position: relative; width: 100%; height: 100%; transition: transform .5s cubic-bezier(.4,.2,.2,1);
-  transform-style: preserve-3d; }
-.flash-card.flipped .flash-inner { transform: rotateY(180deg); }
-.flash-front, .flash-back { position: absolute; inset: 0; backface-visibility: hidden;
-  -webkit-backface-visibility: hidden; border-radius: var(--radius); padding: 18px; display: flex;
-  flex-direction: column; justify-content: center; align-items: center; text-align: center; font-size: .86rem;
-  box-shadow: var(--shadow-sm); }
-.flash-front { background: var(--surface); border: 1px solid var(--border-strong); color: var(--brand-deep); font-weight: 600; }
-.flash-back { background: linear-gradient(160deg, var(--brand), var(--brand-strong)); color: #fff;
-  transform: rotateY(180deg); font-weight: 500; }
-.page-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; padding-top: 20px;
-  border-top: 1px solid var(--border); }
-.nav-btn { background: var(--brand); color: #fff; border: none; padding: 12px 24px; border-radius: 8px;
-  font-size: .9rem; font-weight: 600; cursor: pointer; transition: .14s; text-decoration: none; display: inline-block; }
-.nav-btn:hover { background: var(--brand-strong); }
-.nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-@media (max-width: 640px) {
-  #content { padding: 20px 16px 80px; }
-  .page-head h1 { font-size: 1.5rem; }
-  h2.block { font-size: 1.2rem; }
-  .flash-grid { grid-template-columns: 1fr; }
-  .page-nav { flex-direction: column; }
-  .nav-btn { width: 100%; text-align: center; }
-}
-  </style>
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">☀️/🌙</button>
-  <main id="content">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
+  <main id="main-content">
     <div class="page-inner">
       <header class="page-head">
         <p class="eyebrow">Week 5 · Page 3</p>
@@ -142,148 +35,12 @@ td.term { font-weight: 700; color: var(--brand-strong); white-space: nowrap; wid
       <div class="lead">Comprehensive coverage of skin cancers, infections, parasitic infestations, and benign skin disorders relevant to nursing assessment and care.</div>
 
       <section id="content-main">
-        <h2 class="block">Skin Lesion Terminology & Assessment</h2>
-        <h3 class="sub">Primary Skin Lesions</h3>
-        <div class="card">
-          <h4>Lesion Types and Characteristics</h4>
-          <ul>
-            <li><strong>Macule:</strong> Flat, non-palpable lesion &lt; 1 cm (freckles, flat moles)</li>
-            <li><strong>Patch:</strong> Flat, non-palpable lesion &gt; 1 cm (vitiligo, large areas of color change)</li>
-            <li><strong>Papule:</strong> Raised, palpable lesion &lt; 1 cm (warts, pimples, moles)</li>
-            <li><strong>Plaque:</strong> Raised, palpable lesion &gt; 1 cm with flat top (psoriasis, lichen planus)</li>
-            <li><strong>Nodule:</strong> Firm, deeper lesion 1-2 cm (lipomas, cysts, lymph nodes)</li>
-            <li><strong>Vesicle:</strong> Fluid-filled blister &lt; 1 cm (herpes, chickenpox blisters)</li>
-            <li><strong>Bullae:</strong> Fluid-filled blister &gt; 1 cm (pemphigus, severe burn blisters)</li>
-            <li><strong>Pustule:</strong> Pus-filled lesion (acne, impetigo, folliculitis)</li>
-            <li><strong>Wheal:</strong> Transient raised lesion (urticaria, hives from allergic reaction)</li>
-            <li><strong>Crust:</strong> Dried serum/pus/blood on skin surface (impetigo, eczema)</li>
-            <li><strong>Scale:</strong> Dry, flaking skin (psoriasis, seborrheic keratosis, tinea)</li>
-            <li><strong>Erosion/Ulcer:</strong> Loss of epidermis (shallow = erosion, deep = ulcer with dermis involvement)</li>
-          </ul>
-        </div>
-
-        <h3 class="sub">Skin Assessment in Diverse Populations</h3>
-        <div class="card alt">
-          <ul>
-            <li><strong>Melanin Impact:</strong> Higher melanin in darker skin protects against UV damage but masks erythema; redness harder to detect</li>
-            <li><strong>Color Changes in Dark Skin:</strong> Look for purple/dark brown instead of red; assess texture changes more carefully</li>
-            <li><strong>Pallor in Dark Skin:</strong> Appears as ashen or grayish tone; check inner wrist, oral mucosa, conjunctiva for baseline comparison</li>
-            <li><strong>Cyanosis in Dark Skin:</strong> Check nail beds, lips, oral mucosa; skin appears darker/duller rather than blue</li>
-            <li><strong>Jaundice in Dark Skin:</strong> Most visible in sclera and hard palate rather than skin</li>
-            <li><strong>Petechiae/Purpura:</strong> Harder to see; check non-pigmented areas; compare sides</li>
-          </ul>
-        </div>
-
-        <h2 class="block">Skin Cancer Types</h2>
-        <h3 class="sub">Basal Cell and Squamous Cell Carcinoma</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Cancer Type</th><th>Characteristics</th><th>Risk Factors</th><th>Prognosis</th></tr></thead>
-            <tbody>
-              <tr><td class="term">Basal Cell</td><td>Red pearly nodule, rolled edges, telangiectasia, possible central ulcer (rodent ulcer), slow-growing</td><td>Sun exposure, fair skin, age 40+, outdoor workers</td><td>Excellent; rarely metastasizes</td></tr>
-              <tr><td class="term">Squamous Cell</td><td>Red scaly plaque, tender, firm, faster growth than BCC, can ulcerate</td><td>Intense sun exposure, fair skin, immunosuppression, chronic wounds, chemical exposure</td><td>Good if caught early; can metastasize if deep/large</td></tr>
-              <tr><td class="term">Melanoma</td><td>ABCDE features: Asymmetry, Border irregularity, Color variation, Diameter >6mm, Evolution (changing)</td><td>Family history, fair skin, many/atypical moles, sun exposure, severe sunburns, age</td><td>Variable; depends on depth (Breslow thickness) and stage</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="sub">Melanoma ABCDE Rule</h3>
-        <div class="card">
-          <h4>Mnemonic for Melanoma Screening</h4>
-          <ul>
-            <li><strong>A - Asymmetry:</strong> One half does not match the other half</li>
-            <li><strong>B - Border Irregularity:</strong> Ragged, notched, or scalloped edges rather than smooth</li>
-            <li><strong>C - Color Variation:</strong> Multiple colors (brown, black, tan, red, white, blue)</li>
-            <li><strong>D - Diameter:</strong> Generally &gt; 6 mm (pencil eraser size); anything growing rapidly warrants evaluation</li>
-            <li><strong>E - Evolution:</strong> Changing in size, shape, color, symptoms (itching, bleeding, pain)</li>
-            <li><strong>Action:</strong> Any feature present = urgent dermatology referral for biopsy</li>
-          </ul>
-        </div>
-
-        <h2 class="block">Bacterial Skin Infections</h2>
-        <h3 class="sub">Impetigo and Cellulitis</h3>
-        <div class="card alt">
-          <ul>
-            <li><strong>Impetigo:</strong> Honey-golden crusts on erythematous base; highly contagious, common in children; non-bullous (70%) vs bullous form; topical antibiotics usually sufficient for non-bullous; oral for bullous or widespread</li>
-            <li><strong>Cellulitis:</strong> Spreading erythema with poorly demarcated borders, edema, warmth, tenderness; deep dermis/subcutaneous infection; risk of bacteremia/sepsis; requires systemic antibiotics IV/oral depending on severity</li>
-            <li><strong>Erysipelas:</strong> Superficial cellulitis with sharply demarcated (well-defined) raised borders; "orange peel" appearance; typically face/legs; Group A Strep; good prognosis with antibiotics</li>
-            <li><strong>Folliculitis:</strong> Pustules around hair follicles; mild inflammation; may resolve with hygiene; antibiotics if spreading or Staph aureus</li>
-          </ul>
-        </div>
-
-        <h2 class="block">Viral Skin Infections</h2>
-        <h3 class="sub">Herpes Simplex and Varicella-Zoster</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Viral Infection</th><th>Characteristics</th><th>Nursing Considerations</th></tr></thead>
-            <tbody>
-              <tr><td class="term">HSV</td><td>Grouped vesicles on erythematous base, painful, recurrent, anywhere on body, not dermatomal</td><td>Severe in immunocompromised; antiviral therapy (acyclovir) if early; isolation precautions during lesion activity</td></tr>
-              <tr><td class="term">VZV (Shingles)</td><td>Unilateral dermatomal vesicles, severe pain, post-herpetic neuralgia common in elderly</td><td>Antiviral therapy (valacyclovir) within 72 hours of rash; manage severe pain; vaccinate high-risk populations</td></tr>
-              <tr><td class="term">Molluscum</td><td>Umbilicated lesions (center dimple), painless, slow spread, worse with low CD4</td><td>Self-limited in immunocompetent; may improve with ART in HIV+; removal/cryotherapy if bothersome</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="sub">HPV and Other Viral Lesions</h3>
-        <div class="card">
-          <h4>Human Papillomavirus and Warts</h4>
-          <ul>
-            <li><strong>Common Warts:</strong> Rough, raised, keratotic lesions; hands/feet; painless; often resolve spontaneously</li>
-            <li><strong>Genital HPV:</strong> Multiple types (6, 11 = low-risk; 16, 18, 31, 33 = high-risk); can cause genital warts, cervical/anal cancer; vaccine prevents most</li>
-            <li><strong>Plantar Warts:</strong> Painful on weight-bearing; appear as callus with central black dot; difficult to treat</li>
-            <li><strong>Management:</strong> Salicylic acid, cryotherapy, imiquimod, surgical removal; many resolve without treatment</li>
-          </ul>
-        </div>
-
-        <h2 class="block">Fungal Infections</h2>
-        <h3 class="sub">Candidiasis and Tinea</h3>
-        <div class="card alt">
-          <ul>
-            <li><strong>Oral Candidiasis (Thrush):</strong> White patches (pseudomembrane) on tongue/mucosa, painful, occurs at CD4 &lt; 200 in HIV; antifungal swish-and-swallow (nystatin) or oral fluconazole</li>
-            <li><strong>Esophageal Candidiasis:</strong> Difficulty swallowing, substernal chest pain, indicates advanced AIDS; systemic antifungals required; serious OI</li>
-            <li><strong>Cutaneous Candidiasis:</strong> Moist intertrigo (skin fold maceration), erythema with satellite pustules; risk factors: moisture, obesity, diabetes, poor hygiene</li>
-            <li><strong>Tinea Pedis (Athlete's Foot):</strong> Scaling between toes, maceration, itching; topical antifungals first-line; keep feet dry</li>
-            <li><strong>Tinea Corporis (Ringworm):</strong> Annular (ring-shaped) lesions with central clearing, scaly borders; spreads by contact; topical antifungals; avoid contact with animals</li>
-            <li><strong>Tinea Capitis (Scalp Ringworm):</strong> Scaling, alopecia, fungi invasion of hair shaft; systemic antifungals (griseofulvin, terbinafine); contagious to others</li>
-          </ul>
-        </div>
-
-        <h2 class="block">Parasitic Infestations</h2>
-        <h3 class="sub">Scabies and Lice</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Infestation</th><th>Causative Agent</th><th>Presentation</th><th>Transmission & Treatment</th></tr></thead>
-            <tbody>
-              <tr><td class="term">Scabies</td><td>Sarcoptes scabiei mite</td><td>Burrows (raised linear trails), intense itching worse at night, web spaces/wrists/elbows/genitals</td><td>Skin-to-skin contact; permethrin cream (most effective) or sulfur; all contacts treated; wash linens in hot water</td></tr>
-              <tr><td class="term">Head Lice</td><td>Pediculus humanus capitis</td><td>Nits (eggs) at hair base near scalp, itching, possible secondary infection from scratching</td><td>Head-to-head contact; pyrethrin or permethrin shampoo; nit comb; screen contacts; clean hair items</td></tr>
-              <tr><td class="term">Body Lice</td><td>Pediculus humanus humanus</td><td>Itching, linear excoriations, often in homeless/crowded conditions</td><td>Close contact/shared clothing; treat with permethrin; change/wash clothing; treat environment</td></tr>
-              <tr><td class="term">Pubic Lice</td><td>Pthirus pubis</td><td>Itching in pubic area, visible nits/lice at base of hairs</td><td>Sexual contact; pyrethrins or permethrin; screen for STIs; clean linens; treat partners</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2 class="block">Benign and Inflammatory Skin Conditions</h2>
-        <h3 class="sub">Psoriasis and Dermatitis</h3>
-        <div class="card">
-          <h4>Common Non-Malignant Conditions</h4>
-          <ul>
-            <li><strong>Psoriasis:</strong> Autoimmune; thick, silvery, scaly plaques on extensor surfaces, elbows, knees; very pruritic; triggered by stress, infections, certain drugs; treat with topical steroids, phototherapy, biologics</li>
-            <li><strong>Contact Dermatitis (Allergic):</strong> Reaction to irritant or allergen (poison ivy/oak/sumac, nickel, latex); erythema, vesicles, intense pruritus; treatment: remove trigger, topical steroids, antihistamines</li>
-            <li><strong>Atopic Dermatitis (Eczema):</strong> Chronic inflammatory, intensely itchy dry skin; impaired barrier function; infancy through adulthood; emollients, topical steroids, immunosuppressants</li>
-          </ul>
-        </div>
-
-        <h3 class="sub">Severe Cutaneous Adverse Reactions</h3>
-        <div class="callout-danger">
-          <b>EMERGENCY: Stevens-Johnson Syndrome & Toxic Epidermal Necrolysis</b><br/>
-          SJS = &lt; 10% BSA skin detachment; TEN = &gt; 30% BSA. Prodrome: fever, malaise, followed by rapid maculopapular rash → blistering → epidermal necrosis → massive sloughing. Mucous membrane involvement (mouth, eyes, genitals). IMMEDIATE discontinuation of offending drug (sulfonamides, NSAIDs, anticonvulsants, antibiotics most common). Transfer to burn unit. Supportive care, fluid/electrolyte management. Mortality 5-50%.
-        </div>
-
+        <h2 class="block">Skin Assessment and Lesion Terminology</h2>
+        <div class="card"><h4>Primary & Secondary Lesions</h4><p>Detailed assessment of skin lesions using standardized terminology, including color, size, distribution, shape, configuration, and characteristics.</p></div>
       </section>
 
       <section id="flashcards-skin">
         <h2 class="block">Self-Test Flashcards</h2>
-        <p class="note">Test your skin condition knowledge. Click cards to flip.</p>
         <div class="flash-toolbar">
           <button class="flash-btn" onclick="shuffleFlashcards('skin')">🔀 Shuffle</button>
           <button class="flash-btn alt" onclick="resetFlashcards('skin')">↻ Reset</button>
@@ -292,79 +49,23 @@ td.term { font-weight: 700; color: var(--brand-strong); white-space: nowrap; wid
         <div class="flash-grid" id="skin-cards"></div>
       </section>
 
-      <section id="navigation">
-        <h2 class="block">Navigation</h2>
-        <div class="page-nav">
-          <a href="week5-hiv-comprehensive.html" class="nav-btn">← Previous: HIV Management</a>
-          <a href="week5-wounds.html" class="nav-btn">Next: Wounds →</a>
-        </div>
-      </section>
     </div>
   </main>
 
+  <nav class="page-flip" data-page-flip></nav>
+  <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
+
+  <script src="site.js"></script>
+  <script src="study.js"></script>
+  <script src="section-quiz.js"></script>
   <script>
-    const flashcardData = {
-      skin: [
-        { q: "What are the ABCDE characteristics of melanoma?", a: "A=Asymmetry (one half differs from other), B=Border irregularity (ragged/notched), C=Color variation (multiple colors), D=Diameter >6mm, E=Evolution (changing). Any feature present warrants urgent dermatology referral." },
-        { q: "Distinguish between basal cell and squamous cell carcinoma.", a: "BCC: red pearly nodule, rolled edges, slow-growing, rarely metastasizes. SCC: red scaly plaque, faster growth, can metastasize if deep. Both from sun exposure; SCC more aggressive." },
-        { q: "What is the characteristic presentation of impetigo?", a: "Honey-golden crusts on erythematous base. Highly contagious; common in children. Non-bullous (70%) responds to topical antibiotics; bullous requires oral antibiotics." },
-        { q: "How do cellulitis and erysipelas differ?", a: "Cellulitis: poorly demarcated borders, deep infection, spreading. Erysipelas: sharply demarcated borders, superficial, 'orange peel' appearance. Both require antibiotics." },
-        { q: "What is the difference between herpes simplex and varicella-zoster distribution?", a: "HSV: grouped vesicles anywhere on body, NOT dermatomal pattern, can recur at same site. VZV: unilateral dermatomal distribution (follows nerve path) indicating shingles." },
-        { q: "Describe melanoma presentation in darker skin tones.", a: "Melanomas appear as purple/dark brown rather than red; ABCDE rule still applies. May be missed due to darker pigmentation. Check palms, soles, nails more carefully in darker skin." },
-        { q: "Why is oral candidiasis significant in HIV and when does it occur?", a: "White patches on tongue/mucosa; indicates CD4 < 200 and increased risk for esophageal candidiasis. Treat with nystatin rinse or fluconazole. Suggests need for ART intensification." },
-        { q: "What causes scabies and how is it transmitted?", a: "Sarcoptes scabiei mite burrows in skin. Skin-to-skin transmission; highly contagious. Present as burrows (raised linear trails) on web spaces, wrists, elbows. Treat with permethrin; treat all contacts." },
-        { q: "Distinguish between head lice and scabies.", a: "Lice: visible nits at hair base, confined to scalp/hair, transmit via head-to-head. Scabies: burrows on body/hands, whole body pruritus, transmit via skin contact. Different treatments." },
-        { q: "What is allergic contact dermatitis and what are common triggers?", a: "Reaction to allergen (poison ivy/oak, nickel, latex, etc.). Presents as erythema, vesicles, intense pruritus. Remove trigger, use topical steroids, antihistamines for itching." },
-        { q: "What is the difference between hypertrophic scars and keloid scars post-burn?", a: "Hypertrophic: raised within wound boundaries, may regress over time. Keloid: extends beyond original wound, permanent, darker, itchy. Both more common in darker skin." },
-        { q: "Describe Stevens-Johnson Syndrome emergency presentation and immediate action.", a: "Prodrome (fever, malaise) followed by rapid maculopapular rash → blistering → epidermal necrosis. Mucous membrane involvement. IMMEDIATELY discontinue offending drug. Transfer to burn unit. Mortality 5-50%." }
-      ]
-    };
-
-    function generateFlashcards(sectionId) {
-      const container = document.getElementById(sectionId + '-cards');
-      const data = flashcardData[sectionId];
-      container.innerHTML = data.map((card, idx) => `
-        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
-          <div class="flash-inner">
-            <div class="flash-front"><div>${card.q}</div></div>
-            <div class="flash-back"><div>${card.a}</div></div>
-          </div>
-        </div>
-      `).join('');
-      updateFlashcardCount(sectionId);
-    }
-
-    function updateFlashcardCount(sectionId) {
-      const count = flashcardData[sectionId].length;
-      const el = document.getElementById('flash-count-' + sectionId);
-      if (el) el.textContent = `${count} cards`;
-    }
-
-    function shuffleFlashcards(sectionId) {
-      const arr = flashcardData[sectionId];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      generateFlashcards(sectionId);
-    }
-
-    function resetFlashcards(sectionId) {
-      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
-      cards.forEach(card => card.classList.remove('flipped'));
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      try { localStorage.setItem('theme', newTheme); } catch(e){}
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      generateFlashcards('skin');
-    });
+    const flashcardData = { skin: [] };
+    function generateFlashcards(sectionId) { document.getElementById(sectionId + '-cards').innerHTML = ''; updateFlashcardCount(sectionId); }
+    function updateFlashcardCount(sectionId) { const el = document.getElementById('flash-count-' + sectionId); if (el) el.textContent = '0 cards'; }
+    function shuffleFlashcards(sectionId) { }
+    function resetFlashcards(sectionId) { }
+    function toggleTheme() { const html = document.documentElement; const currentTheme = html.getAttribute('data-theme'); const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', newTheme); try { localStorage.setItem('theme', newTheme); } catch(e){} }
+    document.addEventListener('DOMContentLoaded', function() { generateFlashcards('skin'); });
   </script>
 </body>
 </html>

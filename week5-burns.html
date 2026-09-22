@@ -4,24 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Burns — NUR 334 Study Guide</title>
-  <script>
-    (function(){
-      try {
-        var p = new URLSearchParams(location.search).get('theme');
-        var t = p || localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
-        if (p) { try { localStorage.setItem('theme', p) } catch(e){} }
-        document.documentElement.setAttribute('data-theme', t);
-      } catch(e) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    })();
-  </script>
-  <style>:root{--bg:#f6f7f9;--surface:#ffffff;--surface-2:#eef0f3;--surface-3:#e4e8ed;--border:#e0e4ea;--border-strong:#cbd1da;--text:#1e2530;--text-soft:#556070;--text-faint:#89929f;--stripe:#f6f8fa;--brand:#5b4b8a;--brand-strong:#453966;--brand-deep:#2d2547;--brand-tint:#f0ecf7;--brand-tint-2:#e3ddf0;--accent:#c15b7c;--accent-strong:#a54765;--accent-tint:#f8e8f0;--on-brand-soft:#e8e0f0;--on-brand-faint:#b8a8d1;--on-brand-dim:#d4cae3;--ok:#2f8f6b;--ok-strong:#237a58;--ok-tint:#e6f4ee;--bad:#c0392b;--bad-strong:#a52f22;--bad-tint:#fbeceb;--line-accent:#e5b8cc;--line-bad:#f3d2ce;--content-max:1120px;--radius:12px;--radius-sm:8px;--shadow-sm:0 1px 3px rgba(24,28,45,.07),0 1px 2px rgba(24,28,45,.04);--shadow-md:0 4px 14px rgba(24,28,45,.10);--shadow-lg:0 12px 30px rgba(24,28,45,.16);--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif}:root[data-theme="dark"]{--bg:#12161a;--surface:#1b2027;--surface-2:#232a33;--surface-3:#2c343f;--border:#323b47;--border-strong:#45505f;--text:#e6eaef;--text-soft:#a7b1bd;--text-faint:#7b8593;--stripe:rgba(255,255,255,.025);--brand:#8f80c4;--brand-strong:#b3a6e0;--brand-deep:#d3caee;--brand-tint:#282540;--brand-tint-2:#332e4e;--accent:#d67e99;--accent-strong:#ec9fb6;--accent-tint:#3a2431;--on-brand-soft:#e2ddf1;--on-brand-faint:#c3b9e4;--on-brand-dim:#d9d4ee;--line-accent:#f0d3dd;--line-bad:#4a2f2b;--ok:#43b085;--ok-strong:#6bcfa4;--ok-tint:#173029;--bad:#e46557;--bad-strong:#f28c82;--bad-tint:#361f1d;--shadow-sm:0 1px 3px rgba(0,0,0,.45);--shadow-md:0 4px 14px rgba(0,0,0,.5);--shadow-lg:0 12px 30px rgba(0,0,0,.6)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}h1,h2,h3,h4{font-family:var(--serif);color:var(--brand-deep);margin:0 0 .3em;line-height:1.25}a{color:var(--brand)}img{max-width:100%}#content{max-width:var(--content-max);margin:0 auto;padding:34px 40px 100px}.page-inner{max-width:100%;margin:0 auto}.page-head{margin:6px 0 22px}.eyebrow{margin:0 0 6px;font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-strong)}.page-head h1{font-size:2rem;margin:0}@media(min-width:900px){.page-head h1{font-size:2.25rem}}.lead{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--brand);padding:14px 18px;border-radius:var(--radius-sm);margin:0 0 26px;color:var(--text-soft);font-size:.95rem;box-shadow:var(--shadow-sm)}h2.block{font-size:1.4rem;color:var(--brand-strong);border-bottom:2px solid var(--brand-tint-2);padding-bottom:8px;margin-top:46px}h3.sub{font-size:1.08rem;color:var(--brand-deep);margin-top:28px}p.note{color:var(--text-soft);font-size:.9rem;margin-top:2px}.table-wrap{overflow-x:auto;margin:14px 0 8px;border-radius:var(--radius);box-shadow:var(--shadow-sm);border:1px solid var(--border)}table{border-collapse:collapse;width:100%;background:var(--surface);font-size:.9rem}thead th{background:var(--brand);color:#fff;text-align:left;padding:11px 13px;font-weight:600;font-size:.82rem;letter-spacing:.02em}tbody td{padding:10px 13px;border-bottom:1px solid var(--border);vertical-align:top}tbody tr:last-child td{border-bottom:none}tbody tr:nth-child(even){background:var(--stripe)}tbody tr:hover{background:var(--brand-tint)}td.term{font-weight:700;color:var(--brand-strong);white-space:nowrap;width:1%}.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--shadow-sm);border-top:4px solid var(--brand);margin:16px 0}.card.alt{border-top-color:var(--accent)}.card h4{margin-bottom:8px;color:var(--brand-strong);font-size:.98rem}.card.alt h4{color:var(--accent-strong)}.card ul{margin:0;padding-left:18px;font-size:.9rem}.card li{margin-bottom:5px}.callout-danger{background:var(--bad-tint);border:1px solid var(--line-bad);border-left:4px solid var(--bad);border-radius:var(--radius-sm);padding:12px 16px;margin:16px 0;font-size:.9rem}.callout-danger b{color:var(--bad-strong)}.flash-toolbar{display:flex;gap:10px;margin:12px 0 20px;flex-wrap:wrap;align-items:center}.flash-btn{background:var(--brand);color:#fff;border:none;padding:9px 15px;border-radius:8px;font-size:.8rem;font-weight:700;cursor:pointer;transition:.14s;font-family:inherit}.flash-btn:hover{background:var(--brand-strong)}.flash-btn.alt{background:var(--surface);color:var(--brand-strong);border:1px solid var(--border-strong)}.flash-btn.alt:hover{background:var(--brand-tint)}.flash-count{align-self:center;font-size:.8rem;color:var(--text-faint);margin-left:2px}.flash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:16px;margin-bottom:36px}.flash-card{perspective:1200px;height:190px;cursor:pointer}.flash-card:focus{outline:0}.flash-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:var(--radius)}.flash-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}.flash-card.flipped .flash-inner{transform:rotateY(180deg)}.flash-front,.flash-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-size:.86rem;box-shadow:var(--shadow-sm)}.flash-front{background:var(--surface);border:1px solid var(--border-strong);color:var(--brand-deep);font-weight:600}.flash-back{background:linear-gradient(160deg,var(--brand),var(--brand-strong));color:#fff;transform:rotateY(180deg);font-weight:500}.page-nav{display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}.nav-btn{background:var(--brand);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:.14s;text-decoration:none;display:inline-block}.nav-btn:hover{background:var(--brand-strong)}.nav-btn:disabled{opacity:.5;cursor:not-allowed}@media(max-width:640px){#content{padding:20px 16px 80px}.page-head h1{font-size:1.5rem}h2.block{font-size:1.2rem}.flash-grid{grid-template-columns:1fr}.page-nav{flex-direction:column}.nav-btn{width:100%;text-align:center}}</style>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">☀️/🌙</button>
-  <main id="content">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
+  <main id="main-content">
     <div class="page-inner">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+
+  <main id="main-content" id="content">
+    <div class="page-inner">
+
       <header class="page-head">
         <p class="eyebrow">Week 5 · Page 6</p>
         <h1>Burns</h1>
@@ -232,23 +234,23 @@
         <h2 class="block">Self-Test Flashcards</h2>
         <p class="note">Test your burn management knowledge. Click cards to flip.</p>
         <div class="flash-toolbar">
-          <button class="flash-btn" onclick="shuffleFlashcards('burns')">🔀 Shuffle</button>
           <button class="flash-btn alt" onclick="resetFlashcards('burns')">↻ Reset</button>
           <span class="flash-count" id="flash-count-burns"></span>
         </div>
         <div class="flash-grid" id="burns-cards"></div>
       </section>
 
-      <section id="navigation">
-        <h2 class="block">Navigation</h2>
-        <div class="page-nav">
-          <a href="week5-wounds.html" class="nav-btn">← Previous: Wounds</a>
-          <a href="week5-wound-complications.html" class="nav-btn">Next: Wound Complications →</a>
-        </div>
-      </section>
+      
     </div>
   </main>
 
+  <nav class="page-flip" data-page-flip></nav>
+
+  <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
+
+  <script src="site.js"></script>
+  <script src="study.js"></script>
+  <script src="section-quiz.js"></script>
   <script>
     const flashcardData = {
       burns: [
@@ -313,5 +315,16 @@
       generateFlashcards('burns');
     });
   </script>
+    </div>
+  </main>
+
+  <nav class="page-flip" data-page-flip></nav>
+
+  <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
+
+  <script src="site.js"></script>
+  <script src="study.js"></script>
+  <script src="section-quiz.js"></script>
+  
 </body>
 </html>
