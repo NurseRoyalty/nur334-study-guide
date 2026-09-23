@@ -55,6 +55,7 @@
 <script src="data/week2-questions.js?v=20260916"></script>
 <script src="data/week3-questions.js?v=20260916"></script>
 <script src="data/week4-questions.js?v=20260916"></script>
+<script src="data/week5-questions.js?v=20260922"></script>
 <script>
 (function() {
   // IDs of old topics to remove from quiz-bank
@@ -89,6 +90,7 @@
         stem: q.stem,
         options: q.options,
         answer: q.answer,
+        answers: q.answers,
         rationale: q.rationale,
         topic: q.topic,
         source: "quiz-bank"
@@ -127,6 +129,7 @@
         stem: q.stem,
         options: q.options,
         answer: q.answer,
+        answers: q.answers,
         rationale: q.rationale,
         topic: q.topic,
         source: "quiz-bank"
@@ -165,6 +168,7 @@
         stem: q.stem,
         options: q.options,
         answer: q.answer,
+        answers: q.answers,
         rationale: q.rationale,
         topic: q.topic,
         source: "quiz-bank"
@@ -187,6 +191,45 @@
     });
 
     console.log('Week 4 questions loaded: ' + window.EXAM_DATA_WEEK4.questions.length + ' questions in ' + Object.keys(topicGroups4).length + ' topics');
+  }
+
+  // Process Week 5 questions
+  if (window.EXAM_DATA_WEEK5 && window.EXAM_DATA_WEEK5.questions && window.QUIZ_BANK) {
+    // Remove any existing week5- prefixed topics
+    window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !t.id.startsWith('week5-'));
+
+    // Group questions by topic
+    const topicGroups5 = {};
+    window.EXAM_DATA_WEEK5.questions.forEach(q => {
+      const topic = q.topic || 'Week 5';
+      if (!topicGroups5[topic]) topicGroups5[topic] = [];
+      topicGroups5[topic].push({
+        stem: q.stem,
+        options: q.options,
+        answer: q.answer,
+        answers: q.answers,
+        rationale: q.rationale,
+        topic: q.topic,
+        source: "quiz-bank"
+      });
+    });
+
+    // Add grouped questions to QUIZ_BANK as new topics
+    Object.keys(topicGroups5).sort().forEach(topicName => {
+      const topicId = 'week5-' + topicName.toLowerCase().replace(/\s+/g, '-');
+      window.QUIZ_BANK.topics.push({
+        id: topicId,
+        label: topicName,
+        week: 5,
+        sets: {
+          mustKnow: topicGroups5[topicName],
+          extraPractice: [],
+          eaq: []
+        }
+      });
+    });
+
+    console.log('Week 5 questions loaded: ' + window.EXAM_DATA_WEEK5.questions.length + ' questions in ' + Object.keys(topicGroups5).length + ' topics');
   }
 })();
 
