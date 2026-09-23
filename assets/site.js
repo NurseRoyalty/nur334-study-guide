@@ -40,30 +40,26 @@ const SITE = {
                by search + per-page CSS hooks)
        num   - the little number badge in the dropdown
        title - display name; use &amp; for an ampersand
-       file  - the filename, relative to this folder                     */
+       file  - the filename, relative to this folder
+     A { heading: "Week 1" } entry is not a page; it just prints a small
+     section label inside the dropdown (used to combine several weeks
+     into one menu).                                                   */
   groups: [
     {
-      label: "Week 1",
+      label: "Weeks 1–3",
       items: [
+        { heading: "Week 1" },
         { id: "week1-upper-respiratory", num: "1", title: "Upper Respiratory Problems", file: "week1-upper-respiratory-problems.html" },
         { id: "week1-lower-respiratory", num: "2", title: "Lower Respiratory Problems", file: "week1-lower-respiratory-problems.html" },
         { id: "week1-head-neck-cancer", num: "3", title: "Head &amp; Neck Cancer", file: "week1-head-neck-cancer.html" },
         { id: "week1-respiratory-labs", num: "4", title: "Labs &amp; Diagnostics", file: "week1-respiratory-labs-diagnostics.html" },
         { id: "week1-respiratory-lecture", num: "5", title: "Live Lecture Review", file: "week1-respiratory-live-lecture-review.html" },
-      ]
-    },
-    {
-      label: "Week 2",
-      items: [
+        { heading: "Week 2" },
         { id: "week2-anemias-polycythemia", num: "1", title: "Anemias &amp; Polycythemia", file: "week2-anemias-polycythemia.html" },
         { id: "week2-hematology-labs", num: "2", title: "Labs &amp; Diagnostics", file: "week2-hematology-labs-diagnostics.html" },
         { id: "week2-blood-component", num: "3", title: "Blood Component Therapy", file: "week2-blood-component-therapy.html" },
         { id: "week2-central-venous", num: "4", title: "Central Venous Catheters", file: "week2-central-venous-catheters.html" },
-      ]
-    },
-    {
-      label: "Week 3",
-      items: [
+        { heading: "Week 3" },
         { id: "week3-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week3-study-guide.html" },
         { id: "week3-electrolytes", num: "1", title: "Electrolytes", file: "week3-electrolytes.html" },
         { id: "week3-fluid-management", num: "2", title: "Fluid Management", file: "week3-fluid-management.html" },
@@ -74,20 +70,16 @@ const SITE = {
       ]
     },
     {
-      label: "Week 4",
+      label: "Weeks 4–5",
       items: [
+        { heading: "Week 4" },
         { id: "week4-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week4-study-guide.html" },
         { id: "week4-uti", num: "1", title: "Urinary Tract Infections", file: "week4-uti.html" },
         { id: "week4-pyelonephritis", num: "2", title: "Pyelonephritis", file: "week4-pyelonephritis.html" },
         { id: "week4-nephrolithiasis", num: "3", title: "Nephrolithiasis", file: "week4-nephrolithiasis.html" },
         { id: "week4-aki", num: "4", title: "Acute Kidney Injury", file: "week4-aki.html" },
         { id: "week4-ckd", num: "5", title: "Chronic Kidney Disease", file: "week4-ckd.html" },
-      ]
-    },
-    
-    {
-      label: "Week 5",
-      items: [
+        { heading: "Week 5" },
         { id: "week5-overview", num: "★", title: "Integumentary System Overview", file: "week5-comprehensive-overview.html" },
         { id: "week5-hiv", num: "1", title: "HIV: Labs &amp; Management", file: "week5-hiv-comprehensive.html" },
         { id: "week5-skin-conditions", num: "2", title: "Skin Conditions", file: "week5-skin-conditions.html" },
@@ -180,7 +172,7 @@ const SITE_VER = (function () {
 
   // Flatten the ordered list of pages for prev/next.
   const flat = [];
-  SITE.groups.forEach(g => g.items.forEach(it => flat.push(it)));
+  SITE.groups.forEach(g => g.items.forEach(it => { if (!it.heading) flat.push(it); }));
   const current = flat.find(it => it.file === file) || null;
 
   // ---- Build the top nav ---------------------------------------
@@ -192,6 +184,7 @@ const SITE_VER = (function () {
     const groupActive = g.items.some(it => it.file === file) ? "is-active" : "";
     let sub = "";
     g.items.forEach(it => {
+      if (it.heading) { sub += `<li class="drop-heading" role="presentation">${it.heading}</li>`; return; }
       const active = it.file === file ? "is-active" : "";
       sub += `<li><a class="droplink ${active}" data-page="${it.id}" href="${it.file}"${active ? ' aria-current="page"' : ""}>
         <span class="num">${it.num}</span><span>${it.title}</span></a></li>`;
