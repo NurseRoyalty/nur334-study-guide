@@ -1270,3 +1270,15 @@ h2.block.section-h:hover .sec-caret{ color:var(--accent); }
 .dropdown-item:last-child{
   border-radius: 0 0 var(--radius) var(--radius);
 }
+
+/* ============================================================
+   TOP NAV SPACING (added with the "Jeopardy Games" menu)
+   A 9th top-level menu no longer fit on common laptop widths, so
+   on desktop the top links get slightly tighter padding. Nothing
+   else about the nav changes; mobile (hamburger) is unaffected.
+   ============================================================ */
+@media (min-width:900px){
+  .topnav__inner{ gap:14px; }
+  .toplink{ padding:9px 8px; font-size:.86rem; }
+  .toplink::after{ left:8px; right:8px; }
+}

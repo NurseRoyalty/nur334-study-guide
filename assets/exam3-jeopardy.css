@@ -1,0 +1,41 @@
+/* ============================================================
+   assets/exam3-jeopardy.css — Exam 3 Jeopardy extras only.
+
+   The board, top bar, modal, and buttons all use the site's existing
+   `.jp-*` / `.btn` styles from styles.css (the same look as the
+   NUR326 Jeopardy). This file adds only the few pieces the 2-player
+   Exam 3 game needs that styles.css doesn't have: the "Week 4 / Week 5"
+   tag under each category name and the Player 1 / Player 2 +/- point
+   buttons. Colors come from the site's tokens, so light mode, dark
+   mode, and palette swaps apply automatically.
+   ============================================================ */
+#jp3-root .jp-cat{ flex-direction:column; gap:4px; }
+.jp3-cat-wk{
+  display:block; font-family:inherit; font-size:.64rem; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--on-brand-faint);
+}
+
+.jp3-score-grid{
+  display:grid; gap:10px; margin:0 0 18px; padding:14px 16px;
+  background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius-sm);
+}
+.jp3-score-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.jp3-score-name{
+  min-width:84px; font-weight:800; font-size:.8rem; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--brand-strong);
+}
+.jp3-score-btn{
+  flex:1; min-width:120px; padding:10px 14px; border-radius:var(--radius-sm);
+  font-weight:700; font-size:.92rem; cursor:pointer; border:1px solid var(--border-strong);
+  background:var(--surface); transition:background .12s,border-color .12s,transform .12s;
+}
+.jp3-score-btn:active{ transform:translateY(1px); }
+.jp3-score-plus{ color:var(--ok-strong); background:var(--ok-tint); border-color:var(--ok); }
+.jp3-score-plus:hover{ background:var(--ok); color:#fff; }
+.jp3-score-minus{ color:var(--bad-strong); background:var(--bad-tint); border-color:var(--bad); }
+.jp3-score-minus:hover{ background:var(--bad); color:#fff; }
+
+@media (max-width:640px){
+  .jp3-score-name{ width:100%; }
+  .jp3-score-btn{ min-width:0; }
+}
