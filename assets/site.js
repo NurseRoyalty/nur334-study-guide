@@ -70,7 +70,7 @@ const SITE = {
       ]
     },
     {
-      label: "Weeks 4–5",
+      label: "Weeks 4–6",
       items: [
         { heading: "Week 4" },
         { id: "week4-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week4-study-guide.html" },
@@ -86,6 +86,14 @@ const SITE = {
         { id: "week5-wounds", num: "3", title: "Wounds &amp; Complications", file: "week5-wounds.html" },
         { id: "week5-burns", num: "4", title: "Burns", file: "week5-burns.html" },
         { id: "week5-bigpicture", num: "5", title: "Final Comprehensive Review", file: "week5-bigpicture.html" },
+        { heading: "Week 6" },
+        { id: "week6-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week6-study-guide.html" },
+        { id: "week6-gi-labs-bariatric", num: "1", title: "GI Labs, Diagnostics &amp; Bariatric Surgery", file: "week6-gi-labs-bariatric.html" },
+        { id: "week6-gerd-hiatal-pud", num: "2", title: "GERD, Hiatal Hernia &amp; PUD", file: "week6-gerd-hiatal-pud.html" },
+        { id: "week6-ugi-ibd-obstruction", num: "3", title: "UGI Bleed, Crohn's, UC &amp; Obstruction", file: "week6-ugi-ibd-obstruction.html" },
+        { id: "week6-colorectal-ostomies", num: "4", title: "Colorectal Cancer &amp; Bowel Ostomies", file: "week6-colorectal-ostomies.html" },
+        { id: "week6-diverticular-disease", num: "5", title: "Diverticulosis &amp; Diverticulitis", file: "week6-diverticular-disease.html" },
+        { id: "week6-big-picture", num: "6", title: "Big Picture Overview", file: "week6-big-picture.html" },
       ]
     },
     {
