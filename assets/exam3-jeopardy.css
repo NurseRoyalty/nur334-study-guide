@@ -39,3 +39,12 @@
   .jp3-score-name{ width:100%; }
   .jp3-score-btn{ min-width:0; }
 }
+
+/* Dark mode: the shared category header turns light lavender in dark
+   mode, which washed out the white category names and the Week tag.
+   Give the Exam 3 board a dark header instead so both stay readable. */
+:root[data-theme="dark"] #jp3-root .jp-cat{
+  background:linear-gradient(160deg,var(--chrome-a),var(--chrome-b));
+  color:#fff; border:1px solid var(--border);
+}
+:root[data-theme="dark"] .jp3-cat-wk{ color:var(--on-brand-faint); }
