@@ -4,17 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wounds & Complications — NUR 334 Study Guide</title>
-    <link rel="stylesheet" href="assets/styles.css">
+  <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260926">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  
-  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
-    <span class="sun">☀️</span>
-    <span class="moon">🌙</span>
-  </button>
+  <a href="#content" class="skip-link">Skip to main content</a>
 
-  <main id="main-content">
+  <main id="content">
     <div class="page-inner">
 
       <header class="page-head">
@@ -164,10 +160,91 @@
         <h2 class="block">Self-Test Flashcards</h2>
         <p class="note">Test your wound healing and complication knowledge. Click cards to flip.</p>
         <div class="flash-toolbar">
-          <button class="flash-btn alt" onclick="resetFlashcards('wounds')">↻ Reset</button>
-          <span class="flash-count" id="flash-count-wounds"></span>
+          <button class="flash-btn alt" data-action="shuffle" data-target="wounds-cards">Shuffle</button>
+          <span class="flash-count"></span>
         </div>
-        <div class="flash-grid" id="wounds-cards"></div>
+        <div class="flash-grid" id="wounds-cards">
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Describe the four phases of wound healing and their timing.</div>
+      <div class="flash-back">1) Hemostasis (seconds-min): clotting; 2) Inflammatory (0-4 days): vasodilation, WBC infiltration, edema; 3) Proliferative (4-21 days): angiogenesis, collagen deposition, granulation tissue; 4) Maturation (21 days-2 years): collagen remodeling, scar formation.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is the difference between type III and type I collagen in wound healing?</div>
+      <div class="flash-back">Type III: weak, flexible, deposited first (day 3-5), makes up 60-70% early collagen. Type I: strong, structural, gradually replaces type III. Type I cross-linking provides ultimate strength.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">When is wound strength sufficient for suture removal and why?</div>
+      <div class="flash-back">At 7-10 days = ~10-15% strength (superficial), sutures removed. At 21 days = ~30-40%, can handle normal stress. Type III is weak early; type I replacement strengthens wound.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What are the differences between serous, serosanguineous, and purulent drainage?</div>
+      <div class="flash-back">Serous: clear/pale yellow, plasma, normal. Serosanguineous: pink/pale red, plasma+RBCs, most common, normal. Purulent: yellow/green, thick, foul odor = INFECTION, requires culture and antibiotics.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Describe the signs and nursing management of wound dehiscence.</div>
+      <div class="flash-back">Separation of wound edges, usually days 5-8 post-op. Increased serosanguineous drainage, opening visible. Notify provider (may need re-suturing), prevent infection, restrict activity, teach splinting during cough.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is evisceration and how is it managed as a medical emergency?</div>
+      <div class="flash-back">Full-thickness wound separation with protrusion of internal organs. EMERGENCY: Cover with sterile saline gauze (NOT dry), position supine with knees bent, NPO, IV access, prepare for emergency surgery, monitor for shock.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What does 'pain out of proportion' indicate in wound complications?</div>
+      <div class="flash-back">RED FLAG for necrotizing fasciitis or compartment syndrome. Indicates severe muscle ischemia/tissue damage. Early detection critical—don't wait for late signs like pulselessness.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Describe necrotizing fasciitis presentation and emergency management.</div>
+      <div class="flash-back">Rapidly spreading deep infection; severe pain OUT OF PROPORTION, edema beyond erythema, crepitus, hemorrhagic bullae, shock. EMERGENCY: urgent provider notification, aggressive surgical debridement (multiple surgeries), broad-spectrum IV antibiotics, ICU monitoring. Mortality 20-40%.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What are the 5 P's of compartment syndrome and why is early recognition crucial?</div>
+      <div class="flash-back">Pain (out of proportion), Pressure (firm), Paresthesias (tingling), Pallor (pale), Pulselessness (LATE). Early recognition critical—pain is first sign; don't wait for pulselessness (muscle already necrotic).</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">How is compartment syndrome managed acutely to prevent tissue necrosis?</div>
+      <div class="flash-back">Elevate to heart level (NOT above), remove constrictive dressings/casts, notify provider URGENTLY, assess perfusion (pulses, cap refill), administer analgesia, prepare for emergency fasciotomy. Time-critical—delay causes permanent damage.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Distinguish between hypertrophic scars and keloids and their management.</div>
+      <div class="flash-back">Hypertrophic: collagen within wound, raised, may regress. Keloid: extends BEYOND wound, grows larger, permanent, higher in darker skin. Management: pressure garments (12+ hrs daily, 12-18 months), scar massage, silicone sheets, steroids, laser, surgical revision.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What factors promote collagen synthesis in wound healing and what inhibits it?</div>
+      <div class="flash-back">Enhance: Vitamin C, A, zinc, protein, good blood flow, appropriate moisture. Inhibit: Malnutrition, vitamin C deficiency, steroids, radiation, poor perfusion, infection, excessive moisture/dryness.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Why is wet-to-dry dressing considered a form of mechanical debridement?</div>
+      <div class="flash-back">Wet gauze maintains moist environment allowing necrotic tissue to liquefy and adhere to gauze. When dry and removed, it pulls away loosened necrotic tissue. Painful but effective debridement method.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What characteristics distinguish local wound infection from spreading cellulitis?</div>
+      <div class="flash-back">Local: purulent drainage, increased pain/warmth/edema confined to wound, redness ≤2cm. Cellulitis: spreading erythema >2cm, rapidly advancing borders, systemic signs (fever, tachycardia). Requires aggressive antibiotics.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">How do you assess trending of wound healing over time and why is documentation important?</div>
+      <div class="flash-back">Document dimensions (L×W×D), drainage type/amount, wound bed appearance, surrounding skin, tunneling/undermining. Use measurements or photography. Serial assessment shows progression/stalled healing; identifies complications early.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is the significance of foul-smelling wound drainage and what action is needed?</div>
+      <div class="flash-back">Foul odor suggests anaerobic bacterial infection. Obtain culture immediately, notify provider, increase dressing changes, start/adjust antibiotics (may need anaerobic coverage), consider debridement.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Explain why irrigation and debridement are critical in contaminated wounds.</div>
+      <div class="flash-back">Removes foreign material, debris, bacteria, necrotic tissue that serve as culture media for infection. Reduces bacterial load. Mechanical debridement removes nonviable tissue that cannot heal. Together lower infection risk.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is the relationship between wound location and healing rate?</div>
+      <div class="flash-back">Face heals fastest (rich blood supply); trunk medium; lower extremities slowest (poor perfusion). Joints and areas under tension heal slower. Knowledge guides expected timeline and risk stratification.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Why do you avoid elevating an extremity with compartment syndrome above heart level?</div>
+      <div class="flash-back">Elevation above heart reduces arterial perfusion pressure, worsening tissue ischemia. Keep at heart level to maximize blood flow. Early fasciotomy is critical to restore perfusion before muscle necrosis.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What post-op timeline should alert you to potential dehiscence and why?</div>
+      <div class="flash-back">Days 5-8 peak risk. Type III collagen (weak) is primary structural component, but re-epithelialization incomplete. Sudden increase in drainage or opening = notify provider STAT.</div>
+    </div></div>
+        </div>
       </section>
 
       
@@ -177,82 +254,6 @@
   <nav class="page-flip" data-page-flip></nav>
 
   <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
-
-  <script src="site.js"></script>
-  <script src="study.js"></script>
-  <script src="section-quiz.js"></script>
-  <script>
-    const flashcardData = {
-      wounds: [
-        { q: "Describe the four phases of wound healing and their timing.", a: "1) Hemostasis (seconds-min): clotting; 2) Inflammatory (0-4 days): vasodilation, WBC infiltration, edema; 3) Proliferative (4-21 days): angiogenesis, collagen deposition, granulation tissue; 4) Maturation (21 days-2 years): collagen remodeling, scar formation." },
-        { q: "What is the difference between type III and type I collagen in wound healing?", a: "Type III: weak, flexible, deposited first (day 3-5), makes up 60-70% early collagen. Type I: strong, structural, gradually replaces type III. Type I cross-linking provides ultimate strength." },
-        { q: "When is wound strength sufficient for suture removal and why?", a: "At 7-10 days = ~10-15% strength (superficial), sutures removed. At 21 days = ~30-40%, can handle normal stress. Type III is weak early; type I replacement strengthens wound." },
-        { q: "What are the differences between serous, serosanguineous, and purulent drainage?", a: "Serous: clear/pale yellow, plasma, normal. Serosanguineous: pink/pale red, plasma+RBCs, most common, normal. Purulent: yellow/green, thick, foul odor = INFECTION, requires culture and antibiotics." },
-        { q: "Describe the signs and nursing management of wound dehiscence.", a: "Separation of wound edges, usually days 5-8 post-op. Increased serosanguineous drainage, opening visible. Notify provider (may need re-suturing), prevent infection, restrict activity, teach splinting during cough." },
-        { q: "What is evisceration and how is it managed as a medical emergency?", a: "Full-thickness wound separation with protrusion of internal organs. EMERGENCY: Cover with sterile saline gauze (NOT dry), position supine with knees bent, NPO, IV access, prepare for emergency surgery, monitor for shock." },
-        { q: "What does 'pain out of proportion' indicate in wound complications?", a: "RED FLAG for necrotizing fasciitis or compartment syndrome. Indicates severe muscle ischemia/tissue damage. Early detection critical—don't wait for late signs like pulselessness." },
-        { q: "Describe necrotizing fasciitis presentation and emergency management.", a: "Rapidly spreading deep infection; severe pain OUT OF PROPORTION, edema beyond erythema, crepitus, hemorrhagic bullae, shock. EMERGENCY: urgent provider notification, aggressive surgical debridement (multiple surgeries), broad-spectrum IV antibiotics, ICU monitoring. Mortality 20-40%." },
-        { q: "What are the 5 P's of compartment syndrome and why is early recognition crucial?", a: "Pain (out of proportion), Pressure (firm), Paresthesias (tingling), Pallor (pale), Pulselessness (LATE). Early recognition critical—pain is first sign; don't wait for pulselessness (muscle already necrotic)." },
-        { q: "How is compartment syndrome managed acutely to prevent tissue necrosis?", a: "Elevate to heart level (NOT above), remove constrictive dressings/casts, notify provider URGENTLY, assess perfusion (pulses, cap refill), administer analgesia, prepare for emergency fasciotomy. Time-critical—delay causes permanent damage." },
-        { q: "Distinguish between hypertrophic scars and keloids and their management.", a: "Hypertrophic: collagen within wound, raised, may regress. Keloid: extends BEYOND wound, grows larger, permanent, higher in darker skin. Management: pressure garments (12+ hrs daily, 12-18 months), scar massage, silicone sheets, steroids, laser, surgical revision." },
-        { q: "What factors promote collagen synthesis in wound healing and what inhibits it?", a: "Enhance: Vitamin C, A, zinc, protein, good blood flow, appropriate moisture. Inhibit: Malnutrition, vitamin C deficiency, steroids, radiation, poor perfusion, infection, excessive moisture/dryness." },
-        { q: "Why is wet-to-dry dressing considered a form of mechanical debridement?", a: "Wet gauze maintains moist environment allowing necrotic tissue to liquefy and adhere to gauze. When dry and removed, it pulls away loosened necrotic tissue. Painful but effective debridement method." },
-        { q: "What characteristics distinguish local wound infection from spreading cellulitis?", a: "Local: purulent drainage, increased pain/warmth/edema confined to wound, redness ≤2cm. Cellulitis: spreading erythema >2cm, rapidly advancing borders, systemic signs (fever, tachycardia). Requires aggressive antibiotics." },
-        { q: "How do you assess trending of wound healing over time and why is documentation important?", a: "Document dimensions (L×W×D), drainage type/amount, wound bed appearance, surrounding skin, tunneling/undermining. Use measurements or photography. Serial assessment shows progression/stalled healing; identifies complications early." },
-        { q: "What is the significance of foul-smelling wound drainage and what action is needed?", a: "Foul odor suggests anaerobic bacterial infection. Obtain culture immediately, notify provider, increase dressing changes, start/adjust antibiotics (may need anaerobic coverage), consider debridement." },
-        { q: "Explain why irrigation and debridement are critical in contaminated wounds.", a: "Removes foreign material, debris, bacteria, necrotic tissue that serve as culture media for infection. Reduces bacterial load. Mechanical debridement removes nonviable tissue that cannot heal. Together lower infection risk." },
-        { q: "What is the relationship between wound location and healing rate?", a: "Face heals fastest (rich blood supply); trunk medium; lower extremities slowest (poor perfusion). Joints and areas under tension heal slower. Knowledge guides expected timeline and risk stratification." },
-        { q: "Why do you avoid elevating an extremity with compartment syndrome above heart level?", a: "Elevation above heart reduces arterial perfusion pressure, worsening tissue ischemia. Keep at heart level to maximize blood flow. Early fasciotomy is critical to restore perfusion before muscle necrosis." },
-        { q: "What post-op timeline should alert you to potential dehiscence and why?", a: "Days 5-8 peak risk. Type III collagen (weak) is primary structural component, but re-epithelialization incomplete. Sudden increase in drainage or opening = notify provider STAT." }
-      ]
-    };
-
-    function generateFlashcards(sectionId) {
-      const container = document.getElementById(sectionId + '-cards');
-      const data = flashcardData[sectionId];
-      container.innerHTML = data.map((card, idx) => `
-        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
-          <div class="flash-inner">
-            <div class="flash-front"><div>${card.q}</div></div>
-            <div class="flash-back"><div>${card.a}</div></div>
-          </div>
-        </div>
-      `).join('');
-      updateFlashcardCount(sectionId);
-    }
-
-    function updateFlashcardCount(sectionId) {
-      const count = flashcardData[sectionId].length;
-      const el = document.getElementById('flash-count-' + sectionId);
-      if (el) el.textContent = `${count} cards`;
-    }
-
-    function shuffleFlashcards(sectionId) {
-      const arr = flashcardData[sectionId];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      generateFlashcards(sectionId);
-    }
-
-    function resetFlashcards(sectionId) {
-      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
-      cards.forEach(card => card.classList.remove('flipped'));
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      try { localStorage.setItem('theme', newTheme); } catch(e){}
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      generateFlashcards('wounds');
-    });
-  </script>
     </div>
   </main>
 
@@ -260,9 +261,9 @@
 
   <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
 
-  <script src="site.js"></script>
-  <script src="study.js"></script>
-  <script src="section-quiz.js"></script>
+  <script src="assets/site.js?v=20260926"></script>
+  <script src="assets/study.js?v=20260926"></script>
+  <script src="assets/section-quiz.js?v=20260926"></script>
   
 </body>
 </html>

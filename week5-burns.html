@@ -4,17 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Burns — NUR 334 Study Guide</title>
-    <link rel="stylesheet" href="assets/styles.css">
+  <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260926">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  
-  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
-    <span class="sun">☀️</span>
-    <span class="moon">🌙</span>
-  </button>
+  <a href="#content" class="skip-link">Skip to main content</a>
 
-  <main id="main-content">
+  <main id="content">
     <div class="page-inner">
 
       <header class="page-head">
@@ -227,10 +223,59 @@
         <h2 class="block">Self-Test Flashcards</h2>
         <p class="note">Test your burn management knowledge. Click cards to flip.</p>
         <div class="flash-toolbar">
-          <button class="flash-btn alt" onclick="resetFlashcards('burns')">↻ Reset</button>
-          <span class="flash-count" id="flash-count-burns"></span>
+          <button class="flash-btn alt" data-action="shuffle" data-target="burns-cards">Shuffle</button>
+          <span class="flash-count"></span>
         </div>
-        <div class="flash-grid" id="burns-cards"></div>
+        <div class="flash-grid" id="burns-cards">
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Calculate Parkland formula for 70kg patient with 40% TBSA burn. How much LR in first 8 hours?</div>
+      <div class="flash-back">4 mL × 70 kg × 40% = 11,200 mL total in 24 hours. First 8 hours = 5,600 mL LR; next 16 hours = 5,600 mL. Adjust based on urine output (goal 0.5 mL/kg/hr for adults). This prevents hypovolemic shock.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Why is myoglobinuria a medical emergency in electrical burns and how is it managed?</div>
+      <div class="flash-back">Electrical current causes rhabdomyolysis (muscle breakdown) → myoglobin in urine (cola-colored). Myoglobin precipitates in tubules → acute kidney injury. Manage: aggressive fluid resuscitation (increase UOP to 1 mL/kg/hr minimum), monitor creatinine/BUN/K+, possible dialysis if AKI develops.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">When is escharotomy indicated and why?</div>
+      <div class="flash-back">Full-thickness circumferential burns restrict blood flow and breathing. Escharotomy (incisions through eschar/burned skin) relieves compartment syndrome, restores distal circulation, allows chest wall expansion during fluid resuscitation. Typically done in emergent phase (0-72 hours) before compartment syndrome develops.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Describe the pathophysiology of burn shock and why fluid resuscitation is critical.</div>
+      <div class="flash-back">Massive inflammatory response → increased capillary permeability → fluid shifts from intravascular to interstitial (edema) → loss of plasma proteins → hypovolemia → decreased cardiac output → tissue hypoperfusion → shock. Parkland formula resuscitation prevents organ failure; must monitor and adjust based on urine output.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is Curling's ulcer and how is it prevented in burn patients?</div>
+      <div class="flash-back">Acute gastric/duodenal ulceration from severe burn stress. Prophylaxis started on admission with H2 blockers (famotidine) or PPI (omeprazole). Monitor for coffee-ground emesis, tarry stools, anemia. Maintain adequate nutrition and manage sepsis to prevent GI bleeding.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Distinguish between partial-thickness and full-thickness burn healing and scarring outcomes.</div>
+      <div class="flash-back">Partial: epithelialization from hair follicles/sweat glands in 2-3 weeks if shallow; minimal scarring. Full: nerves destroyed (painless), requires autograft for healing; severe hypertrophic/keloid scarring common. Full-thickness never heals without skin grafting.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Why are electrical burns particularly dangerous and what complications can occur?</div>
+      <div class="flash-back">Current follows path of least resistance → entry/exit wounds + deep internal damage (muscle, organs, nerves). Immediate VF most lethal; delayed dysrhythmias possible. Rhabdomyolysis with myoglobinuria causes AKI. Hyperkalemia from cell destruction causes cardiac dysrhythmias. Compartment syndrome common.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What does the Rule of Nines tell you clinically about burn severity and how does pediatric anatomy differ?</div>
+      <div class="flash-back">Rapid %TBSA assessment → guides severity classification (major >20%, moderate 10-20%, minor <10%) → determines Parkland formula calculation for fluid resuscitation. Pediatric: head = 18% (larger), each leg = 13.5% (smaller). Different proportions = different fluid requirements.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">How does inhalation injury increase mortality and what are management priorities?</div>
+      <div class="flash-back">Carboxyhemoglobin (CO poisoning); thermal injury to airways; smoke inhalation; ARDS risk. Manage: high-flow O2 (100% FiO2), carboxyhemoglobin monitoring (>10% needs hyperbaric O2), early intubation if significant injury, mechanical ventilation with PEEP if ARDS develops.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Describe hypertrophic scarring post-burn and what management strategies prevent/minimize it.</div>
+      <div class="flash-back">Raised scars within wound boundaries from excessive collagen deposition. Manage: pressure garments (12+ hours daily for 12-18 months started in acute phase), scar massage, silicone gel sheeting, sun avoidance, possible steroid injection, laser therapy, surgical revision if contractures limit function.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Why is nutrition critically important in acute phase burns and what are specific requirements?</div>
+      <div class="flash-back">Hypermetabolism increases to 1.5-2x normal; massive caloric demands. Requirements: protein 1.5-2.5 g/kg for collagen synthesis and immune function, high carbohydrates for energy, vitamins A/C/zinc for healing. Curling's ulcer prophylaxis essential. Malnutrition significantly delays healing and increases infection risk.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What psychological complications occur post-burn and how should nurses address them?</div>
+      <div class="flash-back">PTSD, depression, anxiety, body image disruption, social isolation common. Nursing: screen for mental health early/often, refer for psychological counseling, facilitate support groups, cognitive behavioral therapy, family involvement, gradual return to activities, long-term psychological follow-up. Mental health critical to functional recovery.</div>
+    </div></div>
+        </div>
       </section>
 
       
@@ -240,74 +285,6 @@
   <nav class="page-flip" data-page-flip></nav>
 
   <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
-
-  <script src="site.js"></script>
-  <script src="study.js"></script>
-  <script src="section-quiz.js"></script>
-  <script>
-    const flashcardData = {
-      burns: [
-        { q: "Calculate Parkland formula for 70kg patient with 40% TBSA burn. How much LR in first 8 hours?", a: "4 mL × 70 kg × 40% = 11,200 mL total in 24 hours. First 8 hours = 5,600 mL LR; next 16 hours = 5,600 mL. Adjust based on urine output (goal 0.5 mL/kg/hr for adults). This prevents hypovolemic shock." },
-        { q: "Why is myoglobinuria a medical emergency in electrical burns and how is it managed?", a: "Electrical current causes rhabdomyolysis (muscle breakdown) → myoglobin in urine (cola-colored). Myoglobin precipitates in tubules → acute kidney injury. Manage: aggressive fluid resuscitation (increase UOP to 1 mL/kg/hr minimum), monitor creatinine/BUN/K+, possible dialysis if AKI develops." },
-        { q: "When is escharotomy indicated and why?", a: "Full-thickness circumferential burns restrict blood flow and breathing. Escharotomy (incisions through eschar/burned skin) relieves compartment syndrome, restores distal circulation, allows chest wall expansion during fluid resuscitation. Typically done in emergent phase (0-72 hours) before compartment syndrome develops." },
-        { q: "Describe the pathophysiology of burn shock and why fluid resuscitation is critical.", a: "Massive inflammatory response → increased capillary permeability → fluid shifts from intravascular to interstitial (edema) → loss of plasma proteins → hypovolemia → decreased cardiac output → tissue hypoperfusion → shock. Parkland formula resuscitation prevents organ failure; must monitor and adjust based on urine output." },
-        { q: "What is Curling's ulcer and how is it prevented in burn patients?", a: "Acute gastric/duodenal ulceration from severe burn stress. Prophylaxis started on admission with H2 blockers (famotidine) or PPI (omeprazole). Monitor for coffee-ground emesis, tarry stools, anemia. Maintain adequate nutrition and manage sepsis to prevent GI bleeding." },
-        { q: "Distinguish between partial-thickness and full-thickness burn healing and scarring outcomes.", a: "Partial: epithelialization from hair follicles/sweat glands in 2-3 weeks if shallow; minimal scarring. Full: nerves destroyed (painless), requires autograft for healing; severe hypertrophic/keloid scarring common. Full-thickness never heals without skin grafting." },
-        { q: "Why are electrical burns particularly dangerous and what complications can occur?", a: "Current follows path of least resistance → entry/exit wounds + deep internal damage (muscle, organs, nerves). Immediate VF most lethal; delayed dysrhythmias possible. Rhabdomyolysis with myoglobinuria causes AKI. Hyperkalemia from cell destruction causes cardiac dysrhythmias. Compartment syndrome common." },
-        { q: "What does the Rule of Nines tell you clinically about burn severity and how does pediatric anatomy differ?", a: "Rapid %TBSA assessment → guides severity classification (major >20%, moderate 10-20%, minor <10%) → determines Parkland formula calculation for fluid resuscitation. Pediatric: head = 18% (larger), each leg = 13.5% (smaller). Different proportions = different fluid requirements." },
-        { q: "How does inhalation injury increase mortality and what are management priorities?", a: "Carboxyhemoglobin (CO poisoning); thermal injury to airways; smoke inhalation; ARDS risk. Manage: high-flow O2 (100% FiO2), carboxyhemoglobin monitoring (>10% needs hyperbaric O2), early intubation if significant injury, mechanical ventilation with PEEP if ARDS develops." },
-        { q: "Describe hypertrophic scarring post-burn and what management strategies prevent/minimize it.", a: "Raised scars within wound boundaries from excessive collagen deposition. Manage: pressure garments (12+ hours daily for 12-18 months started in acute phase), scar massage, silicone gel sheeting, sun avoidance, possible steroid injection, laser therapy, surgical revision if contractures limit function." },
-        { q: "Why is nutrition critically important in acute phase burns and what are specific requirements?", a: "Hypermetabolism increases to 1.5-2x normal; massive caloric demands. Requirements: protein 1.5-2.5 g/kg for collagen synthesis and immune function, high carbohydrates for energy, vitamins A/C/zinc for healing. Curling's ulcer prophylaxis essential. Malnutrition significantly delays healing and increases infection risk." },
-        { q: "What psychological complications occur post-burn and how should nurses address them?", a: "PTSD, depression, anxiety, body image disruption, social isolation common. Nursing: screen for mental health early/often, refer for psychological counseling, facilitate support groups, cognitive behavioral therapy, family involvement, gradual return to activities, long-term psychological follow-up. Mental health critical to functional recovery." }
-      ]
-    };
-
-    function generateFlashcards(sectionId) {
-      const container = document.getElementById(sectionId + '-cards');
-      const data = flashcardData[sectionId];
-      container.innerHTML = data.map((card, idx) => `
-        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
-          <div class="flash-inner">
-            <div class="flash-front"><div>${card.q}</div></div>
-            <div class="flash-back"><div>${card.a}</div></div>
-          </div>
-        </div>
-      `).join('');
-      updateFlashcardCount(sectionId);
-    }
-
-    function updateFlashcardCount(sectionId) {
-      const count = flashcardData[sectionId].length;
-      const el = document.getElementById('flash-count-' + sectionId);
-      if (el) el.textContent = `${count} cards`;
-    }
-
-    function shuffleFlashcards(sectionId) {
-      const arr = flashcardData[sectionId];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      generateFlashcards(sectionId);
-    }
-
-    function resetFlashcards(sectionId) {
-      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
-      cards.forEach(card => card.classList.remove('flipped'));
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      try { localStorage.setItem('theme', newTheme); } catch(e){}
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      generateFlashcards('burns');
-    });
-  </script>
     </div>
   </main>
 
@@ -315,9 +292,9 @@
 
   <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
 
-  <script src="site.js"></script>
-  <script src="study.js"></script>
-  <script src="section-quiz.js"></script>
+  <script src="assets/site.js?v=20260926"></script>
+  <script src="assets/study.js?v=20260926"></script>
+  <script src="assets/section-quiz.js?v=20260926"></script>
   
 </body>
 </html>

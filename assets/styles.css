@@ -1280,3 +1280,7 @@ h2.block.section-h:hover .sec-caret{ color:var(--accent); }
 @media (min-width:900px){
   .dropdown{ max-height:calc(100vh - 80px); overflow-y:auto; }
 }
+
+/* Keep the top nav identical on every page, even pages that set their
+   own body font or line-height in a page-level <style> block. */
+.topnav{ font-family:var(--sans); line-height:1.5; }

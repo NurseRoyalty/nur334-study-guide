@@ -4,17 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HIV Management & Diagnosis — NUR 334 Study Guide</title>
-    <link rel="stylesheet" href="assets/styles.css">
+  <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260926">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  
-  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
-    <span class="sun">☀️</span>
-    <span class="moon">🌙</span>
-  </button>
+  <a href="#content" class="skip-link">Skip to main content</a>
 
-  <main id="main-content">
+  <main id="content">
     <div class="page-inner">
       <section id="content-main">
         <h2 class="block">HIV Screening and Diagnostic Testing</h2>
@@ -177,10 +173,59 @@
         <h2 class="block">Self-Test Flashcards</h2>
         <p class="note">Test your HIV diagnosis and management knowledge. Click cards to flip.</p>
         <div class="flash-toolbar">
-          <button class="flash-btn alt" onclick="resetFlashcards('hiv')">↻ Reset</button>
-          <span class="flash-count" id="flash-count-hiv"></span>
+          <button class="flash-btn alt" data-action="shuffle" data-target="hiv-cards">Shuffle</button>
+          <span class="flash-count"></span>
         </div>
-        <div class="flash-grid" id="hiv-cards"></div>
+        <div class="flash-grid" id="hiv-cards">
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is the window period for 4th generation HIV testing?</div>
+      <div class="flash-back">18-45 days. 4th gen detects both HIV antibodies AND p24 antigen, making it the fastest screening test available.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is the diagnostic algorithm for confirming HIV infection?</div>
+      <div class="flash-back">Step 1: 4th/3rd gen test; Step 2: HIV-1/HIV-2 differentiation immunoassay; Step 3: NAT (viral load/RNA) for final confirmation. NAT can detect acute infection when antibodies negative.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Why might someone test negative for antibodies but be HIV-positive?</div>
+      <div class="flash-back">Acute infection (window period - first 1-2 weeks). Viral load spikes but antibodies haven't developed yet. NAT/RNA test is ONLY way to detect acute HIV. Patient is highly infectious during this window.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What CD4 count defines AIDS and what is the immediate action?</div>
+      <div class="flash-back">CD4 < 200 = AIDS diagnosis. MANDATORY: Start TMP-SMX for PCP prophylaxis. Also consider prophylaxis for toxoplasmosis and MAC depending on CD4 level.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What prophylaxis agents are needed at CD4 < 100?</div>
+      <div class="flash-back">TMP-SMX (covers PCP and toxoplasmosis) + azithromycin 1200 mg weekly for MAC prophylaxis. Can discontinue prophylaxis if CD4 rises > 200 on ART for 3+ months.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What does 'U=U' mean in HIV prevention?</div>
+      <div class="flash-back">Undetectable = Untransmittable. When viral load < 50 copies/mL on ART, there is NO risk of sexual transmission of HIV.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is the immediate action for a needlestick exposure to HIV-positive blood?</div>
+      <div class="flash-back">Start PEP (post-exposure prophylaxis) within 1-2 hours MAXIMUM 72 hours. 28-day course of 3-drug ART. More effective if started immediately. Follow-up testing at 6 weeks, 3 months, 6 months.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What are the preferred first-line ART regimens for treatment-naïve patients?</div>
+      <div class="flash-back">Dolutegravir (INSTI) + tenofovir/emtricitabine (NRTI backbone). Single-tablet options: Bictarvy, Triumeq. Alternative: integrase inhibitor (bictegravir) + TAF/FTC. ALL HIV+ should start ART immediately regardless of CD4.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is the major side effect of efavirenz (NNRTI) and why is it important?</div>
+      <div class="flash-back">CNS effects (dizziness, vivid dreams, depression) occur in 50% of patients. Suicide risk documented. Teratogenic (avoid in pregnancy). Take at night. Warn about driving impairment.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What are the major side effects of tenofovir (NRTI) and how are they managed?</div>
+      <div class="flash-back">Kidney toxicity (monitor creatinine) and bone loss (osteoporosis risk). TAF (tenofovir alafenamide) = newer formulation with less kidney/bone toxicity. Monitor baseline and follow-up kidney/bone function.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is Immune Reconstitution Inflammatory Syndrome (IRIS) and how is it managed?</div>
+      <div class="flash-back">Paradoxical worsening of OI symptoms when CD4 rises on ART and immune system "wakes up." Manage with NSAIDs, corticosteroids. DO NOT STOP ART. Most common in CD4 < 50 at ART initiation.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What populations should be offered PrEP and what is the efficacy?</div>
+      <div class="flash-back">High-risk: MSM, sex workers, serodiscordant couples, IV drug users. Daily TDF/FTC (Truvada) or TAF/FTC (Descovy). On-demand dosing for MSM. Efficacy 92-99% with good adherence. Requires quarterly HIV testing and monitoring.</div>
+    </div></div>
+        </div>
       </section>
 
       
@@ -190,74 +235,6 @@
   <nav class="page-flip" data-page-flip></nav>
 
   <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
-
-  <script src="site.js"></script>
-  <script src="study.js"></script>
-  <script src="section-quiz.js"></script>
-  <script>
-    const flashcardData = {
-      hiv: [
-        { q: "What is the window period for 4th generation HIV testing?", a: "18-45 days. 4th gen detects both HIV antibodies AND p24 antigen, making it the fastest screening test available." },
-        { q: "What is the diagnostic algorithm for confirming HIV infection?", a: "Step 1: 4th/3rd gen test; Step 2: HIV-1/HIV-2 differentiation immunoassay; Step 3: NAT (viral load/RNA) for final confirmation. NAT can detect acute infection when antibodies negative." },
-        { q: "Why might someone test negative for antibodies but be HIV-positive?", a: "Acute infection (window period - first 1-2 weeks). Viral load spikes but antibodies haven't developed yet. NAT/RNA test is ONLY way to detect acute HIV. Patient is highly infectious during this window." },
-        { q: "What CD4 count defines AIDS and what is the immediate action?", a: "CD4 < 200 = AIDS diagnosis. MANDATORY: Start TMP-SMX for PCP prophylaxis. Also consider prophylaxis for toxoplasmosis and MAC depending on CD4 level." },
-        { q: "What prophylaxis agents are needed at CD4 < 100?", a: "TMP-SMX (covers PCP and toxoplasmosis) + azithromycin 1200 mg weekly for MAC prophylaxis. Can discontinue prophylaxis if CD4 rises > 200 on ART for 3+ months." },
-        { q: "What does 'U=U' mean in HIV prevention?", a: "Undetectable = Untransmittable. When viral load < 50 copies/mL on ART, there is NO risk of sexual transmission of HIV." },
-        { q: "What is the immediate action for a needlestick exposure to HIV-positive blood?", a: "Start PEP (post-exposure prophylaxis) within 1-2 hours MAXIMUM 72 hours. 28-day course of 3-drug ART. More effective if started immediately. Follow-up testing at 6 weeks, 3 months, 6 months." },
-        { q: "What are the preferred first-line ART regimens for treatment-naïve patients?", a: "Dolutegravir (INSTI) + tenofovir/emtricitabine (NRTI backbone). Single-tablet options: Bictarvy, Triumeq. Alternative: integrase inhibitor (bictegravir) + TAF/FTC. ALL HIV+ should start ART immediately regardless of CD4." },
-        { q: "What is the major side effect of efavirenz (NNRTI) and why is it important?", a: "CNS effects (dizziness, vivid dreams, depression) occur in 50% of patients. Suicide risk documented. Teratogenic (avoid in pregnancy). Take at night. Warn about driving impairment." },
-        { q: "What are the major side effects of tenofovir (NRTI) and how are they managed?", a: "Kidney toxicity (monitor creatinine) and bone loss (osteoporosis risk). TAF (tenofovir alafenamide) = newer formulation with less kidney/bone toxicity. Monitor baseline and follow-up kidney/bone function." },
-        { q: "What is Immune Reconstitution Inflammatory Syndrome (IRIS) and how is it managed?", a: "Paradoxical worsening of OI symptoms when CD4 rises on ART and immune system \"wakes up.\" Manage with NSAIDs, corticosteroids. DO NOT STOP ART. Most common in CD4 < 50 at ART initiation." },
-        { q: "What populations should be offered PrEP and what is the efficacy?", a: "High-risk: MSM, sex workers, serodiscordant couples, IV drug users. Daily TDF/FTC (Truvada) or TAF/FTC (Descovy). On-demand dosing for MSM. Efficacy 92-99% with good adherence. Requires quarterly HIV testing and monitoring." }
-      ]
-    };
-
-    function generateFlashcards(sectionId) {
-      const container = document.getElementById(sectionId + '-cards');
-      const data = flashcardData[sectionId];
-      container.innerHTML = data.map((card, idx) => `
-        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
-          <div class="flash-inner">
-            <div class="flash-front"><div>${card.q}</div></div>
-            <div class="flash-back"><div>${card.a}</div></div>
-          </div>
-        </div>
-      `).join('');
-      updateFlashcardCount(sectionId);
-    }
-
-    function updateFlashcardCount(sectionId) {
-      const count = flashcardData[sectionId].length;
-      const el = document.getElementById('flash-count-' + sectionId);
-      if (el) el.textContent = `${count} cards`;
-    }
-
-    function shuffleFlashcards(sectionId) {
-      const arr = flashcardData[sectionId];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      generateFlashcards(sectionId);
-    }
-
-    function resetFlashcards(sectionId) {
-      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
-      cards.forEach(card => card.classList.remove('flipped'));
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      try { localStorage.setItem('theme', newTheme); } catch(e){}
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      generateFlashcards('hiv');
-    });
-  </script>
     </div>
   </main>
 
@@ -265,9 +242,9 @@
 
   <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
 
-  <script src="site.js"></script>
-  <script src="study.js"></script>
-  <script src="section-quiz.js"></script>
+  <script src="assets/site.js?v=20260926"></script>
+  <script src="assets/study.js?v=20260926"></script>
+  <script src="assets/section-quiz.js?v=20260926"></script>
   
 </body>
 </html>

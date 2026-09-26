@@ -16,17 +16,12 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css?v=20260926">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#content" class="skip-link">Skip to main content</a>
 
-  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
-    <span class="sun">☀️</span>
-    <span class="moon">🌙</span>
-  </button>
-
-  <main id="main-content">
+  <main id="content">
     <div class="page-inner">
       <header class="page-head">
         <p class="eyebrow">Week 5 · Page 3</p>
@@ -225,12 +220,61 @@
 
       <section id="flashcards-skin">
         <h2 class="block">Self-Test Flashcards</h2>
+        <p class="note">Click a card to flip it and check your answer.</p>
         <div class="flash-toolbar">
-          <button class="flash-btn" onclick="shuffleFlashcards('skin')">🔀 Shuffle</button>
-          <button class="flash-btn alt" onclick="resetFlashcards('skin')">↻ Reset</button>
-          <span class="flash-count" id="flash-count-skin"></span>
+          <button class="flash-btn alt" data-action="shuffle" data-target="skin-cards">Shuffle</button>
+          <span class="flash-count"></span>
         </div>
-        <div class="flash-grid" id="skin-cards"></div>
+        <div class="flash-grid" id="skin-cards">
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What does the ABCDE rule in melanoma detection stand for?</div>
+      <div class="flash-back">A = Asymmetry (not mirror-image); B = Border irregularity (ragged/notched); C = Color variation (multiple colors); D = Diameter >6mm; E = Evolving (changing in size, shape, color, or appearance)</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">How do you distinguish between Basal Cell Carcinoma and Squamous Cell Carcinoma?</div>
+      <div class="flash-back">BCC: Red, pearly lesion with well-defined borders, waxy appearance, central depression; 80% of skin cancers; rarely metastasizes. SCC: Scaly, crusty, erythematous nodule; 15-20% of skin cancers; can metastasize to regional lymph nodes</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What does Breslow thickness classify in melanoma?</div>
+      <div class="flash-back">Breslow thickness measures depth of melanoma invasion (in mm) and indicates prognosis: Thin <0.76mm (95% 5-yr survival), Intermediate 0.76-4mm (60-90% survival), Thick >4mm (<50% survival)</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Compare impetigo and cellulitis in presentation and treatment.</div>
+      <div class="flash-back">Impetigo: Honey-crusted lesions, superficial, highly contagious, treat with topical antibiotics (mupirocin). Cellulitis: Red, warm, edematous with poorly demarcated borders; deep dermis/subcutaneous involvement; treat with IV antibiotics and elevation</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Why is early antiviral therapy critical for herpes zoster (shingles)?</div>
+      <div class="flash-back">Antiviral therapy must begin within 72 hours of symptom onset to reduce disease duration and significantly decrease the risk of postherpetic neuralgia (pain lasting >3 months after lesions heal)</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is dermatomal distribution in varicella-zoster virus reactivation?</div>
+      <div class="flash-back">VZV reactivates in a single dermatome (nerve root distribution), typically thoracic (50%), lumbar (20%), or cervical/trigeminal (20%), usually on one side of the body following one nerve pathway</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What are the characteristics and management of atopic dermatitis?</div>
+      <div class="flash-back">Chronic inflammatory skin condition with intense pruritus, erythematous patches, and lichenification from scratching. Triggered by stress, irritants, allergens. Management: emollients, topical corticosteroids, calcineurin inhibitors, antihistamines, avoid triggers</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Describe psoriasis presentation and differences from eczema.</div>
+      <div class="flash-back">Well-demarcated erythematous plaques with silvery scale; common on elbows, knees, scalp, nails. Chronic, relapsing, genetic predisposition. Unlike eczema, has sharper borders and different triggers (stress, infection, drugs). Treatment: topical steroids, vitamin D analogues, phototherapy, biologics</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is the pathophysiology of urticaria and how is it managed?</div>
+      <div class="flash-back">Transient, raised, erythematous wheals from mast cell degranulation. Can be acute (<6 weeks) or chronic (>6 weeks). Caused by allergens, infections, stress, physical triggers. Management: identify/avoid triggers, H1-blocker antihistamines, corticosteroids for severe cases, consider allergy testing if chronic</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Compare tinea pedis, corporis, and candidiasis fungal infections.</div>
+      <div class="flash-back">Tinea pedis: dermatophyte between toes, maceration, antifungal cream. Tinea corporis: ring-shaped annular lesions with clearing center. Candidiasis: moist areas (skin folds), satellite pustules, white patches (oral). All require topical or oral antifungals; candida needs moisture reduction</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What is the clinical significance of Molluscum contagiosum in immunocompromised patients?</div>
+      <div class="flash-back">Viral infection causing umbilicated papules. Usually self-limited in immunocompetent individuals but may persist/spread in HIV/AIDS. Treatment: curettage, topical medications, cryotherapy. Avoid squeezing (spreads virus). May improve with ART in HIV+ patients</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">What are the risk factors and characteristics of squamous cell carcinoma?</div>
+      <div class="flash-back">15-20% of skin cancers, more aggressive than BCC. Risk factors: UV exposure, immunosuppression, chronic wounds, actinic keratosis. Presents as scaly, crusty, erythematous nodule/plaque with central ulceration. Can metastasize to regional lymph nodes. Treat with surgical excision, Mohs surgery for high-risk lesions</div>
+    </div></div>
+        </div>
       </section>
 
     </div>
@@ -239,112 +283,8 @@
   <nav class="page-flip" data-page-flip></nav>
   <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
 
-  <script src="site.js"></script>
-  <script src="study.js"></script>
-  <script src="section-quiz.js"></script>
-  <script>
-    const flashcardData = {
-      skin: [
-        {
-          question: "What does the ABCDE rule in melanoma detection stand for?",
-          answer: "A = Asymmetry (not mirror-image); B = Border irregularity (ragged/notched); C = Color variation (multiple colors); D = Diameter >6mm; E = Evolving (changing in size, shape, color, or appearance)"
-        },
-        {
-          question: "How do you distinguish between Basal Cell Carcinoma and Squamous Cell Carcinoma?",
-          answer: "BCC: Red, pearly lesion with well-defined borders, waxy appearance, central depression; 80% of skin cancers; rarely metastasizes. SCC: Scaly, crusty, erythematous nodule; 15-20% of skin cancers; can metastasize to regional lymph nodes"
-        },
-        {
-          question: "What does Breslow thickness classify in melanoma?",
-          answer: "Breslow thickness measures depth of melanoma invasion (in mm) and indicates prognosis: Thin <0.76mm (95% 5-yr survival), Intermediate 0.76-4mm (60-90% survival), Thick >4mm (<50% survival)"
-        },
-        {
-          question: "Compare impetigo and cellulitis in presentation and treatment.",
-          answer: "Impetigo: Honey-crusted lesions, superficial, highly contagious, treat with topical antibiotics (mupirocin). Cellulitis: Red, warm, edematous with poorly demarcated borders; deep dermis/subcutaneous involvement; treat with IV antibiotics and elevation"
-        },
-        {
-          question: "Why is early antiviral therapy critical for herpes zoster (shingles)?",
-          answer: "Antiviral therapy must begin within 72 hours of symptom onset to reduce disease duration and significantly decrease the risk of postherpetic neuralgia (pain lasting >3 months after lesions heal)"
-        },
-        {
-          question: "What is dermatomal distribution in varicella-zoster virus reactivation?",
-          answer: "VZV reactivates in a single dermatome (nerve root distribution), typically thoracic (50%), lumbar (20%), or cervical/trigeminal (20%), usually on one side of the body following one nerve pathway"
-        },
-        {
-          question: "What are the characteristics and management of atopic dermatitis?",
-          answer: "Chronic inflammatory skin condition with intense pruritus, erythematous patches, and lichenification from scratching. Triggered by stress, irritants, allergens. Management: emollients, topical corticosteroids, calcineurin inhibitors, antihistamines, avoid triggers"
-        },
-        {
-          question: "Describe psoriasis presentation and differences from eczema.",
-          answer: "Well-demarcated erythematous plaques with silvery scale; common on elbows, knees, scalp, nails. Chronic, relapsing, genetic predisposition. Unlike eczema, has sharper borders and different triggers (stress, infection, drugs). Treatment: topical steroids, vitamin D analogues, phototherapy, biologics"
-        },
-        {
-          question: "What is the pathophysiology of urticaria and how is it managed?",
-          answer: "Transient, raised, erythematous wheals from mast cell degranulation. Can be acute (<6 weeks) or chronic (>6 weeks). Caused by allergens, infections, stress, physical triggers. Management: identify/avoid triggers, H1-blocker antihistamines, corticosteroids for severe cases, consider allergy testing if chronic"
-        },
-        {
-          question: "Compare tinea pedis, corporis, and candidiasis fungal infections.",
-          answer: "Tinea pedis: dermatophyte between toes, maceration, antifungal cream. Tinea corporis: ring-shaped annular lesions with clearing center. Candidiasis: moist areas (skin folds), satellite pustules, white patches (oral). All require topical or oral antifungals; candida needs moisture reduction"
-        },
-        {
-          question: "What is the clinical significance of Molluscum contagiosum in immunocompromised patients?",
-          answer: "Viral infection causing umbilicated papules. Usually self-limited in immunocompetent individuals but may persist/spread in HIV/AIDS. Treatment: curettage, topical medications, cryotherapy. Avoid squeezing (spreads virus). May improve with ART in HIV+ patients"
-        },
-        {
-          question: "What are the risk factors and characteristics of squamous cell carcinoma?",
-          answer: "15-20% of skin cancers, more aggressive than BCC. Risk factors: UV exposure, immunosuppression, chronic wounds, actinic keratosis. Presents as scaly, crusty, erythematous nodule/plaque with central ulceration. Can metastasize to regional lymph nodes. Treat with surgical excision, Mohs surgery for high-risk lesions"
-        }
-
-      ]
-    };
-
-    function generateFlashcards(sectionId) {
-      const container = document.getElementById(sectionId + '-cards');
-      container.innerHTML = '';
-      const cards = flashcardData[sectionId] || [];
-      cards.forEach((card, index) => {
-        const cardEl = document.createElement('div');
-        cardEl.className = 'flash-card';
-        cardEl.innerHTML = `
-          <div class="flash-inner" onclick="this.parentElement.classList.toggle('flipped')">
-            <div class="flash-front"><strong>Q:</strong> ${card.question}</div>
-            <div class="flash-back"><strong>A:</strong> ${card.answer}</div>
-          </div>
-        `;
-        container.appendChild(cardEl);
-      });
-      updateFlashcardCount(sectionId);
-    }
-
-    function updateFlashcardCount(sectionId) {
-      const el = document.getElementById('flash-count-' + sectionId);
-      const count = (flashcardData[sectionId] || []).length;
-      if (el) el.textContent = count + ' card' + (count !== 1 ? 's' : '');
-    }
-
-    function shuffleFlashcards(sectionId) {
-      const cards = flashcardData[sectionId] || [];
-      for (let i = cards.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [cards[i], cards[j]] = [cards[j], cards[i]];
-      }
-      generateFlashcards(sectionId);
-    }
-
-    function resetFlashcards(sectionId) {
-      generateFlashcards(sectionId);
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      try { localStorage.setItem('theme', newTheme); } catch(e){}
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      generateFlashcards('skin');
-    });
-  </script>
+  <script src="assets/site.js?v=20260926"></script>
+  <script src="assets/study.js?v=20260926"></script>
+  <script src="assets/section-quiz.js?v=20260926"></script>
 </body>
 </html>

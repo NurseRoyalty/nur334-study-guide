@@ -4,17 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Big Picture Synthesis — NUR 334 Study Guide</title>
-    <link rel="stylesheet" href="assets/styles.css">
+  <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260926">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  
-  <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
-    <span class="sun">☀️</span>
-    <span class="moon">🌙</span>
-  </button>
+  <a href="#content" class="skip-link">Skip to main content</a>
 
-  <main id="main-content">
+  <main id="content">
     <div class="page-inner">
 
       <header class="page-head">
@@ -112,10 +108,59 @@
         <h2 class="block">Integrated Scenario Flashcards</h2>
         <p class="note">Complex multi-system scenarios integrating all Week 5 material. Click cards to flip.</p>
         <div class="flash-toolbar">
-          <button class="flash-btn alt" onclick="resetFlashcards('bigpicture')">↻ Reset</button>
-          <span class="flash-count" id="flash-count-bigpicture"></span>
+          <button class="flash-btn alt" data-action="shuffle" data-target="bigpicture-cards">Shuffle</button>
+          <span class="flash-count"></span>
         </div>
-        <div class="flash-grid" id="bigpicture-cards"></div>
+        <div class="flash-grid" id="bigpicture-cards">
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Patient: HIV+ CD4 100, with oral candidiasis (white patches), non-healing pressure ulcer on sacrum, fever. What's your comprehensive assessment and plan?</div>
+      <div class="flash-back">CD4 100 = critical immunosuppression. Candidiasis indicates CD4 < 200 (OI risk). Non-healing wound + fever = possible sepsis/infection. Plan: (1) Culture wound and blood; (2) Start IV antibiotics; (3) Fluconazole for candidiasis; (4) Assess nutrition (protein, vitamin C); (5) Check viral load/CD4; (6) Aggressive ART; (7) MAC/toxo/PCP/CMV prophylaxis; (8) Wound: debridement, moist dressing, VAC if indicated; (9) Mental health screen.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Burn patient: 50kg, 35% TBSA thermal burn, Day 1. Calculate Parkland formula fluids. What are your priorities?</div>
+      <div class="flash-back">Parkland: 4 mL × 50 kg × 35% = 7,000 mL LR in 24 hours; 3,500 mL in first 8 hours, 3,500 in next 16 hours. Priorities: (1) Airway/breathing (inhalation injury?); (2) Parkland formula (monitor UOP 0.5 mL/kg/hr); (3) Pain management; (4) Escharotomy for circumferential burns; (5) Nutritional support (hypermetabolism starts immediately); (6) Prophylaxis: Curling's ulcer (PPI), infection (topical antimicrobials); (7) Psychological support.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Compare healing in 3 scenarios: (A) clean surgical incision, (B) diabetic foot ulcer CD4 normal, (C) Kaposi Sarcoma at CD4 50. How do immune status and nutrition affect outcomes?</div>
+      <div class="flash-back">A (surgical): 10% strength week 1, 50% month 1, 90% month 6; normal inflammation. B (diabetic): impaired microcirculation + hyperglycemia delay healing; chronic; may never heal without intervention. C (Kaposi): CD4 50 = severe immunosuppression; tissue destruction ongoing; healing impossible without ART; restores immunity → OI resolution → allows scar formation. Nutrition critical ALL: protein/vit C essential; deficiency = fragile collagen, slow epithelialization.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Burn survivor at 6-month follow-up: hypertrophic scars on chest, contracture at right shoulder limiting ROM, reports depression and body image distress. What's your multi-disciplinary plan?</div>
+      <div class="flash-back">Scar management: pressure garments (12+ hours/day), massage, silicone gel, avoid sun, consider steroid injection/laser. Contracture: PT/OT (ROM exercises, splinting, positioning), possible surgical release if severe. Psychological: PHQ-9 screen, refer to psychiatry/psychology for depression, trauma-focused CBT for PTSD, support groups, family involvement. Rehabilitation timeline: continued improvements possible over 1-2 years. Monitor for new complications (cataract from burn trauma).</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Post-needlestick exposure from HIV+ patient: What's your immediate action for window period, PEP, and follow-up testing?</div>
+      <div class="flash-back">IMMEDIATE (<72 hours, ideally <2 hours): (1) Notify occupational health; (2) Start 28-day PEP (efavirenz/FTC/TDF or bictegravir/FTC/TAF preferred); (3) Baseline HIV test (4th gen); (4) Counsel on window period (18-45 days); (5) Prevention: no unprotected sex, don't breastfeed, no blood/organ donation. Follow-up: repeat testing at 1 month (covers most window periods), 3 months (definitive). Support: occupational counseling, may develop acute retroviral syndrome (fever, rash, lymphadenopathy despite negative test).</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">HIV+ patient CD4 200 with TB coinfection, three active OIs (PCP, MAC, toxoplasmosis), and severe malnutrition (wasting). What's your nursing priority?</div>
+      <div class="flash-back">Multi-system crisis. Priorities: (1) Respiratory support if PCP pneumonia severe; (2) ART (initiate or optimize) → immune reconstitution reverses OIs; (3) OI prophylaxis/treatment: PCP (TMP-SMX), MAC (azithromycin), toxo (same TMP-SMX covers both); (4) TB therapy (check interactions with ART); (5) Nutrition: high protein/calorie, supplements, appetite stimulants, may need nasogastric feeding; (6) Monitor for IRIS (immune recovery inflammatory syndrome) as CD4 rises; (7) Mental health screen (depression common); (8) Adherence support.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Patient with severe full-thickness burns (40% TBSA) on Day 10: fever, purulent wound drainage, tachycardia, confusion. What's the emergency?</div>
+      <div class="flash-back">BURN WOUND SEPSIS. This is life-threatening. Actions: (1) Blood cultures immediately; (2) Broad-spectrum IV antibiotics (cover Pseudomonas, Staph, others); (3) Emergency debridement of necrotic tissue/eschar (in OR); (4) Aggressive fluid resuscitation (reassess Parkland given increased output from sepsis); (5) Consider vasopressors if hypotensive; (6) Infection control (isolation); (7) Nutritional support (hypermetabolism peaks with sepsis); (8) Pain management; (9) Psychological support (critical illness).</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Compile discharge teaching for HIV+ patient transitioning from CD4 40 to CD4 500 after 8 months ART. What can you discontinue?</div>
+      <div class="flash-back">CD4 recovery trajectory: MAC prophylaxis (azithromycin) STOP at CD4 > 50; PCP prophylaxis (TMP-SMX) STOP at CD4 > 200; Toxo prophylaxis STOP at CD4 > 100. Continue: ART (absolutely), TB preventive therapy if indicated, CMV monitoring eye exams until CD4 > 100. Teach: U=U principle (undetectable = untransmittable), adherence critical to prevent rebound and resistance, safe sex practices, regular follow-up (CD4/viral load q3 months), maintain nutrition, mental health support ongoing, skin cancer screening (Kaposi may resolve with CD4 recovery but monitor).</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Needlestick exposure scenario: Your baseline HIV test is negative BUT symptoms develop 2 weeks later (fever, rash, lymphadenopathy, muscle pain). Are you infected? What's next?</div>
+      <div class="flash-back">HIGHLY SUSPICIOUS for acute retroviral syndrome despite negative test. This is the ECLIPSE PERIOD: viral replication at peak but antibodies/p24 antigen not yet detectable. The 2-week window is still within 18-45 day window period. Continue PEP (if haven't already, critical now). Repeat 4th generation test immediately (may be positive now). Contact occupational health/infectious disease urgently. Symptoms alone are not diagnostic but clinical + exposure history = treat as presumptive infection. Repeat testing at 1 and 3 months for confirmation.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Post-burn patient with severe hypertrophic scar (6 months post-injury): reports itching, pain with movement, and says scar is 'ruined his life.' How do you approach holistically?</div>
+      <div class="flash-back">Biopsychosocial approach: Scar management (pressure garments, massage, silicone, possible steroid injection); Pain: assess severity, analgesia, discuss topical agents; Itching: hydroxyzine, topical agents, avoid irritants; Psychological: PHQ-9 for depression (common post-trauma), may need antidepressants, refer to therapist for CBT/trauma-focused therapy, support groups with other burn survivors; Social: return-to-work planning, family/relationship counseling, sexuality concerns. Timeline: scars improve 1-2 years; continued rehabilitation critical. Validate: 'Your feelings are normal after trauma; many burn survivors recover emotionally with support.'</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Complex case: Elderly patient with pressure ulcer (stage 3, cavity), malnutrition (albumin 2.5), on steroids for COPD, smokes 2 packs/day, and reports depression. What's blocking healing?</div>
+      <div class="flash-back">Multiple barriers: (1) Nutrition (albumin 2.5 = severe protein deficiency; protein needed for collagen); (2) Steroids (suppress immune/inflammatory phase); (3) Smoking (vasoconstriction reduces oxygen delivery); (4) COPD (lower oxygenation); (5) Age (slower healing inherently); (6) Depression (affects motivation for care, wound inspection). Interventions: (1) Nutritional support (high protein, vitamin C, zinc); (2) Smoking cessation (if willing—major impact); (3) Wound: debridement, moist dressing, VAC for cavity; (4) Steroids: discuss with MD (necessary for COPD but impairs healing); (5) Mental health: treat depression (SSRIs); (6) Pressure relief: turning, repositioning, support surface.</div>
+    </div></div>
+    <div class="flash-card"><div class="flash-inner">
+      <div class="flash-front">Test yourself on integrating Week 5: Compare management of CD4 50 patient with skin condition (Kaposi) to burn patient with hypermetabolism. What's similar? What's different?</div>
+      <div class="flash-back">SIMILAR: Both require infection prevention (topical antimicrobials), nutritional support (protein, calories), wound assessment/management, psychological support. Both tissues destroyed; healing requires immune + nutritional support. DIFFERENT: Kaposi management focuses on immune restoration (ART → OI resolution); burn management focuses on active debridement + grafting + infection control. Kaposi: CD4 restoration is primary; burn: immediate fluid resuscitation + escharotomy + grafting are primary. Timing: Kaposi healing may take weeks-months after CD4 recovery; burn healing is acute/urgent (sepsis risk in days). Both benefit from holistic approach (physical + psychological support).</div>
+    </div></div>
+        </div>
       </section>
 
       
@@ -125,74 +170,6 @@
   <nav class="page-flip" data-page-flip></nav>
 
   <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
-
-  <script src="site.js"></script>
-  <script src="study.js"></script>
-  <script src="section-quiz.js"></script>
-  <script>
-    const flashcardData = {
-      bigpicture: [
-        { q: "Patient: HIV+ CD4 100, with oral candidiasis (white patches), non-healing pressure ulcer on sacrum, fever. What's your comprehensive assessment and plan?", a: "CD4 100 = critical immunosuppression. Candidiasis indicates CD4 < 200 (OI risk). Non-healing wound + fever = possible sepsis/infection. Plan: (1) Culture wound and blood; (2) Start IV antibiotics; (3) Fluconazole for candidiasis; (4) Assess nutrition (protein, vitamin C); (5) Check viral load/CD4; (6) Aggressive ART; (7) MAC/toxo/PCP/CMV prophylaxis; (8) Wound: debridement, moist dressing, VAC if indicated; (9) Mental health screen." },
-        { q: "Burn patient: 50kg, 35% TBSA thermal burn, Day 1. Calculate Parkland formula fluids. What are your priorities?", a: "Parkland: 4 mL × 50 kg × 35% = 7,000 mL LR in 24 hours; 3,500 mL in first 8 hours, 3,500 in next 16 hours. Priorities: (1) Airway/breathing (inhalation injury?); (2) Parkland formula (monitor UOP 0.5 mL/kg/hr); (3) Pain management; (4) Escharotomy for circumferential burns; (5) Nutritional support (hypermetabolism starts immediately); (6) Prophylaxis: Curling's ulcer (PPI), infection (topical antimicrobials); (7) Psychological support." },
-        { q: "Compare healing in 3 scenarios: (A) clean surgical incision, (B) diabetic foot ulcer CD4 normal, (C) Kaposi Sarcoma at CD4 50. How do immune status and nutrition affect outcomes?", a: "A (surgical): 10% strength week 1, 50% month 1, 90% month 6; normal inflammation. B (diabetic): impaired microcirculation + hyperglycemia delay healing; chronic; may never heal without intervention. C (Kaposi): CD4 50 = severe immunosuppression; tissue destruction ongoing; healing impossible without ART; restores immunity → OI resolution → allows scar formation. Nutrition critical ALL: protein/vit C essential; deficiency = fragile collagen, slow epithelialization." },
-        { q: "Burn survivor at 6-month follow-up: hypertrophic scars on chest, contracture at right shoulder limiting ROM, reports depression and body image distress. What's your multi-disciplinary plan?", a: "Scar management: pressure garments (12+ hours/day), massage, silicone gel, avoid sun, consider steroid injection/laser. Contracture: PT/OT (ROM exercises, splinting, positioning), possible surgical release if severe. Psychological: PHQ-9 screen, refer to psychiatry/psychology for depression, trauma-focused CBT for PTSD, support groups, family involvement. Rehabilitation timeline: continued improvements possible over 1-2 years. Monitor for new complications (cataract from burn trauma)." },
-        { q: "Post-needlestick exposure from HIV+ patient: What's your immediate action for window period, PEP, and follow-up testing?", a: "IMMEDIATE (<72 hours, ideally <2 hours): (1) Notify occupational health; (2) Start 28-day PEP (efavirenz/FTC/TDF or bictegravir/FTC/TAF preferred); (3) Baseline HIV test (4th gen); (4) Counsel on window period (18-45 days); (5) Prevention: no unprotected sex, don't breastfeed, no blood/organ donation. Follow-up: repeat testing at 1 month (covers most window periods), 3 months (definitive). Support: occupational counseling, may develop acute retroviral syndrome (fever, rash, lymphadenopathy despite negative test)." },
-        { q: "HIV+ patient CD4 200 with TB coinfection, three active OIs (PCP, MAC, toxoplasmosis), and severe malnutrition (wasting). What's your nursing priority?", a: "Multi-system crisis. Priorities: (1) Respiratory support if PCP pneumonia severe; (2) ART (initiate or optimize) → immune reconstitution reverses OIs; (3) OI prophylaxis/treatment: PCP (TMP-SMX), MAC (azithromycin), toxo (same TMP-SMX covers both); (4) TB therapy (check interactions with ART); (5) Nutrition: high protein/calorie, supplements, appetite stimulants, may need nasogastric feeding; (6) Monitor for IRIS (immune recovery inflammatory syndrome) as CD4 rises; (7) Mental health screen (depression common); (8) Adherence support." },
-        { q: "Patient with severe full-thickness burns (40% TBSA) on Day 10: fever, purulent wound drainage, tachycardia, confusion. What's the emergency?", a: "BURN WOUND SEPSIS. This is life-threatening. Actions: (1) Blood cultures immediately; (2) Broad-spectrum IV antibiotics (cover Pseudomonas, Staph, others); (3) Emergency debridement of necrotic tissue/eschar (in OR); (4) Aggressive fluid resuscitation (reassess Parkland given increased output from sepsis); (5) Consider vasopressors if hypotensive; (6) Infection control (isolation); (7) Nutritional support (hypermetabolism peaks with sepsis); (8) Pain management; (9) Psychological support (critical illness)." },
-        { q: "Compile discharge teaching for HIV+ patient transitioning from CD4 40 to CD4 500 after 8 months ART. What can you discontinue?", a: "CD4 recovery trajectory: MAC prophylaxis (azithromycin) STOP at CD4 > 50; PCP prophylaxis (TMP-SMX) STOP at CD4 > 200; Toxo prophylaxis STOP at CD4 > 100. Continue: ART (absolutely), TB preventive therapy if indicated, CMV monitoring eye exams until CD4 > 100. Teach: U=U principle (undetectable = untransmittable), adherence critical to prevent rebound and resistance, safe sex practices, regular follow-up (CD4/viral load q3 months), maintain nutrition, mental health support ongoing, skin cancer screening (Kaposi may resolve with CD4 recovery but monitor)." },
-        { q: "Needlestick exposure scenario: Your baseline HIV test is negative BUT symptoms develop 2 weeks later (fever, rash, lymphadenopathy, muscle pain). Are you infected? What's next?", a: "HIGHLY SUSPICIOUS for acute retroviral syndrome despite negative test. This is the ECLIPSE PERIOD: viral replication at peak but antibodies/p24 antigen not yet detectable. The 2-week window is still within 18-45 day window period. Continue PEP (if haven't already, critical now). Repeat 4th generation test immediately (may be positive now). Contact occupational health/infectious disease urgently. Symptoms alone are not diagnostic but clinical + exposure history = treat as presumptive infection. Repeat testing at 1 and 3 months for confirmation." },
-        { q: "Post-burn patient with severe hypertrophic scar (6 months post-injury): reports itching, pain with movement, and says scar is 'ruined his life.' How do you approach holistically?", a: "Biopsychosocial approach: Scar management (pressure garments, massage, silicone, possible steroid injection); Pain: assess severity, analgesia, discuss topical agents; Itching: hydroxyzine, topical agents, avoid irritants; Psychological: PHQ-9 for depression (common post-trauma), may need antidepressants, refer to therapist for CBT/trauma-focused therapy, support groups with other burn survivors; Social: return-to-work planning, family/relationship counseling, sexuality concerns. Timeline: scars improve 1-2 years; continued rehabilitation critical. Validate: 'Your feelings are normal after trauma; many burn survivors recover emotionally with support.'" },
-        { q: "Complex case: Elderly patient with pressure ulcer (stage 3, cavity), malnutrition (albumin 2.5), on steroids for COPD, smokes 2 packs/day, and reports depression. What's blocking healing?", a: "Multiple barriers: (1) Nutrition (albumin 2.5 = severe protein deficiency; protein needed for collagen); (2) Steroids (suppress immune/inflammatory phase); (3) Smoking (vasoconstriction reduces oxygen delivery); (4) COPD (lower oxygenation); (5) Age (slower healing inherently); (6) Depression (affects motivation for care, wound inspection). Interventions: (1) Nutritional support (high protein, vitamin C, zinc); (2) Smoking cessation (if willing—major impact); (3) Wound: debridement, moist dressing, VAC for cavity; (4) Steroids: discuss with MD (necessary for COPD but impairs healing); (5) Mental health: treat depression (SSRIs); (6) Pressure relief: turning, repositioning, support surface." },
-        { q: "Test yourself on integrating Week 5: Compare management of CD4 50 patient with skin condition (Kaposi) to burn patient with hypermetabolism. What's similar? What's different?", a: "SIMILAR: Both require infection prevention (topical antimicrobials), nutritional support (protein, calories), wound assessment/management, psychological support. Both tissues destroyed; healing requires immune + nutritional support. DIFFERENT: Kaposi management focuses on immune restoration (ART → OI resolution); burn management focuses on active debridement + grafting + infection control. Kaposi: CD4 restoration is primary; burn: immediate fluid resuscitation + escharotomy + grafting are primary. Timing: Kaposi healing may take weeks-months after CD4 recovery; burn healing is acute/urgent (sepsis risk in days). Both benefit from holistic approach (physical + psychological support)." }
-      ]
-    };
-
-    function generateFlashcards(sectionId) {
-      const container = document.getElementById(sectionId + '-cards');
-      const data = flashcardData[sectionId];
-      container.innerHTML = data.map((card, idx) => `
-        <div class="flash-card" onclick="this.classList.toggle('flipped')" tabindex="0" onkeydown="if(event.key===' ') { event.preventDefault(); this.classList.toggle('flipped'); }">
-          <div class="flash-inner">
-            <div class="flash-front"><div>${card.q}</div></div>
-            <div class="flash-back"><div>${card.a}</div></div>
-          </div>
-        </div>
-      `).join('');
-      updateFlashcardCount(sectionId);
-    }
-
-    function updateFlashcardCount(sectionId) {
-      const count = flashcardData[sectionId].length;
-      const el = document.getElementById('flash-count-' + sectionId);
-      if (el) el.textContent = `${count} cards`;
-    }
-
-    function shuffleFlashcards(sectionId) {
-      const arr = flashcardData[sectionId];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      generateFlashcards(sectionId);
-    }
-
-    function resetFlashcards(sectionId) {
-      const cards = document.getElementById(sectionId + '-cards').querySelectorAll('.flash-card');
-      cards.forEach(card => card.classList.remove('flipped'));
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      try { localStorage.setItem('theme', newTheme); } catch(e){}
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      generateFlashcards('bigpicture');
-    });
-  </script>
     </div>
   </main>
 
@@ -200,9 +177,9 @@
 
   <footer class="site-foot">Built from the course lecture material — for personal study use.</footer>
 
-  <script src="site.js"></script>
-  <script src="study.js"></script>
-  <script src="section-quiz.js"></script>
+  <script src="assets/site.js?v=20260926"></script>
+  <script src="assets/study.js?v=20260926"></script>
+  <script src="assets/section-quiz.js?v=20260926"></script>
   
 </body>
 </html>

@@ -40,30 +40,26 @@ const SITE = {
                by search + per-page CSS hooks)
        num   - the little number badge in the dropdown
        title - display name; use &amp; for an ampersand
-       file  - the filename, relative to this folder                     */
+       file  - the filename, relative to this folder
+     A { heading: "Week 1" } entry is not a page; it just prints a small
+     section label inside the dropdown (used to combine several weeks
+     into one menu).                                                   */
   groups: [
     {
-      label: "Week 1",
+      label: "Weeks 1–3",
       items: [
+        { heading: "Week 1" },
         { id: "week1-upper-respiratory", num: "1", title: "Upper Respiratory Problems", file: "week1-upper-respiratory-problems.html" },
         { id: "week1-lower-respiratory", num: "2", title: "Lower Respiratory Problems", file: "week1-lower-respiratory-problems.html" },
         { id: "week1-head-neck-cancer", num: "3", title: "Head &amp; Neck Cancer", file: "week1-head-neck-cancer.html" },
         { id: "week1-respiratory-labs", num: "4", title: "Labs &amp; Diagnostics", file: "week1-respiratory-labs-diagnostics.html" },
         { id: "week1-respiratory-lecture", num: "5", title: "Live Lecture Review", file: "week1-respiratory-live-lecture-review.html" },
-      ]
-    },
-    {
-      label: "Week 2",
-      items: [
+        { heading: "Week 2" },
         { id: "week2-anemias-polycythemia", num: "1", title: "Anemias &amp; Polycythemia", file: "week2-anemias-polycythemia.html" },
         { id: "week2-hematology-labs", num: "2", title: "Labs &amp; Diagnostics", file: "week2-hematology-labs-diagnostics.html" },
         { id: "week2-blood-component", num: "3", title: "Blood Component Therapy", file: "week2-blood-component-therapy.html" },
         { id: "week2-central-venous", num: "4", title: "Central Venous Catheters", file: "week2-central-venous-catheters.html" },
-      ]
-    },
-    {
-      label: "Week 3",
-      items: [
+        { heading: "Week 3" },
         { id: "week3-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week3-study-guide.html" },
         { id: "week3-electrolytes", num: "1", title: "Electrolytes", file: "week3-electrolytes.html" },
         { id: "week3-fluid-management", num: "2", title: "Fluid Management", file: "week3-fluid-management.html" },
@@ -74,37 +70,48 @@ const SITE = {
       ]
     },
     {
-      label: "Week 4",
+      label: "Weeks 4–6",
       items: [
+        { heading: "Week 4" },
         { id: "week4-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week4-study-guide.html" },
-      ]
-    },
-    {
-      label: "Week 5",
-      items: [
-        { id: "week5-overview", num: "★", title: "Comprehensive Overview", file: "week5-comprehensive-overview.html" },
-        { id: "week5-hiv", num: "1", title: "HIV Management", file: "week5-hiv-comprehensive.html" },
-        { id: "week5-skin", num: "2", title: "Skin Conditions", file: "week5-skin-conditions.html" },
-        { id: "week5-wounds", num: "3", title: "Wounds & Complications", file: "week5-wounds.html" },
+        { id: "week4-uti", num: "1", title: "Urinary Tract Infections", file: "week4-uti.html" },
+        { id: "week4-pyelonephritis", num: "2", title: "Pyelonephritis", file: "week4-pyelonephritis.html" },
+        { id: "week4-nephrolithiasis", num: "3", title: "Nephrolithiasis", file: "week4-nephrolithiasis.html" },
+        { id: "week4-aki", num: "4", title: "Acute Kidney Injury", file: "week4-aki.html" },
+        { id: "week4-ckd", num: "5", title: "Chronic Kidney Disease", file: "week4-ckd.html" },
+        { heading: "Week 5" },
+        { id: "week5-overview", num: "★", title: "Integumentary System Overview", file: "week5-comprehensive-overview.html" },
+        { id: "week5-hiv", num: "1", title: "HIV: Labs &amp; Management", file: "week5-hiv-comprehensive.html" },
+        { id: "week5-skin-conditions", num: "2", title: "Skin Conditions", file: "week5-skin-conditions.html" },
+        { id: "week5-wounds", num: "3", title: "Wounds &amp; Complications", file: "week5-wounds.html" },
         { id: "week5-burns", num: "4", title: "Burns", file: "week5-burns.html" },
-        { id: "week5-bigpicture", num: "5", title: "Big Picture Review", file: "week5-bigpicture.html" },
+        { id: "week5-bigpicture", num: "5", title: "Final Comprehensive Review", file: "week5-bigpicture.html" },
+        { heading: "Week 6" },
+        { id: "week6-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week6-study-guide.html" },
+        { id: "week6-gi-labs-bariatric", num: "1", title: "GI Labs, Diagnostics &amp; Bariatric Surgery", file: "week6-gi-labs-bariatric.html" },
+        { id: "week6-gerd-hiatal-pud", num: "2", title: "GERD, Hiatal Hernia &amp; PUD", file: "week6-gerd-hiatal-pud.html" },
+        { id: "week6-ugi-ibd-obstruction", num: "3", title: "UGI Bleed, Crohn's, UC &amp; Obstruction", file: "week6-ugi-ibd-obstruction.html" },
+        { id: "week6-colorectal-ostomies", num: "4", title: "Colorectal Cancer &amp; Bowel Ostomies", file: "week6-colorectal-ostomies.html" },
+        { id: "week6-diverticular-disease", num: "5", title: "Diverticulosis &amp; Diverticulitis", file: "week6-diverticular-disease.html" },
+        { id: "week6-big-picture", num: "6", title: "Big Picture Overview", file: "week6-big-picture.html" },
       ]
     },
     {
       label: "Fundamentals Review",
       items: [
-        { id: "review-pharm-foundations", num: "1", title: "Pharmacology Foundations", file: "review-pharm-foundations.html" },
-        { id: "review-cellular-immunity", num: "2", title: "Cellular Adaptation, Infection &amp; Immunity", file: "review-cellular-adaptation-infection-immunity.html" },
-        { id: "review-htn-hld", num: "3", title: "Hypertension &amp; Hyperlipidemia (HTN/HLD)", file: "review-hypertension-hyperlipidemia.html" },
-        { id: "review-diabetes-metsyn", num: "4", title: "Diabetes &amp; Metabolic Syndrome", file: "review-diabetes-metabolic-syndrome.html" },
-        { id: "review-coagulation-dvt", num: "5", title: "Coagulation &amp; DVT", file: "review-coagulation-dvt.html" },
-        { id: "review-blood-cells-cbc", num: "6", title: "Blood Cells &amp; CBC Interpretation", file: "review-blood-cells-cbc.html" },
-        { id: "review-fluid-electrolytes", num: "7", title: "Fluid &amp; Electrolytes", file: "review-fluid-electrolytes.html" },
-        { id: "review-pain-seizures", num: "8", title: "Pain &amp; Seizures", file: "review-pain-seizures.html" },
-        { id: "review-dementia-depression-sud", num: "9", title: "Dementia, Depression &amp; SUD", file: "review-dementia-depression-sud.html" },
-        { id: "review-gi-gu-skin-hypersensitivity", num: "10", title: "GI, GU, Skin &amp; Hypersensitivity", file: "review-gi-gu-skin-hypersensitivity.html" },
-        { id: "review-stress-steroids", num: "11", title: "Stress &amp; Steroids", file: "review-stress-steroids.html" },
-        { id: "review-big-picture-overview", num: "12", title: "Big Picture Overview", file: "review-big-picture-overview.html" },
+        { id: "fundamentals-legal-ethical", num: "1", title: "Legal &amp; Ethical Issues", file: "fundamentals-legal-ethical-issues.html" },
+        { id: "fundamentals-nursing-process", num: "2", title: "Nursing Process &amp; SBAR", file: "fundamentals-nursing-process-sbar.html" },
+        { id: "fundamentals-obesity", num: "3", title: "Obesity &amp; Metabolic Syndrome", file: "fundamentals-obesity-metabolic-syndrome.html" },
+        { id: "fundamentals-oxygenation", num: "4", title: "Oxygenation &amp; Tracheostomy", file: "fundamentals-oxygenation-tracheostomy.html" },
+        { id: "fundamentals-cardiovascular", num: "5", title: "Cardiovascular", file: "fundamentals-cardiovascular.html" },
+        { id: "fundamentals-diabetic-care", num: "6", title: "Diabetic Care &amp; Nutrition", file: "fundamentals-diabetic-care-nutrition.html" },
+        { id: "fundamentals-urinary-bowel", num: "7", title: "Urinary &amp; Bowel Elimination", file: "fundamentals-urinary-bowel-elimination.html" },
+        { id: "fundamentals-integumentary", num: "8", title: "Integumentary", file: "fundamentals-integumentary.html" },
+        { id: "fundamentals-neurosensory", num: "9", title: "Neurosensory &amp; Pain", file: "fundamentals-neurosensory-pain.html" },
+        { id: "fundamentals-older-adults", num: "10", title: "Older Adults &amp; Discharge", file: "fundamentals-older-adults-discharge.html" },
+        { id: "fundamentals-palliative", num: "11", title: "Palliative, Hospice &amp; End of Life", file: "fundamentals-palliative-hospice-eol.html" },
+        { id: "fundamentals-big-picture", num: "★", title: "Big Picture Overview", file: "fundamentals-big-picture-overview.html" },
+        { id: "fundamentals-review-exam", num: "📝", title: "Review Exam", file: "fundamentals-review-exam.html" },
       ]
     },
     {
@@ -173,7 +180,7 @@ const SITE_VER = (function () {
 
   // Flatten the ordered list of pages for prev/next.
   const flat = [];
-  SITE.groups.forEach(g => g.items.forEach(it => flat.push(it)));
+  SITE.groups.forEach(g => g.items.forEach(it => { if (!it.heading) flat.push(it); }));
   const current = flat.find(it => it.file === file) || null;
 
   // ---- Build the top nav ---------------------------------------
@@ -185,6 +192,7 @@ const SITE_VER = (function () {
     const groupActive = g.items.some(it => it.file === file) ? "is-active" : "";
     let sub = "";
     g.items.forEach(it => {
+      if (it.heading) { sub += `<li class="drop-heading" role="presentation">${it.heading}</li>`; return; }
       const active = it.file === file ? "is-active" : "";
       sub += `<li><a class="droplink ${active}" data-page="${it.id}" href="${it.file}"${active ? ' aria-current="page"' : ""}>
         <span class="num">${it.num}</span><span>${it.title}</span></a></li>`;
