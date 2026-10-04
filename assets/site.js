@@ -97,6 +97,18 @@ const SITE = {
       ]
     },
     {
+      label: "Weeks 7–9",
+      items: [
+        { heading: "Week 7" },
+        { id: "week7-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week7-study-guide.html" },
+        { id: "week7-cancer", num: "1", title: "Cancer", file: "week7-cancer.html" },
+        { id: "week7-cholelithiasis", num: "2", title: "Cholelithiasis &amp; Cholecystitis", file: "week7-cholelithiasis.html" },
+        { id: "week7-pancreatitis", num: "3", title: "Pancreatitis", file: "week7-pancreatitis.html" },
+        { id: "week7-cirrhosis-hepatitis", num: "4", title: "Cirrhosis &amp; Hepatitis", file: "week7-cirrhosis-hepatitis.html" },
+        { id: "week7-hepatobiliary-labs", num: "5", title: "Hepatobiliary Labs &amp; Diagnostics", file: "week7-hepatobiliary-labs.html" },
+      ]
+    },
+    {
       label: "Fundamentals Review",
       items: [
         { id: "fundamentals-legal-ethical", num: "1", title: "Legal &amp; Ethical Issues", file: "fundamentals-legal-ethical-issues.html" },
