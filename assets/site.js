@@ -137,6 +137,7 @@ const SITE = {
         { heading: "Jeopardy Games" },
         { id: "exam2-jeopardy-games", num: "🎮", title: "Exam 2 Jeopardy Game", file: "exam2-jeopardy-game1.html" },
         { id: "exam3-jeopardy", num: "🎮", title: "Exam 3 Jeopardy Game", file: "exam3-jeopardy.html" },
+        { id: "exam4-jeopardy", num: "🎮", title: "Exam 4 Jeopardy Game", file: "exam4-jeopardy.html" },
       ]
     }
   ]
