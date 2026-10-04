@@ -97,7 +97,7 @@ const SITE = {
       ]
     },
     {
-      label: "Weeks 7–9",
+      label: "Week 7",
       items: [
         { heading: "Week 7" },
         { id: "week7-study-guide", num: "★", title: "Comprehensive Study Guide", file: "week7-study-guide.html" },

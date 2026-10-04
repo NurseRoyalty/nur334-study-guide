@@ -127,6 +127,12 @@
    order satisfies. Restore the full minimum-gap-3 rule once the topic
    pool grows large enough (roughly 5+ topics) to make it feasible
    again.
+   --- 2026-10-04: Weeks 4-7 added (24 questions, 6 per week) ---
+   Week 4 renal, Week 5 HIV/skin/burns, Week 6 GI, Week 7 cancer and
+   hepatobiliary. Answer-count spread: 1 correct x2, 2 x4, 3 x6, 4 x6,
+   5 x4, all-correct x2; 6- and 7-option items. Correct-to-wrong
+   length ratio 0.80-1.10 on every item. Appended after the existing
+   questions, shuffled so no two neighbours share a topic.
    ============================================================ */
 window.EXAM_DATA = {
   id: "torture-chamber",
@@ -724,6 +730,461 @@ window.EXAM_DATA = {
       answers: [0, 1, 2, 3],
       rationale: "Correct: Discontinue all triggering anesthetic agents immediately and switch to safe anesthetics; Administer dantrolene sodium 2.5 mg/kg IV push and prepare additional doses if needed; Begin active cooling measures including IV cold saline, ice packs, and peritoneal lavage; Hyperventilate with 100% oxygen to eliminate residual volatile anesthetic from lungs. These align with clinical evidence for Malignant Hyperthermia. Incorrect: Continue surgery as planned since early signs may resolve with continued anesthetic — these represent common misconceptions or contraindicated actions.",
       topic: "Malignant Hyperthermia"
+    },
+    {
+      "stem": "The nurse is teaching a group about how HIV infection progresses. Which statements are accurate?",
+      "options": [
+        "A client with no symptoms can be highly infectious",
+        "The virus stops replicating during latency",
+        "Seroconversion can feel like a severe flu",
+        "CD4 counts stay stable during latency",
+        "Lab tests can miss an acute infection",
+        "Antibodies are detectable in the first stage",
+        "Clinical latency usually lasts under a year"
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "rationale": "In acute infection the virus replicates rapidly but is undetectable on lab tests, and the symptom-free client is highly infectious. Antibodies become detectable at seroconversion, when the client feels extremely ill. Latency can last 3–12 or more years while the virus keeps replicating and CD4 steadily drops.",
+      "topic": "HIV Stages &amp; CD4"
+    },
+    {
+      "stem": "A client has a burn on the back that looks charred and leathery. Which findings does the nurse expect with this depth of injury?",
+      "options": [
+        "Little or no pain at the site",
+        "Grafting will be needed",
+        "Severe pain from intact nerves",
+        "Significant scarring",
+        "Blisters that weep",
+        "Healing within 2–3 weeks"
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "rationale": "A full-thickness burn is charred and leathery with eschar, painless because nerves are destroyed, requires grafting, and scars significantly. Blisters, a moist weeping surface, severe pain, and healing in 2–3 weeks describe a partial-thickness burn.",
+      "topic": "Burns"
+    },
+    {
+      "stem": "The nurse reviews morning results for four days of worsening acute kidney injury. Which findings would lead the nurse to anticipate dialysis?",
+      "options": [
+        "Severe metabolic acidosis",
+        "Signs of uremia",
+        "Urine sodium of 15 mEq/L",
+        "Potassium of 6.8 mEq/L",
+        "Concentrated, dark urine",
+        "Potassium of 5.2 mEq/L"
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "rationale": "Dialysis is considered for potassium above 6.5, severe acidosis, or uremia. A potassium of 5.2 is below that threshold, and a low urine sodium with concentrated urine simply describes a pre-renal picture.",
+      "topic": "Acute Kidney Injury"
+    },
+    {
+      "stem": "A client with HIV has a CD4 count of 180 cells/μL. Which statements apply to this client?",
+      "options": [
+        "Esophageal candidiasis is now a risk",
+        "AIDS begins below a count of 100",
+        "Toxoplasmosis is now a risk",
+        "PCP is now a risk",
+        "The client is in clinical latency",
+        "Immune status is still normal",
+        "The client meets the definition of AIDS"
+      ],
+      "answers": [
+        0,
+        2,
+        3,
+        6
+      ],
+      "rationale": "A CD4 count below 200 is AIDS-defining and brings risk for PCP, toxoplasmosis, CMV, and esophageal candidiasis. Normal immune status is above 500, and a count below 200 means the client has moved past clinical latency into stage 4.",
+      "topic": "HIV Stages &amp; CD4"
+    },
+    {
+      "stem": "The nurse is caring for several clients who had GI studies today. Which nursing actions are correct?",
+      "options": [
+        "Sit the client upright for a gastric emptying study",
+        "Hold fluids after EGD until the gag returns",
+        "Teach that black stool follows barium",
+        "Push fluids after a barium swallow",
+        "Use barium when perforation is suspected",
+        "Teach that gas is expected after colonoscopy"
+      ],
+      "answers": [
+        1,
+        3,
+        5
+      ],
+      "rationale": "Barium constipates, so fluids are pushed, and stool turns white. After EGD the client stays NPO until the gag reflex returns. Gas is expected after colonoscopy. Gastrografin, not barium, is used if perforation is suspected, and the client lies flat for a gastric emptying study.",
+      "topic": "GI Diagnostics"
+    },
+    {
+      "stem": "A client arrives with burns covering the entire front of the trunk, all of the left arm, and the front of the right leg. Using the rule of nines, which statements are correct?",
+      "options": [
+        "The front of the trunk counts as 9%",
+        "A whole arm counts as 18%",
+        "The estimated area burned is 27%",
+        "The estimated area burned is 36%",
+        "The estimated area burned is 45%",
+        "The front of a leg counts as 18%"
+      ],
+      "answers": [
+        3
+      ],
+      "rationale": "Anterior trunk 18% + whole arm 9% + anterior leg 9% = 36%. A whole leg is 18% (9% front, 9% back), and a whole arm is 9%.",
+      "topic": "Burns"
+    },
+    {
+      "stem": "A client is being evaluated for sudden colicky pain that travels from the flank to the groin. Which statements about this condition are accurate?",
+      "options": [
+        "Urine is strained so the stone can be analyzed",
+        "Uric acid stones are linked to alkaline urine",
+        "Struvite stones are linked to chronic UTIs",
+        "CT with contrast is the gold standard test",
+        "Allopurinol is given for calcium oxalate stones",
+        "Calcium phosphate is the most common type"
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "rationale": "Struvite stones are associated with chronic UTIs, and urine is strained so the stone can be analyzed. Uric acid stones form in acidic urine, noncontrast CT is the gold standard, calcium oxalate is the most common type, and allopurinol is used for uric acid stones.",
+      "topic": "Nephrolithiasis"
+    },
+    {
+      "stem": "The nurse is teaching a new graduate about caring for clients after bowel surgery. Which statements are accurate?",
+      "options": [
+        "Ileostomy output is liquid and caustic",
+        "The wafer is cut to the exact stoma size",
+        "Sigmoid colostomy output is formed",
+        "A loop stoma is supported by a rod",
+        "The distal loop opening drains mucus",
+        "AP resection leaves a permanent colostomy"
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "rationale": "All six are accurate: location determines output (ileostomy liquid and caustic; sigmoid colostomy formed), the wafer is cut to the exact stoma size, a loop stoma rests on a rod with the proximal opening draining stool and the distal draining mucus, and an AP resection results in a permanent colostomy.",
+      "topic": "Bowel Ostomies"
+    },
+    {
+      "stem": "A client who had gastric surgery reports diarrhea, dizziness, and palpitations soon after eating. Which instructions should the nurse give?",
+      "options": [
+        "Eat three larger meals a day",
+        "Sip juice for symptoms",
+        "Choose more protein and fat",
+        "Drink fluids with each meal",
+        "Choose low-fat foods",
+        "Rest after eating"
+      ],
+      "answers": [
+        2,
+        5
+      ],
+      "rationale": "Teaching for dumping syndrome: six small meals, no fluids with meals, avoid simple sugars, more protein and fat, and rest after eating. Juice is a simple sugar and makes the fluid shift worse.",
+      "topic": "Dumping Syndrome"
+    },
+    {
+      "stem": "A client reports burning with urination that began three days ago. Which findings suggest the infection has moved up to the kidney?",
+      "options": [
+        "WBC casts in the urine",
+        "Pain on CVA percussion",
+        "Suprapubic discomfort",
+        "Frequency, no fever",
+        "Temperature of 39.1°C",
+        "Nausea and vomiting",
+        "Flank pain"
+      ],
+      "answers": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "rationale": "Pyelonephritis is a systemic infection: high fever, flank pain, CVA tenderness, nausea and vomiting, and WBC casts (which show renal involvement). Suprapubic discomfort and frequency with no fever describe a lower UTI.",
+      "topic": "UTI &amp; Pyelonephritis"
+    },
+    {
+      "stem": "A nurse is answering questions at a community clinic about viral hepatitis. Which statements are accurate?",
+      "options": [
+        "Hepatitis A spreads mainly through blood",
+        "Acetaminophen is preferred for discomfort",
+        "Hepatitis B exposure is treated within 24 hours",
+        "Hepatitis A exposure is treated within 24 hours",
+        "Hepatitis C is prevented with a 3-dose vaccine",
+        "Hepatitis A often becomes a chronic infection"
+      ],
+      "answers": [
+        2
+      ],
+      "rationale": "Hepatitis B post-exposure treatment is given within 24 hours; hepatitis A within 2 weeks. Hepatitis A is fecal–oral and never chronic. There is no vaccine for hepatitis C (the 3-dose vaccine is for hepatitis B). Acetaminophen is avoided because it is hepatotoxic.",
+      "topic": "Viral Hepatitis"
+    },
+    {
+      "stem": "A client with a peptic ulcer has become restless over the past hour. Which additional findings support the nurse's concern about blood loss?",
+      "options": [
+        "Reports of thirst",
+        "A rising BUN",
+        "A falling BUN",
+        "Warm, flushed skin",
+        "Heart rate of 112",
+        "A rising hematocrit",
+        "Cool, clammy skin"
+      ],
+      "answers": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "rationale": "Signs of shock from a GI bleed include tachycardia, thirst, cool clammy skin, and restlessness. BUN rises with a GI bleed, and hemoglobin and hematocrit fall.",
+      "topic": "Upper GI Bleed"
+    },
+    {
+      "stem": "A client with cirrhosis is newly confused, and the hands flap when the wrists are extended. Which factors could be making this worse?",
+      "options": [
+        "Daily abdominal girth checks",
+        "No stool for 3 days",
+        "Bleeding in the GI tract",
+        "A falling ammonia level",
+        "A low-sodium diet",
+        "Three soft stools a day"
+      ],
+      "answers": [
+        1,
+        2
+      ],
+      "rationale": "Hepatic encephalopathy comes from rising ammonia. Constipation and GI bleeding both raise ammonia. Lactulose is titrated to 2–4 stools a day, so three soft stools is the goal.",
+      "topic": "Hepatic Encephalopathy"
+    },
+    {
+      "stem": "A client is admitted with severe epigastric pain, vomiting, and elevated amylase and lipase. Which orders are appropriate?",
+      "options": [
+        "IV opioids",
+        "NG tube to low wall suction",
+        "Glucose monitoring",
+        "Aggressive IV fluids",
+        "Flat, legs straight",
+        "Fluid restriction",
+        "NPO status"
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        3,
+        6
+      ],
+      "rationale": "Acute pancreatitis care: pain relief first with IV opioids and a knees-bent position, NPO with NG to low wall suction, aggressive IV fluids for hypovolemia, and watching glucose for hyperglycemia.",
+      "topic": "Acute Pancreatitis"
+    },
+    {
+      "stem": "A client has a sealed radiation implant in place. Which actions by the nurse are correct?",
+      "options": [
+        "Keeping the client in a private room",
+        "Limiting each visitor to 30 minutes a day",
+        "Counting on the dosimeter for protection",
+        "Picking up a loose implant with gloves",
+        "Handling urine as radioactive waste",
+        "Wearing a dosimeter during care",
+        "Allowing a pregnant visitor at 6 feet"
+      ],
+      "answers": [
+        0,
+        1,
+        5
+      ],
+      "rationale": "With a sealed implant the client emits radiation but excretions are not radioactive. Care includes a private room, a dosimeter, visitors limited to 30 minutes a day at 6 feet, and no pregnant visitors or children under 16. A dislodged implant is picked up with forceps and placed in a lead container. A dosimeter only measures exposure.",
+      "topic": "Radiation Safety"
+    },
+    {
+      "stem": "A client with a duodenal ulcer calls the nurse to the room. Which findings suggest the ulcer has perforated?",
+      "options": [
+        "Sudden, severe abdominal pain",
+        "Vomiting from a blocked pylorus",
+        "Pain that briefly eases",
+        "Black, tarry stools",
+        "Rebound tenderness",
+        "A board-like abdomen"
+      ],
+      "answers": [
+        0,
+        4,
+        5
+      ],
+      "rationale": "Perforation causes sudden severe pain, a rigid board-like abdomen, and rebound tenderness, with peritonitis in 6–12 hours. Pain that briefly eases and melena point to hemorrhage, and vomiting from blockage near the pylorus is obstruction.",
+      "topic": "Peptic Ulcer Disease"
+    },
+    {
+      "stem": "A client's GFR has dropped from 48 to 27 mL/min/1.73m² over the past year. Which interpretations are correct?",
+      "options": [
+        "The pace of decline needs urgent workup",
+        "This pace of decline is expected in CKD",
+        "The client has reached kidney failure",
+        "Planning for dialysis or transplant begins",
+        "A year ago the client was in stage 3a",
+        "The client is now in stage 3b",
+        "The client is now in stage 4"
+      ],
+      "answers": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "rationale": "A GFR of 45–59 is stage 3a and 15–29 is stage 4, where planning for dialysis or transplant begins. A decline of more than 5 mL/min per year is a red flag needing urgent investigation. Stage 3b is 30–44, and kidney failure (stage 5) is below 15.",
+      "topic": "Chronic Kidney Disease"
+    },
+    {
+      "stem": "A client returns to the unit after a liver biopsy. Which nursing actions are correct?",
+      "options": [
+        "Listen to breath sounds",
+        "Position on the right side",
+        "Report a rising heart rate",
+        "Position on the left side",
+        "Walk within the first hour",
+        "Keep flat for 12–24 hours"
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rationale": "After a liver biopsy the client lies on the right side, flat for 12–24 hours. A rising heart rate is the earliest sign of bleeding, and breath sounds are assessed for pneumothorax.",
+      "topic": "Liver Biopsy"
+    },
+    {
+      "stem": "A fair-skinned client who works outdoors asks the nurse to look at a dark spot on the shoulder. Which findings raise concern for melanoma?",
+      "options": [
+        "Ragged, notched edges",
+        "Diameter of 4 mm",
+        "One half does not match the other",
+        "Pearly with a central depression",
+        "Several different colors",
+        "Diameter of 8 mm",
+        "Change in shape over months"
+      ],
+      "answers": [
+        0,
+        2,
+        4,
+        5,
+        6
+      ],
+      "rationale": "The ABCDE rule: Asymmetry, Border irregularity, Color variation, Diameter greater than 6 mm, and Evolving. A 4 mm diameter is under the cutoff, and a pearly lesion with a central depression describes basal cell carcinoma.",
+      "topic": "Skin Cancer"
+    },
+    {
+      "stem": "A client with a CD4 count of 40 has several purple-brown areas on the legs. Which findings fit Kaposi sarcoma?",
+      "options": [
+        "The areas do not blanch",
+        "The areas follow a dermatome",
+        "The areas are painless",
+        "The areas are white patches",
+        "The areas are greasy",
+        "The areas are umbilicated"
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "rationale": "Kaposi sarcoma lesions are purple or brown, non-blanching, and painless. A dermatomal pattern is shingles, umbilicated lesions are molluscum contagiosum, greasy scales are seborrheic dermatitis, and white patches are candidiasis.",
+      "topic": "HIV Skin Conditions"
+    },
+    {
+      "stem": "A client with stage 5 chronic kidney disease has missed several appointments. Which findings are consistent with uremia?",
+      "options": [
+        "New confusion",
+        "Elevated BUN and creatinine",
+        "Itching",
+        "Metabolic acidosis",
+        "Restlessness and insomnia",
+        "Anemia"
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "rationale": "All six are part of the uremia picture in advanced CKD: elevated BUN and creatinine, restlessness and insomnia, encephalopathy (confusion), metabolic acidosis, pruritus, and anemia.",
+      "topic": "Chronic Kidney Disease"
+    },
+    {
+      "stem": "Eight days after chemotherapy, a client has an ANC of 450, platelets of 18,000, and a hemoglobin of 10.2. Which actions does the nurse anticipate?",
+      "options": [
+        "Giving IM antiemetics",
+        "Taking rectal temperatures",
+        "Transfusing platelets",
+        "Removing fresh flowers",
+        "Starting protective precautions",
+        "Giving epoetin",
+        "Offering fresh salad"
+      ],
+      "answers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "rationale": "ANC below 500 requires protective precautions (no fresh flowers, neutropenic diet). Platelets below 20,000 are transfused, and hemoglobin below 11 is often treated with epoetin. Rectal temperatures and injections are avoided with bleeding risk, and fresh salad is not part of a neutropenic diet.",
+      "topic": "Cancer Treatment Side Effects"
+    },
+    {
+      "stem": "The nurse is comparing two clients with inflammatory bowel disease. Which features belong to Crohn's disease rather than ulcerative colitis?",
+      "options": [
+        "Transmural inflammation",
+        "Fistulas and strictures",
+        "Skip lesions",
+        "Cure after a colectomy",
+        "Onset in the rectum",
+        "Terminal ileum involvement",
+        "Cobblestone appearance"
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ],
+      "rationale": "Crohn's disease can occur from mouth to anus (often the terminal ileum), with skip lesions, a cobblestone pattern, and transmural inflammation that leads to fistulas and strictures. Ulcerative colitis starts in the rectum, is continuous and mucosal, and is cured by colectomy.",
+      "topic": "Inflammatory Bowel Disease"
+    },
+    {
+      "stem": "A client admitted after two days of vomiting has a rising creatinine and is making very little urine. Which findings would point to reduced perfusion rather than damage inside the kidney itself?",
+      "options": [
+        "Urine sodium below 20 mEq/L",
+        "Output improves after IV fluids",
+        "FENa of less than 1%",
+        "FENa of greater than 2%",
+        "Urine sodium above 40 mEq/L",
+        "Concentrated urine with oliguria",
+        "Muddy brown urine with casts"
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rationale": "Pre-renal AKI (decreased perfusion) shows urine sodium below 20, FENa below 1%, concentrated urine with oliguria, and improvement with IV fluids. Urine sodium above 40, FENa above 2%, and muddy brown urine with casts describe intrinsic damage (ATN), which does not respond to fluids.",
+      "topic": "Acute Kidney Injury"
     }
   ]
 };
@@ -732,5 +1193,25 @@ window.EXAM_DATA = {
 window.TOPIC_ORDER = [
   "Antimicrobials &amp; Antibiotics (ABX)",
   "Antivirals",
-  "HIV &amp; Antiretroviral Therapy (ART)"
+  "HIV &amp; Antiretroviral Therapy (ART)",
+  "Acute Kidney Injury",
+  "UTI &amp; Pyelonephritis",
+  "Nephrolithiasis",
+  "Chronic Kidney Disease",
+  "HIV Stages &amp; CD4",
+  "HIV Skin Conditions",
+  "Skin Cancer",
+  "Burns",
+  "Upper GI Bleed",
+  "Peptic Ulcer Disease",
+  "Dumping Syndrome",
+  "Inflammatory Bowel Disease",
+  "GI Diagnostics",
+  "Bowel Ostomies",
+  "Cancer Treatment Side Effects",
+  "Radiation Safety",
+  "Acute Pancreatitis",
+  "Hepatic Encephalopathy",
+  "Viral Hepatitis",
+  "Liver Biopsy"
 ];
