@@ -57,6 +57,7 @@
 <script src="data/week4-questions.js?v=20260926"></script>
 <script src="data/week5-questions.js?v=20260922"></script>
 <script src="data/week6-questions.js?v=20260925"></script>
+<script src="data/week7-questions.js?v=20261004"></script>
 <script>
 (function() {
   // IDs of old topics to remove from quiz-bank
@@ -270,6 +271,45 @@
     });
 
     console.log('Week 6 questions loaded: ' + window.EXAM_DATA_WEEK6.questions.length + ' questions in ' + Object.keys(topicGroups6).length + ' topics');
+  }
+
+  // Process Week 7 questions
+  if (window.EXAM_DATA_WEEK7 && window.EXAM_DATA_WEEK7.questions && window.QUIZ_BANK) {
+    // Remove any existing week7- prefixed topics
+    window.QUIZ_BANK.topics = window.QUIZ_BANK.topics.filter(t => !t.id.startsWith('week7-'));
+
+    // Group questions by topic
+    const topicGroups7 = {};
+    window.EXAM_DATA_WEEK7.questions.forEach(q => {
+      const topic = q.topic || 'Week 7';
+      if (!topicGroups7[topic]) topicGroups7[topic] = [];
+      topicGroups7[topic].push({
+        stem: q.stem,
+        options: q.options,
+        answer: q.answer,
+        answers: q.answers,
+        rationale: q.rationale,
+        topic: q.topic,
+        source: "quiz-bank"
+      });
+    });
+
+    // Add grouped questions to QUIZ_BANK as new topics
+    Object.keys(topicGroups7).sort().forEach(topicName => {
+      const topicId = 'week7-' + topicName.toLowerCase().replace(/\s+/g, '-');
+      window.QUIZ_BANK.topics.push({
+        id: topicId,
+        label: topicName,
+        week: 7,
+        sets: {
+          mustKnow: topicGroups7[topicName],
+          extraPractice: [],
+          eaq: []
+        }
+      });
+    });
+
+    console.log('Week 7 questions loaded: ' + window.EXAM_DATA_WEEK7.questions.length + ' questions in ' + Object.keys(topicGroups7).length + ' topics');
   }
 })();
 
