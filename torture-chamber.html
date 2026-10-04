@@ -21,6 +21,15 @@
 <title>The Torture Chamber — Study Guide</title>
 <script>(function(){try{var p=new URLSearchParams(location.search).get('theme');var t=p||localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(p){try{localStorage.setItem('theme',p)}catch(e){}}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <link rel="stylesheet" href="assets/styles.css?v=20260926">
+<style>
+.week-picker{border:1px solid currentColor;border-color:rgba(128,128,128,.35);border-radius:12px;padding:16px 18px;margin:0 0 22px}
+.week-picker .wp-title{margin:0 0 12px;font-size:1.05rem}
+.wp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.wp-item{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:8px 10px;border:1px solid rgba(128,128,128,.35);border-radius:8px;cursor:pointer}
+.wp-item small{opacity:.7;width:100%;padding-left:22px}
+.wp-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:14px}
+.wp-total{flex:1;text-align:right;opacity:.8;min-width:150px}
+</style>
 </head>
 <body class="torture">
 <a class="skip-link" href="#content">Skip to content</a>
@@ -40,6 +49,8 @@
     </details>
   </div>
 
+  <div id="week-picker" class="week-picker"></div>
+
   <div id="exam-root"></div>
 
   <nav class="page-flip" data-page-flip></nav>
@@ -49,7 +60,58 @@
 </main>
 
 <script src="assets/site.js?v=20260926"></script>
-<script src="data/torture-chamber.js?v=20261004"></script>
+<script src="data/torture-chamber.js?v=20261005"></script>
+<script>
+/* Week picker: filters EXAM_DATA to the chosen weeks BEFORE exam.js renders.
+   The choice is saved in this browser; "Start exam" reloads with the new set. */
+(function () {
+  var data = window.EXAM_DATA, map = window.TOPIC_GROUP || {}, order = window.GROUP_ORDER || [];
+  var box = document.getElementById("week-picker");
+  if (!data || !box) return;
+  var KEY = "torture-weeks";
+  var all = data.questions.slice();
+  var groupOf = function (q) { return map[q.topic] || "Other"; };
+  var counts = {};
+  all.forEach(function (q) { var g = groupOf(q); counts[g] = (counts[g] || 0) + 1; });
+  var groups = order.filter(function (g) { return counts[g]; });
+  Object.keys(counts).forEach(function (g) { if (groups.indexOf(g) < 0) groups.push(g); });
+  var saved = null;
+  try { saved = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+  var chosen = Array.isArray(saved) ? saved.filter(function (g) { return counts[g]; }) : [];
+  if (!chosen.length) chosen = groups.slice();
+  data.questions = all.filter(function (q) { return chosen.indexOf(groupOf(q)) >= 0; });
+  if (chosen.length < groups.length) data.id = "torture-chamber:" + chosen.join(",");
+
+  box.innerHTML = '<h3 class="wp-title">Choose which weeks to include</h3>' +
+    '<div class="wp-grid">' + groups.map(function (g) {
+      return '<label class="wp-item"><input type="checkbox" value="' + g + '"' +
+        (chosen.indexOf(g) >= 0 ? " checked" : "") + '> <span>' + g + '</span> <small>' + counts[g] + ' questions</small></label>';
+    }).join("") + '</div>' +
+    '<div class="wp-actions"><button type="button" class="btn btn-ghost" data-wp="all">Select all</button>' +
+    '<button type="button" class="btn btn-ghost" data-wp="none">Clear</button>' +
+    '<span class="wp-total"></span>' +
+    '<button type="button" class="btn btn-primary" data-wp="go">Start exam</button></div>';
+  var inputs = [].slice.call(box.querySelectorAll("input"));
+  var total = box.querySelector(".wp-total"), go = box.querySelector('[data-wp="go"]');
+  function update() {
+    var n = 0, k = 0;
+    inputs.forEach(function (i) { if (i.checked) { n += counts[i.value]; k++; } });
+    total.textContent = k ? n + " questions selected" : "Pick at least one week";
+    go.disabled = !k;
+  }
+  box.addEventListener("change", update);
+  box.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-wp]"); if (!b) return;
+    var a = b.getAttribute("data-wp");
+    if (a === "all" || a === "none") { inputs.forEach(function (i) { i.checked = a === "all"; }); update(); return; }
+    var pick = inputs.filter(function (i) { return i.checked; }).map(function (i) { return i.value; });
+    if (!pick.length) return;
+    try { localStorage.setItem(KEY, JSON.stringify(pick)); } catch (e) {}
+    location.reload();
+  });
+  update();
+})();
+</script>
 <script src="assets/exam.js?v=20260913"></script>
 </body>
 </html>
