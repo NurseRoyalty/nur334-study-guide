@@ -106,6 +106,7 @@ const SITE = {
         { id: "week7-pancreatitis", num: "3", title: "Pancreatitis", file: "week7-pancreatitis.html" },
         { id: "week7-cirrhosis-hepatitis", num: "4", title: "Cirrhosis &amp; Hepatitis", file: "week7-cirrhosis-hepatitis.html" },
         { id: "week7-hepatobiliary-labs", num: "5", title: "Hepatobiliary Labs &amp; Diagnostics", file: "week7-hepatobiliary-labs.html" },
+        { id: "week7-big-picture", num: "6", title: "Big Picture Overview", file: "week7-big-picture.html" },
       ]
     },
     {
